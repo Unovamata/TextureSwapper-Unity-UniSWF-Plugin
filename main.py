@@ -1,16 +1,13 @@
 import colorsys
 import os
 import time
-
-import cv2
-import numpy as np
+from math import floor
 from PIL import Image, ImageEnhance, ImageChops
-from numpy import array
 
 start_time = time.time()
 
 # Creates the mask used to combine the texture's colors;
-def CreateColoredMask(originalColor, newColor, colorRange):
+"""def CreateColoredMask(originalColor, newColor, colorRange):
     def MaxColor(v):
         return max(0, v - colorRange)
 
@@ -32,52 +29,80 @@ def CreateColoredMask(originalColor, newColor, colorRange):
     color = Image.fromarray(data)
 
     # Multiplying colors;
-    color = ColorBlend(currentTexture, color, 0.5)
+    color = ColorBlend(currentTexture, color)
 
     # Save image;
-    SaveImage(color, currentTexture)
+    SaveImage(color, currentTexture)"""
 
 def SaveImage(image, route):
     filename = route.filename;
     newFilepath = os.path.join("folder_name", f"{filename}")
     image.save(newFilepath)
 
-def Multiply(image):
-    image = ImageChops.multiply(currentTexture, image)
-    converter = ImageEnhance.Color(image)
-    return converter.enhance(1.5)
+def ColorBlend(image, newColor):
+    # Get the luminance threshold out of an input color;
+    def GetLuminance(color):
+        return floor((0.2126 * color[0] + 0.7152 * color[1] + 0.0722 * color[2]))
 
-def ColorBlend(image1, image2, alpha):
-    width, height = image2.size
-    colorize = 1
-    gamma = 1
-    saturation = 1.5
+    # Setting up the multiply blend mode's color for the image;
+    def Multiply(r, g, b, color):
+        # A simple way to handle the pixel multiplication operations;
+        def MultiplyOperation(pixelColor, color):
+            return (pixelColor / 255) * (color / 255)
 
-    # Blank image to inject the colors;
+        r = MultiplyOperation(r, color[0])
+        g = MultiplyOperation(g, color[1])
+        b = MultiplyOperation(b, color[2])
+        return int(r), int(g), int(b)
+
+    # Processes the final color of the pixel to insert;
+    def ProcessColor(r, g, b, a):
+        return (int(r * 255), int(g * 255), int(b * 255), a)
+
+    # The luminance value helps us determine which blend mode is the best for a specific color;
+    luminance = GetLuminance(newColor)
+
+    if luminance < 100: blendMode = "Multiply"
+    else: blendMode = "Color"
+
+    # Image parameters;
+    gamma = 1.2
+    saturation = 1
+
+    # Creating a blank image to inject the colors if needed;
+    width, height = image.size
     result = Image.new("RGBA", (width, height), (255, 255, 255, 0))
 
     for x in range(width):
         for y in range(height):
             # Image's RGB values
-            r1, g1, b1, a1 = image1.getpixel((x, y))
-            r2, g2, b2, a2 = image2.getpixel((x, y))
+            r, g, b, a = image.getpixel((x, y))
 
-            # Blended RGBA with luminance;
-            luminance = (0.2126 * r1 + 0.7152 * g1 + 0.0722 * b1) * gamma;
+            match blendMode:
+                case "Multiply":
+                    r, g, b = Multiply(r, g, b, newColor)
 
-            # RGBA HSV hue; Color Blend Mode;
-            hsvBlend = colorsys.rgb_to_hsv(r2 / 255 , g2 / 255, b2 / 255);
-            r, g, b = colorsys.hsv_to_rgb(hsvBlend[0] * colorize, hsvBlend[1] * colorize, luminance / 255)
+                    # Create a solid color image with the input color
+                    colorMask = Image.new("RGBA", image.size, (r, g, b, a))
 
-            #Manage alpha;
-            a = int((1 - alpha) * a1 + alpha * a2)
+                    # Multiply the input image with the color image
+                    result = ImageChops.multiply(image, colorMask)
+                    return result
 
-            color = (int(r * 255), int(g * 255), int(b * 255), a)
+                case "Color":
+                    # Blended RGBA with luminance;
+                    luminance = GetLuminance(image.getpixel((x, y))) * gamma
+
+                    # RGBA HSV hue; Color Blend Mode;
+                    hsvBlend = colorsys.rgb_to_hsv(newColor[0] / 255, newColor[1] / 255, newColor[2] / 255);
+                    r, g, b = colorsys.hsv_to_rgb(hsvBlend[0], hsvBlend[1], luminance / 255)
+
+            color = ProcessColor(r, g, b, a)
             result.putpixel((x, y), color)
 
     converter = ImageEnhance.Color(result)
-
-    return converter.enhance(saturation)
+    converter.enhance(saturation)
+    return result
 
 
 imageFiles = [f for f in os.listdir() if f.endswith(".png") and f != "main.py"]
@@ -87,13 +112,13 @@ currentTexture = None
 
 # Image parameters;
 originalColor = (191, 191, 191)
-newColor = (100, 84, 69)
+newColor = (255, 197, 0)
 colorRange = 100;
 
 for png in imageFiles:
     try:
         currentTexture = Image.open(png) # What's currently being processed;
-        CreateColoredMask(originalColor, newColor, colorRange)
+        ColorBlend(currentTexture, newColor)
     except(FileNotFoundError, IOError):
         print(f"Error modifying image {currentTexture}")
 
