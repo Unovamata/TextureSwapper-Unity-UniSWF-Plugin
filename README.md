@@ -1,2 +1,2 @@
-# LPSO: Revived | UniSWF Texture Colorizer
+# LPSO: Revived | UniSWF Texture Colorizer V0.5
  
