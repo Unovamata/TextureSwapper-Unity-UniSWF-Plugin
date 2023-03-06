@@ -1,3 +1,4 @@
+import colorsys
 import os
 import time
 
@@ -8,29 +9,29 @@ from numpy import array
 
 start_time = time.time()
 
-#Creates the mask used to combine the texture's colors;
+# Creates the mask used to combine the texture's colors;
 def CreateColoredMask(originalColor, newColor, colorRange):
-    def maxColor(v):
+    def MaxColor(v):
         return max(0, v - colorRange)
 
-    def minColor(v):
+    def MinColor(v):
         return max(255, v + colorRange)
 
-    def isInRange(v, parameter):
-        return (maxColor(r1) <= parameter) & (parameter <= minColor(r1))
+    def IsInRange(v, parameter):
+        return (MaxColor(r1) <= parameter) & (parameter <= MinColor(r1))
 
-    #Opening the image and converting it into a color array;
+    # Opening the image and converting it into a color array;
     color = currentTexture
     data = np.array(color)
     r1, g1, b1 = originalColor #Getting the color reference;
 
     red, green, blue = data[:,:, 0], data[:,:, 1], data[:,:, 2]
 
-    mask = isInRange(r1, red) & isInRange(g1, green) & isInRange(b1, blue)
+    mask = IsInRange(r1, red) & IsInRange(g1, green) & IsInRange(b1, blue)
     data[:, :, :3][mask] = [newColor]
     color = Image.fromarray(data)
 
-    #Multipliying colors;
+    # Multiplying colors;
     color = ColorBlend(currentTexture, color, 0.5)
     #base = color_blend(base, color, 1, base.width, base.height)
 
@@ -47,43 +48,48 @@ def SaveImage(image, route):
 
 def ColorBlend(image1, image2, alpha):
     width, height = image2.size
+    colorize = 1
+    gamma = 1.15
 
-    # Create a new blank image with the same size as the input images
+    # Blank image to inject the colors;
     result = Image.new("RGBA", (width, height), (255, 255, 255, 0))
 
-    # Iterate over each pixel in the images
     for x in range(width):
         for y in range(height):
-            # Get the RGB values of the pixels in each image
+            # Image's RGB values
             r1, g1, b1, a1 = image1.getpixel((x, y))
             r2, g2, b2, a2 = image2.getpixel((x, y))
 
-            # Calculate the blended RGB values for each pixel using the Color blend mode
-            r = int((1 - alpha) * r1 + alpha * r2)
-            g = int((1 - alpha) * g1 + alpha * g2)
-            b = int((1 - alpha) * b1 + alpha * b2)
+            # Blended RGBA with luminance;
+            luminanceMath = (0.2126 * r1 + 0.7152 * g1 + 0.0722 * b1) * gamma;
+            if(luminanceMath > 210): luminance = luminanceMath
+            else : luminance = 0
 
-            # Set color if it's not black;
-            if a1 == 0: result.putpixel((x, y), (0, 0, 0, 0))
-            else : result.putpixel((x, y), (r, g, b, a1))
+            # RGBA HSV hue; Color Blend Mode;
+            hsvBlend = colorsys.rgb_to_hsv(r2 / 255 , g2 / 255, b2 / 255);
+            r, g, b = colorsys.hsv_to_rgb(hsvBlend[0] * colorize, hsvBlend[1] * colorize, luminance / 255)
 
-    # Return the resulting blended image
+            #Manage alpha;
+            a = int((1 - alpha) * a1 + alpha * a2)
+
+            color = (int(r * 255), int(g * 255), int(b * 255), a)
+            result.putpixel((x, y), color)
     return result;
 
 
 imageFiles = [f for f in os.listdir() if f.endswith(".png") and f != "main.py"]
 
-#Constants;
+# Constants;
 currentTexture = None
 
-#Image parameters;
+# Image parameters;
 originalColor = (191, 191, 191)
 newColor = (227, 187, 126)
 colorRange = 100;
 
 for png in imageFiles:
     try:
-        currentTexture = Image.open(png) #What's currently being processed;
+        currentTexture = Image.open(png) # What's currently being processed;
         CreateColoredMask(originalColor, newColor, colorRange)
     except(FileNotFoundError, IOError):
         print(f"Error modifying image {currentTexture}")
