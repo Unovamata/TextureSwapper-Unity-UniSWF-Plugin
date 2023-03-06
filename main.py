@@ -4,7 +4,7 @@ import time
 
 import cv2
 import numpy as np
-from PIL import Image, ImageChops
+from PIL import Image, ImageEnhance, ImageChops
 from numpy import array
 
 start_time = time.time()
@@ -23,7 +23,7 @@ def CreateColoredMask(originalColor, newColor, colorRange):
     # Opening the image and converting it into a color array;
     color = currentTexture
     data = np.array(color)
-    r1, g1, b1 = originalColor #Getting the color reference;
+    r1, g1, b1 = originalColor # Getting the color reference;
 
     red, green, blue = data[:,:, 0], data[:,:, 1], data[:,:, 2]
 
@@ -33,23 +33,25 @@ def CreateColoredMask(originalColor, newColor, colorRange):
 
     # Multiplying colors;
     color = ColorBlend(currentTexture, color, 0.5)
-    #base = color_blend(base, color, 1, base.width, base.height)
 
     # Save image;
     SaveImage(color, currentTexture)
 
 def SaveImage(image, route):
-    print(route.info)
     filename = route.filename;
-    newFilePath = os.path.join("folder_name", f"{filename}")
+    newFilepath = os.path.join("folder_name", f"{filename}")
+    image.save(newFilepath)
 
-    image.save(newFilePath)
-    """return f"image {filename} modified"""
+def Multiply(image):
+    image = ImageChops.multiply(currentTexture, image)
+    converter = ImageEnhance.Color(image)
+    return converter.enhance(1.5)
 
 def ColorBlend(image1, image2, alpha):
     width, height = image2.size
     colorize = 1
-    gamma = 1.15
+    gamma = 1
+    saturation = 1.5
 
     # Blank image to inject the colors;
     result = Image.new("RGBA", (width, height), (255, 255, 255, 0))
@@ -61,9 +63,7 @@ def ColorBlend(image1, image2, alpha):
             r2, g2, b2, a2 = image2.getpixel((x, y))
 
             # Blended RGBA with luminance;
-            luminanceMath = (0.2126 * r1 + 0.7152 * g1 + 0.0722 * b1) * gamma;
-            if(luminanceMath > 210): luminance = luminanceMath
-            else : luminance = 0
+            luminance = (0.2126 * r1 + 0.7152 * g1 + 0.0722 * b1) * gamma;
 
             # RGBA HSV hue; Color Blend Mode;
             hsvBlend = colorsys.rgb_to_hsv(r2 / 255 , g2 / 255, b2 / 255);
@@ -74,7 +74,10 @@ def ColorBlend(image1, image2, alpha):
 
             color = (int(r * 255), int(g * 255), int(b * 255), a)
             result.putpixel((x, y), color)
-    return result;
+
+    converter = ImageEnhance.Color(result)
+
+    return converter.enhance(saturation)
 
 
 imageFiles = [f for f in os.listdir() if f.endswith(".png") and f != "main.py"]
@@ -84,7 +87,7 @@ currentTexture = None
 
 # Image parameters;
 originalColor = (191, 191, 191)
-newColor = (227, 187, 126)
+newColor = (100, 84, 69)
 colorRange = 100;
 
 for png in imageFiles:
