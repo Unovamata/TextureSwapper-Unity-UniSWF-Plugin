@@ -17,37 +17,38 @@ def CreateMask(image):
     return mask
 
 def ColorMask(image, parent, color):
-    mask = CreateMask(currentTexture)
-    image = CreateMask(image)
-    image = ImageChops.multiply(originalTexture, image)
+    # Converting the mask to a viable format;
+    maskImage = ImageChops.multiply(originalTexture, CreateMask(image)).filter(ImageFilter.BoxBlur(1))
 
-    # Create a solid color image with the input color
-    data = np.array(image)
-    r, g, b, a = data.T
-    whiteAreas = (r > 0) & (b > 0) & (g > 0)
-    data[..., :- 1][whiteAreas.T] = color
-    resultMask = Image.fromarray(data)
+    rg, gg, bg = color  # Target RGB;
 
+    # Coloring the image;
+    colorOverlay = Image.new("RGBA", maskImage.size, (int(rg), int(gg), int(bg)))
+    recoloredMask = ImageChops.multiply(maskImage, colorOverlay)
+
+    # Editing the final image;
+    width, height = recoloredMask.size
+    recoloredMask = Brightness(recoloredMask, 1.2)
+
+    # Pasting it into the original image;
     newImage = parent.copy()
-    newImage.paste(mask, (0, 0), resultMask)
-    newImage = newImage.filter(ImageFilter.SMOOTH_MORE)
+    newImage.paste(recoloredMask, (0, 0), recoloredMask)
     return newImage
+
+def Saturate(image, sat):
+    enhancer = ImageEnhance.Color(image)
+    image = enhancer.enhance(sat)
+    return image
+
+def Brightness(image, gamma):
+    enhancer = ImageEnhance.Brightness(image)
+    image = enhancer.enhance(gamma)
+    return image
 
 def ColorBlend(image, newColor):
     # Get the luminance threshold out of an input color;
     def GetLuminance(color):
         return floor((0.2126 * color[0] + 0.7152 * color[1] + 0.0722 * color[2]))
-
-    # Setting up the multiply blend mode's color for the image;
-    def Multiply(input, color, gamma):
-        # A simple way to handle the pixel multiplication operations;
-        def MultiplyOperation(pixelColor, color):
-            return (pixelColor / 255) * (color / 255)
-
-        r = MultiplyOperation(input[0], color[0]) * gamma
-        g = MultiplyOperation(input[1], color[1]) * gamma
-        b = MultiplyOperation(input[2], color[2]) * gamma
-        return int(r), int(g), int(b)
 
     # Processes the final color of the pixel to insert;
     def ProcessColor(r, g, b, a):
@@ -67,11 +68,6 @@ def ColorBlend(image, newColor):
     width, height = image.size
     result = Image.new("RGBA", (width, height), (255, 255, 255, 0))
 
-    def Saturate(image, sat):
-        converter = ImageEnhance.Color(image)
-        converter.enhance(sat)
-        return image
-
     for x in range(width):
         for y in range(height):
             # Image's RGB values
@@ -80,15 +76,15 @@ def ColorBlend(image, newColor):
             match blendMode:
                 case "Multiply":
                     # Create a solid color image with the input color
-                    rg = int(newColor[0] * gamma)
-                    gg = int(newColor[1] * gamma)
-                    bg = int(newColor[2] * gamma)
+                    rg, gg, bg = newColor
 
-                    colorMask = Image.new("RGBA", image.size, (rg, gg, bg))
+                    colorMask = Image.new("RGBA", image.size, (int(rg), (gg), (bg)))
 
                     # Multiply the input image with the color image
                     result = ImageChops.multiply(image, colorMask)
-                    Saturate(result, saturation)
+                    result = Brightness(result, gamma * 1.2)
+                    result = Saturate(result, saturation)
+
                     return result
 
                 case "Color":
@@ -117,7 +113,7 @@ originalTexture = None
 
 # Image parameters;
 originalColor = (191, 191, 191)
-newColor = (89, 96, 120)
+newColor = (191, 59, 135)
 colorRange = 100;
 
 for png in imageFiles:
@@ -128,7 +124,7 @@ for png in imageFiles:
         currentTexture = ColorBlend(currentTexture, newColor)
 
         #Adding the masks;
-        loadedMask = ColorMask(Image.open("Masks/mask.png"), currentTexture, (255, 255, 255))
+        loadedMask = ColorMask(Image.open("Masks/mask.png"), currentTexture, (234, 200, 214))
         currentTexture.paste(loadedMask)
 
         SaveImage(currentTexture, name)
