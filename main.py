@@ -45,14 +45,14 @@ def ColorBlend(image, newColor):
         return floor((0.2126 * color[0] + 0.7152 * color[1] + 0.0722 * color[2]))
 
     # Setting up the multiply blend mode's color for the image;
-    def Multiply(r, g, b, color):
+    def Multiply(input, color, gamma):
         # A simple way to handle the pixel multiplication operations;
         def MultiplyOperation(pixelColor, color):
             return (pixelColor / 255) * (color / 255)
 
-        r = MultiplyOperation(r, color[0])
-        g = MultiplyOperation(g, color[1])
-        b = MultiplyOperation(b, color[2])
+        r = MultiplyOperation(input[0], color[0]) * gamma
+        g = MultiplyOperation(input[1], color[1]) * gamma
+        b = MultiplyOperation(input[2], color[2]) * gamma
         return int(r), int(g), int(b)
 
     # Processes the final color of the pixel to insert;
@@ -66,12 +66,17 @@ def ColorBlend(image, newColor):
     else: blendMode = "Color"
 
     # Image parameters;
-    gamma = 1.2
+    gamma = 1
     saturation = 1
 
     # Creating a blank image to inject the colors if needed;
     width, height = image.size
     result = Image.new("RGBA", (width, height), (255, 255, 255, 0))
+
+    def Saturate(image, sat):
+        converter = ImageEnhance.Color(image)
+        converter.enhance(sat)
+        return image
 
     for x in range(width):
         for y in range(height):
@@ -80,13 +85,16 @@ def ColorBlend(image, newColor):
 
             match blendMode:
                 case "Multiply":
-                    r, g, b = Multiply(r, g, b, newColor)
-
                     # Create a solid color image with the input color
-                    colorMask = Image.new("RGBA", image.size, (r, g, b, a))
+                    rg = int(newColor[0] * gamma)
+                    gg = int(newColor[1] * gamma)
+                    bg = int(newColor[2] * gamma)
+
+                    colorMask = Image.new("RGBA", image.size, (rg, gg, bg))
 
                     # Multiply the input image with the color image
                     result = ImageChops.multiply(image, colorMask)
+                    Saturate(result, saturation)
                     return result
 
                 case "Color":
@@ -99,10 +107,7 @@ def ColorBlend(image, newColor):
 
             color = ProcessColor(r, g, b, a)
             result.putpixel((x, y), color)
-
-    converter = ImageEnhance.Color(result)
-    converter.enhance(saturation)
-    return result
+    return Saturate(result, saturation)
 
 
 imageFiles = [f for f in os.listdir() if f.endswith(".png") and f != "main.py"]
@@ -112,13 +117,13 @@ currentTexture = None
 
 # Image parameters;
 originalColor = (191, 191, 191)
-newColor = (255, 197, 0)
+newColor = (89, 96, 120)
 colorRange = 100;
 
 for png in imageFiles:
     try:
         currentTexture = Image.open(png) # What's currently being processed;
-        ColorBlend(currentTexture, newColor)
+        SaveImage(ColorBlend(currentTexture, newColor), currentTexture)
     except(FileNotFoundError, IOError):
         print(f"Error modifying image {currentTexture}")
 
