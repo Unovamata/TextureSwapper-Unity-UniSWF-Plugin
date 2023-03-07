@@ -2,42 +2,36 @@ import colorsys
 import os
 import time
 from math import floor
-from PIL import Image, ImageEnhance, ImageChops
+import numpy as np
+from PIL import Image, ImageEnhance, ImageChops, ImageOps, ImageFilter
 
 start_time = time.time()
 
 # Creates the mask used to combine the texture's colors;
-"""def CreateColoredMask(originalColor, newColor, colorRange):
-    def MaxColor(v):
-        return max(0, v - colorRange)
+def CreateMask(image):
+    grayscale = image.convert("L")
 
-    def MinColor(v):
-        return max(255, v + colorRange)
+    # Set non-transparent pixels to white in the mask and adding transparency;
+    mask = Image.new("RGBA", image.size, (255, 255, 255, 255))
+    mask.putalpha(Image.eval(grayscale, lambda x: 0 if x == 0 else 255))
+    return mask
 
-    def IsInRange(v, parameter):
-        return (MaxColor(r1) <= parameter) & (parameter <= MinColor(r1))
+def ColorMask(image, parent, color):
+    mask = CreateMask(currentTexture)
+    image = CreateMask(image)
+    image = ImageChops.multiply(originalTexture, image)
 
-    # Opening the image and converting it into a color array;
-    color = currentTexture
-    data = np.array(color)
-    r1, g1, b1 = originalColor # Getting the color reference;
+    # Create a solid color image with the input color
+    data = np.array(image)
+    r, g, b, a = data.T
+    whiteAreas = (r > 0) & (b > 0) & (g > 0)
+    data[..., :- 1][whiteAreas.T] = color
+    resultMask = Image.fromarray(data)
 
-    red, green, blue = data[:,:, 0], data[:,:, 1], data[:,:, 2]
-
-    mask = IsInRange(r1, red) & IsInRange(g1, green) & IsInRange(b1, blue)
-    data[:, :, :3][mask] = [newColor]
-    color = Image.fromarray(data)
-
-    # Multiplying colors;
-    color = ColorBlend(currentTexture, color)
-
-    # Save image;
-    SaveImage(color, currentTexture)"""
-
-def SaveImage(image, route):
-    filename = route.filename;
-    newFilepath = os.path.join("folder_name", f"{filename}")
-    image.save(newFilepath)
+    newImage = parent.copy()
+    newImage.paste(mask, (0, 0), resultMask)
+    newImage = newImage.filter(ImageFilter.SMOOTH_MORE)
+    return newImage
 
 def ColorBlend(image, newColor):
     # Get the luminance threshold out of an input color;
@@ -109,11 +103,17 @@ def ColorBlend(image, newColor):
             result.putpixel((x, y), color)
     return Saturate(result, saturation)
 
+def SaveImage(image, route):
+    filename = route;
+    newFilepath = os.path.join("folder_name", f"{filename}")
+    image.save(newFilepath)
+
 
 imageFiles = [f for f in os.listdir() if f.endswith(".png") and f != "main.py"]
 
 # Constants;
 currentTexture = None
+originalTexture = None
 
 # Image parameters;
 originalColor = (191, 191, 191)
@@ -122,8 +122,16 @@ colorRange = 100;
 
 for png in imageFiles:
     try:
-        currentTexture = Image.open(png) # What's currently being processed;
-        SaveImage(ColorBlend(currentTexture, newColor), currentTexture)
+        originalTexture = Image.open(png) # What's currently being processed;
+        currentTexture = originalTexture.copy()
+        name = originalTexture.filename
+        currentTexture = ColorBlend(currentTexture, newColor)
+
+        #Adding the masks;
+        loadedMask = ColorMask(Image.open("Masks/mask.png"), currentTexture, (255, 255, 255))
+        currentTexture.paste(loadedMask)
+
+        SaveImage(currentTexture, name)
     except(FileNotFoundError, IOError):
         print(f"Error modifying image {currentTexture}")
 
