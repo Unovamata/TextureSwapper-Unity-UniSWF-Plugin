@@ -16,9 +16,9 @@ def CreateMask(image):
     mask.putalpha(Image.eval(grayscale, lambda x: 0 if x == 0 else 255))
     return mask
 
-def ColorMask(image, parent, color):
+def ColorMaskOnce(original, current, mask, color):
     # Converting the mask to a viable format;
-    maskImage = ImageChops.multiply(originalTexture, CreateMask(image)).filter(ImageFilter.BoxBlur(1))
+    maskImage = ImageChops.multiply(original, CreateMask(mask))
 
     rg, gg, bg = color  # Target RGB;
 
@@ -27,13 +27,36 @@ def ColorMask(image, parent, color):
     recoloredMask = ImageChops.multiply(maskImage, colorOverlay)
 
     # Editing the final image;
-    width, height = recoloredMask.size
     recoloredMask = Brightness(recoloredMask, 1.2)
 
-    # Pasting it into the original image;
-    newImage = parent.copy()
-    newImage.paste(recoloredMask, (0, 0), recoloredMask)
-    return newImage
+    # Pasting it into the current image;
+    current = Brightness(current, 1.2)
+    current.filter(ImageFilter.BoxBlur(1))
+    current.paste(recoloredMask, (0, 0), recoloredMask)
+    current = current.filter(ImageFilter.SMOOTH)
+    return current
+
+# ColorMaskMultiple(currentTexture, (image, (0, 0, 0)), (image, (0, 0, 0)), ...);
+def ColorMaskMultiple(original, current, *args):
+    maskedResult = Image.new("RGBA", original.size, (0, 0, 0, 0))
+    width, height = original.size
+
+    for clippingMask, color in args:
+        # Multiply blend mode with the original sprite for color mapping;
+        clippingMask = ImageChops.multiply(original, CreateMask(clippingMask))
+        rg, gg, bg = color  # Target RGB;
+
+        # Coloring the image;
+        colorOverlay = Image.new("RGBA", (width, height), (int(rg), int(gg), int(bg)))
+        recoloredMask = ImageChops.multiply(clippingMask, colorOverlay)
+        maskedResult.paste(recoloredMask, (0, 0), recoloredMask)
+
+    #Pasting the image into the currentTexture
+    current.paste(maskedResult, (0, 0), maskedResult)
+    current = Brightness(current, 1.2)
+    current = current.filter(ImageFilter.SMOOTH)
+    return current
+
 
 def Saturate(image, sat):
     enhancer = ImageEnhance.Color(image)
@@ -114,7 +137,6 @@ originalTexture = None
 # Image parameters;
 originalColor = (191, 191, 191)
 newColor = (191, 59, 135)
-colorRange = 100;
 
 for png in imageFiles:
     try:
@@ -124,9 +146,13 @@ for png in imageFiles:
         currentTexture = ColorBlend(currentTexture, newColor)
 
         #Adding the masks;
-        loadedMask = ColorMask(Image.open("Masks/mask.png"), currentTexture, (234, 200, 214))
-        currentTexture.paste(loadedMask)
+        currentTexture = ColorMaskOnce(originalTexture, currentTexture, Image.open("Masks/mask.png"), (255, 255, 255))
 
+        currentTexture = ColorMaskMultiple(originalTexture, currentTexture,
+                         (Image.open("Masks/mask.png"), (230, 196, 211)),
+                         (Image.open("Masks/mask01.png"), (255, 255, 255)),
+                         (Image.open("Masks/mask02.png"), (255, 0, 0)),
+                         (Image.open("Masks/mask03.png"), (255, 242, 112)))
         SaveImage(currentTexture, name)
     except(FileNotFoundError, IOError):
         print(f"Error modifying image {currentTexture}")
