@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 19878c5fe2926420d82110984c4d760c
+PluginImporter:
+  serializedVersion: 1
+  iconMap: {}
+  executionOrder:
+    UniSWFSharedAssetManagerBehaviour: -100
+  isPreloaded: 0
+  platformData:
+    Any:
+      enabled: 1
+      settings: {}
+    Editor:
+      enabled: 0
+      settings:
+        DefaultValueInitialized: true
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
