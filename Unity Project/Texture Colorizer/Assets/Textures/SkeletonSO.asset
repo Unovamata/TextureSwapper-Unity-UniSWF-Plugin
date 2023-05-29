@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
+  m_Name: SkeletonSO
+  m_EditorClassIdentifier: 
+  limbs:
+  - texture: {fileID: 2800000, guid: eddc9cc548f1014429d44732c3d08a8c, type: 2}
+    name: Dog_Idle.swf_Tex0_3
+    coordinates: {x: 502, y: 944, z: 72, w: 78}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 0c2fb98e64be21842ab294f27aae1410, type: 2}
+    name: Dog_Idle.swf_Tex0_4
+    coordinates: {x: 575, y: 945, z: 72, w: 77}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 74448cd8e8fe5024b82880fafc3ed762, type: 2}
+    name: Dog_Idle.swf_Tex0_6
+    coordinates: {x: 464, y: 826, z: 110, w: 117}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 18b3c85033ea6cf42aec78ebfcf39f48, type: 2}
+    name: Dog_Idle.swf_Tex0_7
+    coordinates: {x: 575, y: 852, z: 68, w: 91}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: f0da9ed572b3e574a8d9d7185adf0755, type: 2}
+    name: Dog_Idle.swf_Tex0_12
+    coordinates: {x: 553, y: 737, z: 72, w: 85}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 47ed6ca91482f994ea9ef8be72363d76, type: 2}
+    name: Dog_Idle.swf_Tex0_13
+    coordinates: {x: 442, y: 645, z: 110, w: 117}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 51802b7aab03f6749beadc0f25a4d611, type: 2}
+    name: Dog_Idle.swf_Tex0_14
+    coordinates: {x: 553, y: 645, z: 68, w: 91}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: e2819f2dca42042498ee573d65907fcd, type: 2}
+    name: Dog_Idle.swf_Tex0_16
+    coordinates: {x: 162, y: 532, z: 152, w: 92}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: c0155e3d1756c09478fa9942fce0cb06, type: 2}
+    name: Dog_Idle.swf_Tex0_20
+    coordinates: {x: 162, y: 439, z: 152, w: 92}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: fa4320032d6eac249b474190eaf6d45f, type: 2}
+    name: Dog_Idle.swf_Tex0_22
+    coordinates: {x: 496, y: 434, z: 93, w: 97}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 7dc612f852d5d3b42be597b18eb77349, type: 2}
+    name: Dog_Idle.swf_Tex0_23
+    coordinates: {x: 590, y: 448, z: 69, w: 83}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: b131f23ba67821345ac736370784279e, type: 2}
+    name: Dog_Idle.swf_Tex0_27
+    coordinates: {x: 320, y: 380, z: 69, w: 83}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 701b148c76c058f43bf49adcc5bfc82c, type: 2}
+    name: Dog_Idle.swf_Tex0_28
+    coordinates: {x: 411, y: 378, z: 71, w: 85}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 5382a1c425e827f43bda148b37583504, type: 2}
+    name: Dog_Idle.swf_Tex0_29
+    coordinates: {x: 496, y: 370, z: 70, w: 63}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: f870cd9c23fa4df4cab57eacb87587d7, type: 2}
+    name: Dog_Idle.swf_Tex0_30
+    coordinates: {x: 567, y: 370, z: 70, w: 63}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: d1a727c4391bb1347aa8daeec9740f68, type: 2}
+    name: Ear Left
+    coordinates: {x: 40, y: 644, z: 121, w: 180}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 8984d7f74b46bf54bb7b1a2e9cf8aaa5, type: 2}
+    name: Ear Right
+    coordinates: {x: 320, y: 645, z: 121, w: 180}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: b1d2738fc25fe3a4a948a33be2fc8bee, type: 2}
+    name: Eye Closed Left
+    coordinates: {x: 320, y: 464, z: 162, w: 66}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: f35d566b2bc96774aa232c37ee709b94, type: 2}
+    name: Eye Closed Right
+    coordinates: {x: 323, y: 948, z: 162, w: 66}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 463eb943b5246254ea7ebbf2533d848f, type: 2}
+    name: Eye Open Left
+    coordinates: {x: 323, y: 826, z: 140, w: 121}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 88eec3281e6a3654c8b00802ce1f9203, type: 2}
+    name: Eye Open Right
+    coordinates: {x: 22, y: 522, z: 139, w: 121}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 825cc33247bc4c84e9521a330238c661, type: 2}
+    name: Foot Left
+    coordinates: {x: 149, y: 370, z: 75, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 834d127e0c8593a498819f42e8eb392a, type: 2}
+    name: Foot Right
+    coordinates: {x: 72, y: 370, z: 76, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 6e5f4a9d0c5b526468d1172dbe4e29e2, type: 2}
+    name: Head Center
+    coordinates: {x: 162, y: 625, z: 157, w: 200}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 1c28daffb836e4c47a0323ef6d9681a2, type: 2}
+    name: Head Left
+    coordinates: {x: 1, y: 825, z: 160, w: 198}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: b7a24245697634341afc8ed16172b0d5, type: 2}
+    name: Head Right
+    coordinates: {x: 162, y: 826, z: 160, w: 197}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 111ed390375f815479b39b7976424792, type: 2}
+    name: Mouth Closed
+    coordinates: {x: 230, y: 373, z: 84, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 02f2c4dbf6c9a9545ac98f743da88939, type: 2}
+    name: Mouth Open
+    coordinates: {x: 72, y: 436, z: 89, w: 85}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: bc478c78e66fe9e49b11121810bd27e3, type: 2}
+    name: Nose
+    coordinates: {x: 442, y: 763, z: 69, w: 61}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 05b0f17173b543140901e5e82d713f47, type: 2}
+    name: Shadow
+    coordinates: {x: 320, y: 531, z: 175, w: 113}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 0ac414a97f9fcef4780c1fb2b13f4cbf, type: 2}
+    name: Torso
+    coordinates: {x: 496, y: 532, z: 101, w: 112}
+    pivot: {x: 0.5, y: 0.5}

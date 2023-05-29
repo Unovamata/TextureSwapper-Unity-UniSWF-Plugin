@@ -14,6 +14,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 [AddComponentMenu("uniSWF/CustomMovieClipBehaviour")]
 public class CustomMovieClipBehaviour : MonoBehaviour{
+    [SerializeField] MonoBehaviour textureManagement;
     public static Vector2 defaultDrawScale = new Vector2(0.01f, 0.01f);
     public static bool defaultUseAccurateTiming = true;
     public string swf = null;
@@ -69,6 +70,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     private SimpleStageRenderResult m_LastRenderMesh;
     private float m_DrawMeshZSpace = 0f;
     protected Vector3 m_TmpVector = default(Vector3);
+
 
     public int currentFrame {
         get {
@@ -234,6 +236,10 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     }
 
     public virtual void Update() {
+        if (textureManagement != null) {
+            if(!textureManagement.enabled) textureManagement.enabled = true;
+        }
+
         bool isPlaying = Application.isPlaying;
         if (Application.isEditor && !isPlaying) {
             if (!editorPreview) {
@@ -244,6 +250,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
                 Awake();
             }
         }
+        
 
         if (enableMeshRenderer != _enableRender) {
             _enableRender = enableMeshRenderer;
@@ -251,6 +258,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
                 meshRenderer.enabled = _enableRender;
             }
         }
+        
 
         if (movieClip != null) {
             bool flag = false;
@@ -289,7 +297,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
             Transform transform = (billboardCamera != null) ? billboardCamera.transform : findMainCamera().transform;
             base.transform.eulerAngles = transform.eulerAngles;
         }
-
+        
         if (Application.isPlaying && staticRemoveOnStart) {
             UnityEngine.Object.Destroy(this);
         }

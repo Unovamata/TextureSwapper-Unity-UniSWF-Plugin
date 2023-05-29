@@ -5,14 +5,23 @@ using UnityEditor;
 
 [CreateAssetMenu(fileName = "SkeletonSO", menuName = "ScriptableObjects/SkeletonData", order = 1)]
 public class SkeletonSO : ScriptableObject {
-    public List<Limb> limbs = new List<Limb>();
+    [HideInInspector] [SerializeField] private List<Limb> limbs = new List<Limb>();
+    
+    public List<Limb> GetLimbs(){ return limbs; }
+    public void ClearLimbs(){ limbs.Clear(); }
+    public void AddLimb(Limb limb){ limbs.Add(limb); }
+    public Limb CallLimb(string name){ return limbs.Find(limbSearcher => limbSearcher.GetName() == name); }
+    public void SetLimbs(List<Limb> Limbs){ limbs = Limbs; }
+    // This method is used to mark the changes as dirty
+    public void ApplyChanges(){ EditorUtility.SetDirty(this); }
 }
 
+[System.Serializable]
 public class Limb {
-    Texture2D texture;
-    string name;
-    Vector4 coordinates;
-    Vector2 pivot;
+    [SerializeField] private Texture2D texture;
+    [SerializeField] private string name;
+    [SerializeField] private Vector4 coordinates;
+    [SerializeField] private Vector2 pivot;
 
     public Texture2D GetTexture() { return texture; }
     public void SetTexture(Texture2D _Texture) { texture = _Texture; }
@@ -36,7 +45,7 @@ public class SkeletonSOEditor : Editor{
 
         // Display a label for a property
         EditorGUILayout.LabelField("Skeleton Scriptable Object Data", EditorStyles.boldLabel);
-        EditorGUILayout.LabelField(scriptableObject.limbs.Count + " Limbs found");
+        EditorGUILayout.LabelField(scriptableObject.GetLimbs().Count + " Limbs found");
         EditorGUILayout.HelpBox("Textures must be in the 'Resources' folder at the project's root for the texture compiling script to function properly.", MessageType.Warning);
         EditorGUILayout.Space();
 
@@ -47,7 +56,9 @@ public class SkeletonSOEditor : Editor{
 
         //Confirm search and load button;
         if (GUILayout.Button("Load Limb Data From Texture")){
+            scriptableObject.ClearLimbs();
             CrAPTextureManagement.LoadSkeletonData(textureToSearch, scriptableObject);
+            scriptableObject.ApplyChanges();
         }
 
         EditorGUILayout.Space();
@@ -55,7 +66,7 @@ public class SkeletonSOEditor : Editor{
         int boxHeight = 20;
 
         try {
-            foreach(Limb limb in scriptableObject.limbs) {
+            foreach(Limb limb in scriptableObject.GetLimbs()) {
                 string name = limb.GetName();
 
                 EditorGUILayout.BeginVertical(EditorStyles.helpBox);

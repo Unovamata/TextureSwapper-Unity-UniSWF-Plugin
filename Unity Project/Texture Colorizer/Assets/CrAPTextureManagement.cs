@@ -28,13 +28,13 @@ public class CrAPTextureManagement : MonoBehaviour{
     void Start() {
         mesh = GetComponent<MeshRenderer>();
         material = mesh.material;
-        LoadSkeletonData("SkeletonData", skeleton);
+        //LoadSkeletonData("SkeletonData", skeleton);
 
         //Texture to edit;
         temporalTexture = CloneTexture(skeletonData);
 
         try {
-            limb = CallLimb(limbName);
+            limb = skeleton.CallLimb(limbName);
             Vector4 coordinates = limb.GetCoordinates();
             x = (int)coordinates.x;
             y = (int)coordinates.y;
@@ -44,7 +44,9 @@ public class CrAPTextureManagement : MonoBehaviour{
             Debug.LogError("There's no limb with the name: " + limbName);
         }
         
-
+        material.mainTexture = temporalTexture;
+        mesh.material = material;
+        enabled = false;
         //AssetDatabase.CreateAsset(mesh, "Mesh");
         //AssetDatabase.SaveAssets();
     }
@@ -58,7 +60,7 @@ public class CrAPTextureManagement : MonoBehaviour{
     public static void LoadSkeletonData(string route, SkeletonSO skeleton) {
         //Sprite has to be located in the "Resources" folder;
         UnityEngine.Sprite[] sprites = Resources.LoadAll<UnityEngine.Sprite>(route);
-        skeleton.limbs = new List<Limb>();
+        string path = CreateFolder(skeleton.name);
 
         //Extracting limb data;
         foreach(UnityEngine.Sprite sprite in sprites) {
@@ -76,18 +78,44 @@ public class CrAPTextureManagement : MonoBehaviour{
             //Sprite center;
             limb.SetPivot(new Vector2(sprite.pivot.x / w, sprite.pivot.y / h));
 
-            //Generating the textures;
+            //Generating the textures & mapping it to a transparent color;
             Texture2D texture = new Texture2D(w, h, TextureFormat.RGBA32, false);
+            Color32[] emptyTexturePixels = new Color32[w * h];
+            Color32 transparentColor = new Color32(0, 0, 0, 0);
+            System.Array.Fill(emptyTexturePixels, transparentColor);
+            texture.SetPixels32(emptyTexturePixels);
+            texture.Apply();
+
+            //Mapping the limb to the texture;
             Rect rect = sprite.textureRect;
             Color[] pixels = sprite.texture.GetPixels((int) rect.x, (int) rect.y, (int) rect.width, (int) rect.height);
 
             texture.SetPixels(pixels);
             texture.Apply();
-            limb.SetTexture(texture);
+            
+            // Saving the texture as an asset
+            string texturePath = path + "/" + sprite.name + ".asset"; // Specify the desired path and filename
+            AssetDatabase.CreateAsset(texture, texturePath);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            limb.SetTexture(AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath));
 
             //Saving the data;
-            skeleton.limbs.Add(limb);
+            skeleton.AddLimb(limb);
         }
+    }
+
+    public static string CreateFolder(string skeletonName) {
+        string baseRoute = "Assets/Textures";
+        string folderPath = baseRoute + "/" + skeletonName;
+
+        if (!AssetDatabase.IsValidFolder(folderPath)) {
+            AssetDatabase.CreateFolder(baseRoute, skeletonName);
+            Debug.Log("Folder Created: " + skeletonName);
+        }
+
+        return folderPath;
     }
 
     private Texture2D CloneTexture(Texture2D original) {
@@ -95,11 +123,6 @@ public class CrAPTextureManagement : MonoBehaviour{
         clone.SetPixels(original.GetPixels());
         clone.Apply();
         return clone;
-    }
-
-    //Returning a limb by calling its name;
-    private Limb CallLimb(string name) {
-        return skeleton.limbs.Find(limbSearcher => limbSearcher.GetName() == name);
     }
 
     public void ClearTextureAt(int x, int y, int w, int h) {
@@ -131,7 +154,7 @@ public class CustomInspector : Editor {
         EditorGUILayout.LabelField("Texture Management");
 
         try {
-            foreach(Limb limb in manager.skeleton.limbs) {
+            foreach(Limb limb in manager.skeleton.GetLimbs()) {
                 string name = limb.GetName();
                 Vector4 coordinates = limb.GetCoordinates();
                 int x = (int)coordinates.x;
@@ -144,7 +167,7 @@ public class CustomInspector : Editor {
                 }
 
                 if(GUILayout.Button("Paste " + name)) {
-                    manager.PasteTexture(limb, manager.skeletonData);
+                    manager.PasteTexture(limb, manager.temporalTexture);
                 }
             }
         } catch { }
