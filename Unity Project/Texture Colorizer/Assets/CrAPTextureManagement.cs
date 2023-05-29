@@ -11,7 +11,7 @@ public class CrAPTextureManagement : MonoBehaviour{
     }
 
     //Data;
-    public SkeletonSO skeleton;
+    public SkeletonSO skeleton, skeletonToReference;
     public Texture2D skeletonData;
     [HideInInspector] public Texture2D temporalTexture;
 
@@ -19,7 +19,7 @@ public class CrAPTextureManagement : MonoBehaviour{
     Material material;
     MeshRenderer mesh;
     [HideInInspector] public int x, y, w, h;
-    public Limb limb;
+    Limb limb;
 
     //Callers;
     [SerializeField] string limbName = "Head";
@@ -133,10 +133,42 @@ public class CrAPTextureManagement : MonoBehaviour{
 
     public void PasteTexture(Limb limb, Texture2D skeletonTexture) {
         Vector4 coordinates = limb.GetCoordinates();
-        int x = (int)coordinates.x, y = (int)coordinates.y, w = (int)coordinates.z, h = (int)coordinates.w;
-        Color[] colors = limb.GetTexture().GetPixels();
-        skeletonTexture.SetPixels(x, y, w, h, colors);
-        skeletonTexture.Apply();
+    int x = (int)coordinates.x, y = (int)coordinates.y, w = (int)coordinates.z, h = (int)coordinates.w;
+
+    Texture2D sourceTexture = skeletonToReference.CallLimb(limb.GetName()).GetTexture();
+
+    int sourceWidth = sourceTexture.width;
+    int sourceHeight = sourceTexture.height;
+
+    // Resize the source texture if necessary
+    if (sourceWidth != w || sourceHeight != h)
+    {
+        Texture2D resizedTexture = new Texture2D(w, h);
+        Color32[] resizedPixels = new Color32[w * h];
+
+        for (int i = 0; i < h; i++)
+        {
+            for (int j = 0; j < w; j++)
+            {
+                int sourceX = Mathf.RoundToInt(j * (sourceWidth / (float)w));
+                int sourceY = Mathf.RoundToInt(i * (sourceHeight / (float)h));
+                resizedPixels[i * w + j] = sourceTexture.GetPixel(sourceX, sourceY);
+            }
+        }
+
+        resizedTexture.SetPixels32(resizedPixels);
+        resizedTexture.Apply();
+
+        // Copy the resized texture to the target texture
+        Graphics.CopyTexture(resizedTexture, 0, 0, 0, 0, w, h, skeletonTexture, 0, 0, x, y);
+    }
+    else
+    {
+        // Copy the source texture directly to the target texture
+        Graphics.CopyTexture(sourceTexture, 0, 0, 0, 0, sourceWidth, sourceHeight, skeletonTexture, 0, 0, x, y);
+    }
+
+    skeletonTexture.Apply();
     }
 
     public static Color[] FillArrayColor(Color color, int w, int h) {

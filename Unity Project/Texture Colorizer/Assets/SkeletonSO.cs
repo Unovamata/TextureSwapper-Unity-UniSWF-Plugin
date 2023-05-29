@@ -5,6 +5,7 @@ using UnityEditor;
 
 [CreateAssetMenu(fileName = "SkeletonSO", menuName = "ScriptableObjects/SkeletonData", order = 1)]
 public class SkeletonSO : ScriptableObject {
+    public string textureToSearch;
     [HideInInspector] [SerializeField] private List<Limb> limbs = new List<Limb>();
     
     public List<Limb> GetLimbs(){ return limbs; }
@@ -19,7 +20,7 @@ public class SkeletonSO : ScriptableObject {
 [System.Serializable]
 public class Limb {
     [SerializeField] private Texture2D texture;
-    [SerializeField] private string name;
+    private string name;
     [SerializeField] private Vector4 coordinates;
     [SerializeField] private Vector2 pivot;
 
@@ -49,15 +50,10 @@ public class SkeletonSOEditor : Editor{
         EditorGUILayout.HelpBox("Textures must be in the 'Resources' folder at the project's root for the texture compiling script to function properly.", MessageType.Warning);
         EditorGUILayout.Space();
 
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Texture to search: ", EditorStyles.boldLabel);
-        string textureToSearch = EditorGUILayout.TextField("SkeletonData");
-        EditorGUILayout.EndHorizontal();
-
         //Confirm search and load button;
         if (GUILayout.Button("Load Limb Data From Texture")){
             scriptableObject.ClearLimbs();
-            CrAPTextureManagement.LoadSkeletonData(textureToSearch, scriptableObject);
+            CrAPTextureManagement.LoadSkeletonData(scriptableObject.textureToSearch, scriptableObject);
             scriptableObject.ApplyChanges();
         }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b5a869fbdfd04bc488ce35417847f653
+guid: 31ab6e2e012ece249b97009bb93ce356
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,33 +105,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Head Left
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 825
-        width: 160
-        height: 198
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb6ae32179f773b40ab3b751d0073b72
-      internalID: -45093580
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Head Right
       rect:
         serializedVersion: 2
-        x: 162
+        x: 1
         y: 826
-        width: 160
+        width: 164
         height: 197
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -140,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef9878079e0af6040af3905045a2f6f4
-      internalID: -142086061
+      spriteID: 13d7c97761d676d48b64e61f4437fb52
+      internalID: 1378089775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eye Closed Right
+      name: Head Left
       rect:
         serializedVersion: 2
-        x: 323
-        y: 948
-        width: 162
-        height: 66
+        x: 166
+        y: 826
+        width: 164
+        height: 197
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,50 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 120df8f9c2c152b4b93e4ca8a8ef1c08
-      internalID: -684747884
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knee Left
-      rect:
-        serializedVersion: 2
-        x: 502
-        y: 944
-        width: 72
-        height: 78
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 07208e1ba59bda546a34a674eb8b9820
-      internalID: -1978279734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knee Right
-      rect:
-        serializedVersion: 2
-        x: 575
-        y: 945
-        width: 72
-        height: 77
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0bdc94b41d48bd74a970e2366e93cf81
-      internalID: -1814424787
+      spriteID: 7190f6aa95bad2a4b831927f9c148fba
+      internalID: -1725405820
       vertices: []
       indices: 
       edges: []
@@ -213,10 +150,10 @@ TextureImporter:
       name: Eye Open Left
       rect:
         serializedVersion: 2
-        x: 323
-        y: 826
-        width: 140
-        height: 121
+        x: 331
+        y: 903
+        width: 159
+        height: 120
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,260 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14b64f20803c06240bcd8a3dedc6b773
-      internalID: -452335581
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Head Patch Left
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 826
-        width: 110
-        height: 117
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de7df387240db7e47ab7b3774d6efbc1
-      internalID: 493214364
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shoulder Right
-      rect:
-        serializedVersion: 2
-        x: 575
-        y: 852
-        width: 68
-        height: 91
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a9008f9e5351c046956a09f96197d9c
-      internalID: 1681376961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ear Left
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 644
-        width: 121
-        height: 180
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e33f0e286ecef7a469f2d3cfc3fc0e6a
-      internalID: -264695966
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Head Center
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 625
-        width: 157
-        height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eae3950f8cc1eee4ea3c8954d19806e3
-      internalID: -281386731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ear Right
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 645
-        width: 121
-        height: 180
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6e343695693ab5448304f4f2c4b15b1
-      internalID: 1959357711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nose
-      rect:
-        serializedVersion: 2
-        x: 442
-        y: 763
-        width: 69
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b447833c6b92d54598227c608f569c8
-      internalID: -1401455326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Thigh Left
-      rect:
-        serializedVersion: 2
-        x: 553
-        y: 737
-        width: 72
-        height: 85
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0884b0f414e0c8e45a5057970dd29d5e
-      internalID: -1969868776
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Head Patch Right
-      rect:
-        serializedVersion: 2
-        x: 442
-        y: 645
-        width: 110
-        height: 117
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d54d2101d99930645b2d135ea2fb6f66
-      internalID: -284151097
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shoulder Left
-      rect:
-        serializedVersion: 2
-        x: 553
-        y: 645
-        width: 68
-        height: 91
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d78759a4893b96498ac0863def83519
-      internalID: -1433596465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Eye Open Right
-      rect:
-        serializedVersion: 2
-        x: 22
-        y: 522
-        width: 139
-        height: 121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a653b8af8a2b54742a18db08e75e2eec
-      internalID: 453585182
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Eye Partially Open Right
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 532
-        width: 152
-        height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1deac59b4dc417d41a798160fd563f3e
-      internalID: 425745627
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shadow
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 531
-        width: 175
-        height: 113
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 459741ef1ecfc5c44a1957733da9596a
-      internalID: -1008913198
+      spriteID: baa4ac1370808354aa06ca4fcfbc71b3
+      internalID: -152651834
       vertices: []
       indices: 
       edges: []
@@ -486,8 +171,8 @@ TextureImporter:
       name: Torso
       rect:
         serializedVersion: 2
-        x: 496
-        y: 532
+        x: 491
+        y: 911
         width: 101
         height: 112
       alignment: 0
@@ -497,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 496d3ddc5efa0d64da3e6e4a8f0c879c
-      internalID: 1629693496
+      spriteID: 63b5256876ec8b1499e9672dc749327f
+      internalID: -1075834608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mouth Open
+      name: Knee Left
       rect:
         serializedVersion: 2
-        x: 72
-        y: 436
-        width: 89
-        height: 85
+        x: 593
+        y: 945
+        width: 72
+        height: 78
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,29 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ae1908c88eabf649bcdfde1523a3436
-      internalID: 601237390
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Eye Partially Open Left
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 439
-        width: 152
-        height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5be47a510ebd22347953ef8e8c32af46
-      internalID: 2142137674
+      spriteID: f7fa4cc5e2be82647bb9e94bc6944bd8
+      internalID: -1144069158
       vertices: []
       indices: 
       edges: []
@@ -549,10 +213,10 @@ TextureImporter:
       name: Eye Closed Left
       rect:
         serializedVersion: 2
-        x: 320
-        y: 464
-        width: 162
-        height: 66
+        x: 331
+        y: 826
+        width: 158
+        height: 69
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -560,8 +224,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b1c75cbef82c594db94b74b644b4a70
-      internalID: -316834267
+      spriteID: ba90b7bc6a38cb74daadd87c153b5619
+      internalID: -18453847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Felina_6
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 826
+        width: 110
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2da65a52fa48574281f1b1a1ef307a0
+      internalID: 407310776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knee Right
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 826
+        width: 71
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18984b64be28c7746aadfd123b973deb
+      internalID: -537195301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head Center
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 625
+        width: 159
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5acbc77b1bd2d1c4ab1cf34629959de1
+      internalID: 380497712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ear Right
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 660
+        width: 128
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db13734c56331043a996ae5fef9b625
+      internalID: 1588377977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ear Left
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 660
+        width: 127
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 960a7330bea01f64993abe14bc01b2dc
+      internalID: 391759864
       vertices: []
       indices: 
       edges: []
@@ -570,10 +339,10 @@ TextureImporter:
       name: Muzzle
       rect:
         serializedVersion: 2
-        x: 496
-        y: 434
-        width: 93
-        height: 97
+        x: 423
+        y: 693
+        width: 108
+        height: 132
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -581,20 +350,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65769730619b2cf46ae8114d45d151f1
-      internalID: 1368488674
+      spriteID: e44455148f2d0654cb7eab39815e4243
+      internalID: -388374886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Forearm Left
+      name: Shoulder Right
       rect:
         serializedVersion: 2
-        x: 591
-        y: 449
+        x: 532
+        y: 733
         width: 69
-        height: 83
+        height: 92
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -602,8 +371,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff3ad73eb8effa7469ebd5f9558bb100
-      internalID: 1383405539
+      spriteID: 854af3172de09c348b039f7257eceae1
+      internalID: -579994841
       vertices: []
       indices: 
       edges: []
@@ -612,8 +381,8 @@ TextureImporter:
       name: Foot Right
       rect:
         serializedVersion: 2
-        x: 72
-        y: 370
+        x: 602
+        y: 760
         width: 76
         height: 65
       alignment: 0
@@ -623,29 +392,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a489945b4a8ff264086b05d3892f652d
-      internalID: -602930866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Foot Left
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 370
-        width: 75
-        height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7197cc0cd29c87548befc9b756a5efaa
-      internalID: -1205949797
+      spriteID: b8e46adfd05b62c418ac0c1a2394e4f3
+      internalID: -1668050451
       vertices: []
       indices: 
       edges: []
@@ -654,9 +402,30 @@ TextureImporter:
       name: Mouth Closed
       rect:
         serializedVersion: 2
-        x: 230
-        y: 373
+        x: 532
+        y: 664
         width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d3233b83119b2b438922f0b71ba60d2
+      internalID: -1470019093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foot Left
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 667
+        width: 76
         height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -665,20 +434,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 527f751d1e8353d44bfb09ee7a107bc1
-      internalID: -881354749
+      spriteID: 2e41016bdd76fd446af41eae8db3da56
+      internalID: 1844877281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Forearm Right
+      name: Eye Partially Open Left
       rect:
         serializedVersion: 2
-        x: 320
-        y: 380
-        width: 69
-        height: 83
+        x: 6
+        y: 528
+        width: 158
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -686,8 +455,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1da66d4080dc1aa429c900336675d479
-      internalID: -1634816831
+      spriteID: fd7db851a6f63754a9a7d26a884f75e1
+      internalID: 610859899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shadow
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 546
+        width: 175
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10138399e42640f49b0f9aa0455a8618
+      internalID: 493854482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Open Right
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 539
+        width: 157
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed68c476e9c0baf4fa26dbbca97cfa4f
+      internalID: 1833613169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouth Open
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 579
+        width: 84
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dd28fec2a43cd84ca0f17c198dff228
+      internalID: -126084995
       vertices: []
       indices: 
       edges: []
@@ -696,10 +528,10 @@ TextureImporter:
       name: Thigh Right
       rect:
         serializedVersion: 2
-        x: 411
-        y: 378
-        width: 71
-        height: 85
+        x: 585
+        y: 575
+        width: 72
+        height: 84
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -707,8 +539,239 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaabc7a1a1afb6d468271b0d53956182
-      internalID: 563236723
+      spriteID: 855341c048ff09842bb848fb2ce2426b
+      internalID: -2069137244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Closed Right
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 459
+        width: 157
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353aad0c813c71b45b093d410b12ce95
+      internalID: 395060078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Partially Open Right
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 449
+        width: 157
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6751a601f2991324ea19c8d8e7ad9662
+      internalID: 514076393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Felina_23
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 429
+        width: 103
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e9c63c5f678d84285544a206799372
+      internalID: 305133543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Felina_24
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 459
+        width: 110
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec93f57e93fa31b449f38792fa9e00aa
+      internalID: 874940420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shoulder Left
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 447
+        width: 68
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeae7a762472acf46aa0e7e2f21b21ae
+      internalID: 643820001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nose
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 514
+        width: 68
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb4e83cd2e323f49b39dc04147aff9e
+      internalID: 1585527095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Felina_27
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 378
+        width: 76
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0215985adbc673c49941542173e4a288
+      internalID: -767815465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thigh Left
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 374
+        width: 72
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dedaa1b3b1e34ed4da5da58b84625e2d
+      internalID: -196348973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forearm Left
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 366
+        width: 69
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79bc374a4168c3e4ea67966facf999b8
+      internalID: -1532184269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Felina_30
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 377
+        width: 80
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ff7032a51623f4a8037a3b4b0071f6
+      internalID: -19986236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Felina_31
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 378
+        width: 77
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7851bd670d8e8ab4db1330c2b2267a02
+      internalID: 113670049
       vertices: []
       indices: 
       edges: []
@@ -717,10 +780,10 @@ TextureImporter:
       name: Hand Left
       rect:
         serializedVersion: 2
-        x: 496
-        y: 370
+        x: 626
+        y: 447
         width: 70
-        height: 63
+        height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -728,8 +791,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfae1d00638a9b046abbce032c068abc
-      internalID: 1882457987
+      spriteID: ee38c6a802e3aac44994a97c48bb2088
+      internalID: 398627494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Felina_33
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 359
+        width: 80
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf27d94e3010d442b709a8a81486c0a
+      internalID: -857635689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forearm Right
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 364
+        width: 69
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02867673cf0fe604f82eafbc8a56c07b
+      internalID: -2009970961
       vertices: []
       indices: 
       edges: []
@@ -738,10 +843,10 @@ TextureImporter:
       name: Hand Right
       rect:
         serializedVersion: 2
-        x: 567
-        y: 370
+        x: 627
+        y: 381
         width: 70
-        height: 63
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -749,8 +854,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1f194f4e384f4e42878189ca4843f1e
-      internalID: 1545320079
+      spriteID: cd59fc7432b415a4ea1fdf5e041b1cee
+      internalID: -14910007
       vertices: []
       indices: 
       edges: []
@@ -766,37 +871,42 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ear Left: -264695966
-      Ear Right: 1959357711
-      Eye Closed Left: -316834267
-      Eye Closed Right: -684747884
-      Eye Open Left: -452335581
-      Eye Open Right: 453585182
-      Eye Partially Open Left: 2142137674
-      Eye Partially Open Right: 425745627
-      Foot Left: -1205949797
-      Foot Right: -602930866
-      Forearm Left: 1383405539
-      Forearm Right: -1634816831
-      Hand Left: 1882457987
-      Hand Right: 1545320079
-      Head Center: -281386731
-      Head Left: -45093580
-      Head Patch Left: 493214364
-      Head Patch Right: -284151097
-      Head Right: -142086061
-      Knee Left: -1978279734
-      Knee Right: -1814424787
-      Mouth Closed: -881354749
-      Mouth Open: 601237390
-      Muzzle: 1368488674
-      Nose: -1401455326
-      Shadow: -1008913198
-      Shoulder Left: -1433596465
-      Shoulder Right: 1681376961
-      Thigh Left: -1969868776
-      Thigh Right: 563236723
-      Torso: 1629693496
+      Ear Left: 391759864
+      Ear Right: 1588377977
+      Eye Closed Left: -18453847
+      Eye Closed Right: 395060078
+      Eye Open Left: -152651834
+      Eye Open Right: 1833613169
+      Eye Partially Open Left: 610859899
+      Eye Partially Open Right: 514076393
+      Felina_23: 305133543
+      Felina_24: 874940420
+      Felina_27: -767815465
+      Felina_30: -19986236
+      Felina_31: 113670049
+      Felina_33: -857635689
+      Felina_6: 407310776
+      Foot Left: 1844877281
+      Foot Right: -1668050451
+      Forearm Left: -1532184269
+      Forearm Right: -2009970961
+      Hand Left: 398627494
+      Hand Right: -14910007
+      Head Center: 380497712
+      Head Left: -1725405820
+      Head Right: 1378089775
+      Knee Left: -1144069158
+      Knee Right: -537195301
+      Mouth Closed: -1470019093
+      Mouth Open: -126084995
+      Muzzle: -388374886
+      Nose: 1585527095
+      Shadow: 493854482
+      Shoulder Left: 643820001
+      Shoulder Right: -579994841
+      Thigh Left: -196348973
+      Thigh Right: -2069137244
+      Torso: -1075834608
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
