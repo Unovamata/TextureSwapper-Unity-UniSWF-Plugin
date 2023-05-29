@@ -77,7 +77,7 @@ public class CrAPTextureManagement : MonoBehaviour{
             limb.SetPivot(new Vector2(sprite.pivot.x / w, sprite.pivot.y / h));
 
             //Generating the textures;
-            Texture2D texture = new Texture2D(w, h);
+            Texture2D texture = new Texture2D(w, h, TextureFormat.RGBA32, false);
             Rect rect = sprite.textureRect;
             Color[] pixels = sprite.texture.GetPixels((int) rect.x, (int) rect.y, (int) rect.width, (int) rect.height);
 
