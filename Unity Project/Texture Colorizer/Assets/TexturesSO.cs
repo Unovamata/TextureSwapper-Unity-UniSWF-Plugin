@@ -20,7 +20,7 @@ public class TexturesSO : ScriptableObject {
 [System.Serializable]
 public class Limb {
     [SerializeField] private Texture2D texture;
-    private string name;
+    [SerializeField] private string name;
     [SerializeField] private Vector4 coordinates;
     [SerializeField] private Vector2 pivot;
 

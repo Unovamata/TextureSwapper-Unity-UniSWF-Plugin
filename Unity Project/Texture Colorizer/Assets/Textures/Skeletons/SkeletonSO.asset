@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: SkeletonSO
   m_EditorClassIdentifier: 
   textureData: {fileID: 11400000, guid: cd66eb79caf28db499e1dc4d62d6221c, type: 2}
+  relationships:
+  - relationshipName: 
+    limbsRelated:
+    - texture: {fileID: 0}
+      coordinates: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}

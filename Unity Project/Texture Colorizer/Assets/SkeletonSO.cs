@@ -5,111 +5,90 @@ using UnityEditor;
 
 [CreateAssetMenu(fileName = "SkeletonSO", menuName = "ScriptableObjects/Skeleton Manager SO", order = 1)]
 public class SkeletonSO : ScriptableObject{
-    [SerializeField] private TexturesSO textureData;
-    [SerializeField] private bool[,] relationships;
+    [SerializeField] TexturesSO textureData;
+    [SerializeField] List<SkeletonRelationships> relationships;
 
     public TexturesSO GetTextureData(){ return textureData; }
-    public bool[,] GetRelationships(){ 
-        int size = textureData.GetLimbs().Count;
-        relationships = new bool[size, size];
-        return relationships; 
-    }
-
-    public void SetRelationships(bool[,] Relationships){ 
-        relationships = Relationships;
-    }
+    public List<SkeletonRelationships> GetRelationships(){ return relationships; }
+    public void AddRelationship(SkeletonRelationships SkeletonRelationship){ relationships.Add(SkeletonRelationship); }
 }
 
-public class SkeletonRelationshops{
+[System.Serializable]
+public class SkeletonRelationships{
+    [SerializeField] string relationshipName;
+    [SerializeField] List<Limb> limbsRelated;
+    bool fold;
 
+    public string GetRelationshipName(){ return relationshipName; }
+    public void SetRelationshipName(string RelationshipName){ relationshipName = RelationshipName; }
+    public List<Limb> GetLimbsRelated(){ return limbsRelated; }
+    public void SetLimbsRelated(List<Limb> LimbsRelated){ limbsRelated = LimbsRelated; }
+    public void AddLimbRelated(Limb limb){ limbsRelated.Add(limb); }
+    public void RemoveLimbRelated(){ limbsRelated.RemoveAt(limbsRelated.Count - 1); }
+    public void ClearLimbsRelated(){ limbsRelated = new List<Limb>(); }
 }
 
 [CustomEditor(typeof(SkeletonSO))]
 public class SkeletonSOEditor : Editor {
-    int rows;
-    int columns;
-    bool boolVariable = false;
-    bool[,] relationships;
+    private SerializedProperty textureDataProperty;
+
+    private void OnEnable(){
+        textureDataProperty = serializedObject.FindProperty("textureData");
+    }
 
     public override void OnInspectorGUI() {
-        base.OnInspectorGUI();
+        //base.OnInspectorGUI();
         SkeletonSO scriptableObject = (SkeletonSO) target;
         TexturesSO textures = scriptableObject.GetTextureData();
 
-        if(relationships == null) {
-            relationships = scriptableObject.GetRelationships();
+        
+        serializedObject.Update();
+
+        EditorGUILayout.PropertyField(textureDataProperty, true);
+
+        // Add buttons to the list
+        EditorGUILayout.Space();
+        
+        // Create a button to open the window
+        if (GUILayout.Button("Open List Window")){
+            SkeletonEditorWindow window = new SkeletonEditorWindow(scriptableObject);
+            SkeletonEditorWindow.OpenWindow(window);
         }
 
-        // Calculate the number of rows and columns in the grid
-        int xSpacing = 20, ySpacing = 20;
-        rows = textures.GetLimbs().Count;
-        columns = rows;
-        
+        /*GUILayout.BeginVertical(GUI.skin.box);
+        GUILayout.EndVertical();
+        foreach(SkeletonRelationships relationship in scriptableObject.GetRelationships()) { }*/
+    }
+}
 
-        // Begin the grid layout
-        GUILayout.BeginVertical(GUI.skin.box);
+public class SkeletonEditorWindow : EditorWindow {
+    private SkeletonSO skeleton;
+    private string searchQuery = "";
 
-        
+    public SkeletonEditorWindow(SkeletonSO Skeleton) {
+        skeleton = Skeleton;
+    }
 
-        // Iterate through the columns
-        for (int column = 0; column <= columns; column++){
-            GUILayout.BeginHorizontal();
+    public static void OpenWindow(SkeletonEditorWindow window) {
+        window.titleContent = new GUIContent("Available Limb List");
+        window.Show();
+    }
 
-            // Iterate through the rows
-            for (int row = 0; row <= rows; row++){
-                string name = textures.GetLimbs()[Mathf.Clamp(column - 1, 0, 999)].GetName();
+    public void OnGUI() {
+        EditorGUILayout.LabelField("Limb References: ");
 
-                if(column == 0 && row == 0) {
-                    GUILayout.Label("", GUILayout.Width(xSpacing + 127.8f), GUILayout.Height(ySpacing));
-                }
+        List<Limb> limbList = skeleton.GetTextureData().GetLimbs();
 
-                else if(column == 0) {
-                    GUILayout.Label((row - 1).ToString(), GUILayout.Width(xSpacing), GUILayout.Height(ySpacing));
-                }
+        searchQuery = EditorGUILayout.TextField(searchQuery);
 
-                else if(row == 0) {
-                    GUILayout.Label(name + " (" + (column - 1).ToString() + ")", GUILayout.Width(xSpacing), GUILayout.Width(150));
-                }
+        if(limbList != null) {
+            foreach(Limb limb in limbList) {
+                if (limb.GetName().Contains(searchQuery)) {
+                    if (GUILayout.Button(limb.GetName())) {
 
-                else {
-                    if(column == row) {
-                        GUILayout.Label("X".ToString(), GUILayout.Width(xSpacing + 1.11f), GUILayout.Height(ySpacing));
-                    } else {
-                        if(row < column) {
-                            bool currentRelationship = relationships[row - 1, column - 1];
-
-                            Color originalColor = GUI.backgroundColor;
-                            if(currentRelationship) GUI.backgroundColor = Color.green;
-
-                            if(GUILayout.Button("", GUILayout.Width(xSpacing + 1.11f), GUILayout.Height(ySpacing))) {
-                                relationships[row - 1, column - 1] = currentRelationship ? false : true;
-                                Debug.Log(relationships[row - 1, column - 1]);
-                            }
-
-                            GUI.backgroundColor = originalColor;
-                            //EditorGUILayout.Toggle(false, GUILayout.Width(xSpacing + 1.11f), GUILayout.Height(ySpacing));
-                        } else relationships[row - 1, column - 1] = false;
                     }
                 }
             }
-            GUILayout.EndHorizontal();
         }
-
-        scriptableObject.SetRelationships(relationships);
-
-        // End the grid layout
-        GUILayout.EndVertical();
-        
-
-
-        GUILayout.BeginHorizontal();
-        if(GUILayout.Button("Save Relationships")) {
-
-        }
-
-        if(GUILayout.Button("Clear Relationships")) {
-
-        }
-        GUILayout.EndHorizontal();
     }
 }
