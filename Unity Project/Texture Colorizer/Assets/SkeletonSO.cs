@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 [CreateAssetMenu(fileName = "SkeletonSO", menuName = "ScriptableObjects/Skeleton Manager SO", order = 1)]
 public class SkeletonSO : ScriptableObject{
@@ -10,15 +12,23 @@ public class SkeletonSO : ScriptableObject{
 
     public TexturesSO GetTextureData(){ return textureData; }
     public List<SkeletonRelationships> GetRelationships(){ return relationships; }
-    public void AddRelationship(SkeletonRelationships SkeletonRelationship){ relationships.Add(SkeletonRelationship); }
+    public void AddRelationship(SkeletonRelationships SkeletonRelationship){ 
+        relationships.Add(SkeletonRelationship); 
+        SkeletonRelationship = new SkeletonRelationships("");
+    }
+    public void RemoveLastRelationship(){ relationships.RemoveAt(relationships.Count - 1); }
+    public void ClearRelationships(){ relationships.Clear(); }
 }
 
 [System.Serializable]
 public class SkeletonRelationships{
     [SerializeField] string relationshipName;
     [SerializeField] List<Limb> limbsRelated;
-    bool fold;
 
+    public SkeletonRelationships(string RelationshipName) {
+        relationshipName = RelationshipName;
+        limbsRelated = new List<Limb>();
+    }
     public string GetRelationshipName(){ return relationshipName; }
     public void SetRelationshipName(string RelationshipName){ relationshipName = RelationshipName; }
     public List<Limb> GetLimbsRelated(){ return limbsRelated; }
@@ -31,6 +41,7 @@ public class SkeletonRelationships{
 [CustomEditor(typeof(SkeletonSO))]
 public class SkeletonSOEditor : Editor {
     private SerializedProperty textureDataProperty;
+    private string textFieldRelationName = "";
 
     private void OnEnable(){
         textureDataProperty = serializedObject.FindProperty("textureData");
@@ -39,25 +50,73 @@ public class SkeletonSOEditor : Editor {
     public override void OnInspectorGUI() {
         //base.OnInspectorGUI();
         SkeletonSO scriptableObject = (SkeletonSO) target;
+        List<SkeletonRelationships> relationships = scriptableObject.GetRelationships();
         TexturesSO textures = scriptableObject.GetTextureData();
-
         
         serializedObject.Update();
 
         EditorGUILayout.PropertyField(textureDataProperty, true);
-
-        // Add buttons to the list
         EditorGUILayout.Space();
+
+        GUILayout.BeginVertical(GUI.skin.box);
+        GUILayout.Label("Create a New Relation", EditorStyles.boldLabel);
+        EditorGUILayout.Space();
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("Relation Name");
+        textFieldRelationName = GUILayout.TextField(textFieldRelationName, GUILayout.Width(400));
+        GUILayout.EndHorizontal();
+        GUILayout.EndVertical();
+
+        // Create a button to open the window
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("Add New")){
+            string relationNameUpper = textFieldRelationName.ToUpper();
+            bool isExisting = relationships.Any(item => item.GetRelationshipName().Equals(relationNameUpper));
+            bool isNameValid = Regex.IsMatch(textFieldRelationName, "^[a-zA-Z]+$");
+
+            if (isNameValid) {
+                if (!isExisting) {
+                    SkeletonRelationships relationship = new SkeletonRelationships(textFieldRelationName);
+
+                    foreach(Limb limb in textures.GetLimbs()) {
+                        if (limb.GetName().ToUpper().StartsWith(relationNameUpper)) {
+                            Debug.Log(limb.GetName());
+                            relationship.AddLimbRelated(limb);
+                        }
+                    }
+
+                    scriptableObject.AddRelationship(relationship);
+
+                } else { Debug.LogWarning("The name " + textFieldRelationName + "already exists in the relationships list."); }
+            } else { Debug.LogWarning("The name " + textFieldRelationName + "is not valid to create a relationship, be sure to only use letters for its name."); }
+        }
+
+        if (GUILayout.Button("Remove Last")){
+            try {
+                scriptableObject.RemoveLastRelationship();
+            } catch { }
+            
+        }
+
+        if (GUILayout.Button("Clear All")){
+            scriptableObject.ClearRelationships();
+        }
+
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.Space();
+        
         
         // Create a button to open the window
         if (GUILayout.Button("Open List Window")){
             SkeletonEditorWindow window = new SkeletonEditorWindow(scriptableObject);
             SkeletonEditorWindow.OpenWindow(window);
         }
-
-        /*GUILayout.BeginVertical(GUI.skin.box);
-        GUILayout.EndVertical();
-        foreach(SkeletonRelationships relationship in scriptableObject.GetRelationships()) { }*/
+        
+        foreach(SkeletonRelationships relationship in relationships) { 
+            GUILayout.BeginVertical(GUI.skin.box);
+            EditorGUILayout.LabelField(relationship.GetRelationshipName(), EditorStyles.boldLabel);
+            GUILayout.EndVertical();
+        }
     }
 }
 
