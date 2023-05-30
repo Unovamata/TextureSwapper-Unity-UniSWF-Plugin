@@ -7,7 +7,7 @@ using UnityEditor;
 public class TexturesSO : ScriptableObject {
     public string textureToSearch;
     [HideInInspector] [SerializeField] private List<Limb> limbs = new List<Limb>();
-    
+
     public List<Limb> GetLimbs(){ return limbs; }
     public void ClearLimbs(){ limbs.Clear(); }
     public void AddLimb(Limb limb){ limbs.Add(limb); }
@@ -39,10 +39,10 @@ public class Limb {
 }
 
 [CustomEditor(typeof(TexturesSO))] // Replace with the name of your ScriptableObject class
-public class SkeletonSOEditor : Editor{
+public class TexturesSOEditor : Editor{
     public override void OnInspectorGUI(){
         TexturesSO scriptableObject = (TexturesSO) target;
-        DrawDefaultInspector();
+        base.OnInspectorGUI();
 
         // Display a label for a property
         EditorGUILayout.LabelField("Skeleton Scriptable Object Data", EditorStyles.boldLabel);
