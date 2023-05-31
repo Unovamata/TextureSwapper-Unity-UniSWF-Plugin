@@ -6,16 +6,18 @@ using System.Linq;
 using System.Text.RegularExpressions;
 
 [CreateAssetMenu(fileName = "SkeletonSO", menuName = "ScriptableObjects/Skeleton Manager SO", order = 1)]
+[System.Serializable]
 public class SkeletonSO : ScriptableObject{
     [SerializeField] TexturesSO textureData;
-    [SerializeField] List<SkeletonRelationships> relationships;
+    [HideInInspector] [SerializeField] List<SkeletonRelationships> relationships;
+
+    private void OnEnable() {
+        EditorUtility.SetDirty(this);
+    }
 
     public TexturesSO GetTextureData(){ return textureData; }
     public List<SkeletonRelationships> GetRelationships(){ return relationships; }
-    public void AddRelationship(SkeletonRelationships SkeletonRelationship){ 
-        relationships.Add(SkeletonRelationship); 
-        SkeletonRelationship = new SkeletonRelationships("");
-    }
+    public void AddRelationship(SkeletonRelationships SkeletonRelationship){ relationships.Add(SkeletonRelationship); }
     public void RemoveLastRelationship(){ relationships.RemoveAt(relationships.Count - 1); }
     public void ClearRelationships(){ relationships.Clear(); }
 }
@@ -43,22 +45,13 @@ public class SkeletonRelationships{
 
 [CustomEditor(typeof(SkeletonSO))]
 public class SkeletonSOEditor : Editor {
-    private SerializedProperty textureDataProperty;
     private string textFieldRelationName = "";
 
-    private void OnEnable(){
-        textureDataProperty = serializedObject.FindProperty("textureData");
-    }
-
     public override void OnInspectorGUI() {
-        //base.OnInspectorGUI();
+        base.OnInspectorGUI();
         SkeletonSO scriptableObject = (SkeletonSO) target;
         List<SkeletonRelationships> relationships = scriptableObject.GetRelationships();
         TexturesSO textures = scriptableObject.GetTextureData();
-        
-        serializedObject.Update();
-
-        EditorGUILayout.PropertyField(textureDataProperty, true);
         EditorGUILayout.Space();
 
         GUILayout.BeginVertical(GUI.skin.box);

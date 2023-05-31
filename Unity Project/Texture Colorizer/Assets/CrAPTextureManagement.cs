@@ -116,18 +116,21 @@ public class CrAPTextureManagement : MonoBehaviour{
     }
 
     //Remove a specific texture at a position;
-    public void ClearTextureAt(int x, int y, int w, int h, Texture2D texture) {
+    public void ClearTextureAt(Vector4 v, Texture2D texture) {
         //Get transparent color;
-        Color32[] pixels = FillArrayColor(Color.clear, w, h);
+        Color32[] pixels = FillArrayColor(Color.clear, (int) v.z, (int) v.w);
 
         //Save the converted pixels;
-        texture.SetPixels32(x, y, w, h, pixels);
+        texture.SetPixels32((int) v.x, (int) v.y, (int) v.z, (int) v.w, pixels);
         texture.Apply();
     }
 
 
     //Paste a specific limb texture to the texture sheet;
     public void PasteTexture(Limb limb, Texture2D skeletonTexture, TexturesSO reference) {
+        //If there are limbs missing, return; 
+        if(!reference.GetLimbs().Any(x => x.GetName().Equals(limb.GetName()))) return;
+
         Vector4 coordinates = limb.GetCoordinates();
         int x = (int)coordinates.x, y = (int)coordinates.y, w = (int)coordinates.z, h = (int)coordinates.w;
 
@@ -216,50 +219,15 @@ public class CustomInspector : Editor {
 
             if(GUILayout.Button("Clear " + relationship.GetRelationshipName() + " Texture Group")) {
                 foreach(Limb limb in relationship.GetLimbsRelated()) {
-                    string name = limb.GetName();
-                    Vector4 coordinates = limb.GetCoordinates();
-                    int x = (int)coordinates.x;
-                    int y = (int)coordinates.y;
-                    int w = (int)coordinates.z;
-                    int h = (int)coordinates.w;
-
-                    manager.ClearTextureAt(x, y, w, h, manager.newTextureToManage);
+                    manager.ClearTextureAt(limb.GetCoordinates(), manager.newTextureToManage);
                 }
             }
 
             if(GUILayout.Button("Paste " + relationship.GetRelationshipName() + " Texture Group")) {
                 foreach(Limb limb in relationship.GetLimbsRelated()) {
-                    string name = limb.GetName();
-                    Vector4 coordinates = limb.GetCoordinates();
-                    int x = (int)coordinates.x;
-                    int y = (int)coordinates.y;
-                    int w = (int)coordinates.z;
-                    int h = (int)coordinates.w;
-
                     manager.PasteTexture(limb, manager.newTextureToManage, manager.textureToReference);
                 }
             }
-
-            /*foreach(SkeletonRelationships relationship in relationships) {
-                if(GUILayout.Button(relationship.GetRelationshipName())) {
-                    //manager.ClearTextureAt(x, y, w, h, manager.newTextureToManage);
-                }
-
-                string name = limb.GetName();
-                Vector4 coordinates = limb.GetCoordinates();
-                int x = (int)coordinates.x;
-                int y = (int)coordinates.y;
-                int w = (int)coordinates.z;
-                int h = (int)coordinates.w;
-
-                if(GUILayout.Button("Delete " + name)) {
-                    manager.ClearTextureAt(x, y, w, h, manager.newTextureToManage);
-                }
-
-                if(GUILayout.Button("Paste " + name)) {
-                    manager.PasteTexture(limb, manager.newTextureToManage, manager.textureToReference);
-                }
-            }*/
             GUILayout.EndVertical();
         } catch { }
     }

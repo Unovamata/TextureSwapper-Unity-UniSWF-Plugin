@@ -735,7 +735,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Felina_30
+      name: Felina_1
       rect:
         serializedVersion: 2
         x: 243
@@ -798,7 +798,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Felina_33
+      name: Felina_2
       rect:
         serializedVersion: 2
         x: 342
@@ -879,12 +879,12 @@ TextureImporter:
       Eye Open Right: 1833613169
       Eye Partially Open Left: 610859899
       Eye Partially Open Right: 514076393
+      Felina_1: -19986236
+      Felina_2: -857635689
       Felina_23: 305133543
       Felina_24: 874940420
       Felina_27: -767815465
-      Felina_30: -19986236
       Felina_31: 113670049
-      Felina_33: -857635689
       Felina_6: 407310776
       Foot Left: 1844877281
       Foot Right: -1668050451

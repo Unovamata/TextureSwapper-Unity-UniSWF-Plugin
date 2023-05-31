@@ -9,6 +9,10 @@ public class TexturesSO : ScriptableObject {
     public string textureToSearch;
     [HideInInspector] [SerializeField] private List<Limb> limbs = new List<Limb>();
 
+    private void OnEnable() {
+        EditorUtility.SetDirty(this);
+    }
+
     public List<Limb> GetLimbs(){ return limbs; }
     public void ClearLimbs(){ limbs.Clear(); }
     public void AddLimb(Limb limb){ limbs.Add(limb); }
@@ -16,8 +20,6 @@ public class TexturesSO : ScriptableObject {
     public void SetLimbs(List<Limb> Limbs){ limbs = Limbs; }
     public Texture2D GetTexture() { return texture; }
     public void SetTexture(Texture2D Texture) { texture = Texture; }
-    
-    public void ApplyChanges(){ EditorUtility.SetDirty(this); }
 }
 
 [System.Serializable]
@@ -57,7 +59,6 @@ public class TexturesSOEditor : Editor{
         if (GUILayout.Button("Load Limb Data From Texture")){
             scriptableObject.ClearLimbs();
             scriptableObject.SetTexture(CrAPTextureManagement.LoadSkeletonData(scriptableObject.textureToSearch, scriptableObject));
-            scriptableObject.ApplyChanges();
         }
 
         EditorGUILayout.Space();
