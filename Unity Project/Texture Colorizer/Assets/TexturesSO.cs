@@ -26,11 +26,6 @@ public class TexturesSO : ScriptableObject {
     public void SetLimbs(List<Limb> Limbs){ limbs = Limbs; }
     public Texture2D GetTexture() { return texture; }
     public void SetTexture(Texture2D Texture) { texture = Texture; }
-    public void UpdateHashSet() {
-        hashSet = limbs.Select(limb => limb.GetName().ToUpper()).ToHashSet();
-    }
-    public HashSet<string> GetHashSet() { return hashSet; }
-    public void SetHashSet(HashSet<string> HashSet) { hashSet = HashSet; }
 }
 
 
@@ -68,7 +63,6 @@ public class Limb {
 public class TexturesSOEditor : Editor{
     public override void OnInspectorGUI(){
         TexturesSO textures = (TexturesSO) target;
-        textures.UpdateHashSet();
         base.OnInspectorGUI();
 
         // Display a label for a property

@@ -39,7 +39,6 @@ public class SkeletonRelationships{
     [SerializeField] string relationshipName;
     [SerializeField] List<Limb> limbsRelated;
     [SerializeField] bool folder;
-    [SerializeField] HashSet<string> hashSet;
 
     public SkeletonRelationships(string RelationshipName) {
         relationshipName = RelationshipName;
@@ -52,14 +51,6 @@ public class SkeletonRelationships{
     public void AddLimbRelated(Limb limb){ limbsRelated.Add(limb); }
     public void RemoveLimbRelated(){ limbsRelated.RemoveAt(limbsRelated.Count - 1); }
     public void ClearLimbsRelated(){ limbsRelated = new List<Limb>(); }
-    public HashSet<string> GetHashSet() {
-        return limbsRelated.Select(limb => limb.GetName().ToUpper()).ToHashSet(); 
-    }
-    public void SetHashSet(HashSet<string> HashSet) { hashSet = HashSet; }
-
-    public bool HashSetContains(string key) {
-        return GetHashSet().Contains(key);
-    }
 
     //GUI Management;
     public bool GetFolder(){ return folder; }
@@ -82,7 +73,6 @@ public class SkeletonSOEditor : Editor {
         SkeletonSO skeleton = (SkeletonSO) target;
         List<SkeletonRelationships> relationships = skeleton.GetRelationships();
         TexturesSO textures = skeleton.GetTextureData();
-        textures.UpdateHashSet();
 
         //Relationship box;
         EditorGUILayout.Space();
@@ -104,9 +94,9 @@ public class SkeletonSOEditor : Editor {
         // Create a button to open the window
         EditorGUILayout.BeginHorizontal();
         
+        //Is name only letters either lower or upper case?
         bool isNameValid = Regex.IsMatch(textFieldRelationName, "^[a-zA-Z]+$");
         bool isExisting = relationships.Any(r => r.GetRelationshipName().ToUpper().Equals(relationNameUpper));
-        //EditorGUILayout.HelpBox("Textures must be in the 'Resources' folder at the project's root for the texture compiling script to function properly.", MessageType.Warning);
 
         //Adding, Removing, and Clearing Relationships;
         AddNewRelationship(isNameValid, isExisting, textures, skeleton, relationNameUpper);
@@ -232,17 +222,16 @@ public class SkeletonSOEditor : Editor {
     }
 }
 
+//Limb Select Window;
 public class SkeletonEditorWindow : EditorWindow {
+    //References;
     SkeletonSO skeleton;
     SkeletonRelationships relationships;
-    bool buttonActionActivate = false;
-    string searchQuery = "";
-    Vector2 scrollPosition;
 
-    public SkeletonEditorWindow(SkeletonSO Skeleton, SkeletonRelationships Relationships, bool ButtonActionActivate) {
+    public SkeletonEditorWindow(SkeletonSO Skeleton, SkeletonRelationships Relationships, bool ButtonCanActivateActions) {
         skeleton = Skeleton;
         relationships = Relationships;
-        buttonActionActivate = ButtonActionActivate;
+        buttonCanActivateActions = ButtonCanActivateActions;
     }
 
     public static void OpenWindow(SkeletonEditorWindow window) {
@@ -250,27 +239,43 @@ public class SkeletonEditorWindow : EditorWindow {
         window.Show();
     }
 
-    public void OnGUI() {
-        EditorGUILayout.LabelField("Limb References: ");
+    //Window;
+    bool buttonCanActivateActions = false;
+    string searchQuery = "";
+    Vector2 scrollPosition;
 
+    public void OnGUI() {
+        EditorGUILayout.LabelField("Limb References: ", EditorStyles.boldLabel);
+        EditorGUILayout.Space();
+
+        GUILayout.BeginVertical(GUI.skin.box);
+
+        //Get the limbs in the TextureSO;
         List<Limb> limbList = skeleton.GetTextureData().GetLimbs();
+
+        //Get the limb relations inside one group;
         List<Limb> limbRelations = relationships.GetLimbsRelated();
 
         scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
         searchQuery = EditorGUILayout.TextField(searchQuery);
 
         if(limbList != null) {
+            /*Draw all limbs in the window,
+             * if a limb is already in a relation, then, remove it from the list of visible limbs,
+             * if the search query is not empty, then, filter the limbs; */
             foreach(Limb limb in limbList) {
-                bool isAlreadyRelated = limbRelations.Any(r => r.GetName().Equals(limb.GetName()));
+                string name = limb.GetName();
+                bool isAlreadyRelated = limbRelations.Any(r => r.GetName().Equals(name));
+                bool isUserSearching = name.Contains(searchQuery); //"" filters all limbs;
                 
-                if (limb.GetName().Contains(searchQuery) && !isAlreadyRelated) {
-                    if (GUILayout.Button(limb.GetName())) {
+                if (isUserSearching && !isAlreadyRelated) {
+                    if (GUILayout.Button(name) && buttonCanActivateActions) {
                         relationships.AddLimbRelated(limb);
                     }
                 }
             }
         }
-
+        GUILayout.EndVertical();
         EditorGUILayout.EndScrollView();
     }
 }
