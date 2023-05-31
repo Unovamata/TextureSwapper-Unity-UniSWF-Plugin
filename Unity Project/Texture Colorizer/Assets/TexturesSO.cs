@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Linq;
 
 [CreateAssetMenu(fileName = "TexturesSO", menuName = "ScriptableObjects/Texture Extractor SO", order = 1)]
+/* TexturesSO helps saving and extracting the limb assets used
+ * by a specific texture. Serializes the data in files for
+ * later reference by the skeleton. */
 public class TexturesSO : ScriptableObject {
     [HideInInspector] [SerializeField] private Texture2D texture;
     public string textureToSearch;
     [HideInInspector] [SerializeField] private List<Limb> limbs = new List<Limb>();
+    [SerializeField] HashSet<string> hashSet;
 
+    //Making data save consistently;
     private void OnEnable() {
         EditorUtility.SetDirty(this);
     }
@@ -20,8 +26,19 @@ public class TexturesSO : ScriptableObject {
     public void SetLimbs(List<Limb> Limbs){ limbs = Limbs; }
     public Texture2D GetTexture() { return texture; }
     public void SetTexture(Texture2D Texture) { texture = Texture; }
+    public void UpdateHashSet() {
+        hashSet = limbs.Select(limb => limb.GetName().ToUpper()).ToHashSet();
+    }
+    public HashSet<string> GetHashSet() { return hashSet; }
+    public void SetHashSet(HashSet<string> HashSet) { hashSet = HashSet; }
 }
 
+
+////////////////////////////////////////////////////////////////////
+
+/* The Limb class is mandatory for all dependencies of the 
+ * texture swapping system, as they store all the pertinent
+ * information to iterate over multiple limbs if needed. */
 [System.Serializable]
 public class Limb {
     [SerializeField] private Texture2D texture;
@@ -43,33 +60,39 @@ public class Limb {
     public void SetPivot(Vector2 Pivot) { pivot = Pivot; }
 }
 
+
+////////////////////////////////////////////////////////////////////
+
+//Custom Editor;
 [CustomEditor(typeof(TexturesSO))] // Replace with the name of your ScriptableObject class
 public class TexturesSOEditor : Editor{
     public override void OnInspectorGUI(){
-        TexturesSO scriptableObject = (TexturesSO) target;
+        TexturesSO textures = (TexturesSO) target;
+        textures.UpdateHashSet();
         base.OnInspectorGUI();
 
         // Display a label for a property
         EditorGUILayout.LabelField("Skeleton Scriptable Object Data", EditorStyles.boldLabel);
-        EditorGUILayout.LabelField(scriptableObject.GetLimbs().Count + " Limbs found");
+        EditorGUILayout.LabelField(textures.GetLimbs().Count + " Limbs found");
         EditorGUILayout.HelpBox("Textures must be in the 'Resources' folder at the project's root for the texture compiling script to function properly.", MessageType.Warning);
         EditorGUILayout.Space();
 
         //Confirm search and load button;
         if (GUILayout.Button("Load Limb Data From Texture")){
-            scriptableObject.ClearLimbs();
-            scriptableObject.SetTexture(CrAPTextureManagement.LoadSkeletonData(scriptableObject.textureToSearch, scriptableObject));
+            textures.ClearLimbs();
+            textures.SetTexture(CrAPTextureManagement.LoadSkeletonData(textures.textureToSearch, textures));
         }
 
         EditorGUILayout.Space();
 
         try {
-            foreach(Limb limb in scriptableObject.GetLimbs()) {
+            foreach(Limb limb in textures.GetLimbs()) {
                 LoadLimbInGUI(limb, 2, true);
             }
         } catch { }
     }
 
+    //Loads all the needed data in the GUI;
     public static void LoadLimbInGUI(Limb limb, float rectSize, bool showMetadata) {
         int boxHeight = 20;
         string name = limb.GetName();
