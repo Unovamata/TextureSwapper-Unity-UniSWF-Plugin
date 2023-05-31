@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CrAPTextureManagement : MonoBehaviour{
     //Data;
-    public TexturesSO skeleton, skeletonToReference;
-    public Texture2D skeletonData;
+    public TexturesSO textures, textureToReference;
+    public SkeletonSO skeleton;
     [HideInInspector] public Texture2D newTextureToManage;
 
     //Unity Editor;
@@ -23,7 +23,7 @@ public class CrAPTextureManagement : MonoBehaviour{
         material = mesh.material;
         
         //Creating a new texture based in the original one;
-        newTextureToManage = CloneTexture(skeletonData);
+        newTextureToManage = CloneTexture(textures.GetTexture());
         
         //Assigning the new texture;
         material.mainTexture = newTextureToManage;
@@ -51,7 +51,7 @@ public class CrAPTextureManagement : MonoBehaviour{
     }
     
     //Loads data into a SkeletonSO object;
-    public static void LoadSkeletonData(string route, TexturesSO skeleton) {
+    public static Texture2D LoadSkeletonData(string route, TexturesSO skeleton) {
         //Sprite has to be located in the "Resources" folder;
         UnityEngine.Sprite[] sprites = Resources.LoadAll<UnityEngine.Sprite>(route);
         string path = CreateFolder(skeleton.name);
@@ -97,6 +97,8 @@ public class CrAPTextureManagement : MonoBehaviour{
             limb.SetTexture(AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath));
             skeleton.AddLimb(limb);
         }
+
+        return Resources.Load<Texture2D>(route);
     }
 
     //Create a folder to hold assets;
@@ -178,16 +180,71 @@ public class CrAPTextureManagement : MonoBehaviour{
 //Custom Editor;
 [CustomEditor(typeof(CrAPTextureManagement))]
 public class CustomInspector : Editor {
+    int currentRelationIndex = 0;
 
     //Changes values in the inspector, creating a custom inspector;
     public override void OnInspectorGUI() {
         DrawDefaultInspector();
         CrAPTextureManagement manager = (CrAPTextureManagement) target; //Referencing the script;
+        List<SkeletonRelationships> relationships = manager.skeleton.GetRelationships();
 
-        EditorGUILayout.LabelField("Texture Management");
+
+        EditorGUILayout.Space();
+        EditorGUILayout.LabelField("Texture Management", EditorStyles.boldLabel);
 
         try {
-            foreach(Limb limb in manager.skeleton.GetLimbs()) {
+            GUILayout.BeginVertical(GUI.skin.box);
+            SkeletonRelationships relationship = relationships[currentRelationIndex];
+
+            EditorGUILayout.BeginHorizontal();
+            if(GUILayout.Button("<<", GUILayout.Width(40))) {
+                if(currentRelationIndex <= 0) currentRelationIndex = relationships.Count - 1;
+                else currentRelationIndex--;
+            }
+
+            if(GUILayout.Button(relationship.GetRelationshipName())) {
+                //manager.ClearTextureAt(x, y, w, h, manager.newTextureToManage);
+            }
+
+            if(GUILayout.Button(">>", GUILayout.Width(40))) {
+                if(currentRelationIndex >= relationships.Count - 1) currentRelationIndex = 0;
+                else currentRelationIndex++;
+            }
+
+            EditorGUILayout.EndHorizontal();
+            EditorGUILayout.Space();
+
+            if(GUILayout.Button("Clear " + relationship.GetRelationshipName() + " Texture Group")) {
+                foreach(Limb limb in relationship.GetLimbsRelated()) {
+                    string name = limb.GetName();
+                    Vector4 coordinates = limb.GetCoordinates();
+                    int x = (int)coordinates.x;
+                    int y = (int)coordinates.y;
+                    int w = (int)coordinates.z;
+                    int h = (int)coordinates.w;
+
+                    manager.ClearTextureAt(x, y, w, h, manager.newTextureToManage);
+                }
+            }
+
+            if(GUILayout.Button("Paste " + relationship.GetRelationshipName() + " Texture Group")) {
+                foreach(Limb limb in relationship.GetLimbsRelated()) {
+                    string name = limb.GetName();
+                    Vector4 coordinates = limb.GetCoordinates();
+                    int x = (int)coordinates.x;
+                    int y = (int)coordinates.y;
+                    int w = (int)coordinates.z;
+                    int h = (int)coordinates.w;
+
+                    manager.PasteTexture(limb, manager.newTextureToManage, manager.textureToReference);
+                }
+            }
+
+            /*foreach(SkeletonRelationships relationship in relationships) {
+                if(GUILayout.Button(relationship.GetRelationshipName())) {
+                    //manager.ClearTextureAt(x, y, w, h, manager.newTextureToManage);
+                }
+
                 string name = limb.GetName();
                 Vector4 coordinates = limb.GetCoordinates();
                 int x = (int)coordinates.x;
@@ -200,9 +257,10 @@ public class CustomInspector : Editor {
                 }
 
                 if(GUILayout.Button("Paste " + name)) {
-                    manager.PasteTexture(limb, manager.newTextureToManage, manager.skeletonToReference);
+                    manager.PasteTexture(limb, manager.newTextureToManage, manager.textureToReference);
                 }
-            }
+            }*/
+            GUILayout.EndVertical();
         } catch { }
     }
 }

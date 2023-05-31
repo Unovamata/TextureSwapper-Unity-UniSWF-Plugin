@@ -5,6 +5,7 @@ using UnityEditor;
 
 [CreateAssetMenu(fileName = "TexturesSO", menuName = "ScriptableObjects/Texture Extractor SO", order = 1)]
 public class TexturesSO : ScriptableObject {
+    [HideInInspector] [SerializeField] private Texture2D texture;
     public string textureToSearch;
     [HideInInspector] [SerializeField] private List<Limb> limbs = new List<Limb>();
 
@@ -13,7 +14,9 @@ public class TexturesSO : ScriptableObject {
     public void AddLimb(Limb limb){ limbs.Add(limb); }
     public Limb CallLimb(string name){ return limbs.Find(limbSearcher => limbSearcher.GetName() == name); }
     public void SetLimbs(List<Limb> Limbs){ limbs = Limbs; }
-    // This method is used to mark the changes as dirty
+    public Texture2D GetTexture() { return texture; }
+    public void SetTexture(Texture2D Texture) { texture = Texture; }
+    
     public void ApplyChanges(){ EditorUtility.SetDirty(this); }
 }
 
@@ -53,64 +56,69 @@ public class TexturesSOEditor : Editor{
         //Confirm search and load button;
         if (GUILayout.Button("Load Limb Data From Texture")){
             scriptableObject.ClearLimbs();
-            CrAPTextureManagement.LoadSkeletonData(scriptableObject.textureToSearch, scriptableObject);
+            scriptableObject.SetTexture(CrAPTextureManagement.LoadSkeletonData(scriptableObject.textureToSearch, scriptableObject));
             scriptableObject.ApplyChanges();
         }
 
         EditorGUILayout.Space();
 
-        int boxHeight = 20;
-
         try {
             foreach(Limb limb in scriptableObject.GetLimbs()) {
-                string name = limb.GetName();
-
-                EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-                EditorGUILayout.LabelField(name, EditorStyles.boldLabel);
-
-                //Coordinates;
-                Vector4 coordinates = limb.GetCoordinates();
-                //Sprite boxes;
-                EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField("Sprite Box Start", GUILayout.Width(100));
-                EditorGUILayout.SelectableLabel(coordinates.x.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
-
-                EditorGUILayout.LabelField("Sprite Box End", GUILayout.Width(100));
-                EditorGUILayout.SelectableLabel(coordinates.y.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
-                EditorGUILayout.EndHorizontal();
-
-                //Width / Height;
-                EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField("Width", GUILayout.Width(100));
-                EditorGUILayout.SelectableLabel(coordinates.z.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
-
-                EditorGUILayout.LabelField("Height", GUILayout.Width(100));
-                EditorGUILayout.SelectableLabel(coordinates.w.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
-                EditorGUILayout.EndHorizontal();
-
-                //Coordinates;
-                Vector2 pivot = limb.GetPivot();
-                //Pivot;
-                EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField("Pivot X", GUILayout.Width(100));
-                EditorGUILayout.SelectableLabel(pivot.x.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
-
-                EditorGUILayout.LabelField("Pivot Y", GUILayout.Width(100));
-                EditorGUILayout.SelectableLabel(pivot.y.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
-                EditorGUILayout.EndHorizontal();
-                EditorGUILayout.Space();
-
-                // Display the label and read-only texture field
-                EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.PrefixLabel("Texture");
-                Rect objectFieldRect = GUILayoutUtility.GetRect(EditorGUIUtility.fieldWidth * 2, EditorGUIUtility.fieldWidth * 2);
-
-                EditorGUI.BeginDisabledGroup(true);
-                EditorGUI.ObjectField(objectFieldRect, GUIContent.none, limb.GetTexture(), typeof(Texture2D), false);
-                EditorGUI.EndDisabledGroup();
-                EditorGUILayout.EndHorizontal();
-                EditorGUILayout.EndVertical();
+                LoadLimbInGUI(limb, 2, true);
             }
         } catch { }
+    }
+
+    public static void LoadLimbInGUI(Limb limb, float rectSize, bool showMetadata) {
+        int boxHeight = 20;
+        string name = limb.GetName();
+
+        EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+        EditorGUILayout.LabelField(name, EditorStyles.boldLabel);
+
+        if(showMetadata){
+            //Coordinates;
+            Vector4 coordinates = limb.GetCoordinates();
+            //Sprite boxes;
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Sprite Box Start", GUILayout.Width(100));
+            EditorGUILayout.SelectableLabel(coordinates.x.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
+
+            EditorGUILayout.LabelField("Sprite Box End", GUILayout.Width(100));
+            EditorGUILayout.SelectableLabel(coordinates.y.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
+            EditorGUILayout.EndHorizontal();
+
+            //Width / Height;
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Width", GUILayout.Width(100));
+            EditorGUILayout.SelectableLabel(coordinates.z.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
+
+            EditorGUILayout.LabelField("Height", GUILayout.Width(100));
+            EditorGUILayout.SelectableLabel(coordinates.w.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
+            EditorGUILayout.EndHorizontal();
+
+            //Coordinates;
+            Vector2 pivot = limb.GetPivot();
+            //Pivot;
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Pivot X", GUILayout.Width(100));
+            EditorGUILayout.SelectableLabel(pivot.x.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
+
+            EditorGUILayout.LabelField("Pivot Y", GUILayout.Width(100));
+            EditorGUILayout.SelectableLabel(pivot.y.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
+            EditorGUILayout.EndHorizontal();
+        }
+        EditorGUILayout.Space();
+
+        // Display the label and read-only texture field
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.PrefixLabel("Texture");
+        Rect objectFieldRect = GUILayoutUtility.GetRect(EditorGUIUtility.fieldWidth * rectSize, EditorGUIUtility.fieldWidth * rectSize);
+
+        EditorGUI.BeginDisabledGroup(true);
+        EditorGUI.ObjectField(objectFieldRect, GUIContent.none, limb.GetTexture(), typeof(Texture2D), false);
+        EditorGUI.EndDisabledGroup();
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.EndVertical();
     }
 }

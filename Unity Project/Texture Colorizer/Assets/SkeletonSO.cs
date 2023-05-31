@@ -24,6 +24,7 @@ public class SkeletonSO : ScriptableObject{
 public class SkeletonRelationships{
     [SerializeField] string relationshipName;
     [SerializeField] List<Limb> limbsRelated;
+    [SerializeField] bool folder;
 
     public SkeletonRelationships(string RelationshipName) {
         relationshipName = RelationshipName;
@@ -36,6 +37,8 @@ public class SkeletonRelationships{
     public void AddLimbRelated(Limb limb){ limbsRelated.Add(limb); }
     public void RemoveLimbRelated(){ limbsRelated.RemoveAt(limbsRelated.Count - 1); }
     public void ClearLimbsRelated(){ limbsRelated = new List<Limb>(); }
+    public bool GetFolder(){ return folder; }
+    public void SetFolder(bool Folder){ folder = Folder; }
 }
 
 [CustomEditor(typeof(SkeletonSO))]
@@ -80,7 +83,6 @@ public class SkeletonSOEditor : Editor {
 
                     foreach(Limb limb in textures.GetLimbs()) {
                         if (limb.GetName().ToUpper().StartsWith(relationNameUpper)) {
-                            Debug.Log(limb.GetName());
                             relationship.AddLimbRelated(limb);
                         }
                     }
@@ -95,7 +97,6 @@ public class SkeletonSOEditor : Editor {
             try {
                 scriptableObject.RemoveLastRelationship();
             } catch { }
-            
         }
 
         if (GUILayout.Button("Clear All")){
@@ -103,18 +104,49 @@ public class SkeletonSOEditor : Editor {
         }
 
         EditorGUILayout.EndHorizontal();
+        if (!textFieldRelationName.Equals("")) {
+            if (GUILayout.Button("Remove " + textFieldRelationName)){
+                try {
+                    relationships.RemoveAll(x => x.GetRelationshipName().Equals(textFieldRelationName));
+                } catch { }
+            }
+        }
+        
+
         EditorGUILayout.Space();
         
         
         // Create a button to open the window
         if (GUILayout.Button("Open List Window")){
-            SkeletonEditorWindow window = new SkeletonEditorWindow(scriptableObject);
+            SkeletonEditorWindow window = new SkeletonEditorWindow(scriptableObject, new SkeletonRelationships(""));
             SkeletonEditorWindow.OpenWindow(window);
         }
         
         foreach(SkeletonRelationships relationship in relationships) { 
             GUILayout.BeginVertical(GUI.skin.box);
-            EditorGUILayout.LabelField(relationship.GetRelationshipName(), EditorStyles.boldLabel);
+            bool folderRelationship = relationship.GetFolder();
+            relationship.SetFolder(folderRelationship = EditorGUILayout.Foldout(folderRelationship, relationship.GetRelationshipName()));
+
+            if (folderRelationship) {
+                foreach(Limb limb in relationship.GetLimbsRelated()) {
+                    TexturesSOEditor.LoadLimbInGUI(limb, 1, false);
+
+                    if (GUILayout.Button("Remove " + limb.GetName() + " Relationship")){
+                        relationship.GetLimbsRelated().Remove(limb);
+                    }
+                }
+
+                Color originalColor = GUI.backgroundColor;
+                GUI.backgroundColor = Color.green;
+
+                if (GUILayout.Button("Add New " + relationship.GetRelationshipName() + " Relationship")){
+                    GUI.backgroundColor = originalColor;
+                    SkeletonEditorWindow window = new SkeletonEditorWindow(scriptableObject, relationship);
+                    SkeletonEditorWindow.OpenWindow(window);
+                }
+
+            }
+            
             GUILayout.EndVertical();
         }
     }
@@ -122,10 +154,12 @@ public class SkeletonSOEditor : Editor {
 
 public class SkeletonEditorWindow : EditorWindow {
     private SkeletonSO skeleton;
+    SkeletonRelationships relationships;
     private string searchQuery = "";
 
-    public SkeletonEditorWindow(SkeletonSO Skeleton) {
+    public SkeletonEditorWindow(SkeletonSO Skeleton, SkeletonRelationships Relationships) {
         skeleton = Skeleton;
+        relationships = Relationships;
     }
 
     public static void OpenWindow(SkeletonEditorWindow window) {
@@ -137,14 +171,17 @@ public class SkeletonEditorWindow : EditorWindow {
         EditorGUILayout.LabelField("Limb References: ");
 
         List<Limb> limbList = skeleton.GetTextureData().GetLimbs();
+        List<Limb> limbRelations = relationships.GetLimbsRelated();
 
         searchQuery = EditorGUILayout.TextField(searchQuery);
 
         if(limbList != null) {
             foreach(Limb limb in limbList) {
-                if (limb.GetName().Contains(searchQuery)) {
+                bool isAlreadyRelated = limbRelations.Any(r => r.GetName().Equals(limb.GetName()));
+                
+                if (limb.GetName().Contains(searchQuery) && !isAlreadyRelated) {
                     if (GUILayout.Button(limb.GetName())) {
-
+                        relationships.AddLimbRelated(limb);
                     }
                 }
             }
