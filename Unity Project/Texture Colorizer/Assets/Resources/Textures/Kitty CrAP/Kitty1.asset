@@ -15,4 +15,120 @@ MonoBehaviour:
   texture: {fileID: 0}
   textureToSearch: {fileID: 2800000, guid: e587f4ea0a7d0ed428ec0ae2937ce5e0, type: 3}
   subGroupRoute: Kitty
-  limbs: []
+  limbs:
+  - texture: {fileID: 2800000, guid: 433d705c9dfc01f4e84072d5286bdd5d, type: 2}
+    name: Kitty1_0
+    coordinates: {x: 1, y: 823, z: 199, w: 200}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 13ab6cbf7cae0194189b7ccb91854eb7, type: 2}
+    name: Kitty1_1
+    coordinates: {x: 201, y: 823, z: 223, w: 200}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: d1df420288c0e22459e40067892beaee, type: 2}
+    name: Kitty1_2
+    coordinates: {x: 401, y: 928, z: 153, w: 95}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: fac101ebcbebf6a41b122b68d6e65ce6, type: 2}
+    name: Kitty1_3
+    coordinates: {x: 555, y: 932, z: 68, w: 91}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: d75dc1e26641a684cb29bf7054bab98c, type: 2}
+    name: Kitty1_4
+    coordinates: {x: 425, y: 823, z: 130, w: 94}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 412ce9a7a2b56a8489c64669e4e8a468, type: 2}
+    name: Kitty1_5
+    coordinates: {x: 556, y: 832, z: 72, w: 85}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 567ddf29d0170be4abb544c309f379c9, type: 2}
+    name: Kitty1_6
+    coordinates: {x: 59, y: 622, z: 141, w: 200}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: eda5d12d45dd2c14f819183b27c4b7dc, type: 2}
+    name: Kitty1_7
+    coordinates: {x: 201, y: 629, z: 143, w: 193}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 0e74eb96dfca3794b969db2222235ab4, type: 2}
+    name: Kitty1_8
+    coordinates: {x: 345, y: 629, z: 143, w: 193}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 7f817936a857e404ebb50dd4eb7b3633, type: 2}
+    name: Kitty1_9
+    coordinates: {x: 489, y: 742, z: 86, w: 78}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 1b104802c640cc5429ac2f6a8e179cab, type: 2}
+    name: Kitty1_10
+    coordinates: {x: 576, y: 742, z: 71, w: 85}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: b93a372a904353843bb9fc92d0a93b6e, type: 2}
+    name: Kitty1_11
+    coordinates: {x: 489, y: 629, z: 101, w: 112}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 064905aab35682b4081ecddc3433f536, type: 2}
+    name: Kitty1_12
+    coordinates: {x: 591, y: 629, z: 69, w: 83}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 10a3120b461fa044eba8794c5a2f1c8f, type: 2}
+    name: Kitty1_13
+    coordinates: {x: 59, y: 497, z: 138, w: 124}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: cc635e461c232d940a55eaf34f63b7cc, type: 2}
+    name: Kitty1_14
+    coordinates: {x: 201, y: 515, z: 175, w: 113}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 86920e6b10c506040bd1e7de2da29c5f, type: 2}
+    name: Kitty1_15
+    coordinates: {x: 377, y: 504, z: 138, w: 124}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: e81e3383228f53a47ad3fa586e5205b2, type: 2}
+    name: Kitty1_16
+    coordinates: {x: 516, y: 544, z: 86, w: 84}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 6c7195ae31c1bb84486e41cfdb9ff121, type: 2}
+    name: Kitty1_17
+    coordinates: {x: 603, y: 564, z: 70, w: 64}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 92f36b08cf5c4ca47a2c674ddf649de9, type: 2}
+    name: Kitty1_18
+    coordinates: {x: 59, y: 425, z: 156, w: 71}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 7380c77e8d3596b41a68bc28a0600a75, type: 2}
+    name: Kitty1_19
+    coordinates: {x: 239, y: 418, z: 137, w: 96}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: b433ac706ea8fdf42b4ee59fe014ca8c, type: 2}
+    name: Kitty1_20
+    coordinates: {x: 377, y: 431, z: 155, w: 72}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: f72e6de71ee241d45b8da5a8ed1b0e65, type: 2}
+    name: Kitty1_21
+    coordinates: {x: 533, y: 412, z: 68, w: 91}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 74ca2f56b1de18145ab53146b77b3540, type: 2}
+    name: Kitty1_22
+    coordinates: {x: 602, y: 420, z: 69, w: 83}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: d546d656b37699c45b58981c01c06264, type: 2}
+    name: Kitty1_23
+    coordinates: {x: 59, y: 360, z: 70, w: 64}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 6d4e91615c0b20949a80d8aa837d46be, type: 2}
+    name: Kitty1_24
+    coordinates: {x: 134, y: 363, z: 81, w: 61}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 67fc5dc802493c342b115e74dab101fd, type: 2}
+    name: Kitty1_25
+    coordinates: {x: 239, y: 352, z: 76, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 9e95daff05eb32c45a7a052cb4518848, type: 2}
+    name: Kitty1_26
+    coordinates: {x: 377, y: 353, z: 72, w: 77}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 5ce4e526bd2199a48a415d05e6e25948, type: 2}
+    name: Kitty1_27
+    coordinates: {x: 460, y: 352, z: 72, w: 78}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: c15ca812a8b0ef44c88afee12074a6fa, type: 2}
+    name: Kitty1_28
+    coordinates: {x: 533, y: 346, z: 76, w: 65}
+    pivot: {x: 0.5, y: 0.5}

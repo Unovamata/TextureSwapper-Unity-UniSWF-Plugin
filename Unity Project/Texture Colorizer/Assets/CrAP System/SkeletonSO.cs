@@ -20,6 +20,10 @@ public class SkeletonSO : ScriptableObject{
         EditorUtility.SetDirty(this);
     }
 
+    private void OnValidate() {
+        AssetDatabase.SaveAssets();
+    }
+
     public TexturesSO GetTextureData(){ return textureData; }
     public List<SkeletonRelationships> GetRelationships(){ return relationships; }
     public void AddRelationship(SkeletonRelationships SkeletonRelationship){ relationships.Add(SkeletonRelationship); }

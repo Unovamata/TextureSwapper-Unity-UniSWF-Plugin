@@ -20,6 +20,10 @@ public class TexturesSO : ScriptableObject {
         EditorUtility.SetDirty(this);
     }
 
+    private void OnValidate() {
+        AssetDatabase.SaveAssets();
+    }
+
     public List<Limb> GetLimbs(){ return limbs; }
     public void ClearLimbs(){ limbs.Clear(); }
     public void AddLimb(Limb limb){ limbs.Add(limb); }
@@ -163,10 +167,16 @@ public class TexturesSOEditor : Editor{
     public override void OnInspectorGUI(){
         TexturesSO textures = (TexturesSO) target;
         base.OnInspectorGUI();
+        string subGroupName = textures.GetSubGroupRoute();
+
         //Naming a subgroup of folders if needed;
-        if (!textures.GetSubGroupRoute().Equals("") && textures.GetLimbs().Count == 0) {
+        if (!subGroupName.Equals("") && textures.GetLimbs().Count == 0) {
             EditorGUILayout.HelpBox("Specify this field ONLY IF the texture belongs to a subgroup of a main group.", MessageType.Info);
-            EditorGUILayout.HelpBox("Do not add the last '/' in the route.", MessageType.Warning);
+        }
+
+        //Removing the "/" character as it can generate conflicts between routes;
+        if (subGroupName.EndsWith("/")){
+            textures.SetSubGroupRoute(subGroupName.Substring(0, subGroupName.Length - 1));
         }
 
         // Display a label for a property
