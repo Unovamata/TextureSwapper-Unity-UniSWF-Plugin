@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
+using System.IO;
 
 [CreateAssetMenu(fileName = "TexturesSO", menuName = "ScriptableObjects/Texture Extractor SO", order = 1)]
 /* TexturesSO helps saving and extracting the limb assets used
@@ -38,8 +39,19 @@ public class TexturesSO : ScriptableObject {
 
     //***********************************
 
+    public Texture2D CreateTransparent2DTexture(int w, int h) {
+        //Generating the textures & mapping it to a transparent color;
+        Texture2D texture = new Texture2D(w, h, TextureFormat.RGBA32, false);
+        Color32[] emptyTexturePixels = new Color32[w * h];
+        Color32 transparentColor = new Color32(0, 0, 0, 0);
+        System.Array.Fill(emptyTexturePixels, transparentColor);
+        texture.SetPixels32(emptyTexturePixels);
+        texture.Apply();
+        return texture;
+    }
+
     //System Management;
-    public Texture2D LoadTextureData(string route, TexturesSO textures) {
+    public Texture2D LoadTextureData(string route, TexturesSO textures, bool saveAsPng) {
         //Sprite has to be located in the "Resources" folder;
         Sprite[] sprites = Resources.LoadAll<Sprite>(FormatRoute(route));
         string path = CreateFolder(textures.name, textures.GetSubGroupRoute());
@@ -61,12 +73,7 @@ public class TexturesSO : ScriptableObject {
             limb.SetPivot(new Vector2(sprite.pivot.x / w, sprite.pivot.y / h));
 
             //Generating the textures & mapping it to a transparent color;
-            Texture2D texture = new Texture2D(w, h, TextureFormat.RGBA32, false);
-            Color32[] emptyTexturePixels = new Color32[w * h];
-            Color32 transparentColor = new Color32(0, 0, 0, 0);
-            System.Array.Fill(emptyTexturePixels, transparentColor);
-            texture.SetPixels32(emptyTexturePixels);
-            texture.Apply();
+            Texture2D texture = CreateTransparent2DTexture(w, h);
 
             //Mapping the limb to the texture;
             Rect rect = sprite.textureRect;
@@ -76,17 +83,38 @@ public class TexturesSO : ScriptableObject {
             texture.Apply();
 
             // Saving the texture as an asset for later reference;
-            string texturePath = path + "/" + sprite.name + ".asset"; // Specify the desired path and filename
-            AssetDatabase.CreateAsset(texture, texturePath);
+            string texturePath = path + "/" + sprite.name; // Specify the desired path and filename
+            string assetPath = texturePath + ".asset";
+            
+            if(saveAsPng) SaveTexture(texturePath, 50, texture, sprite, saveAsPng);
+
+            AssetDatabase.CreateAsset(texture, assetPath);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
             //Saving the data;
-            limb.SetTexture(AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath));
+            limb.SetTexture(AssetDatabase.LoadAssetAtPath<Texture2D>(assetPath));
             textures.AddLimb(limb);
         }
 
         return Resources.Load<Texture2D>(route);
+    }
+
+    private void SaveTexture(string route, int padding, Texture2D texture, Sprite sprite, bool saveAsPng) {
+        route += ".png";
+        Texture2D png = CreateTransparent2DTexture(texture.width - padding, texture.height - padding);
+        int paddingMid = padding / 2;
+
+        //Mapping the limb to the texture;
+        Rect rect = sprite.textureRect;
+        Color[] pixels = sprite.texture.GetPixels((int) rect.x + paddingMid, (int) rect.y + paddingMid, 
+                                                  (int) rect.width - padding, (int) rect.height - padding);
+        png.SetPixels(pixels);
+        png.Apply();
+
+        byte[] bytes = png.EncodeToPNG();
+        File.Create(route).Dispose();
+        File.WriteAllBytes(route, bytes);
     }
 
     //Create a readable route by the asset database;
@@ -164,6 +192,8 @@ public class Limb {
 //Custom Editor;
 [CustomEditor(typeof(TexturesSO))] // Replace with the name of your ScriptableObject class
 public class TexturesSOEditor : Editor{
+    public bool saveTextureAsPng = false;
+
     public override void OnInspectorGUI(){
         TexturesSO textures = (TexturesSO) target;
         base.OnInspectorGUI();
@@ -179,16 +209,24 @@ public class TexturesSOEditor : Editor{
             textures.SetSubGroupRoute(subGroupName.Substring(0, subGroupName.Length - 1));
         }
 
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("Save Texture Assets + PNGs?", GUILayout.Width(250));
+        saveTextureAsPng = EditorGUILayout.Toggle(saveTextureAsPng);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.Space();
+
         // Display a label for a property
-        EditorGUILayout.LabelField("Skeleton Scriptable Object Data", EditorStyles.boldLabel);
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("Skeleton Scriptable Object Data:", EditorStyles.boldLabel);
         EditorGUILayout.LabelField(textures.GetLimbs().Count + " Limbs found");
+        EditorGUILayout.EndHorizontal();
         EditorGUILayout.HelpBox("Ensure the texture is placed in the 'Resources' folder at the project's root for the script to work correctly.", MessageType.Warning);
         EditorGUILayout.Space();
 
         //Confirm search and load button;
         if (GUILayout.Button("Load Limb Data From Texture")){
             textures.ClearLimbs();
-            textures.SetTexture(textures.LoadTextureData(AssetDatabase.GetAssetPath(textures.GetTextureToSearch()), textures));
+            textures.SetTexture(textures.LoadTextureData(AssetDatabase.GetAssetPath(textures.GetTextureToSearch()), textures, saveTextureAsPng));
         }
     
         EditorGUILayout.Space();
