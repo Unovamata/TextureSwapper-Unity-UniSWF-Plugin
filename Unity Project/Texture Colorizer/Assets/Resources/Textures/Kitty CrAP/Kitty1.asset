@@ -48,12 +48,12 @@ MonoBehaviour:
     name: Eye Partially Open Right
     coordinates: {x: 401, y: 928, z: 153, w: 95}
     pivot: {x: 0.5, y: 0.5}
-  - texture: {fileID: 2800000, guid: 0049ee5db04104c40b992deae2376932, type: 2}
-    name: Feet Left
+  - texture: {fileID: 2800000, guid: bd23b331da9f70b4f9d39f53996ddd5a, type: 2}
+    name: Foot Left
     coordinates: {x: 533, y: 346, z: 76, w: 65}
     pivot: {x: 0.5, y: 0.5}
-  - texture: {fileID: 2800000, guid: 38551256031ebdb418a1abe016174cb0, type: 2}
-    name: Feet Right
+  - texture: {fileID: 2800000, guid: bb07a5117a9b82e4ba72d461e8ad82b9, type: 2}
+    name: Foot Right
     coordinates: {x: 239, y: 352, z: 76, w: 65}
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: 033373619731b6941b5226b9ef294664, type: 2}

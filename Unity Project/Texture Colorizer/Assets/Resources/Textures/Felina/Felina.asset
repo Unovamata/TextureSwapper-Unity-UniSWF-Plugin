@@ -128,10 +128,6 @@ MonoBehaviour:
     name: Mouth Open
     coordinates: {x: 500, y: 579, z: 84, w: 80}
     pivot: {x: 0.5, y: 0.5}
-  - texture: {fileID: 2800000, guid: d6a43381b1e3a5241aea4b3435d41cc0, type: 2}
-    name: Muzzle
-    coordinates: {x: 423, y: 693, z: 108, w: 132}
-    pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: be9f26fbb101faf40bbf5e3b698018d4, type: 2}
     name: Nose
     coordinates: {x: 626, y: 514, z: 68, w: 59}
@@ -159,4 +155,8 @@ MonoBehaviour:
   - texture: {fileID: 2800000, guid: 4a92282c8b58e934b9fd446ac5c91670, type: 2}
     name: Torso
     coordinates: {x: 491, y: 911, z: 101, w: 112}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 4e4a0bb8ce947cf439eef62d16836e32, type: 2}
+    name: Tuft
+    coordinates: {x: 423, y: 693, z: 108, w: 132}
     pivot: {x: 0.5, y: 0.5}

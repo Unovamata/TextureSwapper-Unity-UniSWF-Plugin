@@ -336,7 +336,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Muzzle
+      name: Tuft
       rect:
         serializedVersion: 2
         x: 423
@@ -899,7 +899,6 @@ TextureImporter:
       Knee Right: -537195301
       Mouth Closed: -1470019093
       Mouth Open: -126084995
-      Muzzle: -388374886
       Nose: 1585527095
       Shadow: 493854482
       Shoulder Left: 643820001
@@ -907,6 +906,7 @@ TextureImporter:
       Thigh Left: -196348973
       Thigh Right: -2069137244
       Torso: -1075834608
+      Tuft: -388374886
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

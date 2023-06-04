@@ -504,7 +504,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Muzzle
+      name: Tuft
       rect:
         serializedVersion: 2
         x: 239
@@ -630,7 +630,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feet Right
+      name: Foot Right
       rect:
         serializedVersion: 2
         x: 239
@@ -693,7 +693,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feet Left
+      name: Foot Left
       rect:
         serializedVersion: 2
         x: 533
@@ -732,8 +732,8 @@ TextureImporter:
       Eye Open Right: 228272426
       Eye Partially Open Left: -1010648315
       Eye Partially Open Right: 1666719677
-      Feet Left: -885287364
-      Feet Right: -939330327
+      Foot Left: -885287364
+      Foot Right: -939330327
       Forearm Left: -1978597109
       Forearm Right: -1218102145
       Hand Left: -2072537667
@@ -745,7 +745,6 @@ TextureImporter:
       Knee Right: -1874863835
       Mouth Closed: 846360230
       Mouth Open: -584355243
-      Muzzle: 916655549
       Nose: 255368792
       Shadow: 1374997274
       Shoulder Left: 477567991
@@ -753,6 +752,7 @@ TextureImporter:
       Thigh Left: 2047122439
       Thigh Right: 1449135241
       Torso: -741958140
+      Tuft: 916655549
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
