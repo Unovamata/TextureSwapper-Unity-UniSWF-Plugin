@@ -220,7 +220,8 @@ public class TexturesSOEditor : Editor{
         EditorGUILayout.LabelField("Skeleton Scriptable Object Data:", EditorStyles.boldLabel);
         EditorGUILayout.LabelField(textures.GetLimbs().Count + " Limbs found");
         EditorGUILayout.EndHorizontal();
-        EditorGUILayout.HelpBox("Ensure the texture is placed in the 'Resources' folder at the project's root for the script to work correctly.", MessageType.Warning);
+        if(textures.GetLimbs().Count == 0)
+            EditorGUILayout.HelpBox("• Ensure the texture is located anywhere within the 'Resources' folder in the project's root.\n• The texture name cannot contain '.' characters.", MessageType.Warning);
         EditorGUILayout.Space();
 
         //Confirm search and load button;
@@ -228,6 +229,7 @@ public class TexturesSOEditor : Editor{
             textures.ClearLimbs();
             textures.SetTexture(textures.LoadTextureData(AssetDatabase.GetAssetPath(textures.GetTextureToSearch()), textures, saveTextureAsPng));
         }
+        
     
         EditorGUILayout.Space();
 

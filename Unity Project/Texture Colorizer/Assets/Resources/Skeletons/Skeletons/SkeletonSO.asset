@@ -24,14 +24,6 @@ MonoBehaviour:
       name: Head Left
       coordinates: {x: 1, y: 825, z: 160, w: 198}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: 53092bcbdd97462489bdf6595c2a99a0, type: 2}
-      name: Head Patch Left
-      coordinates: {x: 464, y: 826, z: 110, w: 117}
-      pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: f4006ee78a8461244935d6d9c83e0e03, type: 2}
-      name: Head Patch Right
-      coordinates: {x: 442, y: 645, z: 110, w: 117}
-      pivot: {x: 0.5, y: 0.5}
     - texture: {fileID: 2800000, guid: b17247415755f6346b884859a192432c, type: 2}
       name: Head Right
       coordinates: {x: 162, y: 826, z: 160, w: 197}

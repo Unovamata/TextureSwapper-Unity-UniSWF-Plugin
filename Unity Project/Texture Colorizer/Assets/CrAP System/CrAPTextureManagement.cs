@@ -68,7 +68,8 @@ public class CrAPTextureManagement : MonoBehaviour{
         if(!reference.GetLimbs().Any(x => x.GetName().Equals(limb.GetName()))) return;
 
         Vector4 coordinates = limb.GetCoordinates();
-        int x = (int)coordinates.x, y = (int)coordinates.y, w = (int)coordinates.z, h = (int)coordinates.w;
+        int x = (int)coordinates.x, y = (int)coordinates.y, 
+            w = (int)coordinates.z, h = (int)coordinates.w;
 
         //Extracting the texture to paste from the limb referenced;
         Texture2D pasteTexture = reference.CallLimb(limb.GetName()).GetTexture();
