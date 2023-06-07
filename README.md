@@ -1,2 +1,1 @@
-# Unity UniSWF Texture Colorizer
- 
+# Unity Texture Colorizer
