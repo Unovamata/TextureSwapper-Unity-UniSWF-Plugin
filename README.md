@@ -1,1 +1,1 @@
-# Unity Texture Colorizer
+# Unity Texture Manager & Colorizer
