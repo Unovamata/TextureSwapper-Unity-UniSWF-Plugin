@@ -15,6 +15,7 @@ public class TexturesSO : ScriptableObject {
     [SerializeField] private string subGroupRoute = "";
     [HideInInspector] [SerializeField] private List<Limb> limbs = new List<Limb>();
     [SerializeField] HashSet<string> hashSet;
+    [HideInInspector] [SerializeField] private string path = "";
 
     //Making data save consistently;
     private void OnEnable() {
@@ -31,11 +32,19 @@ public class TexturesSO : ScriptableObject {
     public Limb CallLimb(string name){ return limbs.Find(limbSearcher => limbSearcher.GetName() == name); }
     public void SetLimbs(List<Limb> Limbs){ limbs = Limbs; }
     public Texture2D GetTexture() { return texture; }
-    public void SetTexture(Texture2D Texture) { texture = Texture; }
+    public void SetTexture(Texture2D Texture) { 
+        texture = Texture; 
+        SetPath();
+    }
     public Texture2D GetTextureToSearch() { return textureToSearch; }
     public void SetTextureToSearch(Texture2D TextureToSearch) { textureToSearch = TextureToSearch; }
     public string GetSubGroupRoute(){ return subGroupRoute; }
     public void SetSubGroupRoute(string SubGroupRoute){ subGroupRoute = SubGroupRoute; }
+    public string GetPath(){ return path; }
+    public void SetPath(){ 
+        path = AssetDatabase.GetAssetPath(textureToSearch); 
+    }
+
 
     //***********************************
 
@@ -240,15 +249,20 @@ public class TexturesSOEditor : Editor{
 
         //Clearing padding artifacts;
         if (GUILayout.Button("Clean Texture Padding Artifacts")){
+            
+            textures.SetTexture(Utils.ConvertTextureFormat(textures.GetTextureToSearch(), TextureFormat.RGBA32));
+
             foreach(Limb limb in textures.GetLimbs()) {
-                int padding = (int) Prefs.padding / 2 + 1;
+                int padding = (int) Prefs.padding / 2 - 1;
                 int x = limb.GetX(), y = limb.GetY(), w = limb.GetWidth(), h = limb.GetHeight();
 
+                //Debug.Log(textures.GetTexture().format + " " + limb.GetTexture().format);
+
                 Utils.ClearTextureAt(new Vector4(x, y + h - padding, w, padding), textures.GetTexture());
-                Utils.ClearTextureAt(new Vector4(w - padding, y, padding, h), textures.GetTexture());
+                Utils.ClearTextureAt(new Vector4(x + w - padding, y, padding, h), textures.GetTexture());
                 Utils.ClearTextureAt(new Vector4(x, y, w, padding), textures.GetTexture());
                 Utils.ClearTextureAt(new Vector4(x, y, padding, h), textures.GetTexture());
-                Utils.PasteTexture(limb, limb.GetTexture(), textures);
+                Utils.SaveTextureAsPNG(textures.GetTexture(), textures.GetPath());
             }
         }
         

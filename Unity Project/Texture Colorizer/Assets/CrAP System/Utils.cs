@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEditor;
+using System.IO;
 
 public enum Prefs {
     padding = 50,
@@ -16,6 +18,29 @@ public class Utils{
         return clone;
     }
     
+    //Convert a texture to a specific format readable by Color32 functions;
+    public static Texture2D ConvertTextureFormat(Texture2D texture, TextureFormat targetFormat) {
+        //Parameters;
+        int w = texture.width, h = texture.height;
+
+        //Create temporary render texture;
+        RenderTexture renderTexture = RenderTexture.GetTemporary(texture.width, texture.height, 0, RenderTextureFormat.Default);
+        RenderTexture.active = renderTexture;
+
+        //Destination for target formatting;
+        Texture2D convertedTexture = new Texture2D(w, h, targetFormat, false);
+
+        //Copy the source texture to the render texture;
+        Graphics.Blit(texture, renderTexture);
+
+        //Read pixels and release temporary data;
+        convertedTexture.ReadPixels(new Rect(0, 0, w, h), 0, 0);
+        convertedTexture.Apply();
+        RenderTexture.ReleaseTemporary(renderTexture);
+        
+        return convertedTexture;
+    }
+
     //Remove a specific texture at a position;
     public static void ClearTextureAt(Vector4 v, Texture2D texture) {
         //Get transparent color;
@@ -26,6 +51,10 @@ public class Utils{
         texture.Apply();
     }
 
+    public static void SaveTextureAsPNG(Texture2D texture, string filePath){
+        byte[] pngBytes = texture.EncodeToPNG();
+        File.WriteAllBytes(filePath, pngBytes);
+    }
 
     //Paste a specific limb texture to the texture sheet;
     public static void PasteTexture(Limb limb, Texture2D skeletonTexture, TexturesSO reference) {

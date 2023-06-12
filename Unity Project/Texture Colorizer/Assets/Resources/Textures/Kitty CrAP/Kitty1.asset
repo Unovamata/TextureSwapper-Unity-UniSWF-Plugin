@@ -132,3 +132,4 @@ MonoBehaviour:
     name: Torso
     coordinates: {x: 489, y: 629, z: 101, w: 112}
     pivot: {x: 0.5, y: 0.5}
+  path: 

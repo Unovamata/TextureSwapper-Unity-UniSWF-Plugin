@@ -164,3 +164,4 @@ MonoBehaviour:
     name: Tuft
     coordinates: {x: 451, y: 556, z: 97, w: 109}
     pivot: {x: 0.5, y: 0.5}
+  path: 

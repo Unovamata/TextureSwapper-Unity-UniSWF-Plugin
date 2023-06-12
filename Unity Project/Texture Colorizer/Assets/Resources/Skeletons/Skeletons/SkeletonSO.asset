@@ -16,78 +16,78 @@ MonoBehaviour:
   relationships:
   - relationshipName: Head
     limbsRelated:
-    - texture: {fileID: 2800000, guid: 7df1075a082e512419f5ba5592e4b543, type: 2}
+    - texture: {fileID: 0}
       name: Head Center
       coordinates: {x: 162, y: 625, z: 157, w: 200}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: 293b9370708e7304491823c7248bf636, type: 2}
+    - texture: {fileID: 0}
       name: Head Left
       coordinates: {x: 1, y: 825, z: 160, w: 198}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: b17247415755f6346b884859a192432c, type: 2}
+    - texture: {fileID: 0}
       name: Head Right
       coordinates: {x: 162, y: 826, z: 160, w: 197}
       pivot: {x: 0.5, y: 0.5}
     folder: 0
   - relationshipName: Eyes
     limbsRelated:
-    - texture: {fileID: 2800000, guid: b04661e6358d75147b726b1a3b677477, type: 2}
+    - texture: {fileID: 0}
       name: Eye Closed Left
       coordinates: {x: 320, y: 464, z: 162, w: 66}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: 09c166430cbfe2040a63ba781e7f8d51, type: 2}
+    - texture: {fileID: 0}
       name: Eye Closed Right
       coordinates: {x: 323, y: 948, z: 162, w: 66}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: 3122bc84f382ca643940361b7a82f06c, type: 2}
+    - texture: {fileID: 0}
       name: Eye Open Left
       coordinates: {x: 323, y: 826, z: 140, w: 121}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: 0d9f3004fb388c8418fb00b245d11bb1, type: 2}
+    - texture: {fileID: 0}
       name: Eye Open Right
       coordinates: {x: 22, y: 522, z: 139, w: 121}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: 1814a2038eb2d094b80b0977aecadcfd, type: 2}
+    - texture: {fileID: 0}
       name: Eye Partially Open Left
       coordinates: {x: 162, y: 439, z: 152, w: 92}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: 7fe586fe1829ed245b9c835cf5a89f79, type: 2}
+    - texture: {fileID: 0}
       name: Eye Partially Open Right
       coordinates: {x: 162, y: 532, z: 152, w: 92}
       pivot: {x: 0.5, y: 0.5}
     folder: 0
   - relationshipName: Ear
     limbsRelated:
-    - texture: {fileID: 2800000, guid: 6975af2707b9ad74b9b37f0ab43730d5, type: 2}
+    - texture: {fileID: 0}
       name: Ear Left
       coordinates: {x: 40, y: 644, z: 121, w: 180}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: 20f60b158f66a0f4fa8f40ce6ab4948c, type: 2}
+    - texture: {fileID: 0}
       name: Ear Right
       coordinates: {x: 320, y: 645, z: 121, w: 180}
       pivot: {x: 0.5, y: 0.5}
     folder: 0
   - relationshipName: Nose
     limbsRelated:
-    - texture: {fileID: 2800000, guid: b0aced2556398784094b55945c0a8cb1, type: 2}
+    - texture: {fileID: 0}
       name: Nose
       coordinates: {x: 442, y: 763, z: 69, w: 61}
       pivot: {x: 0.5, y: 0.5}
     folder: 0
   - relationshipName: Mouth
     limbsRelated:
-    - texture: {fileID: 2800000, guid: 10608914bdd6fd74c8efb0a407f59791, type: 2}
+    - texture: {fileID: 0}
       name: Mouth Closed
       coordinates: {x: 230, y: 373, z: 84, w: 65}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: 7ab1e9ede78cb304bbd5837bb38b1f12, type: 2}
+    - texture: {fileID: 0}
       name: Mouth Open
       coordinates: {x: 72, y: 436, z: 89, w: 85}
       pivot: {x: 0.5, y: 0.5}
     folder: 0
   - relationshipName: Muzzle
     limbsRelated:
-    - texture: {fileID: 2800000, guid: 6f0a2f27bfc88e34e814ad9d9aa3f61e, type: 2}
+    - texture: {fileID: 0}
       name: Muzzle
       coordinates: {x: 496, y: 434, z: 93, w: 97}
       pivot: {x: 0.5, y: 0.5}
@@ -97,40 +97,40 @@ MonoBehaviour:
     folder: 0
   - relationshipName: Head Patch
     limbsRelated:
-    - texture: {fileID: 2800000, guid: 53092bcbdd97462489bdf6595c2a99a0, type: 2}
+    - texture: {fileID: 0}
       name: Head Patch Left
       coordinates: {x: 464, y: 826, z: 110, w: 117}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: f4006ee78a8461244935d6d9c83e0e03, type: 2}
+    - texture: {fileID: 0}
       name: Head Patch Right
       coordinates: {x: 442, y: 645, z: 110, w: 117}
       pivot: {x: 0.5, y: 0.5}
     folder: 0
   - relationshipName: Hand
     limbsRelated:
-    - texture: {fileID: 2800000, guid: 2f0f8aa849f34d14cbf9b8245861acc5, type: 2}
+    - texture: {fileID: 0}
       name: Hand Left
       coordinates: {x: 496, y: 370, z: 70, w: 63}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: 2793197723be3de4bae60d989c48ad2e, type: 2}
+    - texture: {fileID: 0}
       name: Hand Right
       coordinates: {x: 567, y: 370, z: 70, w: 63}
       pivot: {x: 0.5, y: 0.5}
     folder: 0
   - relationshipName: Feet
     limbsRelated:
-    - texture: {fileID: 2800000, guid: 2068416d126f7f64cb47357a3360d577, type: 2}
+    - texture: {fileID: 0}
       name: Foot Left
       coordinates: {x: 149, y: 370, z: 75, w: 65}
       pivot: {x: 0.5, y: 0.5}
-    - texture: {fileID: 2800000, guid: 95fa3bb9b668a1e45802fdcdb79fdb99, type: 2}
+    - texture: {fileID: 0}
       name: Foot Right
       coordinates: {x: 72, y: 370, z: 76, w: 65}
       pivot: {x: 0.5, y: 0.5}
     folder: 0
   - relationshipName: Torso
     limbsRelated:
-    - texture: {fileID: 2800000, guid: eabc612fe6dcc634baf18e66759097fe, type: 2}
+    - texture: {fileID: 0}
       name: Torso
       coordinates: {x: 496, y: 532, z: 101, w: 112}
       pivot: {x: 0.5, y: 0.5}
