@@ -176,12 +176,20 @@ public class Limb {
     public void SetTexture(Texture2D _Texture) { texture = _Texture; }
     public string GetName() { return name; }
     public void SetName(string Name) { name = Name; }
-    /* 0: X; Where the sprite box starts;
-     * 1: Y; Where the sprite box ends;
-     * 2: Width; Size of the texture;
-     * 3: Height; Size of the texture; */
+    /* x: X; Where the sprite box starts;
+     * y: Y; Where the sprite box ends;
+     * z: Width; Size of the texture;
+     * w: Height; Size of the texture; */
     public Vector4 GetCoordinates() { return coordinates; }
     public void SetCoordinates(Vector4 Coordinates) { coordinates = Coordinates; }
+    public int GetX() { return (int) coordinates.x; }
+    public void SetX(int X) { coordinates.x = X; }
+    public int GetY() { return (int) coordinates.y; }
+    public void SetY(int Y) { coordinates.y = Y; }
+    public int GetWidth() { return (int) coordinates.z; }
+    public void SetWidth(int Width) { coordinates.z = Width; }
+    public int GetHeight() { return (int) coordinates.w; }
+    public void SetHeight(int Height) { coordinates.w = Height; }
     public Vector2 GetPivot() { return pivot; }
     public void SetPivot(Vector2 Pivot) { pivot = Pivot; }
 }
@@ -228,6 +236,20 @@ public class TexturesSOEditor : Editor{
         if (GUILayout.Button("Load Limb Data From Texture")){
             textures.ClearLimbs();
             textures.SetTexture(textures.LoadTextureData(AssetDatabase.GetAssetPath(textures.GetTextureToSearch()), textures, saveTextureAsPng));
+        }
+
+        //Clearing padding artifacts;
+        if (GUILayout.Button("Clean Texture Padding Artifacts")){
+            foreach(Limb limb in textures.GetLimbs()) {
+                int padding = (int) Prefs.padding / 2 + 1;
+                int x = limb.GetX(), y = limb.GetY(), w = limb.GetWidth(), h = limb.GetHeight();
+
+                Utils.ClearTextureAt(new Vector4(x, y + h - padding, w, padding), textures.GetTexture());
+                Utils.ClearTextureAt(new Vector4(w - padding, y, padding, h), textures.GetTexture());
+                Utils.ClearTextureAt(new Vector4(x, y, w, padding), textures.GetTexture());
+                Utils.ClearTextureAt(new Vector4(x, y, padding, h), textures.GetTexture());
+                Utils.PasteTexture(limb, limb.GetTexture(), textures);
+            }
         }
         
     
