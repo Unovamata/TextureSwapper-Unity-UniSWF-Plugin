@@ -239,8 +239,8 @@ public class TexturesSOEditor : Editor{
 
         //Clearing padding artifacts;
         if (GUILayout.Button("Clean Texture Padding Artifacts")){
-            Texture2D source = textures.GetTexture();
-
+            Texture2D source = ConvertDXT5ToRGBA32(textures.GetTexture());
+            
             foreach(Limb limb in textures.GetLimbs()) {
                 int padding = (int) Prefs.padding / 2 - 1;
                 int x = limb.GetX(), y = limb.GetY(), w = limb.GetWidth(), h = limb.GetHeight();
@@ -262,6 +262,13 @@ public class TexturesSOEditor : Editor{
                 LoadLimbInGUI(limb, 2, true);
             }
         } catch { }
+    }
+
+    public Texture2D ConvertDXT5ToRGBA32(Texture2D dxt5Texture){
+        Texture2D rgba32Texture = new Texture2D(dxt5Texture.width, dxt5Texture.height, TextureFormat.RGBA32, false);
+        rgba32Texture.SetPixels32(dxt5Texture.GetPixels32());
+        rgba32Texture.Apply();
+        return rgba32Texture;
     }
 
     //Loads all the needed data in the GUI;
