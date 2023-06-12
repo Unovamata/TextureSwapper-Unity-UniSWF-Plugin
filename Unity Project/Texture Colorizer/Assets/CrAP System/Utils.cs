@@ -18,27 +18,20 @@ public class Utils{
         return clone;
     }
     
-    //Convert a texture to a specific format readable by Color32 functions;
-    public static Texture2D ConvertTextureFormat(Texture2D texture, TextureFormat targetFormat) {
-        //Parameters;
-        int w = texture.width, h = texture.height;
+    public static Texture2D CreateTransparent2DTexture(int w, int h) {
+        //Generating the textures & mapping it to a transparent color;
+        Texture2D texture = new Texture2D(w, h, TextureFormat.RGBA32, false);
+        Color32[] emptyTexturePixels = new Color32[w * h];
+        Color32 transparentColor = new Color32(0, 0, 0, 0);
+        System.Array.Fill(emptyTexturePixels, transparentColor);
+        texture.SetPixels32(emptyTexturePixels);
+        texture.Apply();
+        return texture;
+    }
 
-        //Create temporary render texture;
-        RenderTexture renderTexture = RenderTexture.GetTemporary(texture.width, texture.height, 0, RenderTextureFormat.Default);
-        RenderTexture.active = renderTexture;
-
-        //Destination for target formatting;
-        Texture2D convertedTexture = new Texture2D(w, h, targetFormat, false);
-
-        //Copy the source texture to the render texture;
-        Graphics.Blit(texture, renderTexture);
-
-        //Read pixels and release temporary data;
-        convertedTexture.ReadPixels(new Rect(0, 0, w, h), 0, 0);
-        convertedTexture.Apply();
-        RenderTexture.ReleaseTemporary(renderTexture);
-        
-        return convertedTexture;
+    public static void SaveTexture(Texture2D textureToSave, string savePath){
+        byte[] bytes = textureToSave.EncodeToPNG();
+        File.WriteAllBytes(savePath, bytes);
     }
 
     //Remove a specific texture at a position;
@@ -49,11 +42,6 @@ public class Utils{
         //Save the converted pixels;
         texture.SetPixels32((int) v.x, (int) v.y, (int) v.z, (int) v.w, pixels);
         texture.Apply();
-    }
-
-    public static void SaveTextureAsPNG(Texture2D texture, string filePath){
-        byte[] pngBytes = texture.EncodeToPNG();
-        File.WriteAllBytes(filePath, pngBytes);
     }
 
     //Paste a specific limb texture to the texture sheet;

@@ -33,11 +33,10 @@ public class TexturesSO : ScriptableObject {
     public void SetLimbs(List<Limb> Limbs){ limbs = Limbs; }
     public Texture2D GetTexture() { return texture; }
     public void SetTexture(Texture2D Texture) { 
-        texture = Texture; 
-        SetPath();
+        texture = Texture;
     }
     public Texture2D GetTextureToSearch() { return textureToSearch; }
-    public void SetTextureToSearch(Texture2D TextureToSearch) { textureToSearch = TextureToSearch; }
+    public void SetTextureToSearch() { texture = textureToSearch; }
     public string GetSubGroupRoute(){ return subGroupRoute; }
     public void SetSubGroupRoute(string SubGroupRoute){ subGroupRoute = SubGroupRoute; }
     public string GetPath(){ return path; }
@@ -48,31 +47,24 @@ public class TexturesSO : ScriptableObject {
 
     //***********************************
 
-    public Texture2D CreateTransparent2DTexture(int w, int h) {
-        //Generating the textures & mapping it to a transparent color;
-        Texture2D texture = new Texture2D(w, h, TextureFormat.RGBA32, false);
-        Color32[] emptyTexturePixels = new Color32[w * h];
-        Color32 transparentColor = new Color32(0, 0, 0, 0);
-        System.Array.Fill(emptyTexturePixels, transparentColor);
-        texture.SetPixels32(emptyTexturePixels);
-        texture.Apply();
-        return texture;
-    }
-
     //System Management;
     public Texture2D LoadTextureData(string route, TexturesSO textures, bool saveAsPng) {
         //Sprite has to be located in the "Resources" folder;
         Sprite[] sprites = Resources.LoadAll<Sprite>(FormatRoute(route));
         string path = CreateFolder(textures.name, textures.GetSubGroupRoute());
 
+        
         //Extracting limb data;
         foreach(Sprite sprite in sprites) {
             //Formatting the limb;
             Limb limb = new Limb();
             limb.SetName(sprite.name);
-            int w = (int) sprite.rect.width, h = (int) sprite.rect.height;
 
-            limb.SetCoordinates(new Vector4(sprite.rect.x, sprite.rect.y, w, h));
+            Rect rect = sprite.rect;
+            int x = (int) rect.x, y = (int) rect.y,
+                w = (int) rect.width, h = (int) rect.height;
+
+            limb.SetCoordinates(new Vector4(x, y, w, h));
             /* 0: X; Where the sprite box starts;
              * 1: Y; Where the sprite box ends;
              * 2: Width; Size of the texture;
@@ -80,13 +72,11 @@ public class TexturesSO : ScriptableObject {
 
             //Sprite center;
             limb.SetPivot(new Vector2(sprite.pivot.x / w, sprite.pivot.y / h));
-
             //Generating the textures & mapping it to a transparent color;
-            Texture2D texture = CreateTransparent2DTexture(w, h);
+            Texture2D texture = Utils.CreateTransparent2DTexture(w, h);
 
             //Mapping the limb to the texture;
-            Rect rect = sprite.textureRect;
-            Color[] pixels = sprite.texture.GetPixels((int) rect.x, (int) rect.y, (int) rect.width, (int) rect.height);
+            Color[] pixels = sprite.texture.GetPixels(x, y, w, h);
             texture.SetPixels(pixels);
             
             texture.Apply();
@@ -95,8 +85,7 @@ public class TexturesSO : ScriptableObject {
             string texturePath = path + "/" + sprite.name; // Specify the desired path and filename
             string assetPath = texturePath + ".asset";
             
-            if(saveAsPng) SaveTexture(texturePath, 50, texture, sprite, saveAsPng);
-
+            if(saveAsPng) SaveTexture(texturePath, (int) Prefs.padding, texture, sprite, saveAsPng);
             AssetDatabase.CreateAsset(texture, assetPath);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
@@ -111,7 +100,7 @@ public class TexturesSO : ScriptableObject {
 
     private void SaveTexture(string route, int padding, Texture2D texture, Sprite sprite, bool saveAsPng) {
         route += ".png";
-        Texture2D png = CreateTransparent2DTexture(texture.width - padding, texture.height - padding);
+        Texture2D png = Utils.CreateTransparent2DTexture(texture.width - padding, texture.height - padding);
         int paddingMid = padding / 2;
 
         //Mapping the limb to the texture;
@@ -162,7 +151,6 @@ public class TexturesSO : ScriptableObject {
             }
         }
 
-        Debug.Log(baseRoute + folderPath);
         return baseRoute + folderPath;
     }
 }
@@ -215,6 +203,8 @@ public class TexturesSOEditor : Editor{
         TexturesSO textures = (TexturesSO) target;
         base.OnInspectorGUI();
         string subGroupName = textures.GetSubGroupRoute();
+        textures.SetPath();
+        textures.SetTextureToSearch();
 
         //Naming a subgroup of folders if needed;
         if (!subGroupName.Equals("") && textures.GetLimbs().Count == 0) {
@@ -244,28 +234,26 @@ public class TexturesSOEditor : Editor{
         //Confirm search and load button;
         if (GUILayout.Button("Load Limb Data From Texture")){
             textures.ClearLimbs();
-            textures.SetTexture(textures.LoadTextureData(AssetDatabase.GetAssetPath(textures.GetTextureToSearch()), textures, saveTextureAsPng));
+            textures.LoadTextureData(textures.GetPath(), textures, saveTextureAsPng);
         }
 
         //Clearing padding artifacts;
         if (GUILayout.Button("Clean Texture Padding Artifacts")){
-            
-            textures.SetTexture(Utils.ConvertTextureFormat(textures.GetTextureToSearch(), TextureFormat.RGBA32));
+            Texture2D source = textures.GetTexture();
 
             foreach(Limb limb in textures.GetLimbs()) {
                 int padding = (int) Prefs.padding / 2 - 1;
                 int x = limb.GetX(), y = limb.GetY(), w = limb.GetWidth(), h = limb.GetHeight();
 
-                //Debug.Log(textures.GetTexture().format + " " + limb.GetTexture().format);
-
-                Utils.ClearTextureAt(new Vector4(x, y + h - padding, w, padding), textures.GetTexture());
-                Utils.ClearTextureAt(new Vector4(x + w - padding, y, padding, h), textures.GetTexture());
-                Utils.ClearTextureAt(new Vector4(x, y, w, padding), textures.GetTexture());
-                Utils.ClearTextureAt(new Vector4(x, y, padding, h), textures.GetTexture());
-                Utils.SaveTextureAsPNG(textures.GetTexture(), textures.GetPath());
+                Utils.ClearTextureAt(new Vector4(x, y + h - padding, w, padding), source);
+                Utils.ClearTextureAt(new Vector4(x + w - padding, y, padding, h), source);
+                Utils.ClearTextureAt(new Vector4(x, y, w, padding), source);
+                Utils.ClearTextureAt(new Vector4(x, y, padding, h), source);
             }
+
+            Utils.SaveTexture(source, textures.GetPath());
+            textures.SetTexture(source);
         }
-        
     
         EditorGUILayout.Space();
 
