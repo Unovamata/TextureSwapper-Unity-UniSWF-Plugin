@@ -16,13 +16,13 @@ MonoBehaviour:
   textureToSearch: {fileID: 2800000, guid: 0cabcf50bba3cf64897a776aebd24069, type: 3}
   subGroupRoute: Kitty
   limbs:
-  - texture: {fileID: 2800000, guid: 91b7aa69ab42ade4b817a2947a41ce55, type: 2}
-    name: Ear Righ
-    coordinates: {x: 187, y: 668, z: 138, w: 155}
+  - texture: {fileID: 2800000, guid: 584cf447acc041e479e76f643db097fe, type: 2}
+    name: Ear Left
+    coordinates: {x: 326, y: 668, z: 137, w: 155}
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: 63bbe3f814ae18f48abad0b35bff9fc9, type: 2}
     name: Ear Right
-    coordinates: {x: 326, y: 668, z: 137, w: 155}
+    coordinates: {x: 187, y: 668, z: 138, w: 155}
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: 695bfb40ebde5b54b86092c737a0eb2d, type: 2}
     name: Eye Closed Left

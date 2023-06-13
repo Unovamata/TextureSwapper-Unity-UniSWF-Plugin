@@ -15,5 +15,121 @@ MonoBehaviour:
   texture: {fileID: 2800000, guid: e587f4ea0a7d0ed428ec0ae2937ce5e0, type: 3}
   textureToSearch: {fileID: 2800000, guid: e587f4ea0a7d0ed428ec0ae2937ce5e0, type: 3}
   subGroupRoute: Kitty
-  limbs: []
+  limbs:
+  - texture: {fileID: 2800000, guid: 77d2a7c5b6fbc754186d7dfbe1391d7d, type: 2}
+    name: Ear Left
+    coordinates: {x: 201, y: 629, z: 143, w: 193}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: c98821830893d1f49aaa40d538538269, type: 2}
+    name: Ear Right
+    coordinates: {x: 345, y: 629, z: 143, w: 193}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 26e6454748a6f094b9ff31b77a0174e2, type: 2}
+    name: Eye Closed Left
+    coordinates: {x: 59, y: 425, z: 156, w: 71}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: a2e003949e8c97549a49498da9af7b61, type: 2}
+    name: Eye Closed Right
+    coordinates: {x: 377, y: 431, z: 155, w: 72}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: dfe1ce4abe056c24493e4651110f6049, type: 2}
+    name: Eye Open Left
+    coordinates: {x: 377, y: 504, z: 138, w: 124}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 75380d13ecf3b684783ab383709e34be, type: 2}
+    name: Eye Open Right
+    coordinates: {x: 59, y: 497, z: 138, w: 124}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 731d4b4769a0d554b87efd48f8cc8bf7, type: 2}
+    name: Eye Partially Open Left
+    coordinates: {x: 401, y: 823, z: 154, w: 94}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 2c66ee5728e97804b891fa794fdb2605, type: 2}
+    name: Eye Partially Open Right
+    coordinates: {x: 401, y: 928, z: 153, w: 95}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: bd23b331da9f70b4f9d39f53996ddd5a, type: 2}
+    name: Foot Left
+    coordinates: {x: 533, y: 346, z: 76, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: bb07a5117a9b82e4ba72d461e8ad82b9, type: 2}
+    name: Foot Right
+    coordinates: {x: 239, y: 352, z: 76, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 033373619731b6941b5226b9ef294664, type: 2}
+    name: Forearm Left
+    coordinates: {x: 602, y: 420, z: 69, w: 83}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: b23f5a02aeb7e1f4cb251c16228f7354, type: 2}
+    name: Forearm Right
+    coordinates: {x: 591, y: 629, z: 69, w: 83}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 94ca37c0362c8844f8b797153664e74c, type: 2}
+    name: Hand Left
+    coordinates: {x: 603, y: 564, z: 70, w: 64}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: c7a56aa85da5ac244b65495b98577f1b, type: 2}
+    name: Hand Right
+    coordinates: {x: 59, y: 360, z: 70, w: 64}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 9334b2c1ff6d60842a20d743fbfff93e, type: 2}
+    name: Head Center
+    coordinates: {x: 59, y: 622, z: 141, w: 200}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: ad15805648644cf4a87e804559c8e9a6, type: 2}
+    name: Head Left
+    coordinates: {x: 1, y: 823, z: 199, w: 200}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 99a1d918d949c274e891737f5ed3b8d6, type: 2}
+    name: Head Right
+    coordinates: {x: 201, y: 823, z: 199, w: 200}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: e2025e2b254e1aa4eb96845a8dc3505c, type: 2}
+    name: Knee Left
+    coordinates: {x: 460, y: 352, z: 72, w: 78}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 7924af6ee83219841b11ced72a902fee, type: 2}
+    name: Knee Right
+    coordinates: {x: 377, y: 353, z: 72, w: 77}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 7e69e64520dbfef4b9c675b3320f9e15, type: 2}
+    name: Mouth Closed
+    coordinates: {x: 134, y: 363, z: 81, w: 61}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: e65fb245c8cdc834caf2370ad8e5e2ea, type: 2}
+    name: Mouth Open
+    coordinates: {x: 489, y: 742, z: 86, w: 78}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 561952e2b682fda4b94f9adb84a82860, type: 2}
+    name: Nose
+    coordinates: {x: 516, y: 544, z: 86, w: 84}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: a7e2a9041247a524abb7f23f8c7d172e, type: 2}
+    name: Shadow
+    coordinates: {x: 201, y: 515, z: 175, w: 113}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: b0201e1ad632f0249b4adc5f1d7c0684, type: 2}
+    name: Shoulder Left
+    coordinates: {x: 533, y: 412, z: 68, w: 91}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 74acf3e0d51d6b74d9567297674a12bf, type: 2}
+    name: Shoulder Right
+    coordinates: {x: 555, y: 932, z: 68, w: 91}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: f52aaf848f3a2af4f8e84519c3f2b918, type: 2}
+    name: Thigh Left
+    coordinates: {x: 556, y: 832, z: 72, w: 85}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 2223a7cc13fbeec4fa7514420aab9ee2, type: 2}
+    name: Thigh Right
+    coordinates: {x: 576, y: 742, z: 71, w: 85}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 10dde814a15b55b4a981990bc454b765, type: 2}
+    name: Torso
+    coordinates: {x: 489, y: 629, z: 101, w: 112}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 08a6436b99274454eb5a8ae191ee8470, type: 2}
+    name: Tuft
+    coordinates: {x: 239, y: 418, z: 137, w: 96}
+    pivot: {x: 0.5, y: 0.5}
   path: Assets/Resources/Textures/Kitty CrAP/Kitty1.png

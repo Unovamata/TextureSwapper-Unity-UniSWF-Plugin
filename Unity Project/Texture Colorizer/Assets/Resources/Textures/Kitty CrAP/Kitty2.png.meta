@@ -252,7 +252,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ear Righ
+      name: Ear Right
       rect:
         serializedVersion: 2
         x: 187
@@ -273,7 +273,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ear Right
+      name: Ear Left
       rect:
         serializedVersion: 2
         x: 326
@@ -724,8 +724,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ear Righ: -1133292641
-      Ear Right: -1747474089
+      Ear Left: -1747474089
+      Ear Right: -1133292641
       Eye Closed Left: -1459512959
       Eye Closed Right: 1614420146
       Eye Open Left: -340290804
