@@ -140,15 +140,19 @@ public class TexturesSO : ScriptableObject {
             groupSplit = (groupRoute + "/" + textureName).Split("/");
         }
 
-        foreach (string folderName in groupSplit){
+        for(int i = 0; i < groupSplit.Length; i++) {
+            string folderName = groupSplit[i];
             folderPath += "/" + folderName;
             
 
             // If the folder has a valid path and name, create it
             string relativeFolderPath = baseRoute + folderPath;
             string folderCreationRoute = baseRoute + folderPath.Substring(0, folderPath.LastIndexOf('/'));
-            
             string folderToReplace = folderCreationRoute + "/" + textureName;
+
+            if (AssetDatabase.IsValidFolder(relativeFolderPath) && i == groupSplit.Length - 1) {
+                AssetDatabase.DeleteAsset(folderToReplace);
+            }
 
             if (!AssetDatabase.IsValidFolder(relativeFolderPath)){
                 AssetDatabase.CreateFolder(folderCreationRoute, folderName);
