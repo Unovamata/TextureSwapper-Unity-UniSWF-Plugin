@@ -52,7 +52,6 @@ public class TexturesSO : ScriptableObject {
         //Sprite has to be located in the "Resources" folder;
         Sprite[] sprites = Resources.LoadAll<Sprite>(FormatRoute(route));
         string path = CreateFolder(textures.name, textures.GetSubGroupRoute());
-
         
         //Extracting limb data;
         foreach(Sprite sprite in sprites) {
@@ -87,13 +86,14 @@ public class TexturesSO : ScriptableObject {
             
             if(saveAsPng) SaveTexture(texturePath, (int) Prefs.padding, texture, sprite, saveAsPng);
             AssetDatabase.CreateAsset(texture, assetPath);
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
 
             //Saving the data;
             limb.SetTexture(AssetDatabase.LoadAssetAtPath<Texture2D>(assetPath));
             textures.AddLimb(limb);
         }
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
 
         return Resources.Load<Texture2D>(route);
     }
@@ -142,11 +142,16 @@ public class TexturesSO : ScriptableObject {
 
         foreach (string folderName in groupSplit){
             folderPath += "/" + folderName;
+            
 
             // If the folder has a valid path and name, create it
             string relativeFolderPath = baseRoute + folderPath;
+            string folderCreationRoute = baseRoute + folderPath.Substring(0, folderPath.LastIndexOf('/'));
+            
+            string folderToReplace = folderCreationRoute + "/" + textureName;
+
             if (!AssetDatabase.IsValidFolder(relativeFolderPath)){
-                AssetDatabase.CreateFolder(baseRoute + folderPath.Substring(0, folderPath.LastIndexOf('/')), folderName);
+                AssetDatabase.CreateFolder(folderCreationRoute, folderName);
                 Debug.Log("Folder Created: " + folderName);
             }
         }

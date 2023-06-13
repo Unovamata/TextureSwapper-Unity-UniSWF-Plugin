@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
   m_Name: Kitty1
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: 18cf76e7937635d4eb8f8585df4a851b, type: 3}
-  textureToSearch: {fileID: 2800000, guid: 18cf76e7937635d4eb8f8585df4a851b, type: 3}
+  texture: {fileID: 2800000, guid: e587f4ea0a7d0ed428ec0ae2937ce5e0, type: 3}
+  textureToSearch: {fileID: 2800000, guid: e587f4ea0a7d0ed428ec0ae2937ce5e0, type: 3}
   subGroupRoute: Kitty
   limbs:
   - texture: {fileID: 2800000, guid: 77d2a7c5b6fbc754186d7dfbe1391d7d, type: 2}
@@ -132,4 +132,4 @@ MonoBehaviour:
     name: Tuft
     coordinates: {x: 239, y: 418, z: 137, w: 96}
     pivot: {x: 0.5, y: 0.5}
-  path: Assets/Resources/Textures/Kitty CrAP/Dupe.png
+  path: Assets/Resources/Textures/Kitty CrAP/Kitty1.png

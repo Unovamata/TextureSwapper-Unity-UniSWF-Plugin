@@ -60,6 +60,9 @@ public class CustomInspector : Editor {
 
 
         EditorGUILayout.Space();
+
+        if(manager.textureToReference.Length == 0) return;
+
         EditorGUILayout.LabelField("Texture Management", EditorStyles.boldLabel);
 
         try {

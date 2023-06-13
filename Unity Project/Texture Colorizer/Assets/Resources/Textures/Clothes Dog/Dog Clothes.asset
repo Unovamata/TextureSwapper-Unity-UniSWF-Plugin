@@ -1,0 +1,211 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
+  m_Name: Dog Clothes
+  m_EditorClassIdentifier: 
+  texture: {fileID: 2800000, guid: a99fe8a9aba985a4594ef4eed3bd9a4c, type: 3}
+  textureToSearch: {fileID: 2800000, guid: a99fe8a9aba985a4594ef4eed3bd9a4c, type: 3}
+  subGroupRoute: 
+  limbs:
+  - texture: {fileID: 2800000, guid: aa5dc78c60658a747932accb38bc0394, type: 2}
+    name: Dog Clothes.swf_Tex0_2
+    coordinates: {x: 323, y: 826, z: 157, w: 142}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 899278eba3a3dcc42bcb50eb106aaaf5, type: 2}
+    name: Dog Clothes.swf_Tex0_4
+    coordinates: {x: 621, y: 859, z: 103, w: 109}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 059e69f65b43aee4ba6f85f0205bb838, type: 2}
+    name: Dog Clothes.swf_Tex0_5
+    coordinates: {x: 725, y: 945, z: 80, w: 71}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 6606c44c338fc464b93a69c174b225cd, type: 2}
+    name: Dog Clothes.swf_Tex0_7
+    coordinates: {x: 4, y: 624, z: 157, w: 200}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: d00a753668e128a46a171854a5f138bf, type: 2}
+    name: Dog Clothes.swf_Tex0_9
+    coordinates: {x: 320, y: 701, z: 182, w: 124}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 74730d35a6aaf9f469ce6c30d06a2720, type: 2}
+    name: Dog Clothes.swf_Tex0_11
+    coordinates: {x: 641, y: 746, z: 110, w: 79}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 49e285798b4992243995b2c648ed05e0, type: 2}
+    name: Dog Clothes.swf_Tex0_12
+    coordinates: {x: 752, y: 746, z: 71, w: 71}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 10c68364633bea24f9ecf6080c07866d, type: 2}
+    name: Dog Clothes.swf_Tex0_13
+    coordinates: {x: 320, y: 558, z: 158, w: 142}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: e40d80ea57aea1e4ea2184ff57674f4b, type: 2}
+    name: Dog Clothes.swf_Tex0_14
+    coordinates: {x: 641, y: 680, z: 77, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 79a50700bbf0f6f46b42bb7ab1bbf8bc, type: 2}
+    name: Dog Clothes.swf_Tex0_15
+    coordinates: {x: 722, y: 659, z: 76, w: 80}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: af66d2b0b220049439961e5ad707f06d, type: 2}
+    name: Dog Clothes.swf_Tex0_26
+    coordinates: {x: 40, y: 325, z: 110, w: 117}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 5fbc8b18eb52ee442b9e6085fa544253, type: 2}
+    name: Dog Clothes.swf_Tex0_27
+    coordinates: {x: 209, y: 326, z: 110, w: 117}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: e9ce83acd379e314395d8586b1b6477a, type: 2}
+    name: Dog Clothes.swf_Tex0_28
+    coordinates: {x: 381, y: 330, z: 114, w: 113}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 416a4325cc961a0498ac1b585dbfbe46, type: 2}
+    name: Dog Clothes.swf_Tex0_30
+    coordinates: {x: 649, y: 372, z: 110, w: 73}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 9e1374b95a5064e4db997fb7361294a7, type: 2}
+    name: Dog Clothes.swf_Tex0_32
+    coordinates: {x: 40, y: 244, z: 77, w: 80}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 1dae007c5d529794fba8c6b09a161dca, type: 2}
+    name: Dog Clothes.swf_Tex0_38
+    coordinates: {x: 749, y: 286, z: 71, w: 71}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: d08bda7877cfc2a429250c8618170af8, type: 2}
+    name: Dog Clothes.swf_Tex0_43
+    coordinates: {x: 418, y: 197, z: 77, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 1c39635890c6454429be0f51396d4107, type: 2}
+    name: Dog Clothes.swf_Tex0_46
+    coordinates: {x: 659, y: 215, z: 80, w: 70}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 7a82b6c92d342f84da35fceb6c1fb4a2, type: 2}
+    name: Dupe Head Center
+    coordinates: {x: 162, y: 625, z: 157, w: 200}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: b77cc09d490771741809beb9792aacc7, type: 2}
+    name: Ear Left
+    coordinates: {x: 162, y: 444, z: 121, w: 180}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: b802f8383ef6f2e42bf28a1aaa1d1fda, type: 2}
+    name: Ear Right
+    coordinates: {x: 40, y: 443, z: 121, w: 180}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 34066de5d1f10f6428d09151e000cd70, type: 2}
+    name: Eye Closed Left
+    coordinates: {x: 333, y: 263, z: 162, w: 66}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 4650c2c0a68f03a49937dd2d9afe112c, type: 2}
+    name: Eye Closed Right
+    coordinates: {x: 496, y: 305, z: 162, w: 66}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 7c55005a764c1cf40bc274f0768b6786, type: 2}
+    name: Eye Open Left
+    coordinates: {x: 479, y: 558, z: 140, w: 121}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 7bb35323b28407e4188f569265f2b826, type: 2}
+    name: Eye Open Right
+    coordinates: {x: 481, y: 847, z: 139, w: 121}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 7b664bfee5862da49b9c1edd069a7ce8, type: 2}
+    name: Eye Partially Open Left
+    coordinates: {x: 496, y: 465, z: 152, w: 92}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: d2038cf76bbbdc34299198c20d6c165f, type: 2}
+    name: Eye Partially Open Right
+    coordinates: {x: 496, y: 372, z: 152, w: 92}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: dcb53abc53fc16241ba585cf85ab0671, type: 2}
+    name: Foot Left
+    coordinates: {x: 40, y: 178, z: 75, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 91e8a712f7efbc54dbfacaad6732b484, type: 2}
+    name: Foot Right
+    coordinates: {x: 760, y: 380, z: 76, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 248b7a4719e3f2644ad350838a50115b, type: 2}
+    name: Forearm Left
+    coordinates: {x: 589, y: 221, z: 69, w: 83}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: b786fb4592e61dc4ba364a681f791106, type: 2}
+    name: Forearm Right
+    coordinates: {x: 496, y: 221, z: 69, w: 83}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: cb77135d588610c4fa4a35ddfbf1eb97, type: 2}
+    name: Hand Left
+    coordinates: {x: 251, y: 170, z: 70, w: 63}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 9d2d482bcd3ce6746bab3f7f2bb2059d, type: 2}
+    name: Hand Right
+    coordinates: {x: 118, y: 175, z: 70, w: 63}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 092f366caf30a6d49b4610fc182fa53b, type: 2}
+    name: Head Left
+    coordinates: {x: 1, y: 825, z: 160, w: 198}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 7dbf29d58a192a74e96823c5feb98383, type: 2}
+    name: Head Right
+    coordinates: {x: 162, y: 826, z: 160, w: 197}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 9699542c4ea4a1c4aad4aee82e7d78ce, type: 2}
+    name: Knee Left
+    coordinates: {x: 740, y: 474, z: 72, w: 78}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: c86e7704b9227be409772ccf250a047d, type: 2}
+    name: Knee Right
+    coordinates: {x: 740, y: 208, z: 72, w: 77}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 370f45a829047c9479c1abbcfca15949, type: 2}
+    name: Mouth Closed
+    coordinates: {x: 333, y: 197, z: 84, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 41a220fe31c3c834583a9dc25fcc4e59, type: 2}
+    name: Mouth Open
+    coordinates: {x: 659, y: 286, z: 89, w: 85}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: b42d8d7b4d212c34cbe15d50b969976f, type: 2}
+    name: Muzzle
+    coordinates: {x: 649, y: 465, z: 90, w: 87}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: ca993119e0bd02c4e86444a0c30a66d8, type: 2}
+    name: Nose
+    coordinates: {x: 791, y: 567, z: 69, w: 61}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 6c9257ba20df0f949883640a95c8f902, type: 2}
+    name: Shadow
+    coordinates: {x: 320, y: 444, z: 175, w: 113}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 5434ee9adfb5b784dbdde1245edfff1a, type: 2}
+    name: Shoulder Left
+    coordinates: {x: 722, y: 567, z: 68, w: 91}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 666d2bd6319a03045be6d3154b7f6579, type: 2}
+    name: Shoulder Right
+    coordinates: {x: 251, y: 234, z: 68, w: 91}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: d4af6828798f2ec498925a9856dd4c66, type: 2}
+    name: Thigh Left
+    coordinates: {x: 118, y: 239, z: 72, w: 85}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: 638110bd71ad22445be3b03ec3c9e2c6, type: 2}
+    name: Thigh Right
+    coordinates: {x: 725, y: 859, z: 71, w: 85}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: ebefdd661f5d11b4ba8cdd492a3ac4a2, type: 2}
+    name: Torso
+    coordinates: {x: 620, y: 567, z: 101, w: 112}
+    pivot: {x: 0.5, y: 0.5}
+  - texture: {fileID: 2800000, guid: be752bcddaddf214faf4af5ff1deab4d, type: 2}
+    name: Tuft
+    coordinates: {x: 503, y: 729, z: 137, w: 96}
+    pivot: {x: 0.5, y: 0.5}
+  path: Assets/Resources/Textures/Clothes Dog/Dog Clothes.png

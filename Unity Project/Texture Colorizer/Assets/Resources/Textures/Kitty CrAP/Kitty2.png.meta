@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kitty2_0
+      name: Head Left
       rect:
         serializedVersion: 2
         x: 1
@@ -113,7 +113,7 @@ TextureImporter:
         width: 185
         height: 199
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,7 +126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_1
+      name: Head Right
       rect:
         serializedVersion: 2
         x: 187
@@ -134,7 +134,7 @@ TextureImporter:
         width: 185
         height: 199
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,7 +147,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_2
+      name: Eye Partially Open Right
       rect:
         serializedVersion: 2
         x: 373
@@ -155,7 +155,7 @@ TextureImporter:
         width: 166
         height: 89
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,7 +168,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_3
+      name: Thigh Right
       rect:
         serializedVersion: 2
         x: 540
@@ -176,7 +176,7 @@ TextureImporter:
         width: 72
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,7 +189,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_4
+      name: Eye Partially Open Left
       rect:
         serializedVersion: 2
         x: 373
@@ -197,7 +197,7 @@ TextureImporter:
         width: 166
         height: 89
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,7 +210,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_5
+      name: Shoulder Right
       rect:
         serializedVersion: 2
         x: 540
@@ -218,7 +218,7 @@ TextureImporter:
         width: 68
         height: 91
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,7 +231,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_6
+      name: Head Center
       rect:
         serializedVersion: 2
         x: 44
@@ -239,7 +239,7 @@ TextureImporter:
         width: 142
         height: 198
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,7 +252,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_7
+      name: Ear Righ
       rect:
         serializedVersion: 2
         x: 187
@@ -260,7 +260,7 @@ TextureImporter:
         width: 138
         height: 155
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,7 +273,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_8
+      name: Ear Right
       rect:
         serializedVersion: 2
         x: 326
@@ -281,7 +281,7 @@ TextureImporter:
         width: 137
         height: 155
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,7 +294,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_9
+      name: Tuft
       rect:
         serializedVersion: 2
         x: 464
@@ -302,7 +302,7 @@ TextureImporter:
         width: 113
         height: 118
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -315,7 +315,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_10
+      name: Forearm Left
       rect:
         serializedVersion: 2
         x: 578
@@ -323,7 +323,7 @@ TextureImporter:
         width: 69
         height: 83
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -336,7 +336,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_11
+      name: Shadow
       rect:
         serializedVersion: 2
         x: 11
@@ -344,7 +344,7 @@ TextureImporter:
         width: 175
         height: 113
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -357,7 +357,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_12
+      name: Eye Open Right
       rect:
         serializedVersion: 2
         x: 187
@@ -365,7 +365,7 @@ TextureImporter:
         width: 152
         height: 134
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -378,7 +378,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_13
+      name: Eye Open Left
       rect:
         serializedVersion: 2
         x: 340
@@ -386,7 +386,7 @@ TextureImporter:
         width: 152
         height: 134
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -399,7 +399,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_14
+      name: Torso
       rect:
         serializedVersion: 2
         x: 493
@@ -407,7 +407,7 @@ TextureImporter:
         width: 101
         height: 112
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -420,7 +420,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_15
+      name: Hand Left
       rect:
         serializedVersion: 2
         x: 595
@@ -428,7 +428,7 @@ TextureImporter:
         width: 70
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -441,7 +441,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_16
+      name: Hand Right
       rect:
         serializedVersion: 2
         x: 595
@@ -449,7 +449,7 @@ TextureImporter:
         width: 70
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -462,7 +462,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_17
+      name: Eye Closed Left
       rect:
         serializedVersion: 2
         x: 30
@@ -470,7 +470,7 @@ TextureImporter:
         width: 156
         height: 71
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -483,7 +483,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_18
+      name: Mouth Open
       rect:
         serializedVersion: 2
         x: 187
@@ -491,7 +491,7 @@ TextureImporter:
         width: 86
         height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -504,7 +504,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_19
+      name: Nose
       rect:
         serializedVersion: 2
         x: 276
@@ -512,7 +512,7 @@ TextureImporter:
         width: 63
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -525,7 +525,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_20
+      name: Eye Closed Right
       rect:
         serializedVersion: 2
         x: 340
@@ -533,7 +533,7 @@ TextureImporter:
         width: 155
         height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -546,7 +546,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_21
+      name: Shoulder Left
       rect:
         serializedVersion: 2
         x: 496
@@ -554,7 +554,7 @@ TextureImporter:
         width: 68
         height: 91
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -567,7 +567,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_22
+      name: Thigh Left
       rect:
         serializedVersion: 2
         x: 565
@@ -575,7 +575,7 @@ TextureImporter:
         width: 71
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -588,7 +588,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_23
+      name: Foot Left
       rect:
         serializedVersion: 2
         x: 30
@@ -596,7 +596,7 @@ TextureImporter:
         width: 76
         height: 65
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -609,7 +609,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_24
+      name: Foot Right
       rect:
         serializedVersion: 2
         x: 107
@@ -617,7 +617,7 @@ TextureImporter:
         width: 76
         height: 65
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -630,7 +630,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_25
+      name: Knee Right
       rect:
         serializedVersion: 2
         x: 201
@@ -638,7 +638,7 @@ TextureImporter:
         width: 72
         height: 77
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -651,7 +651,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_26
+      name: Forearm Right
       rect:
         serializedVersion: 2
         x: 340
@@ -659,7 +659,7 @@ TextureImporter:
         width: 69
         height: 83
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -672,7 +672,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_27
+      name: Knee Left
       rect:
         serializedVersion: 2
         x: 423
@@ -680,7 +680,7 @@ TextureImporter:
         width: 72
         height: 78
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -693,7 +693,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kitty2_28
+      name: Mouth Closed
       rect:
         serializedVersion: 2
         x: 565
@@ -701,7 +701,7 @@ TextureImporter:
         width: 78
         height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -724,35 +724,35 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Kitty2_0: -1882335897
-      Kitty2_1: 1428473794
-      Kitty2_10: 2051672069
-      Kitty2_11: -167172384
-      Kitty2_12: 1100706057
-      Kitty2_13: -340290804
-      Kitty2_14: 945442738
-      Kitty2_15: -137335080
-      Kitty2_16: -531819336
-      Kitty2_17: -1459512959
-      Kitty2_18: 139577403
-      Kitty2_19: -1477499278
-      Kitty2_2: 1267210316
-      Kitty2_20: 1614420146
-      Kitty2_21: 2013625549
-      Kitty2_22: -1148677122
-      Kitty2_23: -2120641826
-      Kitty2_24: 1923091540
-      Kitty2_25: 771048425
-      Kitty2_26: -1174211977
-      Kitty2_27: -130745481
-      Kitty2_28: -502884573
-      Kitty2_3: 413655320
-      Kitty2_4: 1572336717
-      Kitty2_5: 206628845
-      Kitty2_6: -488407981
-      Kitty2_7: -1133292641
-      Kitty2_8: -1747474089
-      Kitty2_9: -2101637459
+      Ear Righ: -1133292641
+      Ear Right: -1747474089
+      Eye Closed Left: -1459512959
+      Eye Closed Right: 1614420146
+      Eye Open Left: -340290804
+      Eye Open Right: 1100706057
+      Eye Partially Open Left: 1572336717
+      Eye Partially Open Right: 1267210316
+      Foot Left: -2120641826
+      Foot Right: 1923091540
+      Forearm Left: 2051672069
+      Forearm Right: -1174211977
+      Hand Left: -137335080
+      Hand Right: -531819336
+      Head Center: -488407981
+      Head Left: -1882335897
+      Head Right: 1428473794
+      Knee Left: -130745481
+      Knee Right: 771048425
+      Mouth Closed: -502884573
+      Mouth Open: 139577403
+      Nose: -1477499278
+      Shadow: -167172384
+      Shoulder Left: 2013625549
+      Shoulder Right: 206628845
+      Thigh Left: -1148677122
+      Thigh Right: 413655320
+      Torso: 945442738
+      Tuft: -2101637459
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
