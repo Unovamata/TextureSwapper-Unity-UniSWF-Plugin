@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
   m_Name: Grreg
   m_EditorClassIdentifier: 
-  texture: {fileID: 0}
+  texture: {fileID: 2800000, guid: c294bfa4901e6a84ebc39a4251e0c1f7, type: 3}
   textureToSearch: {fileID: 2800000, guid: c294bfa4901e6a84ebc39a4251e0c1f7, type: 3}
   subGroupRoute: 
   limbs:
@@ -164,4 +164,4 @@ MonoBehaviour:
     name: Tuft
     coordinates: {x: 451, y: 556, z: 97, w: 109}
     pivot: {x: 0.5, y: 0.5}
-  path: 
+  path: Assets/Resources/Textures/Grreg/Grreg.png

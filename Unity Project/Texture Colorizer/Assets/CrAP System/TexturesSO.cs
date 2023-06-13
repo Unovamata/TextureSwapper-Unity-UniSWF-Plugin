@@ -242,7 +242,7 @@ public class TexturesSOEditor : Editor{
             Texture2D source = ConvertDXT5ToRGBA32(textures.GetTexture());
             
             foreach(Limb limb in textures.GetLimbs()) {
-                int padding = (int) Prefs.padding / 2 - 1;
+                int padding = (int) Prefs.padding / 2;
                 int x = limb.GetX(), y = limb.GetY(), w = limb.GetWidth(), h = limb.GetHeight();
 
                 Utils.ClearTextureAt(new Vector4(x, y + h - padding, w, padding), source);

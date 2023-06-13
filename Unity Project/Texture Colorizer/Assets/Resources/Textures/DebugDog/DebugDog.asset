@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
   m_Name: DebugDog
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: 3b58b29a268f24a4186cc74337a2e8c7, type: 3}
-  textureToSearch: {fileID: 2800000, guid: 3b58b29a268f24a4186cc74337a2e8c7, type: 3}
+  texture: {fileID: 2800000, guid: ce3e44cf1c2745840853974a22043ebc, type: 3}
+  textureToSearch: {fileID: 2800000, guid: ce3e44cf1c2745840853974a22043ebc, type: 3}
   subGroupRoute: 
   limbs:
   - texture: {fileID: 2800000, guid: 6975af2707b9ad74b9b37f0ab43730d5, type: 2}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
   m_Name: Kitty1
   m_EditorClassIdentifier: 
-  texture: {fileID: 0}
-  textureToSearch: {fileID: 2800000, guid: e587f4ea0a7d0ed428ec0ae2937ce5e0, type: 3}
+  texture: {fileID: 2800000, guid: 18cf76e7937635d4eb8f8585df4a851b, type: 3}
+  textureToSearch: {fileID: 2800000, guid: 18cf76e7937635d4eb8f8585df4a851b, type: 3}
   subGroupRoute: Kitty
   limbs:
   - texture: {fileID: 2800000, guid: 77d2a7c5b6fbc754186d7dfbe1391d7d, type: 2}
@@ -42,7 +42,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: 731d4b4769a0d554b87efd48f8cc8bf7, type: 2}
     name: Eye Partially Open Left
-    coordinates: {x: 425, y: 823, z: 130, w: 94}
+    coordinates: {x: 401, y: 823, z: 154, w: 94}
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: 2c66ee5728e97804b891fa794fdb2605, type: 2}
     name: Eye Partially Open Right
@@ -100,10 +100,6 @@ MonoBehaviour:
     name: Mouth Open
     coordinates: {x: 489, y: 742, z: 86, w: 78}
     pivot: {x: 0.5, y: 0.5}
-  - texture: {fileID: 2800000, guid: 68ffb4089a6bbdd4f818a51eb0fb6af7, type: 2}
-    name: Muzzle
-    coordinates: {x: 239, y: 418, z: 137, w: 96}
-    pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: 561952e2b682fda4b94f9adb84a82860, type: 2}
     name: Nose
     coordinates: {x: 516, y: 544, z: 86, w: 84}
@@ -132,4 +128,8 @@ MonoBehaviour:
     name: Torso
     coordinates: {x: 489, y: 629, z: 101, w: 112}
     pivot: {x: 0.5, y: 0.5}
-  path: 
+  - texture: {fileID: 2800000, guid: 08a6436b99274454eb5a8ae191ee8470, type: 2}
+    name: Tuft
+    coordinates: {x: 239, y: 418, z: 137, w: 96}
+    pivot: {x: 0.5, y: 0.5}
+  path: Assets/Resources/Textures/Kitty CrAP/Dupe.png
