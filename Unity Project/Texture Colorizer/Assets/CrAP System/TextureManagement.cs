@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -8,6 +9,7 @@ public class TextureManagement : MonoBehaviour{
     public TexturesSO textures;
     public TexturesSO[] textureToReference;
     public SkeletonSO skeleton;
+    List<SkeletonRelationships> skeletonRelationships;
     [HideInInspector] public Texture2D newTextureToManage;
 
     //Unity Editor;
@@ -41,7 +43,42 @@ public class TextureManagement : MonoBehaviour{
     void Update(){
         material.mainTexture = newTextureToManage;
         mesh.material = material;
+
+        //PREVIEW CODE ONLY, DO NOT USE IN PRODUCTION, IT IS VERY TAXING ON MEMORY;
+        /*SkeletonRelationships Head, Eyes, Ears, Mouth, Nose, Tuft;
+
+        if(!isCouroutineRunning) {
+            TexturesSO texture = textureToReference[Random.Range(0, textureToReference.Length)];
+            Head = skeleton.GetRelationships().FirstOrDefault(x => x.GetRelationshipName() == "Head");
+            Eyes = skeleton.GetRelationships().FirstOrDefault(x => x.GetRelationshipName() == "Eyes");
+            Ears = skeleton.GetRelationships().FirstOrDefault(x => x.GetRelationshipName() == "Ears");
+            Mouth = skeleton.GetRelationships().FirstOrDefault(x => x.GetRelationshipName() == "Mouth");
+            Nose = skeleton.GetRelationships().FirstOrDefault(x => x.GetRelationshipName() == "Nose");
+            Tuft = skeleton.GetRelationships().FirstOrDefault(x => x.GetRelationshipName() == "Tuft");
+
+            StartCoroutine(RandomTextureSwap(Head, Ears, Mouth, Nose, Tuft, Eyes));
+        }*/
     }
+
+    //PREVIEW CODE ONLY, DO NOT USE IN PRODUCTION, IT IS VERY TAXING ON MEMORY;
+    /*private bool isCouroutineRunning = false;
+
+    private IEnumerator RandomTextureSwap(params SkeletonRelationships[] limbs){
+        isCouroutineRunning = true;
+
+        for(int i = 0; i < limbs.Length; i++) {
+            int textureType = Random.Range(0, textureToReference.Length - 1);
+
+            foreach(Limb limb in limbs[i].GetLimbsRelated()) {
+                Utils.ClearTextureAt(limb.GetCoordinates(), newTextureToManage);
+                Utils.PasteTexture(limb, newTextureToManage, 
+                    textureToReference[textureType]);
+            }
+        }
+
+        yield return new WaitForSeconds(4f);
+        isCouroutineRunning = false;
+    }*/
 }
 
 ////////////////////////////////////////////////////////////////////

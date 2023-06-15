@@ -78,11 +78,11 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: f1e8a90190aac6044bb33e0a3c93b9b6, type: 2}
     name: Head Left
-    coordinates: {x: 1, y: 830, z: 188, w: 193}
+    coordinates: {x: 190, y: 831, z: 188, w: 192}
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: 2f9117d33de5c214fa385c67abadd5ef, type: 2}
     name: Head Right
-    coordinates: {x: 190, y: 831, z: 188, w: 192}
+    coordinates: {x: 1, y: 830, z: 188, w: 193}
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: b886c5afd87702e48b0154bf002a7cfa, type: 2}
     name: Knee Left

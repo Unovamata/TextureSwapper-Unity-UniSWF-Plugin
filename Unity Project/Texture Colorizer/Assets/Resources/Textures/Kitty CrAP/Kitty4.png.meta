@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Head Left
+      name: Head Right
       rect:
         serializedVersion: 2
         x: 1
@@ -126,7 +126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Head Right
+      name: Head Left
       rect:
         serializedVersion: 2
         x: 190
@@ -739,8 +739,8 @@ TextureImporter:
       Hand Left: 1299748210
       Hand Right: 1411581535
       Head Center: -191550302
-      Head Left: 2026567612
-      Head Right: -1144768747
+      Head Left: -1144768747
+      Head Right: 2026567612
       Knee Left: 396227226
       Knee Right: -59719199
       Mouth Closed: 1155919916

@@ -60,22 +60,7 @@ public class Utils{
 
         // Resize the source texture, if necessary;
         if (sourceWidth != w || sourceHeight != h){
-            Texture2D resizedTexture = new Texture2D(w, h);
-            Color32[] resizedPixels = new Color32[w * h];
-
-            //Round the pixels of the image to fit it into the new texture;
-            for (int i = 0; i < h; i++){
-                for (int j = 0; j < w; j++){
-                    int sourceX = Mathf.RoundToInt(j * (sourceWidth / (float)w));
-                    int sourceY = Mathf.RoundToInt(i * (sourceHeight / (float)h));
-                    resizedPixels[i * w + j] = pasteTexture.GetPixel(sourceX, sourceY);
-                }
-            }
-
-            resizedTexture.SetPixels32(resizedPixels);
-            resizedTexture.Apply();
-
-            // Copy the resized texture to the target texture
+            Texture2D resizedTexture = BisharpScalingInterpolation(pasteTexture, w, h, sourceWidth, sourceHeight);
             Graphics.CopyTexture(resizedTexture, 0, 0, 0, 0, w, h, skeletonTexture, 0, 0, x, y);
         }
         else{
@@ -84,6 +69,61 @@ public class Utils{
         }
 
         skeletonTexture.Apply();
+    }
+
+    //Use bicubic interpolation to scale the texture;
+    public static Texture2D BisharpScalingInterpolation(Texture2D pasteTexture, int w, int h, int sourceWidth, int sourceHeight) {
+        Texture2D resizedTexture = new Texture2D(w, h);
+        Color32[] resizedPixels = new Color32[w * h];
+
+        // Bisharp scaling algorithm
+        float scaleX = (float)sourceWidth / w;
+        float scaleY = (float)sourceHeight / h;
+
+        for (int i = 0; i < h; i++){
+            for (int j = 0; j < w; j++){
+                float sourceX = j * scaleX;
+                float sourceY = i * scaleY;
+
+                int left = Mathf.FloorToInt(sourceX);
+                int top = Mathf.FloorToInt(sourceY);
+                int right = Mathf.CeilToInt(sourceX);
+                int bottom = Mathf.CeilToInt(sourceY);
+
+                float blendX = sourceX - left;
+                float blendY = sourceY - top;
+
+                Color32 pixel00 = pasteTexture.GetPixel(left, top);
+                Color32 pixel01 = pasteTexture.GetPixel(right, top);
+                Color32 pixel10 = pasteTexture.GetPixel(left, bottom);
+                Color32 pixel11 = pasteTexture.GetPixel(right, bottom);
+
+                Color32 blendedPixel = new Color32();
+                blendedPixel.r = (byte)(pixel00.r * (1 - blendX) * (1 - blendY) +
+                    pixel01.r * blendX * (1 - blendY) +
+                    pixel10.r * (1 - blendX) * blendY +
+                    pixel11.r * blendX * blendY);
+                blendedPixel.g = (byte)(pixel00.g * (1 - blendX) * (1 - blendY) +
+                    pixel01.g * blendX * (1 - blendY) +
+                    pixel10.g * (1 - blendX) * blendY +
+                    pixel11.g * blendX * blendY);
+                blendedPixel.b = (byte)(pixel00.b * (1 - blendX) * (1 - blendY) +
+                    pixel01.b * blendX * (1 - blendY) +
+                    pixel10.b * (1 - blendX) * blendY +
+                    pixel11.b * blendX * blendY);
+                blendedPixel.a = (byte)(pixel00.a * (1 - blendX) * (1 - blendY) +
+                    pixel01.a * blendX * (1 - blendY) +
+                    pixel10.a * (1 - blendX) * blendY +
+                    pixel11.a * blendX * blendY);
+
+                resizedPixels[i * w + j] = blendedPixel;
+            }
+        }
+
+        resizedTexture.SetPixels32(0, 0, w, h, resizedPixels);
+        resizedTexture.Apply();
+
+        return resizedTexture;
     }
 
     //Fill a color32 array with a specific color;
