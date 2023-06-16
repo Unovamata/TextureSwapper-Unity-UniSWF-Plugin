@@ -152,7 +152,7 @@ TextureImporter:
         serializedVersion: 2
         x: 379
         y: 896
-        width: 120
+        width: 140
         height: 127
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -465,9 +465,9 @@ TextureImporter:
       name: Eye Open Left
       rect:
         serializedVersion: 2
-        x: 375
+        x: 354
         y: 548
-        width: 121
+        width: 142
         height: 127
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
