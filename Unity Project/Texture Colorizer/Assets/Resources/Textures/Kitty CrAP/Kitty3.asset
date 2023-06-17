@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
   m_Name: Kitty3
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: bdfe8386c025a7c42ad0815a8b75e58e, type: 3}
-  textureToSearch: {fileID: 2800000, guid: bdfe8386c025a7c42ad0815a8b75e58e, type: 3}
+  texture: {fileID: 2800000, guid: 55618dfcc02713a4cbea058445ccc718, type: 3}
+  textureToSearch: {fileID: 2800000, guid: 55618dfcc02713a4cbea058445ccc718, type: 3}
   subGroupRoute: Kitty
   limbs:
   - texture: {fileID: 2800000, guid: d2310748d1253164eb731e59a11b7d47, type: 2}
@@ -34,7 +34,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: bb98e84c4ea1c0248b824d79b4930519, type: 2}
     name: Eye Open Left
-    coordinates: {x: 379, y: 771, z: 146, w: 125}
+    coordinates: {x: 379, y: 771, z: 148, w: 125}
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: de93f8a9f86a58f44b751774891d6312, type: 2}
     name: Eye Open Right

@@ -34,11 +34,11 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: 950a99ad4b83fc54a86e30959bf7187c, type: 2}
     name: Eye Open Left
-    coordinates: {x: 375, y: 548, z: 121, w: 127}
+    coordinates: {x: 354, y: 548, z: 142, w: 127}
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: 7f7fb7042719b3d4ca9a3a266933e591, type: 2}
     name: Eye Open Right
-    coordinates: {x: 379, y: 896, z: 120, w: 127}
+    coordinates: {x: 379, y: 896, z: 140, w: 127}
     pivot: {x: 0.5, y: 0.5}
   - texture: {fileID: 2800000, guid: 74880b84807a56c4ab524b87f0e863ae, type: 2}
     name: Eye Partially Open Left
