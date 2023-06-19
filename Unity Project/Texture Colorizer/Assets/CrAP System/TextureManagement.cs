@@ -34,8 +34,6 @@ public class TextureManagement : MonoBehaviour{
 
         //Circumvents the infinite material swapping provoked by UniSWF;
         enabled = false;
-
-        Utils.ExpandUVs(GetComponent<MeshFilter>());
     }
 
 
