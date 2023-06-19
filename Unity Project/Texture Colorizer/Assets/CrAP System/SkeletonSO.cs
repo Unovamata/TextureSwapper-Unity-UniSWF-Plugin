@@ -82,14 +82,14 @@ public class SkeletonSOEditor : Editor {
         //Relationship box;
         EditorGUILayout.Space();
         GUILayout.BeginVertical(GUI.skin.box);
-        GUILayout.Label("Create a New Relation", EditorStyles.boldLabel);
+        GUILayout.Label("Create a New Relation in the Skeleton:", EditorStyles.boldLabel);
         EditorGUILayout.Space();
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Relation Name");
+        GUILayout.Label("Relation Name:");
 
         //Text field for the relationship's name;
         textFieldRelationName = GUILayout.TextField(textFieldRelationName, GUILayout.ExpandWidth(true));
-        string relationNameUpper = textFieldRelationName.ToUpper(); //Data normalization;
+        string relationName = textFieldRelationName; //Data normalization;
 
         GUILayout.EndHorizontal();
         GUILayout.EndVertical();
@@ -101,16 +101,35 @@ public class SkeletonSOEditor : Editor {
         
         //Is name only letters either lower or upper case?
         bool isNameValid = Regex.IsMatch(textFieldRelationName, "^[a-zA-Z]+$");
-        bool isExisting = relationships.Any(r => r.GetRelationshipName().ToUpper().Equals(relationNameUpper));
+        bool isExisting = relationships.Any(r => r.GetRelationshipName().ToUpper().Equals(relationName.ToUpper()));
 
         //Adding, Removing, and Clearing Relationships;
-        AddNewRelationship(isNameValid, isExisting, textures, skeleton, relationNameUpper);
+        if (GUILayout.Button("Add New")) {
+            AddNewRelationship(isNameValid, isExisting, textures, skeleton, relationName);
+        }
         RemoveRenameAndClearRelationships(skeleton);
         EditorGUILayout.EndHorizontal();
         
         RemoveAndRenameRelationships(relationships, isExisting);
         EditorGUILayout.Space();
         
+        //Loads all similar named relationships;
+        if(GUILayout.Button("Load All Relationships")) {
+            skeleton.ClearRelationships();
+            List<string> sameGroupNames = new List<string>();
+
+            foreach(Limb limb in textures.GetLimbs()) {
+                string identificator = limb.GetName().Split(' ')[0];
+
+                if (!sameGroupNames.Contains(identificator)) {
+                    UnityEngine.Debug.Log(identificator);
+                    sameGroupNames.Add(identificator);
+
+                    AddNewRelationship(true, false, textures, skeleton, identificator);
+                }
+            }
+        }
+
         // Create a button to open the window
         if (GUILayout.Button("Open List Window")){
             SkeletonEditorWindow window = new SkeletonEditorWindow(skeleton, new SkeletonRelationships(""), false);
@@ -125,32 +144,33 @@ public class SkeletonSOEditor : Editor {
 
     //Adds a new button in the GUI to create a new relationship between data;
     private void AddNewRelationship(bool isNameValid, bool isExisting, TexturesSO textures, 
-        SkeletonSO skeleton, string relationNameUpper) {
+        SkeletonSO skeleton, string relationName) {
         //If the input name is not valid, get out of the script;
-        if (GUILayout.Button("Add New")){
-            if(!isNameValid || isExisting){
-                UnityEngine.Debug.Log("The name " + textFieldRelationName + "already exists in the relationships list or is not valid."); 
-                return;
-            }
-
-            //Create an empty relationship;
-            SkeletonRelationships relationship = new SkeletonRelationships(textFieldRelationName);
-            List<Limb> limbs = textures.GetLimbs();
-
-            /*Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();*/
-
-            //For each matched limb, add it in the relationship object;
-            foreach(Limb limb in limbs) {
-                bool isNameInList = limb.GetName().ToUpper().StartsWith(relationNameUpper);
-                if (isNameInList) relationship.AddLimbRelated(limb);
-            }
-
-            /*stopwatch.Stop();
-            UnityEngine.Debug.Log(stopwatch.Elapsed.ToString());*/
-
-            skeleton.AddRelationship(relationship);
+        if(!isNameValid || isExisting){
+            UnityEngine.Debug.Log("The name " + textFieldRelationName + "already exists in the relationships list or is not valid."); 
+            return;
         }
+
+        //Create an empty relationship;
+        SkeletonRelationships relationship = new SkeletonRelationships(textFieldRelationName);
+        List<Limb> limbs = textures.GetLimbs();
+
+        /*Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();*/
+
+        //For each matched limb, add it in the relationship object;
+        foreach(Limb limb in limbs) {
+            bool isNameInList = limb.GetName().ToUpper().StartsWith(relationName.ToUpper());
+            if (isNameInList){
+                relationship.SetRelationshipName(relationName);
+                relationship.AddLimbRelated(limb);
+            }
+        }
+
+        /*stopwatch.Stop();
+        UnityEngine.Debug.Log(stopwatch.Elapsed.ToString());*/
+
+        skeleton.AddRelationship(relationship);
     }
 
     //Creates the buttons in the GUI to remove or clear relationships between data;
@@ -165,26 +185,28 @@ public class SkeletonSOEditor : Editor {
     }
 
     //Remove and rename specific relationships between data;
-    private void RemoveAndRenameRelationships(List<SkeletonRelationships> relationships, bool isExisting) {
-        if (!textFieldRelationName.Equals("")) {
-            //Removing specific relationships;
-            if (GUILayout.Button("Remove " + textFieldRelationName)){
-                try { relationships.RemoveAll(x => x.GetRelationshipName().Equals(textFieldRelationName)); } catch { }
-            }
+    private void RemoveAndRenameRelationships(List<SkeletonRelationships> relationships, bool isExistingOutside) {
+        if(!isExistingOutside || textFieldRelationName.Equals("")) return;
 
-            //Renaming specific relationships;
-            if (isExisting) {
-                renameFieldRelationName = GUILayout.TextField(renameFieldRelationName, GUILayout.ExpandWidth(true));
+        //Renaming specific relationships;
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("Renaming Relationships:", EditorStyles.boldLabel);
+        renameFieldRelationName = GUILayout.TextField(renameFieldRelationName, GUILayout.ExpandWidth(true), GUILayout.ExpandWidth(true));
+        GUILayout.EndScrollView();
 
-                //Button with renaming variables;
-                if (GUILayout.Button("Rename " + textFieldRelationName + " to " + renameFieldRelationName)){
-                    try {
-                        //Find the first element with 'x' name and replace it;
-                        SkeletonRelationships renameRelationship = relationships.FirstOrDefault(x => x.GetRelationshipName().Equals(textFieldRelationName));
-                        renameRelationship.SetRelationshipName(renameFieldRelationName);
-                    } catch { }
-                }
-            }
+        if(renameFieldRelationName.Equals("")) return;
+
+        //Is name only letters either lower or upper case?
+        bool isNameValid = Regex.IsMatch(textFieldRelationName, "^[a-zA-Z]+$");
+        bool isExisting = relationships.Any(r => r.GetRelationshipName().ToUpper().Equals(renameFieldRelationName.ToUpper()));
+
+        //Button with renaming variables;
+        if (GUILayout.Button("Rename " + textFieldRelationName + " to " + renameFieldRelationName)){
+            try {
+                //Find the first element with 'x' name and replace it;
+                SkeletonRelationships renameRelationship = relationships.FirstOrDefault(x => x.GetRelationshipName().Equals(textFieldRelationName));
+                renameRelationship.SetRelationshipName(renameFieldRelationName);
+            } catch { }
         }
     }
 
@@ -219,7 +241,14 @@ public class SkeletonSOEditor : Editor {
             if (GUILayout.Button("Add New " + relationship.GetRelationshipName() + " Relationship")){
                 SkeletonEditorWindow window = new SkeletonEditorWindow(skeleton, relationship, true);
                 SkeletonEditorWindow.OpenWindow(window);
-            }            
+            }
+
+            GUI.backgroundColor = Color.red;
+
+            //Removing specific relationships;
+            if (GUILayout.Button("Remove " + relationship.GetRelationshipName())){
+                try { relationships.RemoveAll(x => x.GetRelationshipName().Equals(relationship.GetRelationshipName())); } catch { }
+            }
             
             GUI.backgroundColor = originalColor;
             GUILayout.EndVertical();
