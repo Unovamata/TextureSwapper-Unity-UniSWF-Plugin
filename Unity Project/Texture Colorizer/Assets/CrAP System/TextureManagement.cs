@@ -15,7 +15,7 @@ public class TextureManagement : MonoBehaviour{
     //Unity Editor;
     Material material;
     MeshRenderer mesh;
-
+    Vector2[] originalUVs;
 
     ////////////////////////////////////////////////////////////////////
 
@@ -34,6 +34,8 @@ public class TextureManagement : MonoBehaviour{
 
         //Circumvents the infinite material swapping provoked by UniSWF;
         enabled = false;
+
+        Utils.ExpandUVs(GetComponent<MeshFilter>());
     }
 
 

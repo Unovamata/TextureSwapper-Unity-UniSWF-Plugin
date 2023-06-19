@@ -10,6 +10,49 @@ public enum Prefs {
 }
 
 public class Utils{
+    //Expand the Texture Mapping UVs of a 3D model;
+    public static void ExpandUVs(MeshFilter meshFilter) {
+        if(meshFilter == null) return;
+
+        Mesh mesh = meshFilter.mesh;
+        Vector2[] originalUVs = meshFilter.sharedMesh.uv;
+        Vector2[] modifiedUVs = meshFilter.sharedMesh.uv;
+
+        //
+        float padding = (float) Prefs.padding / 1000;
+
+        for(int i = 0; i < originalUVs.Length; i += 4) {
+            /* Index order and positioning of the UVs;
+             * 2 ------ 1
+             * |        |
+             * |        |
+             * |        |
+             * 3 ------ 0 */
+
+            /* Check diagram above for clarity;
+             * We are moving the UVs by the padding size based on what UV number they are.
+             * With that, we can map all UV values to a specific operation based on their 
+             * coordinate. */
+
+            modifiedUVs[i] = new Vector2(originalUVs[i].x + padding, originalUVs[i].y - padding); //0;
+            modifiedUVs[i + 1] = new Vector2(originalUVs[i].x + padding, originalUVs[i].y + padding); //1;
+            modifiedUVs[i + 2] = new Vector2(originalUVs[i].x - padding, originalUVs[i].y + padding); //2;
+            modifiedUVs[i + 3] = new Vector2(originalUVs[i].x - padding, originalUVs[i].y + padding); //3;
+        }
+
+        mesh.uv = modifiedUVs;
+    }
+
+    public static Vector2 ScaleUVWithPadding(Vector2 uvCoordinate, Vector3 meshSize, float padding)
+    {
+        float aspectRatio = meshSize.x / meshSize.y;
+        float scaledPadding = padding / meshSize.y;
+
+        Vector2 scaledUV = new Vector2(uvCoordinate.x * aspectRatio, uvCoordinate.y) * (1f - 2f * scaledPadding) + new Vector2(scaledPadding, scaledPadding);
+
+        return scaledUV;
+    }
+
     //Clone a reference texture;
     public static Texture2D CloneTexture(Texture2D original) {
         Texture2D clone = new Texture2D(original.width, original.height);
