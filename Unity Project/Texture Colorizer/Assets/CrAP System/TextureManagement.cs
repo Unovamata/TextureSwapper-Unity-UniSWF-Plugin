@@ -88,7 +88,7 @@ public class TextureManagement : MonoBehaviour{
 public class CustomInspector : Editor {
     int currentRelationIndex = 0;
     int currentSelectedTextureToReference = 0;
-    bool folderLimitStatus = true;
+    bool folderLimitStatus;
 
     //Changes values in the inspector, creating a custom inspector;
     public override void OnInspectorGUI() {
@@ -110,14 +110,14 @@ public class CustomInspector : Editor {
 
         //Folder for containing the data;
         EditorGUILayout.LabelField("Texture-set Limits Per Limb Management", EditorStyles.boldLabel);
+        GUILayout.BeginVertical(GUI.skin.box);
         folderLimitStatus = EditorGUILayout.Foldout(folderLimitStatus, "Texture Limb Limits");
 
         if (folderLimitStatus) {
             //Naming a subgroup of folders if needed;
             EditorGUILayout.HelpBox("When dealing with texturesets that contain only one texture requiring referencing, " +
                 "you can conveniently set their data limits using the following array.", MessageType.Info);
-
-            GUILayout.BeginVertical(GUI.skin.box);
+            
             serializedObject.Update();
             SerializedProperty arrayProp = serializedObject.FindProperty("limitPerLimb");
 
@@ -126,7 +126,7 @@ public class CustomInspector : Editor {
                 GUILayout.BeginHorizontal();
                 SerializedProperty elementProp = arrayProp.GetArrayElementAtIndex(i);
 
-                EditorGUILayout.LabelField($"{relationships[i].GetRelationshipName()} ({i})", GUILayout.Width(200f));
+                EditorGUILayout.LabelField($"{relationships[i].GetRelationshipName()}", GUILayout.Width(150f));
                 elementProp.intValue = InputScrollable(manager.textureToReference[elementProp.intValue].name, 0, manager.textureToReference.Length - 1, arrayProp.GetArrayElementAtIndex(i).intValue);
                 
                 GUILayout.EndHorizontal();
@@ -140,8 +140,9 @@ public class CustomInspector : Editor {
             }
 
             serializedObject.ApplyModifiedProperties();
-            GUILayout.EndVertical();
+            
         }
+        GUILayout.EndVertical();
         
 
         //Texture Swapping;
@@ -155,10 +156,11 @@ public class CustomInspector : Editor {
             currentRelationIndex = Scrollable(relationship.GetRelationshipName(), 0, 
                 relationships.Count - 1, currentRelationIndex);
 
-            EditorGUILayout.LabelField("Texture Set:");
+            EditorGUILayout.LabelField("Textureset:");
             TexturesSO selectedTexture = manager.textureToReference[currentSelectedTextureToReference];
             currentSelectedTextureToReference = Scrollable(selectedTexture.name, 0, 
-                manager.textureToReference.Length - 1, currentSelectedTextureToReference);
+                limitPerLimb[currentRelationIndex], currentSelectedTextureToReference);
+            if(currentSelectedTextureToReference > limitPerLimb[currentRelationIndex]) currentSelectedTextureToReference = 0;
 
 
             EditorGUILayout.Space();
@@ -182,7 +184,7 @@ public class CustomInspector : Editor {
             else index--;
         }
 
-        GUILayout.Button($"{name} ({index})");
+        GUILayout.Button($"{name}");
 
         if(GUILayout.Button(">>", GUILayout.Width(40))) {
             if(index >= max) index = min;
