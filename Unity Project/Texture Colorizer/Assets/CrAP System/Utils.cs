@@ -44,28 +44,52 @@ public class Utils{
         texture.Apply();
     }
 
-    //Paste a specific limb texture to the texture sheet;
-    public static void PasteTexture(Limb limb, Texture2D skeletonTexture, TexturesSO reference) {
-        //If there are limbs missing, return; 
-        if(!reference.GetLimbs().Any(x => x.GetName().Equals(limb.GetName()))) return;
+    // Paste a specific limb texture to the texture sheet
+    public static void PasteTexture(Limb limb, Texture2D skeletonTexture, TexturesSO reference)
+    {
+        // If there are limbs missing, return
+        if (!reference.GetLimbs().Any(x => x.GetName().Equals(limb.GetName()))) return;
 
         Vector4 coordinates = limb.GetCoordinates();
-        int x = (int)coordinates.x, y = (int)coordinates.y, 
+        int x = (int)coordinates.x, y = (int)coordinates.y,
             w = (int)coordinates.z, h = (int)coordinates.w;
 
-        //Extracting the texture to paste from the limb referenced;
+        // Extracting the texture to paste from the limb referenced
         Texture2D pasteTexture = reference.CallLimb(limb.GetName()).GetTexture();
         int sourceWidth = pasteTexture.width;
         int sourceHeight = pasteTexture.height;
 
-        // Resize the source texture, if necessary;
-        if (sourceWidth != w || sourceHeight != h){
-            Texture2D resizedTexture = BisharpScalingInterpolation(pasteTexture, w, h, sourceWidth, sourceHeight);
-            Graphics.CopyTexture(resizedTexture, 0, 0, 0, 0, w, h, skeletonTexture, 0, 0, x, y);
+        // Calculate the target aspect ratio
+        float targetAspectRatio = (float)w / h;
+        float sourceAspectRatio = (float)sourceWidth / sourceHeight;
+
+        int resizedWidth, resizedHeight;
+        int offsetX = 0, offsetY = 0;
+
+        // Determine the resized dimensions based on the aspect ratio
+        if (sourceAspectRatio > targetAspectRatio)
+        {
+            resizedWidth = w;
+            resizedHeight = Mathf.RoundToInt(w / sourceAspectRatio);
+            offsetY = (h - resizedHeight) / 2;  // Calculate the Y offset for centering
         }
-        else{
-            // If not, just paste it;
-            Graphics.CopyTexture(pasteTexture, 0, 0, 0, 0, sourceWidth, sourceHeight, skeletonTexture, 0, 0, x, y);
+        else
+        {
+            resizedWidth = Mathf.RoundToInt(h * sourceAspectRatio);
+            resizedHeight = h;
+            offsetX = (w - resizedWidth) / 2;  // Calculate the X offset for centering
+        }
+
+        // Resize the source texture, if necessary
+        if (sourceWidth != resizedWidth || sourceHeight != resizedHeight)
+        {
+            Texture2D resizedTexture = BisharpScalingInterpolation(pasteTexture, resizedWidth, resizedHeight, sourceWidth, sourceHeight);
+            Graphics.CopyTexture(resizedTexture, 0, 0, 0, 0, resizedWidth, resizedHeight, skeletonTexture, 0, 0, x + offsetX, y + offsetY);
+        }
+        else
+        {
+            // If not, just paste it
+            Graphics.CopyTexture(pasteTexture, 0, 0, 0, 0, sourceWidth, sourceHeight, skeletonTexture, 0, 0, x + offsetX, y + offsetY);
         }
 
         skeletonTexture.Apply();
