@@ -44,84 +44,82 @@ public class Utils{
         texture.Apply();
     }
 
-    // Paste a specific limb texture to the texture sheet
-    public static void PasteTexture(Limb limb, Texture2D skeletonTexture, TexturesSO reference)
-    {
+    // Paste a specific limb texture to a texture sheet;
+    public static void PasteTexture(Limb limb, Texture2D skeletonTexture, TexturesSO reference){
         // If there are limbs missing, return
         if (!reference.GetLimbs().Any(x => x.GetName().Equals(limb.GetName()))) return;
 
+        // Get the coordinates for texture replacement;
         Vector4 coordinates = limb.GetCoordinates();
         int x = (int)coordinates.x, y = (int)coordinates.y,
             w = (int)coordinates.z, h = (int)coordinates.w;
 
-        // Extracting the texture to paste from the limb referenced
+        // Get the texture from the limb group in the texture-set;
         Texture2D pasteTexture = reference.CallLimb(limb.GetName()).GetTexture();
+
+        //Calculate width and aspect ratio;
         int sourceWidth = pasteTexture.width;
         int sourceHeight = pasteTexture.height;
-
-        // Calculate the target aspect ratio
         float targetAspectRatio = (float)w / h;
         float sourceAspectRatio = (float)sourceWidth / sourceHeight;
 
+        // Determine dimensions based on the aspect ratio;
         int resizedWidth, resizedHeight;
         int offsetX = 0, offsetY = 0;
-
-        // Determine the resized dimensions based on the aspect ratio
-        if (sourceAspectRatio > targetAspectRatio)
-        {
+        
+        if (sourceAspectRatio > targetAspectRatio){
             resizedWidth = w;
             resizedHeight = Mathf.RoundToInt(w / sourceAspectRatio);
-            offsetY = (h - resizedHeight) / 2;  // Calculate the Y offset for centering
-        }
-        else
-        {
+            offsetY = (h - resizedHeight) / 2;  // Y Centering;
+        } else {
             resizedWidth = Mathf.RoundToInt(h * sourceAspectRatio);
             resizedHeight = h;
-            offsetX = (w - resizedWidth) / 2;  // Calculate the X offset for centering
+            offsetX = (w - resizedWidth) / 2;  // X offset for Centering;
         }
 
-        // Resize the source texture, if necessary
-        if (sourceWidth != resizedWidth || sourceHeight != resizedHeight)
-        {
-            Texture2D resizedTexture = BisharpScalingInterpolation(pasteTexture, resizedWidth, resizedHeight, sourceWidth, sourceHeight);
+        // Resize and paste the source texture, if necessary;
+        if (sourceWidth != resizedWidth || sourceHeight != resizedHeight){
+            Texture2D resizedTexture = BisharpScalingInterpolation(pasteTexture, resizedWidth, resizedHeight);
             Graphics.CopyTexture(resizedTexture, 0, 0, 0, 0, resizedWidth, resizedHeight, skeletonTexture, 0, 0, x + offsetX, y + offsetY);
-        }
-        else
-        {
-            // If not, just paste it
+        } else { // If not, just paste it;
             Graphics.CopyTexture(pasteTexture, 0, 0, 0, 0, sourceWidth, sourceHeight, skeletonTexture, 0, 0, x + offsetX, y + offsetY);
         }
 
         skeletonTexture.Apply();
     }
 
-    //Use bicubic interpolation to scale the texture;
-    public static Texture2D BisharpScalingInterpolation(Texture2D pasteTexture, int w, int h, int sourceWidth, int sourceHeight) {
+    // Use bicubic interpolation to scale the texture;
+    public static Texture2D BisharpScalingInterpolation(Texture2D pasteTexture, int w, int h) {
         Texture2D resizedTexture = new Texture2D(w, h);
         Color32[] resizedPixels = new Color32[w * h];
+        
+        // Where to map the pixels;
+        float scaleX = (float)pasteTexture.width / w;
+        float scaleY = (float)pasteTexture.height / h;
 
-        // Bisharp scaling algorithm
-        float scaleX = (float)sourceWidth / w;
-        float scaleY = (float)sourceHeight / h;
-
+        // Bisharp scaling algorithm;
         for (int i = 0; i < h; i++){
             for (int j = 0; j < w; j++){
                 float sourceX = j * scaleX;
                 float sourceY = i * scaleY;
 
+                // Pixel positioning;
                 int left = Mathf.FloorToInt(sourceX);
                 int top = Mathf.FloorToInt(sourceY);
                 int right = Mathf.CeilToInt(sourceX);
                 int bottom = Mathf.CeilToInt(sourceY);
 
+                // Pixel blending;
                 float blendX = sourceX - left;
                 float blendY = sourceY - top;
 
+                // Color calling;
                 Color32 pixel00 = pasteTexture.GetPixel(left, top);
                 Color32 pixel01 = pasteTexture.GetPixel(right, top);
                 Color32 pixel10 = pasteTexture.GetPixel(left, bottom);
                 Color32 pixel11 = pasteTexture.GetPixel(right, bottom);
 
+                //Blending the colors called with the blending operations;
                 Color32 blendedPixel = new Color32();
                 blendedPixel.r = (byte)(pixel00.r * (1 - blendX) * (1 - blendY) +
                     pixel01.r * blendX * (1 - blendY) +
@@ -144,9 +142,9 @@ public class Utils{
             }
         }
 
+        //Saving and returning the results;
         resizedTexture.SetPixels32(0, 0, w, h, resizedPixels);
         resizedTexture.Apply();
-
         return resizedTexture;
     }
 

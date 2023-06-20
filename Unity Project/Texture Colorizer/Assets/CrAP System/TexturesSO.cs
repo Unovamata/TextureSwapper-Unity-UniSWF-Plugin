@@ -291,6 +291,7 @@ public class TexturesSOEditor : Editor{
         if(showMetadata){
             //Coordinates;
             Vector4 coordinates = limb.GetCoordinates();
+
             //Sprite boxes;
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Sprite Box Start", GUILayout.Width(100));
