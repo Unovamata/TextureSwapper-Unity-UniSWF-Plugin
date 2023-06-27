@@ -263,6 +263,10 @@ public class TexturesSOEditor : Editor{
             Utils.SaveTexture(source, textures.GetPath());
             textures.SetTexture(source);
         }
+
+        if(GUILayout.Button("Generate Texture Masks")) {
+
+        }
     
         EditorGUILayout.Space();
 
