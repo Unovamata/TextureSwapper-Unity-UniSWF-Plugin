@@ -167,7 +167,6 @@ public class TexturesSO : ScriptableObject {
 
 ////////////////////////////////////////////////////////////////////
 
-
 /* The Limb class is mandatory for all dependencies of the 
  * texture swapping system, as they store all the pertinent
  * information to iterate over multiple limbs if needed. */
@@ -177,6 +176,13 @@ public class Limb {
     [SerializeField] private string name;
     [SerializeField] private Vector4 coordinates;
     [SerializeField] private Vector2 pivot;
+    private Color guiColor;
+    //The colors folder will always be closed on opening as it is very memory intensive;
+    private bool colorsFolder = false;
+    //If the limb has different colors to mask, then false. If not, true;
+    [SerializeField] private bool passLimbAsMask = true;
+    [SerializeField] private List<Color> maskColors;
+    [SerializeField] private Texture2D maskTexture;
 
     public Texture2D GetTexture() { return texture; }
     public void SetTexture(Texture2D _Texture) { texture = _Texture; }
@@ -198,6 +204,21 @@ public class Limb {
     public void SetHeight(int Height) { coordinates.w = Height; }
     public Vector2 GetPivot() { return pivot; }
     public void SetPivot(Vector2 Pivot) { pivot = Pivot; }
+    public Color GetGUIColor() { return guiColor; }
+    public void SetGUIColor(Color GUIColor) { guiColor = GUIColor; }
+    public bool GetColorsFolder() { return colorsFolder; }
+    public void SetColorsFolder(bool ColorsFolder) { colorsFolder = ColorsFolder; }
+    public bool GetPassLimbAsMask() { return passLimbAsMask; }
+    public void SetPassLimbAsMask(bool PassLimbAsMask) { passLimbAsMask = PassLimbAsMask; }
+    public List<Color> GetMaskColors() { return maskColors; }
+    public void SetMaskColors(List<Color> MaskColor) { maskColors = MaskColor; }
+    public Color GetMaskColor(int Index) { return maskColors[Index]; }
+    public void SetMaskColor(int Index, Color MaskColor) { maskColors[Index] = MaskColor; }
+    public void AddMaskColor(Color @Color) { maskColors.Add(@Color); }
+    public void RemoveMaskColor(Color @Color) { maskColors.Remove(@Color); }
+    public void ClearMaskColors() { maskColors = new List<Color>(); }
+    public Texture2D GetMaskTexture() { return maskTexture; }
+    public void SetMaskTexture(Texture2D MaskTexture) { maskTexture = MaskTexture; }
 }
 
 
@@ -270,6 +291,8 @@ public class TexturesSOEditor : Editor{
     
         EditorGUILayout.Space();
 
+        GUILayout.Label("Limb List:", EditorStyles.boldLabel);
+
         try {
             foreach(Limb limb in textures.GetLimbs()) {
                 LoadLimbInGUI(limb, 2, true);
@@ -292,11 +315,22 @@ public class TexturesSOEditor : Editor{
         EditorGUILayout.BeginVertical(EditorStyles.helpBox);
         EditorGUILayout.LabelField(name, EditorStyles.boldLabel);
 
-        if(showMetadata){
+        // Display the label and read-only texture field
+        ShowTextureInField(limb.GetTexture(), "Main Texture", rectSize);
+
+        if (!showMetadata) {
+            EditorGUILayout.EndVertical();
+            return;
+        }
+
+        bool showDetailedMetadata = (int)Prefs.showDetailedMetadata == 1;
+
+        if (showDetailedMetadata) {
             //Coordinates;
             Vector4 coordinates = limb.GetCoordinates();
 
             //Sprite boxes;
+            EditorGUILayout.Space();
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Sprite Box Start", GUILayout.Width(100));
             EditorGUILayout.SelectableLabel(coordinates.x.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
@@ -324,18 +358,90 @@ public class TexturesSOEditor : Editor{
             EditorGUILayout.LabelField("Pivot Y", GUILayout.Width(100));
             EditorGUILayout.SelectableLabel(pivot.y.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
             EditorGUILayout.EndHorizontal();
+            EditorGUILayout.Space();
         }
-        EditorGUILayout.Space();
 
-        // Display the label and read-only texture field
+        //Texture Mask;
+        bool showMaskTextureMetadata = (int) Prefs.showMaskTextureMetadata == 1;
+
+        if (showMaskTextureMetadata) ShowTextureInField(new Texture2D(1, 1), "Mask Texture", rectSize);
+
+        //Mask Colors;
+        ShowMaskColorManagement(limb);
+
+        EditorGUILayout.Space();
+        EditorGUILayout.EndVertical();
+    }
+
+    public static void ShowTextureInField(Texture2D texture, string textureName, float rectSize){
+        EditorGUILayout.Space();
         EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.PrefixLabel("Texture");
+        // Display the label and read-only texture field
+        EditorGUILayout.PrefixLabel(textureName);
         Rect objectFieldRect = GUILayoutUtility.GetRect(EditorGUIUtility.fieldWidth * rectSize, EditorGUIUtility.fieldWidth * rectSize);
 
         EditorGUI.BeginDisabledGroup(true);
-        EditorGUI.ObjectField(objectFieldRect, GUIContent.none, limb.GetTexture(), typeof(Texture2D), false);
+        EditorGUI.ObjectField(objectFieldRect, GUIContent.none, texture, typeof(Texture2D), false);
         EditorGUI.EndDisabledGroup();
         EditorGUILayout.EndHorizontal();
+        EditorGUILayout.Space();
+    }
+
+    public static void ShowMaskColorManagement(Limb limb) {
+        //If the GUI should not check for color metadata;
+        bool showMaskColorMetadata = (int) Prefs.showMaskTextureMetadata == 1;
+        if (!showMaskColorMetadata) return;
+
+        //Folder;
+        limb.SetColorsFolder(EditorGUILayout.Foldout(limb.GetColorsFolder(), "Mask Color Management"));
+        if (!limb.GetColorsFolder()) return;
+
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("Pass Entire Texture as a Mask?");
+        limb.SetPassLimbAsMask(EditorGUILayout.Toggle(limb.GetPassLimbAsMask()));
+        EditorGUILayout.EndHorizontal();
+
+        if (limb.GetPassLimbAsMask()) return;
+        EditorGUILayout.HelpBox("Assign colors to the list below to indicate different parts of the texture. Python will use these colors to separate the masks accordingly.", MessageType.Info);
+
+        //Mask Colors;
+        EditorGUILayout.Space();
+        Color limbGUIColor = limb.GetGUIColor();
+        float rectangleSize = 20f;
+
+        EditorGUILayout.BeginVertical();
+        foreach (Color color in limb.GetMaskColors()) {
+            EditorGUILayout.BeginHorizontal();
+            Rect position = EditorGUILayout.GetControlRect(false, rectangleSize); // Adjust the height as needed
+            EditorGUI.DrawRect(position, color);
+
+            if (GUILayout.Button("•", GUILayout.Width(17))) {
+                limbGUIColor = color;
+            }
+
+            if (GUILayout.Button("+", GUILayout.Width(17))) {
+                limbGUIColor = color;
+            }
+            EditorGUILayout.EndHorizontal();
+        }
         EditorGUILayout.EndVertical();
+
+
+        limb.SetGUIColor(EditorGUILayout.ColorField(limbGUIColor));
+
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("Add")) {
+            limb.AddMaskColor(limbGUIColor);
+            limb.SetGUIColor(new Color(0, 0, 0, 1));
+        }
+
+        if (GUILayout.Button("Remove Selected")) {
+            limb.RemoveMaskColor(limbGUIColor);
+        }
+
+        if (GUILayout.Button("Clear")) {
+            limb.ClearMaskColors();
+        }
+        EditorGUILayout.EndHorizontal();
     }
 }

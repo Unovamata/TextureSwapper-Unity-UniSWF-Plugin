@@ -7,6 +7,9 @@ using System.IO;
 
 public enum Prefs {
     padding = 50,
+    showDetailedMetadata = 1, //True == 1; False == Any Int;
+    showMaskTextureMetadata = 1, //True == 1; False == Any Int;
+    showMaskColorMetadata = 1, //True == 1; False == Any Int;
 }
 
 public class Utils{
