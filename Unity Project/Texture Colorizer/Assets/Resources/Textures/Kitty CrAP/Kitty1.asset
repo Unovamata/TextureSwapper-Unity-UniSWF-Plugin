@@ -22,6 +22,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 0
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Ear Left.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: c98821830893d1f49aaa40d538538269, type: 2}
     name: Ear Right
@@ -29,6 +30,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Ear Right.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 26e6454748a6f094b9ff31b77a0174e2, type: 2}
     name: Eye Closed Left
@@ -36,6 +38,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Eye Closed Left.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: a2e003949e8c97549a49498da9af7b61, type: 2}
     name: Eye Closed Right
@@ -43,6 +46,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Eye Closed Right.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: dfe1ce4abe056c24493e4651110f6049, type: 2}
     name: Eye Open Left
@@ -50,6 +54,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Eye Open Left.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 75380d13ecf3b684783ab383709e34be, type: 2}
     name: Eye Open Right
@@ -57,6 +62,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Eye Open Right.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 731d4b4769a0d554b87efd48f8cc8bf7, type: 2}
     name: Eye Partially Open Left
@@ -64,6 +70,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Eye Partially Open Left.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 2c66ee5728e97804b891fa794fdb2605, type: 2}
     name: Eye Partially Open Right
@@ -71,6 +78,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Eye Partially Open Right.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: bd23b331da9f70b4f9d39f53996ddd5a, type: 2}
     name: Foot Left
@@ -78,6 +86,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Foot Left.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: bb07a5117a9b82e4ba72d461e8ad82b9, type: 2}
     name: Foot Right
@@ -85,6 +94,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Foot Right.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 033373619731b6941b5226b9ef294664, type: 2}
     name: Forearm Left
@@ -92,6 +102,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Forearm Left.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: b23f5a02aeb7e1f4cb251c16228f7354, type: 2}
     name: Forearm Right
@@ -99,6 +110,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Forearm Right.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 94ca37c0362c8844f8b797153664e74c, type: 2}
     name: Hand Left
@@ -106,6 +118,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Hand Left.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: c7a56aa85da5ac244b65495b98577f1b, type: 2}
     name: Hand Right
@@ -113,6 +126,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Hand Right.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 9334b2c1ff6d60842a20d743fbfff93e, type: 2}
     name: Head Center
@@ -120,6 +134,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Head Center.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: ad15805648644cf4a87e804559c8e9a6, type: 2}
     name: Head Left
@@ -127,6 +142,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Head Left.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 99a1d918d949c274e891737f5ed3b8d6, type: 2}
     name: Head Right
@@ -134,6 +150,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Head Right.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: e2025e2b254e1aa4eb96845a8dc3505c, type: 2}
     name: Knee Left
@@ -141,6 +158,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Knee Left.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 7924af6ee83219841b11ced72a902fee, type: 2}
     name: Knee Right
@@ -148,6 +166,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Knee Right.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 7e69e64520dbfef4b9c675b3320f9e15, type: 2}
     name: Mouth Closed
@@ -155,6 +174,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Mouth Closed.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: e65fb245c8cdc834caf2370ad8e5e2ea, type: 2}
     name: Mouth Open
@@ -162,6 +182,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Mouth Open.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 561952e2b682fda4b94f9adb84a82860, type: 2}
     name: Nose
@@ -169,6 +190,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Nose.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: a7e2a9041247a524abb7f23f8c7d172e, type: 2}
     name: Shadow
@@ -176,6 +198,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Shadow.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: b0201e1ad632f0249b4adc5f1d7c0684, type: 2}
     name: Shoulder Left
@@ -183,6 +206,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Shoulder Left.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 74acf3e0d51d6b74d9567297674a12bf, type: 2}
     name: Shoulder Right
@@ -190,6 +214,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Shoulder Right.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: f52aaf848f3a2af4f8e84519c3f2b918, type: 2}
     name: Thigh Left
@@ -197,6 +222,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Thigh Left.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 2223a7cc13fbeec4fa7514420aab9ee2, type: 2}
     name: Thigh Right
@@ -204,6 +230,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Thigh Right.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 10dde814a15b55b4a981990bc454b765, type: 2}
     name: Torso
@@ -211,6 +238,7 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Torso.png
     maskTexture: {fileID: 0}
   - texture: {fileID: 2800000, guid: 08a6436b99274454eb5a8ae191ee8470, type: 2}
     name: Tuft
@@ -218,5 +246,6 @@ MonoBehaviour:
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskColors: []
+    maskRoute: Assets/Resources/Skeletons/Kitty/Kitty1/Tuft.png
     maskTexture: {fileID: 0}
   path: Assets/Resources/Textures/Kitty CrAP/Kitty1.png

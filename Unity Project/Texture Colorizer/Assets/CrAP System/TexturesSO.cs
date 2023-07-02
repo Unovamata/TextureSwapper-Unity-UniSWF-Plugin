@@ -84,7 +84,7 @@ public class TexturesSO : ScriptableObject {
             string texturePath = path + "/" + sprite.name; // Specify the desired path and filename
             string assetPath = texturePath + ".asset";
             
-            if(saveAsPng) SaveTexture(texturePath, (int) Prefs.padding, texture, sprite, saveAsPng);
+            if(saveAsPng) SaveTexture(texturePath, texture, sprite, limb, saveAsPng);
             AssetDatabase.CreateAsset(texture, assetPath);
 
             //Saving the data;
@@ -98,21 +98,22 @@ public class TexturesSO : ScriptableObject {
         return Resources.Load<Texture2D>(route);
     }
 
-    private void SaveTexture(string route, int padding, Texture2D texture, Sprite sprite, bool saveAsPng) {
+    private void SaveTexture(string route, Texture2D texture, Sprite sprite, Limb limb, bool saveAsPng) {
         route += ".png";
-        Texture2D png = Utils.CreateTransparent2DTexture(texture.width - padding, texture.height - padding);
-        int paddingMid = padding / 2;
+        Texture2D png = Utils.CreateTransparent2DTexture(texture.width, texture.height);
 
         //Mapping the limb to the texture;
-        Rect rect = sprite.textureRect;
-        Color[] pixels = sprite.texture.GetPixels((int) rect.x + paddingMid, (int) rect.y + paddingMid, 
-                                                  (int) rect.width - padding, (int) rect.height - padding);
+        Rect rect = sprite.rect;
+        Color[] pixels = sprite.texture.GetPixels((int) rect.x, (int) rect.y, 
+                                                  (int) rect.width, (int) rect.height);
         png.SetPixels(pixels);
         png.Apply();
 
         byte[] bytes = png.EncodeToPNG();
         File.Create(route).Dispose();
         File.WriteAllBytes(route, bytes);
+
+        if(saveAsPng) limb.SetMaskRoute(route);
     }
 
     //Create a readable route by the asset database;
@@ -181,7 +182,8 @@ public class Limb {
     private bool colorsFolder = false;
     //If the limb has different colors to mask, then false. If not, true;
     [SerializeField] private bool passLimbAsMask = true;
-    [SerializeField] private List<Color> maskColors;
+    [SerializeField] private List<Color> maskColors = new List<Color>();
+    [SerializeField] private string maskRoute;
     [SerializeField] private Texture2D maskTexture;
 
     public Texture2D GetTexture() { return texture; }
@@ -217,6 +219,13 @@ public class Limb {
     public void AddMaskColor(Color @Color) { maskColors.Add(@Color); }
     public void RemoveMaskColor(Color @Color) { maskColors.Remove(@Color); }
     public void ClearMaskColors() { maskColors = new List<Color>(); }
+    public string GetMaskRoute() { return maskRoute; }
+    public void SetMaskRoute(string MaskRoute) { maskRoute = MaskRoute; }
+    public void UpdateMaskTexture() {
+        byte[] fileData = File.ReadAllBytes(maskRoute);
+        maskTexture = new Texture2D(GetWidth(), GetHeight());
+        maskTexture.LoadImage(fileData);
+    }
     public Texture2D GetMaskTexture() { return maskTexture; }
     public void SetMaskTexture(Texture2D MaskTexture) { maskTexture = MaskTexture; }
 }
@@ -286,7 +295,9 @@ public class TexturesSOEditor : Editor{
         }
 
         if(GUILayout.Button("Generate Texture Masks")) {
-
+            foreach(Limb limb in textures.GetLimbs()) {
+                limb.UpdateMaskTexture();
+            }
         }
     
         EditorGUILayout.Space();
@@ -362,9 +373,7 @@ public class TexturesSOEditor : Editor{
         }
 
         //Texture Mask;
-        bool showMaskTextureMetadata = (int) Prefs.showMaskTextureMetadata == 1;
-
-        if (showMaskTextureMetadata) ShowTextureInField(new Texture2D(1, 1), "Mask Texture", rectSize);
+        ShowTextureInField(limb.GetMaskTexture(), "Mask Texture", rectSize);
 
         //Mask Colors;
         ShowMaskColorManagement(limb);
@@ -374,6 +383,9 @@ public class TexturesSOEditor : Editor{
     }
 
     public static void ShowTextureInField(Texture2D texture, string textureName, float rectSize){
+        bool showMaskTextureMetadata = (int) Prefs.showMaskTextureMetadata == 1;
+        if(!showMaskTextureMetadata) return;
+
         EditorGUILayout.Space();
         EditorGUILayout.BeginHorizontal();
         // Display the label and read-only texture field
@@ -409,7 +421,6 @@ public class TexturesSOEditor : Editor{
         Color limbGUIColor = limb.GetGUIColor();
         float rectangleSize = 20f;
 
-        EditorGUILayout.BeginVertical();
         foreach (Color color in limb.GetMaskColors()) {
             EditorGUILayout.BeginHorizontal();
             Rect position = EditorGUILayout.GetControlRect(false, rectangleSize); // Adjust the height as needed
@@ -424,11 +435,8 @@ public class TexturesSOEditor : Editor{
             }
             EditorGUILayout.EndHorizontal();
         }
-        EditorGUILayout.EndVertical();
-
-
-        limb.SetGUIColor(EditorGUILayout.ColorField(limbGUIColor));
-
+        
+        limb.SetGUIColor(EditorGUILayout.ColorField(new Color(limbGUIColor.r, limbGUIColor.g, limbGUIColor.b, 1)));
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Add")) {
             limb.AddMaskColor(limbGUIColor);
@@ -442,6 +450,7 @@ public class TexturesSOEditor : Editor{
         if (GUILayout.Button("Clear")) {
             limb.ClearMaskColors();
         }
+
         EditorGUILayout.EndHorizontal();
     }
 }
