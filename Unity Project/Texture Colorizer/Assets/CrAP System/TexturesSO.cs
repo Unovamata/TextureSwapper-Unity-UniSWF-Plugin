@@ -113,7 +113,7 @@ public class TexturesSO : ScriptableObject {
         File.Create(route).Dispose();
         File.WriteAllBytes(route, bytes);
 
-        if(saveAsPng) limb.SetMaskRoute(route);
+        if(saveAsPng) limb.SetMaskRouteReference(route);
     }
 
     //Create a readable route by the asset database;
@@ -183,8 +183,9 @@ public class Limb {
     //If the limb has different colors to mask, then false. If not, true;
     [SerializeField] private bool passLimbAsMask = true;
     [SerializeField] private List<Color> maskColors = new List<Color>();
-    [SerializeField] private string maskRoute;
-    [SerializeField] private Texture2D maskTexture;
+    [SerializeField] private string maskRouteReference;
+    [SerializeField] private Texture2D maskTextureReference;
+    [SerializeField] private List<Texture2D> maskTextures;
 
     public Texture2D GetTexture() { return texture; }
     public void SetTexture(Texture2D _Texture) { texture = _Texture; }
@@ -219,15 +220,21 @@ public class Limb {
     public void AddMaskColor(Color @Color) { maskColors.Add(@Color); }
     public void RemoveMaskColor(Color @Color) { maskColors.Remove(@Color); }
     public void ClearMaskColors() { maskColors = new List<Color>(); }
-    public string GetMaskRoute() { return maskRoute; }
-    public void SetMaskRoute(string MaskRoute) { maskRoute = MaskRoute; }
-    public void UpdateMaskTexture() {
-        byte[] fileData = File.ReadAllBytes(maskRoute);
-        maskTexture = new Texture2D(GetWidth(), GetHeight());
-        maskTexture.LoadImage(fileData);
+    public string GetMaskRouteReference() { return maskRouteReference; }
+    public void SetMaskRouteReference(string MaskRouteReference) { maskRouteReference = MaskRouteReference; }
+    public Texture2D GetMaskReference() { return maskTextureReference; }
+    public void SetMaskReference(Texture2D MaskTextureReference) { maskTextureReference = MaskTextureReference; }
+    public void UpdateMaskTextureReference() {
+        byte[] fileData = File.ReadAllBytes(maskRouteReference);
+        maskTextureReference = new Texture2D(GetWidth(), GetHeight());
+        maskTextureReference.LoadImage(fileData);
     }
-    public Texture2D GetMaskTexture() { return maskTexture; }
-    public void SetMaskTexture(Texture2D MaskTexture) { maskTexture = MaskTexture; }
+    public List<Texture2D> GetMaskTextures() { return maskTextures; }
+    public void SetMaskTextures(List<Texture2D> MaskTextures) { maskTextures = MaskTextures; }
+    public void AddMaskTexture(Texture2D texture){ maskTextures.Add(texture); }
+    public void RemoveMaskTexture(int index){ maskTextures.RemoveAt(index); }
+    public void RemoveMaskTexture(Texture2D texture){ maskTextures.Remove(texture); }
+    public void ClearMaskTextures(){ maskTextures = new List<Texture2D>(); }
 }
 
 
@@ -296,7 +303,7 @@ public class TexturesSOEditor : Editor{
 
         if(GUILayout.Button("Generate Texture Masks")) {
             foreach(Limb limb in textures.GetLimbs()) {
-                limb.UpdateMaskTexture();
+                limb.UpdateMaskTextureReference();
             }
         }
     
@@ -373,7 +380,7 @@ public class TexturesSOEditor : Editor{
         }
 
         //Texture Mask;
-        ShowTextureInField(limb.GetMaskTexture(), "Mask Texture", rectSize);
+        ShowTextureInField(limb.GetMaskReference(), "Mask Texture Reference", rectSize);
 
         //Mask Colors;
         ShowMaskColorManagement(limb);
