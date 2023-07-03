@@ -1,6 +1,8 @@
 import os.path
-from PIL import Image, ImageChops
+import sys
+from PIL import Image
 
+#print(sys.path)
 
 path = r'C:\Users\Administrator\Documents\GitHub\LPSO-Revived-UniSWF-Texture-Colorizer\Unity Project\Texture Colorizer\Assets\Resources\Skeletons\Kitty\Kitty1\Ear Left.png'
 
@@ -22,6 +24,6 @@ def CreateMask(image, RGB, threshold, index):
     mask.save(f"{maskSaveRoute}{filenameWithoutType} Mask [{index}]{'.png'}")
     return mask
 
-image = Image.open(path)
+"""image = Image.open(path)
 mask = CreateMask(image, (207, 207, 207), 42, 0)
-mask.show()
+mask.show()"""

@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
+using Python.Runtime;
 
 public enum Prefs {
     padding = 50,
@@ -160,5 +161,51 @@ public class Utils{
         }
 
         return pixels;
+    }
+
+    public static string GetStreamingAssetsRoute() {
+        string route = Application.streamingAssetsPath.Replace("/", "\\");
+        return route;
+    }
+
+    public static void PythonGoToFolder() {
+        dynamic sys = Py.Import("sys");
+        string route = GetStreamingAssetsRoute();
+
+        bool pathExists = false;
+
+        foreach(string path in sys.path) {
+            if(string.Equals(path, route)) {
+                pathExists = true;
+                break;
+            }
+        }
+
+        if(!pathExists) sys.path.append(GetStreamingAssetsRoute());
+        Debug.Log(route);
+    }
+
+    public static void PythonErrorHandling(PythonException ex) {
+        dynamic traceback = Py.Import("traceback");
+
+        dynamic pyType = ex.Type;
+        dynamic pyValue = ex.Value;
+        dynamic pyTraceback = ex.Traceback;
+
+        string errorType = pyType.ToString();
+        string errorMessage = pyValue.ToString();
+
+        dynamic tracebackList = traceback.format_exception(pyType, pyValue, pyTraceback);
+        List<string> tracebackLines = new List<string>();
+        foreach (dynamic line in tracebackList)
+        {
+            tracebackLines.Add(line.ToString());
+        }
+        string errorTraceback = string.Join("\n", tracebackLines);
+
+        Debug.Log("Error Type: " + errorType);
+        Debug.Log("Error Message: " + errorMessage);
+        Debug.Log("Error Traceback:");
+        Debug.Log(errorTraceback);
     }
 }

@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using System.Linq;
 using System.IO;
+using Python.Runtime;
 
 [CreateAssetMenu(fileName = "TexturesSO", menuName = "ScriptableObjects/Texture Extractor SO", order = 1)]
 /* TexturesSO helps saving and extracting the limb assets used
@@ -302,9 +301,25 @@ public class TexturesSOEditor : Editor{
         }
 
         if(GUILayout.Button("Generate Texture Masks")) {
-            foreach(Limb limb in textures.GetLimbs()) {
-                limb.UpdateMaskTextureReference();
+            PythonEngine.Initialize();
+
+            using (Py.GIL()){
+                Utils.PythonGoToFolder();
+
+                dynamic sys = Py.Import("sys");
+
+                try {
+                    dynamic script = Py.Import("generateMasks");
+                    string imagePath = @"C:\Users\Administrator\Documents\GitHub\LPSO-Revived-UniSWF-Texture-Colorizer\Unity Project\Texture Colorizer\Assets\Resources\Skeletons\Kitty\Kitty1\Ear Left.png";
+
+                    dynamic PIL = Py.Import("PIL.Image");
+                    dynamic image = PIL.open(imagePath);
+
+                    dynamic mask = script.CreateMask(image, new object[] { 207, 207, 207 }, 42, 0);
+                } catch (PythonException ex){ /*Utils.PythonErrorHandling(ex);*/ }
             }
+
+            PythonEngine.Shutdown();
         }
     
         EditorGUILayout.Space();
