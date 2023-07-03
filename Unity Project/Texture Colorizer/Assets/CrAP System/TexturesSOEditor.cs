@@ -288,7 +288,11 @@ public class TexturesSOEditor : Editor{
             clipboardColorList = colorList;
         }
 
-        if (GUILayout.Button("Paste All")) {
+        if (GUILayout.Button("Paste New")) {
+            limb.SetMaskColors(clipboardColorList);
+        }
+
+        if (GUILayout.Button("Paste Ref")) {
             limb.SetMaskColors(clipboardColorList);
         }
 
