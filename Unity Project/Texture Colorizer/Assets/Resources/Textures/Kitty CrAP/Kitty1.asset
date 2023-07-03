@@ -29,7 +29,7 @@ MonoBehaviour:
     name: Ear Right
     coordinates: {x: 345, y: 629, z: 143, w: 193}
     pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
+    passLimbAsMask: 0
     maskColors: []
     maskRouteReference: Assets/Resources/Skeletons/Kitty/Kitty1/Ear Right.png
     maskTextureReference: {fileID: 0}
