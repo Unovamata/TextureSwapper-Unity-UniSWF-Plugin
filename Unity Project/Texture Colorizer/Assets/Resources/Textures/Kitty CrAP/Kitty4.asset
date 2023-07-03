@@ -21,7 +21,6 @@ MonoBehaviour:
     coordinates: {x: 55, y: 561, z: 121, w: 154}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -30,7 +29,6 @@ MonoBehaviour:
     coordinates: {x: 375, y: 676, z: 121, w: 154}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -39,7 +37,6 @@ MonoBehaviour:
     coordinates: {x: 15, y: 408, z: 161, w: 65}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -48,7 +45,6 @@ MonoBehaviour:
     coordinates: {x: 375, y: 395, z: 161, w: 65}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -57,7 +53,6 @@ MonoBehaviour:
     coordinates: {x: 354, y: 548, z: 142, w: 127}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -66,7 +61,6 @@ MonoBehaviour:
     coordinates: {x: 379, y: 896, z: 140, w: 127}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -75,7 +69,6 @@ MonoBehaviour:
     coordinates: {x: 375, y: 461, z: 158, w: 86}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -84,7 +77,6 @@ MonoBehaviour:
     coordinates: {x: 17, y: 474, z: 159, w: 86}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -93,7 +85,6 @@ MonoBehaviour:
     coordinates: {x: 572, y: 860, z: 76, w: 65}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -102,7 +93,6 @@ MonoBehaviour:
     coordinates: {x: 291, y: 386, z: 76, w: 65}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -111,7 +101,6 @@ MonoBehaviour:
     coordinates: {x: 534, y: 464, z: 69, w: 83}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -120,7 +109,6 @@ MonoBehaviour:
     coordinates: {x: 566, y: 756, z: 69, w: 83}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -129,7 +117,6 @@ MonoBehaviour:
     coordinates: {x: 589, y: 691, z: 70, w: 64}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -138,7 +125,6 @@ MonoBehaviour:
     coordinates: {x: 580, y: 959, z: 70, w: 64}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -147,7 +133,6 @@ MonoBehaviour:
     coordinates: {x: 190, y: 638, z: 184, w: 192}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -156,7 +141,6 @@ MonoBehaviour:
     coordinates: {x: 190, y: 831, z: 188, w: 192}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -165,7 +149,6 @@ MonoBehaviour:
     coordinates: {x: 1, y: 830, z: 188, w: 193}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -174,7 +157,6 @@ MonoBehaviour:
     coordinates: {x: 566, y: 597, z: 72, w: 78}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -183,7 +165,6 @@ MonoBehaviour:
     coordinates: {x: 537, y: 383, z: 72, w: 77}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -192,7 +173,6 @@ MonoBehaviour:
     coordinates: {x: 379, y: 831, z: 82, w: 60}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -201,7 +181,6 @@ MonoBehaviour:
     coordinates: {x: 500, y: 946, z: 79, w: 77}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -210,7 +189,6 @@ MonoBehaviour:
     coordinates: {x: 497, y: 676, z: 91, w: 79}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -219,7 +197,6 @@ MonoBehaviour:
     coordinates: {x: 1, y: 716, z: 175, w: 113}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -228,7 +205,6 @@ MonoBehaviour:
     coordinates: {x: 497, y: 584, z: 68, w: 91}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -237,7 +213,6 @@ MonoBehaviour:
     coordinates: {x: 497, y: 756, z: 68, w: 91}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -246,7 +221,6 @@ MonoBehaviour:
     coordinates: {x: 292, y: 453, z: 72, w: 85}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -255,7 +229,6 @@ MonoBehaviour:
     coordinates: {x: 500, y: 860, z: 71, w: 85}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -264,7 +237,6 @@ MonoBehaviour:
     coordinates: {x: 190, y: 426, z: 101, w: 112}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
@@ -273,7 +245,6 @@ MonoBehaviour:
     coordinates: {x: 190, y: 539, z: 149, w: 98}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
-    maskColors: []
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []

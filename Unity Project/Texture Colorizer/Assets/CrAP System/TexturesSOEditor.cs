@@ -1,8 +1,9 @@
 using Python.Runtime;
 using UnityEditor;
 using UnityEngine;
-using Python.Runtime;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.UIElements;
 
 ////////////////////////////////////////////////////////////////////
 
@@ -95,12 +96,10 @@ public class TexturesSOEditor : Editor{
 
         bool showMaskColorMetadata = (int) Prefs.showMaskTextureMetadata == 1;
         if (showMaskColorMetadata) {
-            EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
             EditorGUI.BeginDisabledGroup(true);
-            EditorGUILayout.LabelField("Color in Clipboard");
-            clipboardColor = EditorGUILayout.ColorField(clipboardColor);
+            EditorGUILayout.LabelField("Data in Clipboard:");
+            ColorAndThresholdSetter(clipboardColor, clipboardThreshold);
             EditorGUI.EndDisabledGroup();
-            EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space();
         }
 
@@ -111,15 +110,15 @@ public class TexturesSOEditor : Editor{
         } catch { }
     }
 
+    public static Color clipboardColor = new Color();
+    public static int clipboardThreshold = 0;
+
     public Texture2D ConvertDXT5ToRGBA32(Texture2D dxt5Texture){
         Texture2D rgba32Texture = new Texture2D(dxt5Texture.width, dxt5Texture.height, TextureFormat.RGBA32, false);
         rgba32Texture.SetPixels32(dxt5Texture.GetPixels32());
         rgba32Texture.Apply();
         return rgba32Texture;
     }
-
-    public static Color clipboardColor = new Color();
-    public static List<Color> clipboardColorList = new List<Color>();
 
     //Loads all the needed data in the GUI;
     public static void LoadLimbInGUI(Limb limb, float rectSize, bool showMetadata) {
@@ -178,7 +177,7 @@ public class TexturesSOEditor : Editor{
         }
 
         //Texture Mask;
-        ShowTextureInField(limb.GetMaskReference(), "Mask Texture Reference", rectSize);
+        //ShowTextureInField(limb.GetMaskReference(), "Mask Texture Reference", rectSize);
 
         //Mask Colors;
         ShowMaskColorManagement(limb);
@@ -207,6 +206,9 @@ public class TexturesSOEditor : Editor{
 
     public static float rectangleSize = 20f;
     public static float colorRectangleSize = 60f;
+    public static int thresholdInputValue = 0;
+    public static Color colorInputValue = new Color();
+    public static List<LimbColor> clipboardColorList = new List<LimbColor>();
 
     public static void ShowMaskColorManagement(Limb limb) {
         //If the GUI should not check for color metadata;
@@ -227,47 +229,59 @@ public class TexturesSOEditor : Editor{
 
         //Mask Colors;
         EditorGUILayout.Space();
-        Color limbGUIColor = limb.GetGUIColor();
-        List<Color> colorList = limb.GetMaskColors();
+        List<LimbColor> colorList = limb.GetMaskColors();
+
+        if(colorList.Count > 0) EditorGUILayout.LabelField("Color & Threshold");
 
         for(int i = 0; i < colorList.Count; i++) {
-            Color color = limb.GetMaskColor(i);
+            LimbColor limbColor = limb.GetMaskColor(i);
+            EditorGUILayout.BeginHorizontal();
+
+            limbColor.SetColor(EditorGUILayout.ColorField(limbColor.GetColor()));
+            limbColor.SetThreshold(EditorGUILayout.IntField(limbColor.GetThreshold()));
+
+            EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();
-            Rect position = EditorGUILayout.GetControlRect(false, rectangleSize);
-            EditorGUI.DrawRect(position, color);
-
-            if (GUILayout.Button("Select", GUILayout.Width(colorRectangleSize))) {
-                limbGUIColor = color;
+            if (GUILayout.Button("Remove", GUILayout.Width(colorRectangleSize))) {
+                limb.RemoveAtMaskColor(i);
             }
 
             //Copy color;
             if (GUILayout.Button("Copy", GUILayout.Width(colorRectangleSize))) {
-                clipboardColor = color;
+                clipboardColor = limbColor.GetColor();
+                clipboardThreshold = limbColor.GetThreshold();
             }
 
             //Paste color;
             if (GUILayout.Button("Paste", GUILayout.Width(colorRectangleSize))) {
-                if(!colorList.Contains(clipboardColor))limb.SetMaskColor(i, clipboardColor);
-            }
-            EditorGUILayout.EndHorizontal();
+                bool hasColor = colorList.Any(x => x.GetColor().Equals(clipboardColor));
 
-            EditorGUILayout.BeginHorizontal();
+                if(!hasColor) {
+                    LimbColor referenceLimbColor = colorList.ElementAt(i);
+                    referenceLimbColor.SetColor(clipboardColor);
+                    referenceLimbColor.SetThreshold(clipboardThreshold);
+                }
+            }
             EditorGUILayout.EndHorizontal();
         }
         
-        limb.SetGUIColor(EditorGUILayout.ColorField(new Color(limbGUIColor.r, limbGUIColor.g, limbGUIColor.b, 1)));
+        //Color picker and threshold setter;
+        EditorGUILayout.LabelField("Input Color & Threshold");
+        EditorGUILayout.BeginHorizontal();
+        colorInputValue = EditorGUILayout.ColorField(new Color(colorInputValue.r, colorInputValue.g, colorInputValue.b, 1));
+        thresholdInputValue = EditorGUILayout.IntField(thresholdInputValue);
+        EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
+        
         if (GUILayout.Button("Add")) {
-            if (!colorList.Contains(limbGUIColor)) {
-                limb.AddMaskColor(limbGUIColor);
-                limb.SetGUIColor(new Color(0, 0, 0, 1));
+            bool hasColor = colorList.Any(x => x.GetColor().Equals(colorInputValue));
+            if(!hasColor) {
+                LimbColor newLimbColor = new LimbColor(colorInputValue, thresholdInputValue);
+                limb.AddMaskColor(newLimbColor);
+                colorInputValue = new Color(0, 0, 0, 1);
             }
-        }
-
-        if (GUILayout.Button("Remove Selected")) {
-            limb.RemoveMaskColor(limbGUIColor);
         }
 
         if (GUILayout.Button("Copy All")) {
@@ -282,6 +296,13 @@ public class TexturesSOEditor : Editor{
             limb.ClearMaskColors();
         }
 
+        EditorGUILayout.EndHorizontal();
+    }
+
+    public static void ColorAndThresholdSetter(Color color, int threshold) {
+        EditorGUILayout.BeginHorizontal();
+        color = EditorGUILayout.ColorField(color);
+        threshold = EditorGUILayout.IntField(threshold);
         EditorGUILayout.EndHorizontal();
     }
 }

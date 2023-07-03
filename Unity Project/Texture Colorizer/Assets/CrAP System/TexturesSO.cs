@@ -175,12 +175,11 @@ public class Limb {
     [SerializeField] private string name;
     [SerializeField] private Vector4 coordinates;
     [SerializeField] private Vector2 pivot;
-    private Color guiColor;
     //The colors folder will always be closed on opening as it is very memory intensive;
     private bool colorsFolder = false;
     //If the limb has different colors to mask, then false. If not, true;
     [SerializeField] private bool passLimbAsMask = true;
-    [SerializeField] private List<Color> maskColors = new List<Color>();
+    [SerializeField] private List<LimbColor> maskColors = new List<LimbColor>();
     [SerializeField] private string maskRouteReference;
     [SerializeField] private Texture2D maskTextureReference;
     [SerializeField] private List<Texture2D> maskTextures;
@@ -205,19 +204,18 @@ public class Limb {
     public void SetHeight(int Height) { coordinates.w = Height; }
     public Vector2 GetPivot() { return pivot; }
     public void SetPivot(Vector2 Pivot) { pivot = Pivot; }
-    public Color GetGUIColor() { return guiColor; }
-    public void SetGUIColor(Color GUIColor) { guiColor = GUIColor; }
     public bool GetColorsFolder() { return colorsFolder; }
     public void SetColorsFolder(bool ColorsFolder) { colorsFolder = ColorsFolder; }
     public bool GetPassLimbAsMask() { return passLimbAsMask; }
     public void SetPassLimbAsMask(bool PassLimbAsMask) { passLimbAsMask = PassLimbAsMask; }
-    public List<Color> GetMaskColors() { return maskColors; }
-    public void SetMaskColors(List<Color> MaskColor) { maskColors = MaskColor; }
-    public Color GetMaskColor(int Index) { return maskColors[Index]; }
-    public void SetMaskColor(int Index, Color MaskColor) { maskColors[Index] = MaskColor; }
-    public void AddMaskColor(Color @Color) { maskColors.Add(@Color); }
-    public void RemoveMaskColor(Color @Color) { maskColors.Remove(@Color); }
-    public void ClearMaskColors() { maskColors = new List<Color>(); }
+    public List<LimbColor> GetMaskColors() { return maskColors; }
+    public void SetMaskColors(List<LimbColor> MaskColor) { maskColors = MaskColor; }
+    public LimbColor GetMaskColor(int Index) { return maskColors[Index]; }
+    public void SetMaskColor(int Index, LimbColor MaskColor) { maskColors[Index] = MaskColor; }
+    public void AddMaskColor(LimbColor @Color) { maskColors.Add(@Color); }
+    public void RemoveMaskColor(LimbColor @Color) { maskColors.Remove(@Color); }
+    public void RemoveAtMaskColor(int Index) { maskColors.RemoveAt(Index); }
+    public void ClearMaskColors() { maskColors = new List<LimbColor>(); }
     public string GetMaskRouteReference() { return maskRouteReference; }
     public void SetMaskRouteReference(string MaskRouteReference) { maskRouteReference = MaskRouteReference; }
     public Texture2D GetMaskReference() { return maskTextureReference; }
@@ -233,4 +231,18 @@ public class Limb {
     public void RemoveMaskTexture(int index){ maskTextures.RemoveAt(index); }
     public void RemoveMaskTexture(Texture2D texture){ maskTextures.Remove(texture); }
     public void ClearMaskTextures(){ maskTextures = new List<Texture2D>(); }
+}
+
+public class LimbColor {
+    [SerializeField] private Color color;
+    [SerializeField] private int threshold;
+
+    public LimbColor(Color @Color, int Threshold) {
+        color = @Color;
+        threshold = Threshold;
+    }
+    public Color GetColor() { return color; }
+    public void SetColor(Color @Color) { color = @Color; }
+    public int GetThreshold() { return  threshold; }
+    public void SetThreshold(int Threshold) { threshold = Threshold; }
 }
