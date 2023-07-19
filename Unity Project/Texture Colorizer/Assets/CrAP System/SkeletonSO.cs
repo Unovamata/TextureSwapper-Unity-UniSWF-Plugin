@@ -79,6 +79,8 @@ public class SkeletonSOEditor : Editor {
         List<SkeletonRelationships> relationships = skeleton.GetRelationships();
         TexturesSO textures = skeleton.GetTextureData();
 
+        if(textures == null) return;
+
         //Relationship box;
         EditorGUILayout.Space();
         GUILayout.BeginVertical(GUI.skin.box);

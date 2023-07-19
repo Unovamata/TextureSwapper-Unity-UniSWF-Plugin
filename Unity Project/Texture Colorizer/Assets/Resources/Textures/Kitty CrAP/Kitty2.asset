@@ -20,7 +20,7 @@ MonoBehaviour:
     name: Ear Left
     coordinates: {x: 326, y: 668, z: 137, w: 155}
     pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 0
+    passLimbAsMask: 1
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
