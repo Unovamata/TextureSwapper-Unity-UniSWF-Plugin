@@ -21,19 +21,20 @@ This repository serves a singular purpose: facilitating the swapping of textures
 
 # Installation
 
-- Download the latest release of this repository. You will download a .unitypackage file.
+- [Download the latest release of this repository. You will download a .unitypackage file.](https://github.com/Unovamata/Unity-UniSWF-Texture-Manager/releases "Download the latest release of this repository.") **Download the .unitypackage file.**
 - Open the project where you want to deploy this extension.
-- Install the "Unity 2D Sprite" package from the Package Manager: **"Window" > "Package Manager"**. Inside the Package Manager search for **"Packages: In Project"**, click that button and select **Unity Registry**, scroll down until you find **2D Sprite** click on it and **"Install"** it.
+- Install the **"Unity 2D Sprite"** package from the Package Manager: **"Window" > "Package Manager"**. 
+- Inside the **Package Manager** search for **"Packages: In Project"**, click that button and select **Unity Registry**, scroll down until you find **2D Sprite**, click on it and **"Install"** it.
 - After Unity loaded the project's assets, go to:  **"Assets" > "Import Package" > "Custom Package..."**
-- A new window will be opened. Search for the "Texture.Manager.unitypackage" file you have just downloaded. Select it and load it in your project.
+- A new window will be opened. Search for the **"Texture.Manager.unitypackage"** file you have just downloaded. 
+- Select it and load it in your project.
 - Yet again, a new window will be opened, this time, it will open inside of Unity.
-- Once there, click on the **"Import"** button and let Unity handle the rest.
-- Unity will throw 3 errors. To fix them, go to: **"Edit" > "Project Settings..."** and the "Project Settings" window will open.
-- Inside the project settings window, go to the player or click on the search bar and look for these two entries in the options. These settings are one next to the other.
-		"Scripting Backend"
-		"Api Compatibility Settings"
+- Once there, click on the **"Import"** button.
+- Unity will throw 3 errors. To fix them, go to: **"Edit" > "Project Settings..."** and the **"Project Settings"** window will open.
+- Inside the project settings window, go to the **Player** option or click on the search bar and look for these two entries in the options: **"Scripting Backend", "Api Compatibility Settings"**
 - Configure to **"IL2CPP" in the Scripting Backend** and **".Net Framework" in the Api Compatibility Settings**.
-- And with that, the package will be installed. For testing purposes, head to the "CrAP" scene provided in the "Scenes" folder and run the project.
+- And with that, the package will be installed. 
+- For testing purposes, head to the "CrAP" scene provided in the "Scenes" folder and run the project.
 
 # Usage
 **[Video Tutorial](https://drive.google.com/file/d/1kezgYbWq9qnccIp2Wk744ITlxWI94URy/view?usp=sharing "Here you have a video detailing the usage of the tool")**
