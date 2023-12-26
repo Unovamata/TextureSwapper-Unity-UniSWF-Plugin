@@ -7,7 +7,7 @@ using System.IO;
 using Python.Runtime;
 
 public enum Prefs {
-    padding = 50,
+    padding = 40,
     showDetailedMetadata = 1, //True == 1; False == Any Int;
     showMaskTextureMetadata = 1, //True == 1; False == Any Int;
     showMaskColorMetadata = 1, //True == 1; False == Any Int;

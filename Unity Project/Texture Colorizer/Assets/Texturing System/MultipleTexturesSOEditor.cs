@@ -54,20 +54,22 @@ public class MultipleTexturesSOEditor : Editor{
 
         //Clearing padding artifacts;
         if (GUILayout.Button("Clean Texture Padding Artifacts")){
-            Texture2D source = ConvertDXT5ToRGBA32(textures.GetTexture());
-            
             foreach(Limb limb in textures.GetLimbs()) {
+                Texture2D source = ConvertDXT5ToRGBA32(limb.GetSourceTexture());
+
                 int padding = (int) Prefs.padding / 2;
+
+                if(padding == 0) return;
+
                 int x = limb.GetX(), y = limb.GetY(), w = limb.GetWidth(), h = limb.GetHeight();
 
                 Utils.ClearTextureAt(new Vector4(x, y + h - padding, w, padding), source);
                 Utils.ClearTextureAt(new Vector4(x + w - padding, y, padding, h), source);
                 Utils.ClearTextureAt(new Vector4(x, y, w, padding), source);
                 Utils.ClearTextureAt(new Vector4(x, y, padding, h), source);
-            }
 
-            Utils.SaveTexture(source, textures.GetPath());
-            textures.SetTexture(source);
+                Utils.SaveTexture(source, textures.GetTexturePath(limb.GetSourceTexture()));
+            }
         }
 
         /*if(GUILayout.Button("Generate Texture Masks")) {
