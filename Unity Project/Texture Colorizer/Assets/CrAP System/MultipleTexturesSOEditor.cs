@@ -13,7 +13,13 @@ public class MultipleTexturesSOEditor : Editor{
     public bool saveTextureAsPng = false;
 
     public override void OnInspectorGUI(){
+        
         MultipleTexturesSO textures = (MultipleTexturesSO) target;
+
+        if(textures.GetLimbs().Count == 0)
+            EditorGUILayout.HelpBox("- Ensure the texture is located anywhere within the 'Resources' folder in the project's root.\n- The texture name cannot contain '.' characters.", MessageType.Warning);
+        EditorGUILayout.Space();
+        
         base.OnInspectorGUI();
         string subGroupName = textures.GetSubGroupRoute();
         textures.SetPath();
@@ -39,14 +45,11 @@ public class MultipleTexturesSOEditor : Editor{
         EditorGUILayout.LabelField("Skeleton Scriptable Object Data:", EditorStyles.boldLabel);
         EditorGUILayout.LabelField(textures.GetLimbs().Count + " Limbs found");
         EditorGUILayout.EndHorizontal();
-        if(textures.GetLimbs().Count == 0)
-            EditorGUILayout.HelpBox("- Ensure the texture is located anywhere within the 'Resources' folder in the project's root.\n- The texture name cannot contain '.' characters.", MessageType.Warning);
-        EditorGUILayout.Space();
 
         //Confirm search and load button;
         if (GUILayout.Button("Load Limb Data From Texture")){
             textures.ClearLimbs();
-            textures.LoadTextureData(textures.GetPath(), textures, saveTextureAsPng);
+            textures.LoadTextureData(textures, saveTextureAsPng);
         }
 
         //Clearing padding artifacts;
@@ -67,7 +70,7 @@ public class MultipleTexturesSOEditor : Editor{
             textures.SetTexture(source);
         }
 
-        if(GUILayout.Button("Generate Texture Masks")) {
+        /*if(GUILayout.Button("Generate Texture Masks")) {
             PythonEngine.Initialize();
 
             using (Py.GIL()){
@@ -83,11 +86,11 @@ public class MultipleTexturesSOEditor : Editor{
                     dynamic image = PIL.open(imagePath);
 
                     dynamic mask = script.CreateMask(image, new object[] { 207, 207, 207 }, 42, 0);
-                } catch (PythonException ex){ /*Utils.PythonErrorHandling(ex);*/ }
+                } catch (PythonException ex){ /*Utils.PythonErrorHandling(ex); }
             }
 
             PythonEngine.Shutdown();
-        }
+        }*/
     
         EditorGUILayout.Space();
 
