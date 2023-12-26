@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ec95d4900388409fe4f984471da66, type: 3}
+  m_Name: MultipleTexturesSO
+  m_EditorClassIdentifier: 
+  texture: {fileID: 0}
+  texturesToSearch:
+  - {fileID: 2800000, guid: 0abb45ed4e91df74a8db351f5aada295, type: 3}
+  - {fileID: 2800000, guid: a9053906d0d45e74f823e578d44be9a4, type: 3}
+  - {fileID: 2800000, guid: d32454798348c0343a78517606d1c609, type: 3}
+  - {fileID: 2800000, guid: c844cbe6cb5cd3b41b6bedec7cc549ee, type: 3}
+  - {fileID: 2800000, guid: af706972203bae440ab5a04c897e8f17, type: 3}
+  - {fileID: 2800000, guid: df62df2950f0ade4a92218e70492f93a, type: 3}
+  - {fileID: 2800000, guid: 3c8766eb1cf7e8c4a9d749da3bf5bc7c, type: 3}
+  - {fileID: 2800000, guid: fe58a2e00f8629d429072c6e1539b718, type: 3}
+  - {fileID: 2800000, guid: 005521f448b3a5542af9ebeded729fcc, type: 3}
+  - {fileID: 2800000, guid: 558df76f93e4c0c43bcec042f1d9d88a, type: 3}
+  - {fileID: 2800000, guid: 255be4417e538b542a32fce8c0d33a05, type: 3}
+  - {fileID: 2800000, guid: 5c1e38679b2488d4a962384c3b41a64c, type: 3}
+  - {fileID: 2800000, guid: c1932e0bc48b33746a9ea6cba54c55df, type: 3}
+  - {fileID: 2800000, guid: 83e7ffed09f804c4d85107850a401bd9, type: 3}
+  - {fileID: 2800000, guid: 5d39bba93af13814b8264798a95c7aa7, type: 3}
+  - {fileID: 2800000, guid: d0721ae1880e10e4eaf0c989e127b17d, type: 3}
+  subGroupRoute: 
+  limbs: []
+  path: Assets/Resources/Textures/Wireframe/Wireframe.swf_Tex0.png
