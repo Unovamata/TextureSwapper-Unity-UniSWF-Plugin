@@ -20,6 +20,7 @@ public class Limb {
     [SerializeField] private string maskRouteReference;
     [SerializeField] private Texture2D maskTextureReference;
     [SerializeField] private List<Texture2D> maskTextures;
+    [SerializeField] private Texture2D sourceTexture;
 
     public Texture2D GetTexture() { return texture; }
     public void SetTexture(Texture2D _Texture) { texture = _Texture; }
@@ -68,6 +69,8 @@ public class Limb {
     public void RemoveMaskTexture(int index){ maskTextures.RemoveAt(index); }
     public void RemoveMaskTexture(Texture2D texture){ maskTextures.Remove(texture); }
     public void ClearMaskTextures(){ maskTextures = new List<Texture2D>(); }
+    public void SetSourceTexture(Texture2D SourceTexture){ sourceTexture = SourceTexture; }
+    public Texture2D GetSourceTexture(){ return sourceTexture; }
 }
 
 public class LimbColor {

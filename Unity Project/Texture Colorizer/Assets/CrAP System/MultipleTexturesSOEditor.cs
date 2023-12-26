@@ -19,7 +19,7 @@ public class MultipleTexturesSOEditor : Editor{
         if(textures.GetLimbs().Count == 0)
             EditorGUILayout.HelpBox("- Ensure the texture is located anywhere within the 'Resources' folder in the project's root.\n- The texture name cannot contain '.' characters.", MessageType.Warning);
         EditorGUILayout.Space();
-        
+
         base.OnInspectorGUI();
         string subGroupName = textures.GetSubGroupRoute();
         textures.SetPath();
@@ -133,6 +133,10 @@ public class MultipleTexturesSOEditor : Editor{
         // Display the label and read-only texture field
         ShowTextureInField(limb.GetTexture(), "Main Texture", rectSize);
 
+        try{
+            ShowTextureInField(limb.GetSourceTexture(), limb.GetSourceTexture().name, 1);
+        } catch {}
+
         if (!showMetadata) {
             EditorGUILayout.EndVertical();
             return;
@@ -162,6 +166,7 @@ public class MultipleTexturesSOEditor : Editor{
 
             EditorGUILayout.LabelField("Height", GUILayout.Width(100));
             EditorGUILayout.SelectableLabel(coordinates.w.ToString(), EditorStyles.textField, GUILayout.Height(boxHeight));
+            
             EditorGUILayout.EndHorizontal();
 
             //Coordinates;

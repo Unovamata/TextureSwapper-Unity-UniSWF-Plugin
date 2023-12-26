@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wireframe (16)_0
+      name: Wireframe (B)_0
       rect:
         serializedVersion: 2
         x: 4
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc0dd25df05e9774ea0d71b27f2276dd
-      internalID: 377073399
+      spriteID: a9815e45372f3714586984624d0b8b83
+      internalID: -1113891364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wireframe (16)_1
+      name: Wireframe (B)_1
       rect:
         serializedVersion: 2
         x: 66
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c4021ec67b7c8443b23c27963417ea1
-      internalID: -380495591
+      spriteID: b4ec4299b613ca541b967aa05449f489
+      internalID: -166044700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wireframe (16)_2
+      name: Wireframe (B)_2
       rect:
         serializedVersion: 2
         x: 4
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edaa8fa46c0562c429ce8bf3d9238757
-      internalID: -1843724937
+      spriteID: a76a74379f8b1d44db1a86599955a4f1
+      internalID: -2059446957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wireframe (16)_3
+      name: Wireframe (B)_3
       rect:
         serializedVersion: 2
         x: 67
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6080a1438a4fd5d40bddede4393866f3
-      internalID: -1910192875
+      spriteID: 28b15deb5dbe246429c6f815f316a74d
+      internalID: -720100766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wireframe (16)_4
+      name: Wireframe (B)_4
       rect:
         serializedVersion: 2
         x: 67
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39353dd869210a8438e71d3c9414b980
-      internalID: 1669869663
+      spriteID: 4fa731837a03f034ea378abb481b2f7d
+      internalID: -1073758927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wireframe (16)_5
+      name: Wireframe (B)_5
       rect:
         serializedVersion: 2
         x: 91
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19a715b4a7b2be14e92e8016fd7a8a94
-      internalID: 137591422
+      spriteID: d250b9ef0be0ee644b55772780ed7eb2
+      internalID: -246430123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wireframe (16)_6
+      name: Wireframe (B)_6
       rect:
         serializedVersion: 2
         x: 43
@@ -245,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9ccbdb33dbe1a74d9269c170f337b42
-      internalID: -1282913463
+      spriteID: 594eb473e27cd9742834284d03f9909f
+      internalID: -1026638131
       vertices: []
       indices: 
       edges: []
@@ -262,13 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wireframe (16)_0: 377073399
-      Wireframe (16)_1: -380495591
-      Wireframe (16)_2: -1843724937
-      Wireframe (16)_3: -1910192875
-      Wireframe (16)_4: 1669869663
-      Wireframe (16)_5: 137591422
-      Wireframe (16)_6: -1282913463
+      Wireframe (B)_0: -1113891364
+      Wireframe (B)_1: -166044700
+      Wireframe (B)_2: -2059446957
+      Wireframe (B)_3: -720100766
+      Wireframe (B)_4: -1073758927
+      Wireframe (B)_5: -246430123
+      Wireframe (B)_6: -1026638131
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

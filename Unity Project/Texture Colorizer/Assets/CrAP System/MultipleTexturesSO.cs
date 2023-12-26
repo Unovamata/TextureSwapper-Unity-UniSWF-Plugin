@@ -64,6 +64,9 @@ public class MultipleTexturesSO : ScriptableObject {
                 Limb limb = new Limb();
                 limb.SetName(sprite.name);
 
+                // Setting the source texture for the limb;
+                limb.SetSourceTexture(spriteTexture);
+
                 Rect rect = sprite.rect;
                 int x = (int) rect.x, y = (int) rect.y,
                     w = (int) rect.width, h = (int) rect.height;
