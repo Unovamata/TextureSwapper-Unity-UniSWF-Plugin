@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Kitty3
   m_EditorClassIdentifier: 
   texture: {fileID: 2800000, guid: 55618dfcc02713a4cbea058445ccc718, type: 3}
-  textureToSearch: {fileID: 2800000, guid: 55618dfcc02713a4cbea058445ccc718, type: 3}
   subGroupRoute: Kitty
   limbs:
   - texture: {fileID: 2800000, guid: d2310748d1253164eb731e59a11b7d47, type: 2}
@@ -278,3 +277,4 @@ MonoBehaviour:
     maskTextures: []
     sourceTexture: {fileID: 0}
   path: Assets/Resources/Textures/Kitty CrAP/Kitty3.png
+  textureToSearch: {fileID: 2800000, guid: 55618dfcc02713a4cbea058445ccc718, type: 3}

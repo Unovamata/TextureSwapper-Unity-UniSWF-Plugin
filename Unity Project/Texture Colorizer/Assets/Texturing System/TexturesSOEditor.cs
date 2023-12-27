@@ -8,16 +8,15 @@ using UnityEngine.UIElements;
 ////////////////////////////////////////////////////////////////////
 
 //Custom Editor;
-[CustomEditor(typeof(TexturesSO))] // Replace with the name of your ScriptableObject class
+[CustomEditor(typeof(BaseTexturesSO))] // Replace with the name of your ScriptableObject class
 public class TexturesSOEditor : Editor{
     public bool saveTextureAsPng = false;
 
     public override void OnInspectorGUI(){
-        TexturesSO textures = (TexturesSO) target;
+        BaseTexturesSO textures = (BaseTexturesSO) target;
         base.OnInspectorGUI();
         string subGroupName = textures.GetSubGroupRoute();
         textures.SetPath();
-        textures.SetTextureToSearch();
 
         //Naming a subgroup of folders if needed;
         if (!subGroupName.Equals("") && textures.GetLimbs().Count == 0) {
@@ -41,13 +40,13 @@ public class TexturesSOEditor : Editor{
         EditorGUILayout.LabelField(textures.GetLimbs().Count + " Limbs found");
         EditorGUILayout.EndHorizontal();
         if(textures.GetLimbs().Count == 0)
-            EditorGUILayout.HelpBox("• Ensure the texture is located anywhere within the 'Resources' folder in the project's root.\n• The texture name cannot contain '.' characters.", MessageType.Warning);
+            EditorGUILayout.HelpBox("ï¿½ Ensure the texture is located anywhere within the 'Resources' folder in the project's root.\nï¿½ The texture name cannot contain '.' characters.", MessageType.Warning);
         EditorGUILayout.Space();
 
         //Confirm search and load button;
         if (GUILayout.Button("Load Limb Data From Texture")){
             textures.ClearLimbs();
-            textures.LoadTextureData(textures.GetPath(), textures, saveTextureAsPng);
+            textures.LoadTextureData(textures, saveTextureAsPng);
         }
 
         //Clearing padding artifacts;

@@ -3,24 +3,28 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-[CreateAssetMenu(fileName = "TexturesSO", menuName = "ScriptableObjects/Texture Extractor SO", order = 1)]
+public interface ITexturesSO {
+    public Texture2D LoadTextureData(TexturesSO textures, bool saveAsPng);
+    public void SetPath();
+}
+
 /* TexturesSO helps saving and extracting the limb assets used
  * by a specific texture. Serializes the data in files for
  * later reference by the skeleton. */
-public class TexturesSO : ScriptableObject {
-    [HideInInspector] [SerializeField] private Texture2D texture;
-    [SerializeField] private Texture2D textureToSearch;
+
+public class TexturesSO : ScriptableObject, ITexturesSO {
+    [HideInInspector] [SerializeField] protected Texture2D texture;
     [SerializeField] private string subGroupRoute = "";
     [HideInInspector] [SerializeField] private List<Limb> limbs = new List<Limb>();
     [SerializeField] HashSet<string> hashSet;
-    [HideInInspector] [SerializeField] private string path = "";
+    [HideInInspector] [SerializeField] protected string path = "";
 
     //Making data save consistently;
-    private void OnEnable() {
+    public void OnEnable() {
         EditorUtility.SetDirty(this);
     }
 
-    private void OnValidate() {
+    public void OnValidate() {
         AssetDatabase.SaveAssets();
     }
 
@@ -33,70 +37,12 @@ public class TexturesSO : ScriptableObject {
     public void SetTexture(Texture2D Texture) { 
         texture = Texture;
     }
-    public Texture2D GetTextureToSearch() { return textureToSearch; }
-    public void SetTextureToSearch() { texture = textureToSearch; }
     public string GetSubGroupRoute(){ return subGroupRoute; }
     public void SetSubGroupRoute(string SubGroupRoute){ subGroupRoute = SubGroupRoute; }
     public string GetPath(){ return path; }
-    public void SetPath(){ 
-        path = AssetDatabase.GetAssetPath(textureToSearch); 
-    }
+    public string GetTexturePath(Texture2D texture){ return AssetDatabase.GetAssetPath(texture); }
 
-
-    //***********************************
-
-    //System Management;
-    public Texture2D LoadTextureData(string route, TexturesSO textures, bool saveAsPng) {
-        //Sprite has to be located in the "Resources" folder;
-        Sprite[] sprites = Resources.LoadAll<Sprite>(FormatRoute(route));
-        string path = CreateFolder(textures.name, textures.GetSubGroupRoute());
-        
-        //Extracting limb data;
-        foreach(Sprite sprite in sprites) {
-            //Formatting the limb;
-            Limb limb = new Limb();
-            limb.SetName(sprite.name);
-
-            Rect rect = sprite.rect;
-            int x = (int) rect.x, y = (int) rect.y,
-                w = (int) rect.width, h = (int) rect.height;
-
-            limb.SetCoordinates(new Vector4(x, y, w, h));
-            /* 0: X; Where the sprite box starts;
-             * 1: Y; Where the sprite box ends;
-             * 2: Width; Size of the texture;
-             * 3: Height; Size of the texture; */
-
-            //Sprite center;
-            limb.SetPivot(new Vector2(sprite.pivot.x / w, sprite.pivot.y / h));
-            //Generating the textures & mapping it to a transparent color;
-            Texture2D texture = Utils.CreateTransparent2DTexture(w, h);
-
-            //Mapping the limb to the texture;
-            Color[] pixels = sprite.texture.GetPixels(x, y, w, h);
-            texture.SetPixels(pixels);
-            
-            texture.Apply();
-
-            // Saving the texture as an asset for later reference;
-            string texturePath = path + "/" + sprite.name; // Specify the desired path and filename
-            string assetPath = texturePath + ".asset";
-            
-            if(saveAsPng) SaveTexture(texturePath, texture, sprite, limb, saveAsPng);
-            AssetDatabase.CreateAsset(texture, assetPath);
-
-            //Saving the data;
-            limb.SetTexture(AssetDatabase.LoadAssetAtPath<Texture2D>(assetPath));
-            textures.AddLimb(limb);
-        }
-
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
-
-        return Resources.Load<Texture2D>(route);
-    }
-
-    private void SaveTexture(string route, Texture2D texture, Sprite sprite, Limb limb, bool saveAsPng) {
+    public void SaveTexture(string route, Texture2D texture, Sprite sprite, Limb limb, bool saveAsPng) {
         route += ".png";
         Texture2D png = Utils.CreateTransparent2DTexture(texture.width, texture.height);
 
@@ -161,7 +107,10 @@ public class TexturesSO : ScriptableObject {
 
         return baseRoute + folderPath;
     }
+
+    public Texture2D LoadTextureData(TexturesSO textures, bool saveAsPng){
+        return new Texture2D(1, 1);
+    }
+
+    public void SetPath(){}
 }
-
-
-////////////////////////////////////////////////////////////////////
