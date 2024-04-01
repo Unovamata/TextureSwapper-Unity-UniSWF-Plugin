@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
   m_Name: BaseTexturesSO
   m_EditorClassIdentifier: 
-  texture: {fileID: 0}
+  texture: {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}
   subGroupRoute: 
   limbs: []
-  path: 
+  path: Assets/Resources/Textures/Wireframe/Wireframe (A).png
   textureToSearch: {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}

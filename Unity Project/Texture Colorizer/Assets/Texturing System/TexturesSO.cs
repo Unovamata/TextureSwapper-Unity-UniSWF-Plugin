@@ -39,6 +39,7 @@ public class TexturesSO : ScriptableObject, ITexturesSO {
     }
     public string GetSubGroupRoute(){ return subGroupRoute; }
     public void SetSubGroupRoute(string SubGroupRoute){ subGroupRoute = SubGroupRoute; }
+    public Texture2D[] GetTexturesToSearch(){ return new Texture2D[0]; }
     public string GetPath(){ return path; }
     public string GetTexturePath(Texture2D texture){ return AssetDatabase.GetAssetPath(texture); }
 

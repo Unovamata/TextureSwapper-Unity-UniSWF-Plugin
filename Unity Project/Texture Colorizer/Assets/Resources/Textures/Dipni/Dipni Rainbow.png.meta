@@ -1,0 +1,1575 @@
+fileFormatVersion: 2
+guid: 6b445c91f5c12b8439e5aa0320df8cb2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dipni Rainbow_1
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 851
+        width: 82
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07ddb4a68f6649d468baf3484cdc69f9
+      internalID: -411568494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_2
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 851
+        width: 83
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cbd3f2ca6829ae42beb5d29d992f264
+      internalID: 852448962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_4
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 917
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6f318af03233004a9beb499ec867e1f
+      internalID: -1556991929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_6
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 930
+        width: 55
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a81321e486e7541914e8bdb974d528
+      internalID: -248306824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_7
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 936
+        width: 43
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530a27779b40c624d870459aeaf2c22d
+      internalID: -654366705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_8
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 867
+        width: 49
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56e657370ce45bc4abbf3ed68d407664
+      internalID: -1082059085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_9
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 871
+        width: 80
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537f618ba465b9c4994b94eb3e7d0a7c
+      internalID: -1015478259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 880
+        width: 49
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b2040577fa7d946afe4ef016c265cb
+      internalID: -1003159715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_12
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 772
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f499fafb43eaf458f0b0a8a7e2de9b
+      internalID: -1242906758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_15
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 787
+        width: 64
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5109d2459419804479b50e24c4d89128
+      internalID: 1015153007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_16
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 797
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a167029d8bbecab4cbfb2f3e4dd93ed5
+      internalID: 174657554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_17
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 741
+        width: 43
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cbbae7a6ea52364e844373590a410cd
+      internalID: 684336273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_18
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 698
+        width: 82
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 495be80ace0d34045b5fcebfcc428355
+      internalID: -1706246507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_19
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 698
+        width: 64
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d4737c7ac522444ebbd0229df1fc6ea
+      internalID: -1250633579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_24
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 587
+        width: 116
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dcfc83b577bcd744a216897cc4e10e5
+      internalID: -1388909241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_25
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 597
+        width: 64
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c1b63e8665d27e4c89913d010251cd3
+      internalID: 1168685310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_26
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 596
+        width: 51
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838982ae670402b4ba1444aa90d81552
+      internalID: 46700240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_27
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 627
+        width: 48
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3657510c4a81fa44c84dab9b3e71b918
+      internalID: -774207188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_29
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 518
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fdf9233a9c5247469de9acd1ad50ef3
+      internalID: -1854592558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_30
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 495
+        width: 65
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a688bda91b5b0245aa38df430ffa5e3
+      internalID: -537407623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_31
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 532
+        width: 94
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73841c89d3f021b43a5839a9882fa54c
+      internalID: 1155343281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_33
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 521
+        width: 80
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bdfcd42d018dbf41b0ecd6572343535
+      internalID: -54761558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_34
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 516
+        width: 55
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31f2875b5d2c859488fe5320fd4f906c
+      internalID: -1503661355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_36
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 487
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d86adda051da8c4dbe9caa3a293f6ee
+      internalID: 200648686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_39
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 468
+        width: 141
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa9449cb05b8b74dac866648ecfe34a
+      internalID: -229218531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_43
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 383
+        width: 70
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ff9cab735c6e14ca80de38d151162b
+      internalID: 1308539401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_44
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 424
+        width: 94
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c481976288f80418505a9105ffa21c
+      internalID: 884014561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_46
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 428
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1402b481fb6a964459f4f6ec50e27322
+      internalID: -745842090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_47
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 396
+        width: 76
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d326a4b523eb1cf4caba2a170a508147
+      internalID: 1229075079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_48
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 366
+        width: 48
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b845943a253a1264bb6c00fcb222dd18
+      internalID: 2029349169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_49
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 380
+        width: 18
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea02b75f45bea1945b843191894fde93
+      internalID: -773935237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_51
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 340
+        width: 67
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 247a276857794f74aa262e3820c4057a
+      internalID: -1381070537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_52
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 356
+        width: 62
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6370b186e313aa649954c9111ba02428
+      internalID: 598481012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_53
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 385
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: defe8f951683d384689204c67ee6cb54
+      internalID: 1230501393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_55
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 364
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9df8687a32439345a65a48d1f0e6a56
+      internalID: -1799662335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_56
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 353
+        width: 60
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d1ec9dca8a6cf04b828eab329a8e0b7
+      internalID: -853152417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_57
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 354
+        width: 59
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b8c50bf38f4444988a549e6e3bfdf7
+      internalID: -1913198305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_58
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 361
+        width: 44
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd3ff135e08b07946a2e3009b88b8850
+      internalID: -804083838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_59
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 312
+        width: 47
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf524586a4ad7240808a6c1c296b1bf
+      internalID: 1290689953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_61
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 342
+        width: 17
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d82d39947abcef44493df546e934fcce
+      internalID: -1680490460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_64
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 284
+        width: 44
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc2f893776aea145991542feee54fa6
+      internalID: -141307795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 843
+        width: 201
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee9935f2c8f59d74c9476693f1b0a1eb
+      internalID: -2113943319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_3
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 871
+        width: 76
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb8c5389ff6f96448b1de5aeec3ae66
+      internalID: 1179264905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_5
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 930
+        width: 60
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54274233f2589a447b75c921ee4d27cb
+      internalID: 1858201603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_11
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 669
+        width: 188
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef509e4a95a762c409178b2c5cf49d63
+      internalID: 818945538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_13
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 698
+        width: 65
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff81f65156e3e7a45963b36262c473b4
+      internalID: 1215761577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_14
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 787
+        width: 92
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed72635036e68e49913409aeadccdbd
+      internalID: 1295894276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_20
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 709
+        width: 57
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cedc75501b3a45468395dc10604ad0f
+      internalID: -76913189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_21
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 564
+        width: 60
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df10207e0ab410b46afb26007d9b081f
+      internalID: 293105648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_22
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 558
+        width: 117
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f57a325cd7f0624496d9b4f79d3c77c
+      internalID: -1326935073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_23
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 621
+        width: 184
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2faff74523b4923449a176c2cc2c3349
+      internalID: -2029294128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_28
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 459
+        width: 60
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd01cd15c12d757419a9b0808490a1f0
+      internalID: -1290915751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_32
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 521
+        width: 121
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb79bf23f46e0ba458a058ab5a4f4dac
+      internalID: 899292895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_35
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 521
+        width: 43
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0650715ad4a3c5c4ab9ffa2441332dd5
+      internalID: -871209533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_37
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 434
+        width: 66
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01196bb6e72bce04cb4ab8f81b53f46b
+      internalID: 976025043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_38
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 468
+        width: 23
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8e7bd00fd6a9c44961e279c6472e71
+      internalID: 720956698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_40
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 435
+        width: 69
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cb0ce2a384f2c04ebab47586c66c27c
+      internalID: 450599908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_41
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 435
+        width: 55
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd69a878f7e9bc34bbe5e3ea8b0c4f03
+      internalID: -598354077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_42
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 435
+        width: 44
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08a37c8f9685e6e4face6b12f23dc190
+      internalID: -1082181731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_45
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 405
+        width: 60
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0296c0a64d19db64b94813b710803cfa
+      internalID: 1157521138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_50
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 347
+        width: 61
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569944f236fb83c4e845df8f8b17b465
+      internalID: 505971196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_54
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 330
+        width: 63
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c6d23d2adbb12e4184c32439b736919
+      internalID: 1952600511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_60
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 285
+        width: 44
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9196de5e66e101249848e727959cc3b8
+      internalID: 1784313007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_62
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 300
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f168f201ebfb7644ca219a25ac961cc6
+      internalID: 579754987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_63
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 302
+        width: 45
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a7ee38feed8f5459fcbf5b06886816
+      internalID: -846199759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dipni Rainbow_65
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 295
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e9ae32c91d3a69428552543d139a7a5
+      internalID: -1176766066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Dipni Rainbow_0: -2113943319
+      Dipni Rainbow_1: -411568494
+      Dipni Rainbow_10: -1003159715
+      Dipni Rainbow_11: 818945538
+      Dipni Rainbow_12: -1242906758
+      Dipni Rainbow_13: 1215761577
+      Dipni Rainbow_14: 1295894276
+      Dipni Rainbow_15: 1015153007
+      Dipni Rainbow_16: 174657554
+      Dipni Rainbow_17: 684336273
+      Dipni Rainbow_18: -1706246507
+      Dipni Rainbow_19: -1250633579
+      Dipni Rainbow_2: 852448962
+      Dipni Rainbow_20: -76913189
+      Dipni Rainbow_21: 293105648
+      Dipni Rainbow_22: -1326935073
+      Dipni Rainbow_23: -2029294128
+      Dipni Rainbow_24: -1388909241
+      Dipni Rainbow_25: 1168685310
+      Dipni Rainbow_26: 46700240
+      Dipni Rainbow_27: -774207188
+      Dipni Rainbow_28: -1290915751
+      Dipni Rainbow_29: -1854592558
+      Dipni Rainbow_3: 1179264905
+      Dipni Rainbow_30: -537407623
+      Dipni Rainbow_31: 1155343281
+      Dipni Rainbow_32: 899292895
+      Dipni Rainbow_33: -54761558
+      Dipni Rainbow_34: -1503661355
+      Dipni Rainbow_35: -871209533
+      Dipni Rainbow_36: 200648686
+      Dipni Rainbow_37: 976025043
+      Dipni Rainbow_38: 720956698
+      Dipni Rainbow_39: -229218531
+      Dipni Rainbow_4: -1556991929
+      Dipni Rainbow_40: 450599908
+      Dipni Rainbow_41: -598354077
+      Dipni Rainbow_42: -1082181731
+      Dipni Rainbow_43: 1308539401
+      Dipni Rainbow_44: 884014561
+      Dipni Rainbow_45: 1157521138
+      Dipni Rainbow_46: -745842090
+      Dipni Rainbow_47: 1229075079
+      Dipni Rainbow_48: 2029349169
+      Dipni Rainbow_49: -773935237
+      Dipni Rainbow_5: 1858201603
+      Dipni Rainbow_50: 505971196
+      Dipni Rainbow_51: -1381070537
+      Dipni Rainbow_52: 598481012
+      Dipni Rainbow_53: 1230501393
+      Dipni Rainbow_54: 1952600511
+      Dipni Rainbow_55: -1799662335
+      Dipni Rainbow_56: -853152417
+      Dipni Rainbow_57: -1913198305
+      Dipni Rainbow_58: -804083838
+      Dipni Rainbow_59: 1290689953
+      Dipni Rainbow_6: -248306824
+      Dipni Rainbow_60: 1784313007
+      Dipni Rainbow_61: -1680490460
+      Dipni Rainbow_62: 579754987
+      Dipni Rainbow_63: -846199759
+      Dipni Rainbow_64: -141307795
+      Dipni Rainbow_65: -1176766066
+      Dipni Rainbow_7: -654366705
+      Dipni Rainbow_8: -1082059085
+      Dipni Rainbow_9: -1015478259
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

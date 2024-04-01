@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2bed691aeb0f345a94a0753d926781, type: 3}
+  m_Name: WireframeSkeletonSO
+  m_EditorClassIdentifier: 
+  textureData: {fileID: 11400000, guid: c4eab02e5acfe944386eee68ade2e224, type: 2}
+  relationships:
+  - relationshipName: Wig
+    limbsRelated:
+    - texture: {fileID: 2800000, guid: 19bb84dbee8dafd4ab5534a7002408a4, type: 2}
+      name: Wig_Back
+      coordinates: {x: 5, y: 47, z: 273, w: 219}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}
+    - texture: {fileID: 2800000, guid: cf22f6a00463a1448a87847498e6d73f, type: 2}
+      name: Wig_Front
+      coordinates: {x: 4, y: 274, z: 271, w: 234}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}
+    folder: 0
+  - relationshipName: Mask
+    limbsRelated:
+    - texture: {fileID: 2800000, guid: 08a21f2e0baca5142af28e7ea1d72112, type: 2}
+      name: Mask
+      coordinates: {x: 283, y: 274, z: 204, w: 199}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}
+    folder: 0

@@ -15,8 +15,26 @@ MonoBehaviour:
   texture: {fileID: 0}
   subGroupRoute: 
   limbs:
-  - texture: {fileID: 2800000, guid: a5d6c819384f959469bccfb9299ad66a, type: 2}
-    name: Wireframe (A)_0
+  - texture: {fileID: 2800000, guid: 08a21f2e0baca5142af28e7ea1d72112, type: 2}
+    name: Mask
+    coordinates: {x: 283, y: 274, z: 204, w: 199}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}
+  - texture: {fileID: 2800000, guid: 19bb84dbee8dafd4ab5534a7002408a4, type: 2}
+    name: Wig_Back
+    coordinates: {x: 5, y: 47, z: 273, w: 219}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}
+  - texture: {fileID: 2800000, guid: cf22f6a00463a1448a87847498e6d73f, type: 2}
+    name: Wig_Front
     coordinates: {x: 4, y: 274, z: 271, w: 234}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
@@ -51,24 +69,6 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}
-  - texture: {fileID: 2800000, guid: 3375d13ea7c6d5d4493ea1bb225d04b6, type: 2}
-    name: Wireframe (A)_4
-    coordinates: {x: 283, y: 274, z: 204, w: 199}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}
-  - texture: {fileID: 2800000, guid: c064c9ebc80486a44a9d5a0e44bc153f, type: 2}
-    name: Wireframe (A)_5
-    coordinates: {x: 5, y: 47, z: 273, w: 219}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}
   - texture: {fileID: 2800000, guid: 6247b792b42f27d419c252f77760a4b5, type: 2}
     name: Wireframe (A)_6
     coordinates: {x: 286, y: 75, z: 188, w: 191}
@@ -90,6 +90,15 @@ MonoBehaviour:
   - texture: {fileID: 2800000, guid: f08ddc09c32f84c48b32c478afbb9574, type: 2}
     name: Wireframe (A)_8
     coordinates: {x: 321, y: 59, z: 13, w: 8}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}
+  - texture: {fileID: 2800000, guid: cf2561e3e6ff7ec4bb5f7f4344aef52b, type: 2}
+    name: Wireframe (A)_9
+    coordinates: {x: 343, y: 60, z: 18, w: 6}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskRouteReference: 

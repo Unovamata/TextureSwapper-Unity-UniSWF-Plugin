@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2bed691aeb0f345a94a0753d926781, type: 3}
   m_Name: KittySkeletonSO
   m_EditorClassIdentifier: 
-  textureData: {fileID: 0}
+  textureData: {fileID: 11400000, guid: 3c95f47721e9f0c40990cb10d6e769c5, type: 2}
   relationships:
   - relationshipName: Ear
     limbsRelated:

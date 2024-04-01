@@ -70,6 +70,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     private SimpleStageRenderResult m_LastRenderMesh;
     private float m_DrawMeshZSpace = 0f;
     protected Vector3 m_TmpVector = default(Vector3);
+    public Material[] materials;
 
 
     public int currentFrame {
@@ -131,6 +132,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
         get {
             if (drawMeshMode) {
                 if (m_LastRenderMesh != null) {
+                    Debug.Log(m_LastRenderMesh.materials != null ? m_LastRenderMesh.materials.Length : 0);
                     return m_LastRenderMesh.mesh;
                 }
             }
@@ -153,9 +155,12 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
         meshRenderer = (MeshRenderer)base.gameObject.GetComponent(typeof(MeshRenderer));
         setDrawMeshMode(drawMeshMode);
         gfxGenerator = instanceGfxGenerator();
+
         if (gfxGenerator != null) {
             setMeshGeneratorOptions(meshGeneratorOptions);
         }
+
+        //Debug.Log((gfxGenerator as GraphicsMeshGenerator).);
 
         if (drawScale == Vector2.zero) {
             drawScale = getDefaultDrawScale();
@@ -233,6 +238,12 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
         }
 
         return graphicsGenerator;
+    }
+
+    public virtual void Start(){
+        materials = ((gfxGenerator as GraphicsMeshGenerator).materialList).ToArray();
+
+        Debug.Log((gfxGenerator as GraphicsMeshGenerator).materialList.Size);
     }
 
     public virtual void Update() {

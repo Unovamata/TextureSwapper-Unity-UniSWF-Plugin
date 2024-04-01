@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wireframe (A)_0
+      name: Wig_Front
       rect:
         serializedVersion: 2
         x: 4
@@ -113,13 +113,13 @@ TextureImporter:
         width: 271
         height: 234
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d0b9c7b894768441aceec267dc7cd0a
+      spriteID: b7fa3d3a5302263468359f4ac227c3f5
       internalID: -173760770
       vertices: []
       indices: 
@@ -134,13 +134,13 @@ TextureImporter:
         width: 55
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 186f96e798504e24d8b5e7dbcb800a6e
+      spriteID: f44cb9faf826c024fbdd37aa4febe5dc
       internalID: -76470055
       vertices: []
       indices: 
@@ -155,13 +155,13 @@ TextureImporter:
         width: 46
         height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 653aacd1d9af1b246a151eae324724c1
+      spriteID: d160c56f5c7840b4ab19be4b1be896d1
       internalID: 1561178222
       vertices: []
       indices: 
@@ -176,20 +176,20 @@ TextureImporter:
         width: 48
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04c3dffbb1f001a448ca991c40a8320b
+      spriteID: 4001ff0650433cc42b9592dc35cbbc8a
       internalID: -438454437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wireframe (A)_4
+      name: Mask
       rect:
         serializedVersion: 2
         x: 283
@@ -197,20 +197,20 @@ TextureImporter:
         width: 204
         height: 199
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eac5d5c5067cfc34eb585ea288d2a57c
+      spriteID: f90f5b5fc1d2bb942bea71d71de139a0
       internalID: 1180740104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wireframe (A)_5
+      name: Wig_Back
       rect:
         serializedVersion: 2
         x: 5
@@ -218,13 +218,13 @@ TextureImporter:
         width: 273
         height: 219
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4ab77e64dfc11e4889b56fc0dcb7406
+      spriteID: 19056ac3cfa570d48a209b4e6415f11d
       internalID: 622401712
       vertices: []
       indices: 
@@ -239,13 +239,13 @@ TextureImporter:
         width: 188
         height: 191
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3fa1d720f32c9a489403ef57ae84f57
+      spriteID: f1f7a37a8fb6da44c82458f91a954225
       internalID: 491240532
       vertices: []
       indices: 
@@ -260,13 +260,13 @@ TextureImporter:
         width: 27
         height: 34
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 783142f076b7a2d428655cf07a31479c
+      spriteID: 93b0c9aa2722d3d4ba2c749e532a8cb4
       internalID: 331056529
       vertices: []
       indices: 
@@ -281,14 +281,35 @@ TextureImporter:
         width: 13
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac6597ae0c957b344b16bd4e715d95e6
+      spriteID: 0ececa1f378154046b68b1751e27a237
       internalID: 1237637185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (A)_9
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 60
+        width: 18
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07892d047d592074ea0eb9cb7fcde57b
+      internalID: 706382920
       vertices: []
       indices: 
       edges: []
@@ -304,12 +325,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wireframe (A)_0: -173760770
+      Mask: 1180740104
+      Wig_Back: 622401712
+      Wig_Front: -173760770
       Wireframe (A)_1: -76470055
       Wireframe (A)_2: 1561178222
       Wireframe (A)_3: -438454437
-      Wireframe (A)_4: 1180740104
-      Wireframe (A)_5: 622401712
       Wireframe (A)_6: 491240532
       Wireframe (A)_7: 331056529
       Wireframe (A)_8: 1237637185

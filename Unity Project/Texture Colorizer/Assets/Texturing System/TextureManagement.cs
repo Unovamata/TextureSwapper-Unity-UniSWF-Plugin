@@ -11,11 +11,17 @@ public class TextureManagement : MonoBehaviour{
     [HideInInspector] public int[] limitPerLimb;
     public SkeletonSO skeleton;
     List<SkeletonRelationships> skeletonRelationships;
-    [HideInInspector] public Texture2D newTextureToManage;
+    [HideInInspector] public List<Texture2D> newTexturesToManage = new List<Texture2D>();
+    [HideInInspector] public TexturingType texturingType;
 
     //Unity Editor;
     Material material;
     MeshRenderer mesh;
+
+    public enum TexturingType{
+        BaseTexturesSO = 0,
+        MultipleTexturesSO = 1,
+    }
 
     ////////////////////////////////////////////////////////////////////
 
@@ -26,11 +32,14 @@ public class TextureManagement : MonoBehaviour{
         material = mesh.material;
         
         //Creating a new texture based in the original one;
-        newTextureToManage = Utils.CloneTexture(textures.GetTexture());
-        
-        //Assigning the new texture;
-        material.mainTexture = newTextureToManage;
-        mesh.material = material;
+        if(textures is BaseTexturesSO) {
+            newTexturesToManage.Add(Utils.CloneTexture(textures.GetTexture()));
+            texturingType = TexturingType.BaseTexturesSO;
+        } else if (textures is MultipleTexturesSO){
+            MultipleTexturesSO container = (MultipleTexturesSO) textures;
+            newTexturesToManage = new List<Texture2D>(container.GetTexturesToSearch());
+            texturingType = TexturingType.MultipleTexturesSO;
+        }
 
         //Circumvents the infinite material swapping provoked by UniSWF;
         enabled = false;
@@ -41,8 +50,19 @@ public class TextureManagement : MonoBehaviour{
 
 
     void Update(){
-        material.mainTexture = newTextureToManage;
-        mesh.material = material;
+        // Switch placed to save on resources;
+        switch(texturingType){
+            case TexturingType.BaseTexturesSO:
+                material.mainTexture = newTexturesToManage[0];
+                mesh.material = material;
+            break;
+
+            case TexturingType.MultipleTexturesSO:
+
+            break;
+
+            default: break;
+        }
 
         //PREVIEW CODE ONLY, DO NOT USE IN PRODUCTION, IT IS VERY TAXING ON MEMORY;
         /*SkeletonRelationships Head, Eyes, Ears, Mouth, Nose, Tuft;
@@ -70,8 +90,8 @@ public class TextureManagement : MonoBehaviour{
             int textureType = Random.Range(0, textureToReference.Length - 1);
 
             foreach(Limb limb in limbs[i].GetLimbsRelated()) {
-                Utils.ClearTextureAt(limb.GetCoordinates(), newTextureToManage);
-                Utils.PasteTexture(limb, newTextureToManage, 
+                Utils.ClearTextureAt(limb.GetCoordinates(), newTexturesToManage);
+                Utils.PasteTexture(limb, newTexturesToManage, 
                     textureToReference[textureType]);
             }
         }
@@ -167,9 +187,16 @@ public class CustomInspector : Editor {
 
             if(GUILayout.Button("Swap " + relationship.GetRelationshipName() + " Textures")) {
                 foreach(Limb limb in relationship.GetLimbsRelated()) {
-                    Utils.ClearTextureAt(limb.GetCoordinates(), manager.newTextureToManage);
-                    Utils.PasteTexture(limb, manager.newTextureToManage, 
-                        manager.textureToReference[currentSelectedTextureToReference]);
+                    //Creating a new texture based in the original one;
+                    if(manager.textures is BaseTexturesSO) {
+                        Utils.ClearTextureAt(limb.GetCoordinates(), manager.newTexturesToManage[0]);
+                        Utils.PasteTexture(limb, manager.newTexturesToManage[0], 
+                            manager.textureToReference[currentSelectedTextureToReference]);
+                    } else {
+                        
+                    }
+
+                    
                 }
             }
 

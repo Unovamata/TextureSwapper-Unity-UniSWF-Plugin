@@ -1,0 +1,214 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2bed691aeb0f345a94a0753d926781, type: 3}
+  m_Name: Dipni Individual Skeleton
+  m_EditorClassIdentifier: 
+  textureData: {fileID: 11400000, guid: 6052e9ba785f633428e7d741cc6d00ad, type: 2}
+  relationships:
+  - relationshipName: Arm
+    limbsRelated:
+    - texture: {fileID: 2800000, guid: 52e396361fe5d8440924386e96a60ed0, type: 2}
+      name: Arm Right
+      coordinates: {x: 398, y: 86, z: 44, w: 65}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: e1f8a097a0c4e0243afa98a2fc99158f, type: 2}
+      name: Arm Right Jump
+      coordinates: {x: 143, y: 53, z: 44, w: 63}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    folder: 0
+  - relationshipName: Eye
+    limbsRelated:
+    - texture: {fileID: 2800000, guid: 512fcebe81aa8a247a41feebf26c7317, type: 2}
+      name: Eye Left
+      coordinates: {x: 393, y: 317, z: 32, w: 32}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: 4439bc13c6be3b9498410038d97fee59, type: 2}
+      name: Eye Left Ring
+      coordinates: {x: 376, y: 458, z: 45, w: 43}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: d445f4ec9d08d4e4d86211285e2e3524, type: 2}
+      name: Eye Pattern Left
+      coordinates: {x: 200, y: 91, z: 80, w: 66}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: 0ce52bc9cdcddf64587b7828b0f88551, type: 2}
+      name: Eye Pattern Right
+      coordinates: {x: 4, y: 112, z: 23, w: 56}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: a8bd068fbf69a234c9a16c4a9cc62479, type: 2}
+      name: Eye Right
+      coordinates: {x: 121, y: 92, z: 12, w: 24}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: 521df98a83c4c31489d4969003b86e8b, type: 2}
+      name: Eye Right Ring
+      coordinates: {x: 295, y: 122, z: 17, w: 35}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    folder: 1
+  - relationshipName: Feet
+    limbsRelated:
+    - texture: {fileID: 2800000, guid: 222e76ab31f305f4ebbc1a53c1101a6a, type: 2}
+      name: Feet
+      coordinates: {x: 393, y: 236, z: 55, w: 73}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: 57850711e271da54abaacf90d5e16299, type: 2}
+      name: Feet Ground Contact
+      coordinates: {x: 320, y: 83, z: 70, w: 68}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: 9e59601c262a4984abb360aa7ef1f9b8, type: 2}
+      name: Feet Jump
+      coordinates: {x: 325, y: 236, z: 60, w: 97}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: cbf20f1d5a2c81d4b89639aa93a3033d, type: 2}
+      name: Feet Jump On Air
+      coordinates: {x: 46, y: 59, z: 67, w: 57}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: a8ba73aab77989946a3132a2d466a39d, type: 2}
+      name: Feet Jump On Air Bent
+      coordinates: {x: 376, y: 368, z: 60, w: 82}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    folder: 0
+  - relationshipName: Fin
+    limbsRelated:
+    - texture: {fileID: 2800000, guid: 2e83d7f02824ce147ba9f682f79e537d, type: 2}
+      name: Fin Left
+      coordinates: {x: 291, y: 368, z: 77, w: 140}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: 3d15daeab0a30194c97e2cc86272e66b, type: 2}
+      name: Fin Right
+      coordinates: {x: 200, y: 347, z: 83, w: 161}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: 39f0d253fd9fa7842b18bc44f6edab3b, type: 2}
+      name: Fin Top
+      coordinates: {x: 320, y: 159, z: 92, w: 69}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    folder: 0
+  - relationshipName: Head
+    limbsRelated:
+    - texture: {fileID: 2800000, guid: ac376efcd5e708a469726e57b7cfe307, type: 2}
+      name: Head
+      coordinates: {x: 4, y: 342, z: 188, w: 166}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: c15b34060a9270a48826b03beb74d0b4, type: 2}
+      name: Jaw
+      coordinates: {x: 4, y: 176, z: 183, w: 71}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: f02e2745dac2af54899110bc69c8e52b, type: 2}
+      name: Mouth
+      coordinates: {x: 46, y: 124, z: 141, w: 44}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    folder: 0
+  - relationshipName: Torso
+    limbsRelated:
+    - texture: {fileID: 2800000, guid: 7983e673b91f2dd40be1add6e46d3e1d, type: 2}
+      name: Torso
+      coordinates: {x: 200, y: 236, z: 117, w: 103}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    folder: 0
