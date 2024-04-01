@@ -10,6 +10,7 @@ using pumpkin.swf;
 using System;
 using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
 
 [ExecuteInEditMode]
 [AddComponentMenu("uniSWF/CustomMovieClipBehaviour")]
@@ -70,8 +71,6 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     private SimpleStageRenderResult m_LastRenderMesh;
     private float m_DrawMeshZSpace = 0f;
     protected Vector3 m_TmpVector = default(Vector3);
-    public Material[] materials;
-
 
     public int currentFrame {
         get {
@@ -240,10 +239,65 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
         return graphicsGenerator;
     }
 
-    public virtual void Start(){
-        materials = ((gfxGenerator as GraphicsMeshGenerator).materialList).ToArray();
+    public Material[] materials;
+    Dictionary<string, string> materialLimbDictionary = new Dictionary<string, string>();
 
-        Debug.Log((gfxGenerator as GraphicsMeshGenerator).materialList.Size);
+
+    public virtual void Start(){
+        CreateMaterialsListCopy();
+    }
+
+    private void CreateMaterialsListCopy(){
+        FastList<Material> materialList = ((gfxGenerator as GraphicsMeshGenerator).materialList);
+        FastList<Material> newMaterialList = new FastList<Material>();
+        Shader shader = Shader.Find("Transparent/DiffuseDoubeSided");
+
+        for (int i = 0; i < materialList.Count; i++){
+            Material reference = materialList[i];
+
+            Material newMaterial = new Material(shader);
+            newMaterial.SetTexture("_MainTex", CreateTextureCopy(reference));
+
+            // Set the name of the new material
+            newMaterial.name = i.ToString();
+
+            newMaterialList.Add(newMaterial);
+        }
+
+        
+        materials = newMaterialList.ToArray();
+        //(gfxGenerator as GraphicsMeshGenerator).materialList = newMaterialList;
+    }
+
+    private Texture2D CreateTextureCopy(Material reference){
+        Texture referenceTexture = reference.GetTexture("_MainTex") as Texture2D;
+
+        Texture2D texture2D = referenceTexture as Texture2D;
+        UnityEngine.Sprite[] sprites = Resources.LoadAll<UnityEngine.Sprite>(texture2D.name);
+
+        /* If there are no sprites to reference in the texture, 
+         * we do not need to create a copy, as it would take more
+         * resources to instantiate a texture in memory we would not use */
+        if(sprites.Length == 0) return texture2D;
+
+        // Convert the texture to a supported format (e.g., ARGB32)
+        Texture2D newTexture2D = new Texture2D(texture2D.width, texture2D.height, TextureFormat.ARGB32, false);
+
+        newTexture2D.SetPixels(texture2D.GetPixels());
+        newTexture2D.Apply();
+
+        return newTexture2D;
+    }
+
+    //Create a readable route by the asset database;
+    public string FormatRoute(string route) {
+        //Removing the first part of the route;
+        route = route.Replace("Assets/Resources/", "");
+
+        //Removing the .extension part of the route;
+        route = route.Substring(0, route.IndexOf("."));
+
+        return route;
     }
 
     public virtual void Update() {

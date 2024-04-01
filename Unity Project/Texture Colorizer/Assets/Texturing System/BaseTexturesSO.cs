@@ -21,6 +21,7 @@ public class BaseTexturesSO : TexturesSO {
 
     public Texture2D GetTextureToSearch() { return textureToSearch; }
     public void SetPath(){ 
+        
         texture = textureToSearch;
         path = AssetDatabase.GetAssetPath(textureToSearch); 
     }
