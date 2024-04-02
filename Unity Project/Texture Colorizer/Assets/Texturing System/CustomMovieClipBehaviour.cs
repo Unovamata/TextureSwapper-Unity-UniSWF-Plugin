@@ -159,8 +159,6 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
             setMeshGeneratorOptions(meshGeneratorOptions);
         }
 
-        //Debug.Log((gfxGenerator as GraphicsMeshGenerator).);
-
         if (drawScale == Vector2.zero) {
             drawScale = getDefaultDrawScale();
         }
@@ -247,16 +245,27 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
         CreateMaterialsListCopy();
     }
 
+    FastList<Material> materialList;
+
     private void CreateMaterialsListCopy(){
-        FastList<Material> materialList = (gfxGenerator as GraphicsMeshGenerator).materialList;
+        materialList = (gfxGenerator as GraphicsMeshGenerator).materialList;
         FastList<Material> newMaterialList = new FastList<Material>();
-        Shader shader = Shader.Find("Transparent/DiffuseDoubeSided");
+
+        textureReferences = new List<Texture2D>();
 
         for (int i = 0; i < materialList.Count; i++){
             Material reference = materialList[i];
+            Texture2D textureReference = reference.GetTexture("_MainTex") as Texture2D;
+            
+            string assetPath = AssetDatabase.GetAssetPath(textureReference);
+            Texture2D copiedTexture = AssetDatabase.LoadAssetAtPath<Texture2D>(assetPath);
+            textureReferences.Add(copiedTexture);
 
-            textureReferences.Add(reference.GetTexture("_MainTex") as Texture2D);
+            //reference.SetTexture("_MainTex", ProcessTextureCopy(reference));
+        }
 
+        for (int i = 0; i < materialList.Count; i++){
+            Material reference = materialList[i];
             reference.SetTexture("_MainTex", ProcessTextureCopy(reference));
         }
     }
@@ -270,7 +279,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
          * resources to instantiate a texture in memory we would not use */
         if(sprites.Length == 0) return texture2D;
 
-        //reference.name = "Changed";
+        reference.name = "Changed";
         Texture2D newTexture2D = new Texture2D(texture2D.width, texture2D.height, TextureFormat.ARGB32, false);
 
         newTexture2D.SetPixels(texture2D.GetPixels());
@@ -294,7 +303,14 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
                 Awake();
             }
 
-            textureReferences = new List<Texture2D>();
+            if(textureReferences.Count > 0){
+                for (int i = 0; i < materialList.Count; i++){
+                    materialList[i].SetTexture("_MainTex", textureReferences[i]);
+                }
+
+                textureReferences = new List<Texture2D>();
+            }
+            
         }
         
 
