@@ -239,7 +239,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
         return graphicsGenerator;
     }
 
-    public Material[] materials;
+    public List<Texture2D> textureReferences;
     Dictionary<string, string> materialLimbDictionary = new Dictionary<string, string>();
 
 
@@ -248,31 +248,21 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     }
 
     private void CreateMaterialsListCopy(){
-        FastList<Material> materialList = ((gfxGenerator as GraphicsMeshGenerator).materialList);
+        FastList<Material> materialList = (gfxGenerator as GraphicsMeshGenerator).materialList;
         FastList<Material> newMaterialList = new FastList<Material>();
         Shader shader = Shader.Find("Transparent/DiffuseDoubeSided");
 
         for (int i = 0; i < materialList.Count; i++){
             Material reference = materialList[i];
 
-            Material newMaterial = new Material(shader);
-            newMaterial.SetTexture("_MainTex", CreateTextureCopy(reference));
+            textureReferences.Add(reference.GetTexture("_MainTex") as Texture2D);
 
-            // Set the name of the new material
-            newMaterial.name = i.ToString();
-
-            newMaterialList.Add(newMaterial);
+            reference.SetTexture("_MainTex", ProcessTextureCopy(reference));
         }
-
-        
-        materials = newMaterialList.ToArray();
-        //(gfxGenerator as GraphicsMeshGenerator).materialList = newMaterialList;
     }
 
-    private Texture2D CreateTextureCopy(Material reference){
-        Texture referenceTexture = reference.GetTexture("_MainTex") as Texture2D;
-
-        Texture2D texture2D = referenceTexture as Texture2D;
+    private Texture2D ProcessTextureCopy(Material reference){
+        Texture2D texture2D = reference.GetTexture("_MainTex") as Texture2D;
         UnityEngine.Sprite[] sprites = Resources.LoadAll<UnityEngine.Sprite>(texture2D.name);
 
         /* If there are no sprites to reference in the texture, 
@@ -280,24 +270,13 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
          * resources to instantiate a texture in memory we would not use */
         if(sprites.Length == 0) return texture2D;
 
-        // Convert the texture to a supported format (e.g., ARGB32)
+        //reference.name = "Changed";
         Texture2D newTexture2D = new Texture2D(texture2D.width, texture2D.height, TextureFormat.ARGB32, false);
 
         newTexture2D.SetPixels(texture2D.GetPixels());
         newTexture2D.Apply();
 
         return newTexture2D;
-    }
-
-    //Create a readable route by the asset database;
-    public string FormatRoute(string route) {
-        //Removing the first part of the route;
-        route = route.Replace("Assets/Resources/", "");
-
-        //Removing the .extension part of the route;
-        route = route.Substring(0, route.IndexOf("."));
-
-        return route;
     }
 
     public virtual void Update() {
@@ -314,6 +293,8 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
             if ((lastMovieClip != null && swf != null && lastMovieClip.CompareTo(swf) != 0) || (lastSymbolName != null && symbolName != null && lastSymbolName.CompareTo(symbolName) != 0)) {
                 Awake();
             }
+
+            textureReferences = new List<Texture2D>();
         }
         
 
