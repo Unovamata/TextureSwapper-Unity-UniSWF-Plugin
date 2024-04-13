@@ -238,8 +238,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     }
 
     public List<Texture2D> textureReferences;
-    Dictionary<string, string> materialLimbDictionary = new Dictionary<string, string>();
-
+    public Material[] materials;
 
     public virtual void Start(){
         CreateMaterialsListCopy();
@@ -248,7 +247,26 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     FastList<Material> materialList;
 
     private void CreateMaterialsListCopy(){
+        materials = (gfxGenerator as GraphicsMeshGenerator).materialList.m_Buffer;
+
+        for(int i = 0; i < materials.Length; i++){
+            Material reference = materials[i];
+
+            Material newMaterial = Instantiate(reference);
+            newMaterial.name = i.ToString();
+
+            materials[i] = newMaterial;
+        }
+
+        (gfxGenerator as GraphicsMeshGenerator).materialList.m_Buffer = materials;
         materialList = (gfxGenerator as GraphicsMeshGenerator).materialList;
+
+        Debug.Log((gfxGenerator as GraphicsMeshGenerator).materialList.m_Buffer[0].name);
+
+        
+
+        return;
+
         FastList<Material> newMaterialList = new FastList<Material>();
 
         textureReferences = new List<Texture2D>();
@@ -261,8 +279,11 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
             Texture2D copiedTexture = AssetDatabase.LoadAssetAtPath<Texture2D>(assetPath);
             textureReferences.Add(copiedTexture);
 
+            //reference.mainTexture = ProcessTextureCopy(reference);
             //reference.SetTexture("_MainTex", ProcessTextureCopy(reference));
         }
+
+        //Debug.Log(materialDictionary.Count);
 
         for (int i = 0; i < materialList.Count; i++){
             Material reference = materialList[i];
@@ -279,7 +300,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
          * resources to instantiate a texture in memory we would not use */
         if(sprites.Length == 0) return texture2D;
 
-        reference.name = "Changed";
+        //reference.name = "Changed";
         Texture2D newTexture2D = new Texture2D(texture2D.width, texture2D.height, TextureFormat.ARGB32, false);
 
         newTexture2D.SetPixels(texture2D.GetPixels());
@@ -414,7 +435,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     }
 
     public void renderFrame() {
-        stage.updateFrame(m_EnterFrameEvent);
+        /*stage.updateFrame(m_EnterFrameEvent);
         lastInterval = Time.realtimeSinceStartup;
         if (drawMeshMode && Application.isPlaying) {
             if (m_Is3D && gfxGenerator != null && gfxGenerator.renderStage(stage)) {
@@ -423,7 +444,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
         }
         else if (m_Is3D && (bool)meshFilter && gfxGenerator != null && gfxGenerator.renderStage(stage)) {
             meshFilter.mesh = gfxGenerator.applyToMeshRenderer(meshRenderer);
-        }
+        }*/
     }
 
     public Mesh generateMesh() {

@@ -17,6 +17,7 @@ public class TextureManagement : MonoBehaviour{
     //Unity Editor;
     Material material;
     MeshRenderer mesh;
+    CustomMovieClipBehaviour movieClip;
 
     public enum TexturingType{
         BaseTexturesSO = 0,
@@ -30,6 +31,7 @@ public class TextureManagement : MonoBehaviour{
         //Extracting the material;
         mesh = GetComponent<MeshRenderer>();
         material = mesh.material;
+        movieClip = GetComponent<CustomMovieClipBehaviour>();
         
         //Creating a new texture based in the original one;
         if(textures is BaseTexturesSO) {
@@ -58,7 +60,8 @@ public class TextureManagement : MonoBehaviour{
             break;
 
             case TexturingType.MultipleTexturesSO:
-
+                
+                /*mesh.materials = movieClip.materials;*/
             break;
 
             default: break;
