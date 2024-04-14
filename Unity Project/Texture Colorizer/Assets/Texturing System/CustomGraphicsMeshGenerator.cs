@@ -4,7 +4,6 @@
 // MVID: ECA667DE-E663-4CF8-BB22-A8C2F545850C
 // Assembly location: C:\Users\Admin\Documents\GitHub\Unity-UniSWF-Texture-Manager\Unity Project\Texture Colorizer\Assets\Plugins\uniSWF\DLLs\LibUniSWF.dll
 
-/*
 using pumpkin.display;
 using pumpkin.geom;
 using pumpkin.swf;
@@ -12,35 +11,11 @@ using pumpkin.utils;
 using System;
 using UnityEngine;
 
-namespace pumpkin.displayInternal
-{
-  internal struct CustomSwfGraphicsRenderState
-  {
-    public bool parentHasClipRect;
-    public Color colorTransform;
-    public int blendMode;
-    public DisplayObject clipRectParent;
-    public Rect clipRect;
-    public bool clipRectCached;
-    public bool parentCacheInvalid;
-  }
-}
-
 #nullable disable
 namespace pumpkin.displayInternal
 {
   [Serializable]
-  public class GraphicsMeshGenerator : IGraphicsGenerator, IGraphicsGeneratorDataPool{
-    Vector3 transformVector3Static(float inX, float inY, float inZ){
-      /*Matrix.transformVector3Static_res.x = (float) ((double) inX * (double) this.a + (double) inY * (double) this.c) + this.tx;
-      Matrix.transformVector3Static_res.y = (float) ((double) inX * (double) this.b + (double) inY * (double) this.d) + this.ty;
-      Matrix.transformVector3Static_res.z = inZ;
-      return Matrix.transformVector3Static_res;
-
-
-      return new Vector3(0, 0, 0);
-    }
-
+  public class CustomGraphicsMeshGenerator : IGraphicsGenerator, IGraphicsGeneratorDataPool{
     public const int PHASE_SCAN = 0;
     public const int PHASE_BUILD = 1;
     public const int PHASE_NULL = 2;
@@ -74,7 +49,7 @@ namespace pumpkin.displayInternal
     public Mesh mesh_0;
     public Mesh mesh_1;
     private bool m_meshSwitch = true;
-    private CustomSwfGraphicsRenderState renderState = new CustomSwfGraphicsRenderState();
+    private SwfGraphicsRenderState renderState = new SwfGraphicsRenderState();
     private Vector2 uvPos = new Vector2();
     private Vector2 tmpUv;
     private Vector2 lowerLeftUV;
@@ -87,7 +62,8 @@ namespace pumpkin.displayInternal
     private GenericUseOrderCyclingArrayPool<Vector2> uvPool = new GenericUseOrderCyclingArrayPool<Vector2>();
     private GenericUseOrderCyclingArrayPool<Color> colorPool = new GenericUseOrderCyclingArrayPool<Color>();
 
-    public GraphicsMeshGenerator() => this.dataPool = (IGraphicsGeneratorDataPool) this;
+    public CustomGraphicsMeshGenerator() => this.dataPool = (IGraphicsGeneratorDataPool) this;
+    private pumpkin.geom.Matrix matrixReference = new pumpkin.geom.Matrix();
 
     public bool renderStage(Stage stage)
     {
@@ -183,7 +159,14 @@ namespace pumpkin.displayInternal
       if (parent.blendMode != 0)
         this.renderState.blendMode = parent.blendMode;
       Color colorTransform = this.renderState.colorTransform;
-      this.renderState.colorTransform = Color.op_Multiply(parent.colorTransform, this.renderState.colorTransform);
+
+      this.renderState.colorTransform = new Color(
+        parent.colorTransform.r * this.renderState.colorTransform.r,
+        parent.colorTransform.g * this.renderState.colorTransform.g,
+        parent.colorTransform.b * this.renderState.colorTransform.b,
+        parent.colorTransform.a * this.renderState.colorTransform.a
+      );
+
       for (int id = 0; id < parent.numChildren; ++id)
       {
         DisplayObject childAt = parent.getChildAt(id);
@@ -269,15 +252,26 @@ namespace pumpkin.displayInternal
               numArray = this.submeshIndices[this.subMeshId];
             }
             pumpkin.geom.Matrix fullMatrixRef = parent._fastGetFullMatrixRef();
+            matrixReference = fullMatrixRef;
             if (drawOp.simpleVectorShape != null)
             {
-              Color color = Color.op_Multiply(this.renderState.colorTransform, drawOp.color);
+              Color color = new Color(
+                this.renderState.colorTransform.r * drawOp.color.r,
+                this.renderState.colorTransform.g * drawOp.color.g,
+                this.renderState.colorTransform.b * drawOp.color.b,
+                this.renderState.colorTransform.a * drawOp.color.a
+              );
               for (int index2 = 0; index2 < drawOp.simpleVectorShape.vertices.Length; ++index2)
               {
                 Vector2 vertex = drawOp.simpleVectorShape.vertices[index2];
-                this.vertices[this.VertId++] = transformVector3Static(vertex.x, vertex.y, this.zDrawOffset);
+                this.vertices[this.VertId++] = matrixReference.transformVector3Static(vertex.x, vertex.y, this.zDrawOffset);
                 this.UVs[this.UVId++] = drawOp.simpleVectorShape.uv[index2];
-                this.colors[this.ColourId++] = Color.op_Multiply(drawOp.simpleVectorShape.colors[index2], color);
+                this.colors[this.ColourId++] = new Color(
+                  drawOp.simpleVectorShape.colors[index2].r * color.r,
+                  drawOp.simpleVectorShape.colors[index2].g * color.g,
+                  drawOp.simpleVectorShape.colors[index2].b * color.b,
+                  drawOp.simpleVectorShape.colors[index2].a * color.a
+                );
               }
               numArray = this.submeshIndices[this.subMeshId];
               for (int index3 = 0; index3 < drawOp.simpleVectorShape.cachedTriangulatedIndex.Length; ++index3)
@@ -437,7 +431,13 @@ namespace pumpkin.displayInternal
               }
               else
               {
-                Color color = Color.op_Multiply(this.renderState.colorTransform, drawOp.color);
+                Color color = new Color(
+                  this.renderState.colorTransform.r * drawOp.color.r,
+                  this.renderState.colorTransform.g * drawOp.color.g,
+                  this.renderState.colorTransform.b * drawOp.color.b,
+                  this.renderState.colorTransform.a * drawOp.color.a
+                );
+
                 this.colors[this.ColourId++] = color;
                 this.colors[this.ColourId++] = color;
                 this.colors[this.ColourId++] = color;
@@ -447,17 +447,17 @@ namespace pumpkin.displayInternal
               int vertId = this.VertId;
               if (flipped)
               {
-                this.vertices[this.VertId++] = transformVector3Static(x + 0.0f, y + 0.0f, this.zDrawOffset);
-                this.vertices[this.VertId++] = transformVector3Static(x + 0.0f, y + pH, this.zDrawOffset);
-                this.vertices[this.VertId++] = transformVector3Static(x + pW, y + pH, this.zDrawOffset);
-                this.vertices[this.VertId++] = transformVector3Static(x + pW, y + 0.0f, this.zDrawOffset);
+                this.vertices[this.VertId++] = matrixReference.transformVector3Static(x + 0.0f, y + 0.0f, this.zDrawOffset);
+                this.vertices[this.VertId++] = matrixReference.transformVector3Static(x + 0.0f, y + pH, this.zDrawOffset);
+                this.vertices[this.VertId++] = matrixReference.transformVector3Static(x + pW, y + pH, this.zDrawOffset);
+                this.vertices[this.VertId++] = matrixReference.transformVector3Static(x + pW, y + 0.0f, this.zDrawOffset);
               }
               else
               {
-                this.vertices[this.VertId++] = transformVector3Static(x + pW, y + 0.0f, this.zDrawOffset);
-                this.vertices[this.VertId++] = transformVector3Static(x + pW, y + pH, this.zDrawOffset);
-                this.vertices[this.VertId++] = transformVector3Static(x + 0.0f, y + pH, this.zDrawOffset);
-                this.vertices[this.VertId++] = transformVector3Static(x + 0.0f, y + 0.0f, this.zDrawOffset);
+                this.vertices[this.VertId++] = matrixReference.transformVector3Static(x + pW, y + 0.0f, this.zDrawOffset);
+                this.vertices[this.VertId++] = matrixReference.transformVector3Static(x + pW, y + pH, this.zDrawOffset);
+                this.vertices[this.VertId++] = matrixReference.transformVector3Static(x + 0.0f, y + pH, this.zDrawOffset);
+                this.vertices[this.VertId++] = matrixReference.transformVector3Static(x + 0.0f, y + 0.0f, this.zDrawOffset);
               }
               if (this.generateNormals)
               {
@@ -632,4 +632,3 @@ namespace pumpkin.displayInternal
     }
   }
 }
-*/
