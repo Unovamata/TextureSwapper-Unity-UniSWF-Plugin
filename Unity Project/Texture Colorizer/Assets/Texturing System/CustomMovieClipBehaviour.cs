@@ -83,8 +83,8 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
 
     public float zDrawDisplayObjectSpace {
         get {
-            if (gfxGenerator is GraphicsMeshGenerator) {
-                return ((GraphicsMeshGenerator)gfxGenerator).zSpace;
+            if (gfxGenerator is CustomGraphicsMeshGenerator) {
+                return ((CustomGraphicsMeshGenerator)gfxGenerator).zSpace;
             }
 
             if (gfxGenerator is GraphicsDrawMeshGenerator) {
@@ -94,8 +94,8 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
             return 0f;
         }
         set {
-            if (gfxGenerator is GraphicsMeshGenerator) {
-                ((GraphicsMeshGenerator)gfxGenerator).zSpace = value;
+            if (gfxGenerator is CustomGraphicsMeshGenerator) {
+                ((CustomGraphicsMeshGenerator)gfxGenerator).zSpace = value;
             }
 
             if (gfxGenerator is GraphicsDrawMeshGenerator) {
@@ -106,8 +106,8 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
 
     public float zDrawDisplayObjectContainerSpace {
         get {
-            if (gfxGenerator is GraphicsMeshGenerator) {
-                return ((GraphicsMeshGenerator)gfxGenerator).zContainerSpace;
+            if (gfxGenerator is CustomGraphicsMeshGenerator) {
+                return ((CustomGraphicsMeshGenerator)gfxGenerator).zContainerSpace;
             }
 
             if (gfxGenerator is GraphicsDrawMeshGenerator) {
@@ -117,8 +117,8 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
             return 0f;
         }
         set {
-            if (gfxGenerator is GraphicsMeshGenerator) {
-                ((GraphicsMeshGenerator)gfxGenerator).zContainerSpace = value;
+            if (gfxGenerator is CustomGraphicsMeshGenerator) {
+                ((CustomGraphicsMeshGenerator)gfxGenerator).zContainerSpace = value;
             }
 
             if (gfxGenerator is GraphicsDrawMeshGenerator) {
@@ -229,8 +229,8 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
             fastGraphicsDrawMeshGenerator.zSpace = 0.0001f;
         }
         else {
-            graphicsGenerator = new GraphicsMeshGenerator();
-            GraphicsMeshGenerator graphicsMeshGenerator = graphicsGenerator as GraphicsMeshGenerator;
+            graphicsGenerator = new CustomGraphicsMeshGenerator();
+            CustomGraphicsMeshGenerator graphicsMeshGenerator = graphicsGenerator as CustomGraphicsMeshGenerator;
             graphicsMeshGenerator.enableCache = enableCache;
         }
 
@@ -247,7 +247,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     FastList<Material> materialList;
 
     private void CreateMaterialsListCopy(){
-        materials = (gfxGenerator as GraphicsMeshGenerator).materialList.m_Buffer;
+        materials = (gfxGenerator as CustomGraphicsMeshGenerator).materialList.m_Buffer;
 
         for(int i = 0; i < materials.Length; i++){
             Material reference = materials[i];
@@ -258,8 +258,8 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
             materials[i] = newMaterial;
         }
 
-        (gfxGenerator as GraphicsMeshGenerator).materialList.m_Buffer = materials;
-        materialList = (gfxGenerator as GraphicsMeshGenerator).materialList;
+        (gfxGenerator as CustomGraphicsMeshGenerator).materialList.m_Buffer = materials;
+        materialList = (gfxGenerator as CustomGraphicsMeshGenerator).materialList;
 
         return;
 
