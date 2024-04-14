@@ -261,10 +261,6 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
         (gfxGenerator as GraphicsMeshGenerator).materialList.m_Buffer = materials;
         materialList = (gfxGenerator as GraphicsMeshGenerator).materialList;
 
-        Debug.Log((gfxGenerator as GraphicsMeshGenerator).materialList.m_Buffer[0].name);
-
-        
-
         return;
 
         FastList<Material> newMaterialList = new FastList<Material>();
@@ -435,8 +431,9 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     }
 
     public void renderFrame() {
-        /*stage.updateFrame(m_EnterFrameEvent);
+        stage.updateFrame(m_EnterFrameEvent);
         lastInterval = Time.realtimeSinceStartup;
+        
         if (drawMeshMode && Application.isPlaying) {
             if (m_Is3D && gfxGenerator != null && gfxGenerator.renderStage(stage)) {
                 m_LastRenderMesh = gfxGenerator.getSimpleStageRenderResult();
@@ -444,7 +441,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
         }
         else if (m_Is3D && (bool)meshFilter && gfxGenerator != null && gfxGenerator.renderStage(stage)) {
             meshFilter.mesh = gfxGenerator.applyToMeshRenderer(meshRenderer);
-        }*/
+        }
     }
 
     public Mesh generateMesh() {
