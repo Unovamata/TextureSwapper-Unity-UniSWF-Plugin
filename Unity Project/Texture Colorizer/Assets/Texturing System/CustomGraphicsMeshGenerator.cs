@@ -10,6 +10,7 @@ using pumpkin.swf;
 using pumpkin.utils;
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 #nullable disable
 namespace pumpkin.displayInternal
@@ -62,7 +63,15 @@ namespace pumpkin.displayInternal
     private GenericUseOrderCyclingArrayPool<Vector2> uvPool = new GenericUseOrderCyclingArrayPool<Vector2>();
     private GenericUseOrderCyclingArrayPool<Color> colorPool = new GenericUseOrderCyclingArrayPool<Color>();
 
-    public CustomGraphicsMeshGenerator() => this.dataPool = (IGraphicsGeneratorDataPool) this;
+    string diffuseShaderName = "Transparent/CustomDiffuseDoubleSided";
+    Shader diffuseShader;
+
+    public CustomGraphicsMeshGenerator(){
+        this.dataPool = this;
+  
+        diffuseShader = Shader.Find(diffuseShaderName);
+    }
+
     private pumpkin.geom.Matrix matrixReference = new pumpkin.geom.Matrix();
 
     public bool renderStage(Stage stage)
@@ -149,6 +158,8 @@ namespace pumpkin.displayInternal
       return currentMesh;
     }
 
+    public List<int> layersToRemove = new List<int>();
+
     private void renderDisplayObjectContainer(DisplayObjectContainer parent)
     {
       if (this.phaseId == 0 || this.phaseId != 1)
@@ -167,8 +178,10 @@ namespace pumpkin.displayInternal
         parent.colorTransform.a * this.renderState.colorTransform.a
       );
 
-      for (int id = 0; id < parent.numChildren; ++id)
+      for (int id = 0; id < parent.numChildren; id += 1)
       {
+        if(layersToRemove.Contains(id)) continue;
+
         DisplayObject childAt = parent.getChildAt(id);
         switch (childAt)
         {
@@ -184,11 +197,92 @@ namespace pumpkin.displayInternal
       this.renderState.blendMode = blendMode;
     }
 
+    public Material createConvertToAdditive(Material existingMaterial){
+      string str = (string) null;
+
+      foreach (KeyValuePair<string, Material> material in TextureManager.instance.materials){
+        if (material.Value == existingMaterial){
+          str = material.Key;
+          break;
+        }
+      }
+
+      if (!string.IsNullOrEmpty(str)){
+
+        string key = str;
+
+        if(!key.Contains("_A")) key += "_A";
+
+        if (TextureManager.instance.materials.ContainsKey(key))
+        {
+          Material material = TextureManager.instance.materials[key];
+          material.shader = diffuseShader;
+          if (material != null)
+            return material;
+        }
+        else
+        {
+          Texture mainTexture = existingMaterial.mainTexture;
+          Material convertToAdditive = new Material(TextureManager.baseBitmapAddShader);
+          convertToAdditive.mainTexture = mainTexture;
+          TextureManager.instance.materials[key] = convertToAdditive;
+          return convertToAdditive;
+        }
+      }
+      return new Material(TextureManager.baseBitmapAddShader)
+      {
+        mainTexture = existingMaterial.mainTexture
+      };
+    }
+
+    public Dictionary<string, Material> materials = new Dictionary<string, Material>();
+
+    public Material CreateMaterialDuplicate(Material existingMaterial){
+      string str = (string) null;
+
+      foreach (KeyValuePair<string, Material> material in TextureManager.instance.materials){
+        if (material.Value == existingMaterial){
+          str = material.Key;
+          break;
+        }
+      }
+
+      if (!string.IsNullOrEmpty(str))
+      {
+        string key = str;
+
+        if(!key.Contains("_C")) key += "_C";
+        
+        if (TextureManager.instance.materials.ContainsKey(key))
+        {
+          Material material = TextureManager.instance.materials[key];
+          //material.shader = diffuseShader;
+          if (material != null)
+            return material;
+        }
+        else
+        {
+          Texture mainTexture = existingMaterial.mainTexture;
+          Material convertToAdditive = new Material(diffuseShader);
+          convertToAdditive.mainTexture = mainTexture;
+          TextureManager.instance.materials[key] = convertToAdditive;
+          return convertToAdditive;
+        }
+      }
+
+      
+      return new Material(diffuseShader)
+      {
+        mainTexture = existingMaterial.mainTexture
+      };
+    }
+
     private void renderSprite(pumpkin.display.Sprite sprite)
     {
       if (!sprite.visible)
         return;
       pumpkin.display.Graphics graphics = sprite.graphics;
+
       bool parentHasClipRect = this.renderState.parentHasClipRect;
       if (sprite.hasClipRect)
       {
@@ -201,12 +295,30 @@ namespace pumpkin.displayInternal
       if (!parent.visible)
         return;
       int count = graphics.drawOPs.Count;
-      for (int index1 = 0; index1 < count; ++index1)
-      {
+      for (int index1 = 0; index1 < count; ++index1){
         GraphicsDrawOP drawOp = graphics.drawOPs[index1];
+
         if (drawOp.material != null){
-          if (this.renderState.blendMode != 0 && (drawOp.material.shader != TextureManager.baseBitmapAddShader))
-            drawOp.material = TextureManager.instance.createConvertToAdditive(drawOp.material);
+          switch(this.renderState.blendMode){
+            // Normal Rendering;
+            case 0:
+            break;
+            // Additive Rendering;
+            case 1:
+            try{
+              if (drawOp.material.shader != TextureManager.baseBitmapAddShader)
+                drawOp.material = createConvertToAdditive(drawOp.material); //TextureManager.instance.createConvertToAdditive(drawOp.material);
+            } catch {}
+              
+            break;
+            // Custom Rendering;
+            case 2:
+              if (drawOp.material.shader != TextureManager.baseBitmapAddShader)
+                drawOp.material = CreateMaterialDuplicate(drawOp.material);
+            break;
+          }
+
+          
           if (this.phaseId == 0)
           {
             if (this.currentMaterial != drawOp.material)

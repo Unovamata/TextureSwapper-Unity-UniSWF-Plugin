@@ -12,6 +12,13 @@ using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
 
+
+  public enum MovieClipBlendMode{
+    Normal,
+    Additive,
+    Custom,
+  }
+
 [ExecuteInEditMode]
 [AddComponentMenu("uniSWF/CustomMovieClipBehaviour")]
 public class CustomMovieClipBehaviour : MonoBehaviour{
@@ -71,6 +78,8 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     private SimpleStageRenderResult m_LastRenderMesh;
     private float m_DrawMeshZSpace = 0f;
     protected Vector3 m_TmpVector = default(Vector3);
+
+    [SerializeField] List<int> layersToRemove = new List<int>();
 
     public int currentFrame {
         get {
@@ -237,11 +246,11 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
         return graphicsGenerator;
     }
 
-    public List<Texture2D> textureReferences;
-    public Material[] materials;
+    List<Texture2D> textureReferences;
+    Material[] materials;
 
     public virtual void Start(){
-        CreateMaterialsListCopy();
+        //CreateMaterialsListCopy();
     }
 
     FastList<Material> materialList;
@@ -306,6 +315,8 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     }
 
     public virtual void Update() {
+        try { (gfxGenerator as CustomGraphicsMeshGenerator).layersToRemove = layersToRemove; } catch {}
+
         if (textureManagement != null) {
             if(!textureManagement.enabled) textureManagement.enabled = true;
         }
@@ -320,13 +331,13 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
                 Awake();
             }
 
-            if(textureReferences.Count > 0){
+            /*if(textureReferences.Count > 0){
                 for (int i = 0; i < materialList.Count; i++){
                     materialList[i].SetTexture("_MainTex", textureReferences[i]);
                 }
 
                 textureReferences = new List<Texture2D>();
-            }
+            }*/
             
         }
         
