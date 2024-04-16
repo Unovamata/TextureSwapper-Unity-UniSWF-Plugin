@@ -241,55 +241,27 @@ namespace pumpkin.displayInternal
     public Material CreateMaterialDuplicate(Material existingMaterial){
       string key = existingMaterial.mainTexture.name;
 
-      if(!key.Contains("_C")) key += "_C";
-
-      if(materials.ContainsKey(key)) return materials[key];
-      else {
-        Texture mainTexture = existingMaterial.mainTexture;
-        Material convertToAdditive = new Material(diffuseShader);
-        convertToAdditive.mainTexture = mainTexture;
-        TextureManager.instance.materials[key] = convertToAdditive;
-        return convertToAdditive;
-      }
-
-
-
-      /*foreach (KeyValuePair<string, Material> material in TextureManager.instance.materials){
+      foreach (KeyValuePair<string, Material> material in materials){
         if (material.Value == existingMaterial){
-          str = material.Key;
-          Debug.Log("Material Name: " + existingMaterial.name + " ~ " + material.mainTexture.name);
+          key = material.Key;
           break;
         }
       }
 
-      if (!string.IsNullOrEmpty(str))
-      {
-        string key = str;
+      if(materials.ContainsKey(key)) return materials[key];
+      else {
+        Texture mainTexture = existingMaterial.mainTexture;
+        Material newInstanceMaterial = new Material(diffuseShader);
+        newInstanceMaterial.name = key;
+        newInstanceMaterial.mainTexture = mainTexture;
+        materials[key] = newInstanceMaterial;
 
-        if(!key.Contains("_C")) key += "_C";
-        
-        if (TextureManager.instance.materials.ContainsKey(key))
-        {
-          Material material = TextureManager.instance.materials[key];
-          //material.shader = diffuseShader;
-          if (material != null)
-            return material;
-        }
-        else
-        {
-          Texture mainTexture = existingMaterial.mainTexture;
-          Material convertToAdditive = new Material(diffuseShader);
-          convertToAdditive.mainTexture = mainTexture;
-          TextureManager.instance.materials[key] = convertToAdditive;
-          return convertToAdditive;
-        }
+        return newInstanceMaterial;
       }
 
-      
-      return new Material(diffuseShader)
-      {
+      return new Material(diffuseShader){
         mainTexture = existingMaterial.mainTexture
-      };*/
+      };
     }
 
     private void renderSprite(pumpkin.display.Sprite sprite)
@@ -328,7 +300,6 @@ namespace pumpkin.displayInternal
             break;
             // Custom Rendering;
             case 2:
-              if (drawOp.material.shader != TextureManager.baseBitmapAddShader)
                 drawOp.material = CreateMaterialDuplicate(drawOp.material);
             break;
           }

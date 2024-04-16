@@ -16,7 +16,7 @@ using System.Collections.Generic;
   public enum MovieClipBlendMode{
     Normal,
     Additive,
-    Custom,
+    Instantiated,
   }
 
 [ExecuteInEditMode]
@@ -315,7 +315,10 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     }
 
     public virtual void Update() {
-        try { (gfxGenerator as CustomGraphicsMeshGenerator).layersToRemove = layersToRemove; } catch {}
+        try {
+            CustomGraphicsMeshGenerator localGFXGenerator = (gfxGenerator as CustomGraphicsMeshGenerator);
+            localGFXGenerator.layersToRemove = layersToRemove;
+        } catch {}
 
         if (textureManagement != null) {
             if(!textureManagement.enabled) textureManagement.enabled = true;
