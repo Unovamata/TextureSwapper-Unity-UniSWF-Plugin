@@ -196,4 +196,4 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    folder: 1
+    folder: 0
