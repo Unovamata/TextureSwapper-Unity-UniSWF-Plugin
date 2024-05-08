@@ -168,7 +168,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 2800000, guid: d72c6be65566fc84494d53c64627fe02, type: 3}
-  path: Assets/Resources/Textures/Wireframe/Wireframe (A).png
+  path: 
   texturesToSearch:
   - {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}
   - {fileID: 2800000, guid: d72c6be65566fc84494d53c64627fe02, type: 3}

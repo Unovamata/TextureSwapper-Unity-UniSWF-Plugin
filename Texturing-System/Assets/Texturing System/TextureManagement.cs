@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class TextureManagement : MonoBehaviour{
     //Data;
-    public TexturesSO textures;
-    public TexturesSO[] textureToReference;
+    [HideInInspector] public SkeletonSO skeleton;
+    [HideInInspector] public TexturesSO textures;
+    [HideInInspector] public MaterialStoreSO materialStoreSO;
+    [HideInInspector] public TexturesSO[] textureToReference;
     [HideInInspector] public int[] limitPerLimb;
-    public SkeletonSO skeleton;
     List<SkeletonRelationships> skeletonRelationships;
     [HideInInspector] public List<Texture2D> newTexturesToManage = new List<Texture2D>();
     [HideInInspector] public TexturingType texturingType;
@@ -116,11 +117,68 @@ public class CustomInspector : Editor {
     //Changes values in the inspector, creating a custom inspector;
     public override void OnInspectorGUI() {
         DrawDefaultInspector();
+
+        serializedObject.Update();
+
+        SerializedProperty materialStoreSOProperty = serializedObject.FindProperty("materialStoreSO"),
+        texturesProperty = serializedObject.FindProperty("textures"),
+        texturesToReferenceProperty = serializedObject.FindProperty("textureToReference"),
+        skeletonProperty = serializedObject.FindProperty("skeleton");
+
+
         TextureManagement manager = (TextureManagement) target; //Referencing the script;
+
+        Separator();
+
+        EditorGUILayout.PropertyField(skeletonProperty, new GUIContent("Skeleton"));
+        
+        Separator();
+
+        if(manager.skeleton == null) return;
+
+        EditorGUILayout.PropertyField(texturesProperty, new GUIContent("Textures"));
+
+        // If the type of textures is multiple, call for the MaterialStoreSO reference;
+        if (manager.textures is MultipleTexturesSO){
+            GUILayout.BeginHorizontal();
+                EditorGUILayout.PropertyField(materialStoreSOProperty, new GUIContent("Material Store SO"));
+
+                // Formatting the path to save the asset correctly;
+                string assetPath = AssetDatabase.GetAssetPath(manager.textures);
+                int dashIndex = assetPath.LastIndexOf('/');
+                string formattedPath = assetPath.Substring(0, dashIndex + 1);
+                formattedPath += manager.gameObject.name + ".asset";
+
+                if(manager.materialStoreSO == null && GUILayout.Button("New", GUILayout.Width(60))){
+                    // Create the MaterialStoreSO asset;
+                    MaterialStoreSO newMaterialStoreSO = ScriptableObject.CreateInstance<MaterialStoreSO>();
+
+                    // Saving the asset in the files and the object;
+                    AssetDatabase.CreateAsset(newMaterialStoreSO, formattedPath);
+                    AssetDatabase.SaveAssets();
+                    AssetDatabase.Refresh();
+
+                    manager.materialStoreSO = newMaterialStoreSO;
+                }
+                
+            GUILayout.EndHorizontal();
+
+            EditorGUILayout.Space();
+        }
+
+        Separator();
+
+        // Displaying the textures to reference list;
+        EditorGUILayout.PropertyField(texturesToReferenceProperty, true);
+
+        serializedObject.ApplyModifiedProperties();
+
+        Separator();
+
+
         List<SkeletonRelationships> relationships = manager.skeleton.GetRelationships();
 
         if(manager.textureToReference.Length == 0) return;
-        EditorGUILayout.Space();
         EditorGUILayout.Space();
 
         // Limit mapping;
@@ -205,6 +263,13 @@ public class CustomInspector : Editor {
 
             GUILayout.EndVertical();
         } catch { }
+    }
+
+    private void Separator(){
+        EditorGUILayout.Space();
+        GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
+        EditorGUILayout.Space();
+        serializedObject.ApplyModifiedProperties();
     }
 
     private int Scrollable(string name, int min, int max, int index) {
