@@ -318,11 +318,15 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
         try {
             CustomGraphicsMeshGenerator localGFXGenerator = (gfxGenerator as CustomGraphicsMeshGenerator);
             localGFXGenerator.layersToRemove = layersToRemove;
-        } catch {}
 
-        if (textureManagement != null) {
-            if(!textureManagement.enabled) textureManagement.enabled = true;
-        }
+            if (textureManagement != null) {
+                if(!textureManagement.enabled){
+                    textureManagement.enabled = true;
+                } else {
+                    (textureManagement as TextureManagement).materialStoreSO.SetMaterials(localGFXGenerator.materials);
+                }
+            }
+        } catch {}
 
         bool isPlaying = Application.isPlaying;
         if (Application.isEditor && !isPlaying) {

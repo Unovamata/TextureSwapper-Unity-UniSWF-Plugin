@@ -61,8 +61,7 @@ public class TextureManagement : MonoBehaviour{
             break;
 
             case TexturingType.MultipleTexturesSO:
-                
-                /*mesh.materials = movieClip.materials;*/
+                //materialStoreSO
             break;
 
             default: break;
