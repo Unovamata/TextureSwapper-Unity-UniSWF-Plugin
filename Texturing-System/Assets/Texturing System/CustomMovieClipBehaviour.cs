@@ -23,6 +23,7 @@ using System.Collections.Generic;
 [AddComponentMenu("uniSWF/CustomMovieClipBehaviour")]
 public class CustomMovieClipBehaviour : MonoBehaviour{
     [SerializeField] MonoBehaviour textureManagement;
+    TextureManagement textureManagementReference;
     public static Vector2 defaultDrawScale = new Vector2(0.01f, 0.01f);
     public static bool defaultUseAccurateTiming = true;
     public string swf = null;
@@ -157,6 +158,8 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
             return;
         }
 
+        textureManagementReference = (textureManagement as TextureManagement);
+
         enableCache = false;
         m_EnterFrameEvent = new CEvent(CEvent.ENTER_FRAME, bubbles: false, cancelable: false);
         meshFilter = (MeshFilter)base.gameObject.GetComponent(typeof(MeshFilter));
@@ -249,69 +252,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     List<Texture2D> textureReferences;
     Material[] materials;
 
-    public virtual void Start(){
-        //CreateMaterialsListCopy();
-    }
-
-    FastList<Material> materialList;
-
-    private void CreateMaterialsListCopy(){
-        materials = (gfxGenerator as CustomGraphicsMeshGenerator).materialList.m_Buffer;
-
-        for(int i = 0; i < materials.Length; i++){
-            Material reference = materials[i];
-
-            Material newMaterial = Instantiate(reference);
-            newMaterial.name = i.ToString();
-
-            materials[i] = newMaterial;
-        }
-
-        (gfxGenerator as CustomGraphicsMeshGenerator).materialList.m_Buffer = materials;
-        materialList = (gfxGenerator as CustomGraphicsMeshGenerator).materialList;
-
-        return;
-
-        FastList<Material> newMaterialList = new FastList<Material>();
-
-        textureReferences = new List<Texture2D>();
-
-        for (int i = 0; i < materialList.Count; i++){
-            Material reference = materialList[i];
-            Texture2D textureReference = reference.GetTexture("_MainTex") as Texture2D;
-            
-            string assetPath = AssetDatabase.GetAssetPath(textureReference);
-            Texture2D copiedTexture = AssetDatabase.LoadAssetAtPath<Texture2D>(assetPath);
-            textureReferences.Add(copiedTexture);
-
-            //reference.mainTexture = ProcessTextureCopy(reference);
-            //reference.SetTexture("_MainTex", ProcessTextureCopy(reference));
-        }
-
-        //Debug.Log(materialDictionary.Count);
-
-        for (int i = 0; i < materialList.Count; i++){
-            Material reference = materialList[i];
-            reference.SetTexture("_MainTex", ProcessTextureCopy(reference));
-        }
-    }
-
-    private Texture2D ProcessTextureCopy(Material reference){
-        Texture2D texture2D = reference.GetTexture("_MainTex") as Texture2D;
-        UnityEngine.Sprite[] sprites = Resources.LoadAll<UnityEngine.Sprite>(texture2D.name);
-
-        /* If there are no sprites to reference in the texture, 
-         * we do not need to create a copy, as it would take more
-         * resources to instantiate a texture in memory we would not use */
-        if(sprites.Length == 0) return texture2D;
-
-        //reference.name = "Changed";
-        Texture2D newTexture2D = new Texture2D(texture2D.width, texture2D.height, TextureFormat.ARGB32, false);
-
-        newTexture2D.SetPixels(texture2D.GetPixels());
-        newTexture2D.Apply();
-
-        return newTexture2D;
+    public virtual void Start(){        
     }
 
     public virtual void Update() {
@@ -323,7 +264,8 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
                 if(!textureManagement.enabled){
                     textureManagement.enabled = true;
                 } else {
-                    (textureManagement as TextureManagement).materialStoreSO.SetMaterials(localGFXGenerator.materials);
+                    //if(localGFXGenerator.materials != )
+                    textureManagementReference.materialStoreSO.SetMaterials(localGFXGenerator.materials);
                 }
             }
         } catch {}
@@ -337,15 +279,6 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
             if ((lastMovieClip != null && swf != null && lastMovieClip.CompareTo(swf) != 0) || (lastSymbolName != null && symbolName != null && lastSymbolName.CompareTo(symbolName) != 0)) {
                 Awake();
             }
-
-            /*if(textureReferences.Count > 0){
-                for (int i = 0; i < materialList.Count; i++){
-                    materialList[i].SetTexture("_MainTex", textureReferences[i]);
-                }
-
-                textureReferences = new List<Texture2D>();
-            }*/
-            
         }
         
 

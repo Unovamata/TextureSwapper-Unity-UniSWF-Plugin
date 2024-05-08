@@ -166,4 +166,38 @@ public class Utils{
         string route = Application.streamingAssetsPath.Replace("/", "\\");
         return route;
     }
+
+    public static void ShowTextureInField(Texture2D texture, string textureName, float rectSize){
+        bool showMaskTextureMetadata = (int) Prefs.showMaskTextureMetadata == 1;
+        if(!showMaskTextureMetadata) return;
+
+        EditorGUILayout.Space();
+        EditorGUILayout.BeginHorizontal();
+        // Display the label and read-only texture field
+        EditorGUILayout.PrefixLabel(textureName);
+        Rect objectFieldRect = GUILayoutUtility.GetRect(EditorGUIUtility.fieldWidth * rectSize, EditorGUIUtility.fieldWidth * rectSize);
+
+        EditorGUI.BeginDisabledGroup(true);
+        EditorGUI.ObjectField(objectFieldRect, GUIContent.none, texture, typeof(Texture2D), false);
+        EditorGUI.EndDisabledGroup();
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.Space();
+    }
+
+    public static void Separator(){
+        EditorGUILayout.Space();
+        GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
+        EditorGUILayout.Space();
+    }
+
+    //Create a readable route by the asset database;
+    public static string FormatRoute(string route) {
+        //Removing the first part of the route;
+        route = route.Replace("Assets/Resources/", "");
+
+        //Removing the .extension part of the route;
+        route = route.Substring(0, route.LastIndexOf("."));
+
+        return route;
+    }
 }

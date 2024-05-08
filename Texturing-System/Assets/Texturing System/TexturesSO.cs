@@ -63,13 +63,7 @@ public class TexturesSO : ScriptableObject, ITexturesSO {
 
     //Create a readable route by the asset database;
     public string FormatRoute(string route) {
-        //Removing the first part of the route;
-        route = route.Replace("Assets/Resources/", "");
-
-        //Removing the .extension part of the route;
-        route = route.Substring(0, route.IndexOf("."));
-
-        return route;
+        return Utils.FormatRoute(route);
     }
 
     //Create a folder to hold assets;

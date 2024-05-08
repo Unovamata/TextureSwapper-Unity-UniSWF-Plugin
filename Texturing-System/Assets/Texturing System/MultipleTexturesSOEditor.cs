@@ -16,7 +16,7 @@ public class MultipleTexturesSOEditor : Editor{
         MultipleTexturesSO textures = (MultipleTexturesSO) target;
 
         if(textures.GetLimbs().Count == 0)
-            EditorGUILayout.HelpBox("- Ensure the texture is located anywhere within the 'Resources' folder in the project's root.\n- The texture name cannot contain '.' characters.", MessageType.Warning);
+            EditorGUILayout.HelpBox("- Ensure the texture is located anywhere within the 'Resources' folder in the project's root.", MessageType.Warning);
         EditorGUILayout.Space();
 
         base.OnInspectorGUI();

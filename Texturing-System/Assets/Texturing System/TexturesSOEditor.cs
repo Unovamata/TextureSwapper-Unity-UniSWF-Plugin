@@ -39,7 +39,7 @@ public class TexturesSOEditor : Editor{
         EditorGUILayout.LabelField(textures.GetLimbs().Count + " Limbs found");
         EditorGUILayout.EndHorizontal();
         if(textures.GetLimbs().Count == 0)
-            EditorGUILayout.HelpBox("- Ensure the texture is located anywhere within the 'Resources' folder in the project's root.\n- The texture name cannot contain '.' characters.", MessageType.Warning);
+            EditorGUILayout.HelpBox("- Ensure the texture is located anywhere within the 'Resources' folder in the project's root.", MessageType.Warning);
         EditorGUILayout.Space();
 
         //Confirm search and load button;
@@ -106,7 +106,7 @@ public class TexturesSOEditor : Editor{
         EditorGUILayout.LabelField(name, EditorStyles.boldLabel);
 
         // Display the label and read-only texture field
-        ShowTextureInField(limb.GetTexture(), "Main Texture", rectSize);
+        Utils.ShowTextureInField(limb.GetTexture(), "Main Texture", rectSize);
 
         if (!showMetadata) {
             EditorGUILayout.EndVertical();
@@ -162,24 +162,6 @@ public class TexturesSOEditor : Editor{
         EditorGUILayout.Space();
         EditorGUILayout.EndVertical();
     }
-
-    public static void ShowTextureInField(Texture2D texture, string textureName, float rectSize){
-        bool showMaskTextureMetadata = (int) Prefs.showMaskTextureMetadata == 1;
-        if(!showMaskTextureMetadata) return;
-
-        EditorGUILayout.Space();
-        EditorGUILayout.BeginHorizontal();
-        // Display the label and read-only texture field
-        EditorGUILayout.PrefixLabel(textureName);
-        Rect objectFieldRect = GUILayoutUtility.GetRect(EditorGUIUtility.fieldWidth * rectSize, EditorGUIUtility.fieldWidth * rectSize);
-
-        EditorGUI.BeginDisabledGroup(true);
-        EditorGUI.ObjectField(objectFieldRect, GUIContent.none, texture, typeof(Texture2D), false);
-        EditorGUI.EndDisabledGroup();
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.Space();
-    }
-
 
     public static float rectangleSize = 20f;
     public static float colorRectangleSize = 60f;

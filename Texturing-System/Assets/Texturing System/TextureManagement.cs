@@ -42,6 +42,13 @@ public class TextureManagement : MonoBehaviour{
             MultipleTexturesSO container = (MultipleTexturesSO) textures;
             newTexturesToManage = new List<Texture2D>(container.GetTexturesToSearch());
             texturingType = TexturingType.MultipleTexturesSO;
+
+            // Creating a MaterialStoreSO;
+            if(materialStoreSO == null){
+                MaterialStoreSO instanceMaterialSO = new MaterialStoreSO();
+                instanceMaterialSO.name = "Instance Material SO";
+                materialStoreSO = instanceMaterialSO;
+            }
         }
 
         //Circumvents the infinite material swapping provoked by UniSWF;
@@ -253,10 +260,17 @@ public class CustomInspector : Editor {
                         Utils.PasteTexture(limb, manager.newTexturesToManage[0], 
                             manager.textureToReference[currentSelectedTextureToReference]);
                     } else {
-                        
-                    }
+                        foreach(KeyValuePair<string, Material> kvp in manager.materialStoreSO.GetMaterials()) {
+                            string key = kvp.Key;
+                            Material material = kvp.Value;
+                            Texture textureToSearch = material.GetTexture("_MainTex");
+                            string route = AssetDatabase.GetAssetPath(textureToSearch); 
 
-                    
+                            Sprite[] sprites = Resources.LoadAll<Sprite>(Utils.FormatRoute(route));
+
+                            Debug.Log(sprites.Length + " " + route);
+                        }
+                    }                    
                 }
             }
 
@@ -265,9 +279,7 @@ public class CustomInspector : Editor {
     }
 
     private void Separator(){
-        EditorGUILayout.Space();
-        GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
-        EditorGUILayout.Space();
+        Utils.Separator();
         serializedObject.ApplyModifiedProperties();
     }
 

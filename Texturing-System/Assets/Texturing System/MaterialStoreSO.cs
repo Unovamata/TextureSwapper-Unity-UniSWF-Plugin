@@ -5,25 +5,34 @@ using UnityEditor;
 using UnityEngine.UIElements;
 
 [CreateAssetMenu(fileName = "MaterialStoreSO", menuName = "ScriptableObjects/Material Store SO", order = 1)]
+[System.Serializable]
 public class MaterialStoreSO : ScriptableObject{
-    [SerializeField] Dictionary<string, Material> materials = new Dictionary<string, Material>();
+    [SerializeField] Dictionary<string, Material> materials;
 
     //Making data save consistently;
-    public void OnEnable() {
+    private void OnEnable() { 
         EditorUtility.SetDirty(this);
     }
 
-    public void OnValidate() {
+    private void OnValidate() {
         AssetDatabase.SaveAssets();
     }
 
     public Dictionary<string, Material> GetMaterials(){
+        try{
+            int count = materials.Count;
+        } catch {
+            materials = new Dictionary<string, Material>();
+        }
+        
+        
         return materials;
     }
 
     public void SetMaterials(Dictionary<string, Material> Materials){
         materials = Materials;
     }
+
 }
 
 //Custom Editor;
@@ -36,21 +45,51 @@ public class MaterialStoreSOEditor : Editor{
 
         MaterialStoreSO manager = (MaterialStoreSO) target; //Referencing the script;
 
-        Debug.Log(manager.GetMaterials().Count);
+        try{
+            foreach(KeyValuePair<string, Material> kvp in manager.GetMaterials()){
+                string key = kvp.Key;
+                Material material = kvp.Value;
 
-        foreach(KeyValuePair<string, Material> kvp in manager.GetMaterials()){
-            string key = kvp.Key;
-            Material material = kvp.Value;
-
-            int dashIndex = key.LastIndexOf('/');
-            string materialName = key.Substring(dashIndex + 1); // Add 1 to start from the character after the dash
+                int dashIndex = key.LastIndexOf('/');
+                string materialName = key.Substring(dashIndex + 1); // Add 1 to start from the character after the dash
 
 
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField(materialName);
-            EditorGUILayout.ObjectField(material, typeof(Material), true);
-            EditorGUILayout.EndHorizontal();
-        }
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField(materialName);
+                EditorGUILayout.ObjectField(material, typeof(Material), true);
+                EditorGUILayout.EndHorizontal();
+            }
+        } catch {}
+
+        Separator();
+
+        GUILayout.Label("The base materials dictionary contains " +  manager.GetMaterials().Count + " material/s.");
+        
+        Separator();
+    }
+
+    private void Separator(){
+        Utils.Separator();
+        serializedObject.ApplyModifiedProperties();
+    }
+
+    public static void LoadLimbInGUI(Material material, float rectSize) {
+        int boxHeight = 20;
+        string name = material.name;
+
+        EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+        EditorGUILayout.LabelField(name, EditorStyles.boldLabel);
+
+        // Display the label and read-only texture field
+        Utils.ShowTextureInField((Texture2D) material.GetTexture("_MainTex"), "Main Texture", rectSize);
+        
+        EditorGUILayout.EndVertical();
+
+        //Texture Mask;
+        //ShowTextureInField(limb.GetMaskReference(), "Mask Texture Reference", rectSize);
+
+        EditorGUILayout.Space();
+        EditorGUILayout.EndVertical();
     }
 
 }
