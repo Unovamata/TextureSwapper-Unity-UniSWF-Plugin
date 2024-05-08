@@ -178,7 +178,7 @@ public class CustomInspector : Editor {
 
         List<SkeletonRelationships> relationships = manager.skeleton.GetRelationships();
 
-        if(manager.textureToReference.Length == 0) return;
+        if(manager.textureToReference.Length == 0 || manager.textureToReference[0] == null) return;
         EditorGUILayout.Space();
 
         // Limit mapping;
