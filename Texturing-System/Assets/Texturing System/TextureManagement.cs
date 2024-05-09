@@ -4,6 +4,12 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
+
+public enum TexturingType{
+    BaseTexturesSO = 0,
+    MultipleTexturesSO = 1,
+}
+
 public class TextureManagement : MonoBehaviour{
     //Data;
     [HideInInspector] public SkeletonSO skeleton;
@@ -19,11 +25,6 @@ public class TextureManagement : MonoBehaviour{
     Material material;
     MeshRenderer mesh;
     CustomMovieClipBehaviour movieClip;
-
-    public enum TexturingType{
-        BaseTexturesSO = 0,
-        MultipleTexturesSO = 1,
-    }
 
     ////////////////////////////////////////////////////////////////////
 
@@ -238,32 +239,34 @@ public class CustomInspector : Editor {
         //Texture Swapping;
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Texture Management", EditorStyles.boldLabel);
-        try {
-            GUILayout.BeginVertical(GUI.skin.box);
-            SkeletonRelationships relationship = relationships[currentRelationIndex];
 
-            EditorGUILayout.LabelField("Body Part:");
-            currentRelationIndex = Scrollable(relationship.GetRelationshipName(), 0, 
-                relationships.Count - 1, currentRelationIndex);
+        GUILayout.BeginVertical(GUI.skin.box);
+        SkeletonRelationships relationship = relationships[currentRelationIndex];
 
-            EditorGUILayout.LabelField("Textureset:");
-            TexturesSO selectedTexture = manager.textureToReference[currentSelectedTextureToReference];
-            currentSelectedTextureToReference = Scrollable(selectedTexture.name, 0, 
-                limitPerLimb[currentRelationIndex], currentSelectedTextureToReference);
-            if(currentSelectedTextureToReference > limitPerLimb[currentRelationIndex]) currentSelectedTextureToReference = 0;
+        EditorGUILayout.LabelField("Body Part:");
+        currentRelationIndex = Scrollable(relationship.GetRelationshipName(), 0, 
+            relationships.Count - 1, currentRelationIndex);
+
+        EditorGUILayout.LabelField("Textureset:");
+        TexturesSO selectedTexture = manager.textureToReference[currentSelectedTextureToReference];
+        currentSelectedTextureToReference = Scrollable(selectedTexture.name, 0, 
+            limitPerLimb[currentRelationIndex], currentSelectedTextureToReference);
+        if(currentSelectedTextureToReference > limitPerLimb[currentRelationIndex]) currentSelectedTextureToReference = 0;
 
 
-            EditorGUILayout.Space();
+        EditorGUILayout.Space();
 
-            if(GUILayout.Button("Swap " + relationship.GetRelationshipName() + " Textures")) {
-                List<Material> materialReferences = new List<Material>();
+        if(GUILayout.Button("Swap " + relationship.GetRelationshipName() + " Textures")) {
+            List<Material> materialReferences = new List<Material>();
 
-                foreach(Limb limb in relationship.GetLimbsRelated()) {
-                    //Creating a new texture based in the original one;
-                    if(manager.textures is BaseTexturesSO) {
+            foreach(Limb limb in relationship.GetLimbsRelated()) {
+                switch(manager.texturingType){
+                    case TexturingType.BaseTexturesSO:
                         Utils.ClearTextureAt(limb.GetCoordinates(), manager.newTexturesToManage[0]);
                         Utils.PasteTexture(limb, manager.newTexturesToManage[0], manager.textureToReference[currentSelectedTextureToReference]);
-                    } else {
+                    break;
+
+                    case TexturingType.MultipleTexturesSO:
                         foreach(KeyValuePair<string, Material> kvp in manager.materialStoreSO.GetMaterials()) {
                             string key = kvp.Key;
                             Material material = kvp.Value;
@@ -285,12 +288,13 @@ public class CustomInspector : Editor {
 
                             material.SetTexture("_MainTex", texture);
                         }
-                    }                    
-                }
-            }
+                    break;
 
-            GUILayout.EndVertical();
-        } catch { }
+                }                  
+            }
+        }
+
+        GUILayout.EndVertical();
     }
 
     private void MaximizeTextureLimits(int[] limitPerLimb, int length){

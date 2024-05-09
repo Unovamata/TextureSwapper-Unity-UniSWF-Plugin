@@ -158,8 +158,6 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
             return;
         }
 
-        textureManagementReference = (textureManagement as TextureManagement);
-
         enableCache = false;
         m_EnterFrameEvent = new CEvent(CEvent.ENTER_FRAME, bubbles: false, cancelable: false);
         meshFilter = (MeshFilter)base.gameObject.GetComponent(typeof(MeshFilter));
@@ -252,7 +250,8 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     List<Texture2D> textureReferences;
     Material[] materials;
 
-    public virtual void Start(){        
+    public virtual void Start(){
+        textureManagementReference = (textureManagement as TextureManagement);
     }
 
     public virtual void Update() {
@@ -269,8 +268,7 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
             }
         } catch {}
 
-        bool isPlaying = Application.isPlaying;
-        if (Application.isEditor && !isPlaying) {
+        if (Application.isEditor && !Application.isPlaying) {
             if (!editorPreview) {
                 return;
             }
@@ -287,7 +285,6 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
                 meshRenderer.enabled = _enableRender;
             }
         }
-        
 
         if (movieClip != null) {
             bool flag = false;
@@ -311,10 +308,6 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
                     renderFrame();
                     flag = true;
                 }
-            }
-
-            if (!isPlaying) {
-                return;
             }
 
             if (flag) {
