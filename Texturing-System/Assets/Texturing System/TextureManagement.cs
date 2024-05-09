@@ -274,7 +274,8 @@ public class CustomInspector : Editor {
                             Sprite[] sprites = Resources.LoadAll<Sprite>(key);
 
                             foreach(Sprite sprite in sprites) {
-                                if(sprite.name.Contains(relationship.GetRelationshipName())){
+                                if(sprite.name.Contains(relationship.GetRelationshipName()) &&
+                                    !materialReferences.Contains(material)){
                                     materialReferences.Add(material);
                                 }
                             }
@@ -284,7 +285,7 @@ public class CustomInspector : Editor {
                             Texture2D texture = Utils.CloneTexture((Texture2D) material.GetTexture("_MainTex"));
                             
                             Utils.ClearTextureAt(limb.GetCoordinates(), texture);
-                            //Utils.PasteTexture(limb, manager.newTexturesToManage[0], manager.textureToReference[currentSelectedTextureToReference]);
+                            Utils.PasteTexture(limb, texture, manager.textureToReference[currentSelectedTextureToReference]);
 
                             material.SetTexture("_MainTex", texture);
                         }
@@ -311,8 +312,6 @@ public class CustomInspector : Editor {
 
     private int Scrollable(string name, int min, int max, int index) {
         EditorGUILayout.BeginHorizontal();
-        
-        Debug.Log("Max: " + max + " Min: " + min);
 
         if(GUILayout.Button("<<", GUILayout.Width(40))) {
             if(index <= min) index = max;

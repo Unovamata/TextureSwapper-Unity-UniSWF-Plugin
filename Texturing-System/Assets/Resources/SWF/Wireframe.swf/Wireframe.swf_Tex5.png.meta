@@ -103,7 +103,574 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 311
+        width: 171
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61519aa3ba463d24788d5c794280d87c
+      internalID: 1602189978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 312
+        width: 168
+        height: 196
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 297704cd03879164f90f0556628f972b
+      internalID: 83027983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_2
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 441
+        width: 35
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aba3c9a0eeb9fa94ea36d7d61ecdbe09
+      internalID: 1199831995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_3
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 425
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0991e62a11382ec4387ea3b3cabf3d55
+      internalID: -321148070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_4
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 426
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a56d424ed938647b0ffdf8898750ec
+      internalID: 230741472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_5
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 426
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75ac04847c375e84d85d9197ad1dd0c9
+      internalID: 916021671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_6
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 409
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251b8b131c37a3c43b0b9c20e6197fb5
+      internalID: -2028832446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_7
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 411
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b813b7e713566f245b04e0ab5cd3b420
+      internalID: 2098272690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_8
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 393
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bda3c3648d31c744acd8367acab4a7a
+      internalID: 2030497662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_9
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 395
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd3e3076af6c25749bd8d1d689260811
+      internalID: 921142948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_10
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 374
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8722b98cb52fac3409b4db23fff6bedf
+      internalID: -1751617164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_11
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 374
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f97803a2bcf0c5439d52b342b1b79b1
+      internalID: 1416843498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_12
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 312
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c814f0ae563b57e4a866a56878ad400b
+      internalID: 1908781156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glasses Righ
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 175
+        width: 198
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 842e9c82a5ff90e43b549e03b5a7c3bc
+      internalID: -653498242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glasses Left
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 195
+        width: 211
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a8e72fa9b3788c428b2325ed855244a
+      internalID: 1841086998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 38
+        width: 73
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5dca13293117d43a004ec8222a4714
+      internalID: -813626442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_16
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 158
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf70fd31118cf5e409a643aa36b580a1
+      internalID: -896493578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_17
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 156
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16470a60d4d3182408b4c78dbd4a274c
+      internalID: -2088720261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_18
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 158
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 567e3a61fce6a9140a0a12266c84a3c8
+      internalID: 170032760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_19
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 57
+        width: 177
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f5f3626e0c8294dbd8d89645cc8b00
+      internalID: -352227840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_20
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 142
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5cf642189d81404fb9bf3137a389ac1
+      internalID: 132670743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_21
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 138
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 511592d007bea3943a01aa9dab6efa9e
+      internalID: -93062068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_22
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 142
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e89d056236aec0c49a299d9c4c154ed6
+      internalID: -1921291300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_23
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 127
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0482c241944721346b0e0d34bfb8eb4b
+      internalID: 1745660956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_24
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 123
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bdbf340dd6079045bd603b2bab03f88
+      internalID: -682317638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_25
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 126
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c069b4779954611418338045a318c43d
+      internalID: 420983674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe.swf_Tex5_26
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 56
+        width: 56
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff4ba8c99f7aafb44aa549ccb301e097
+      internalID: 1020200277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +681,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Glasses Left: 1841086998
+      Glasses Righ: -653498242
+      Wireframe.swf_Tex5_0: 1602189978
+      Wireframe.swf_Tex5_1: 83027983
+      Wireframe.swf_Tex5_10: -1751617164
+      Wireframe.swf_Tex5_11: 1416843498
+      Wireframe.swf_Tex5_12: 1908781156
+      Wireframe.swf_Tex5_15: -813626442
+      Wireframe.swf_Tex5_16: -896493578
+      Wireframe.swf_Tex5_17: -2088720261
+      Wireframe.swf_Tex5_18: 170032760
+      Wireframe.swf_Tex5_19: -352227840
+      Wireframe.swf_Tex5_2: 1199831995
+      Wireframe.swf_Tex5_20: 132670743
+      Wireframe.swf_Tex5_21: -93062068
+      Wireframe.swf_Tex5_22: -1921291300
+      Wireframe.swf_Tex5_23: 1745660956
+      Wireframe.swf_Tex5_24: -682317638
+      Wireframe.swf_Tex5_25: 420983674
+      Wireframe.swf_Tex5_26: 1020200277
+      Wireframe.swf_Tex5_3: -321148070
+      Wireframe.swf_Tex5_4: 230741472
+      Wireframe.swf_Tex5_5: 916021671
+      Wireframe.swf_Tex5_6: -2028832446
+      Wireframe.swf_Tex5_7: 2098272690
+      Wireframe.swf_Tex5_8: 2030497662
+      Wireframe.swf_Tex5_9: 921142948
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ec95d4900388409fe4f984471da66, type: 3}
+  m_Name: Multiple Skin Example
+  m_EditorClassIdentifier: 
+  texture: {fileID: 0}
+  subGroupRoute: 
+  limbs:
+  - texture: {fileID: 2800000, guid: 774b9bf93f0e70b409959ca155f34c82, type: 2}
+    name: Mask
+    coordinates: {x: 283, y: 274, z: 204, w: 199}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: e5ef6faa92043954197cb08e3f35797e, type: 3}
+  - texture: {fileID: 2800000, guid: e5b44b4ba6cdda747b897f9397cb522e, type: 2}
+    name: Wig_Back
+    coordinates: {x: 5, y: 47, z: 273, w: 219}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: e5ef6faa92043954197cb08e3f35797e, type: 3}
+  - texture: {fileID: 2800000, guid: 3f1ab532e2415e140897e1312d301a48, type: 2}
+    name: Wig_Front
+    coordinates: {x: 4, y: 274, z: 271, w: 234}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: e5ef6faa92043954197cb08e3f35797e, type: 3}
+  - texture: {fileID: 2800000, guid: 8d7aec59c361f1d4ca3ef8c069623497, type: 2}
+    name: Glasses Left
+    coordinates: {x: 284, y: 335, z: 195, w: 154}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: 6e772cefc040e0a499cf62b390043671, type: 3}
+  - texture: {fileID: 2800000, guid: d718e8da9273e1b46af5acddac394c02, type: 2}
+    name: Glasses Right
+    coordinates: {x: 27, y: 345, z: 212, w: 131}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: 6e772cefc040e0a499cf62b390043671, type: 3}
+  path: 
+  texturesToSearch:
+  - {fileID: 2800000, guid: e5ef6faa92043954197cb08e3f35797e, type: 3}
+  - {fileID: 2800000, guid: 6e772cefc040e0a499cf62b390043671, type: 3}

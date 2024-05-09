@@ -12,35 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
   m_Name: Skin Example
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: e5ef6faa92043954197cb08e3f35797e, type: 3}
+  texture: {fileID: 2800000, guid: 6e772cefc040e0a499cf62b390043671, type: 3}
   subGroupRoute: 
   limbs:
-  - texture: {fileID: 2800000, guid: 2092f365fbb7c5d4fb39027d9487c840, type: 2}
-    name: Mask
-    coordinates: {x: 283, y: 274, z: 204, w: 199}
+  - texture: {fileID: 2800000, guid: 19f626521935dc34b950757ec37883da, type: 2}
+    name: Glasses Left
+    coordinates: {x: 284, y: 335, z: 195, w: 154}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: e63af5a3100c559409d9377d6cdb1b2b, type: 2}
-    name: Wig_Back
-    coordinates: {x: 5, y: 47, z: 273, w: 219}
+  - texture: {fileID: 2800000, guid: 5aa83c50997e7124e884b91a400b6509, type: 2}
+    name: Glasses Right
+    coordinates: {x: 27, y: 345, z: 212, w: 131}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: f6f6f7d47c66d6a469bfe9b8a4e1da3d, type: 2}
-    name: Wig_Front
-    coordinates: {x: 4, y: 274, z: 271, w: 234}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  path: Assets/Resources/Textures/Wireframe/Skin Example/Skin Example.png
-  textureToSearch: {fileID: 2800000, guid: e5ef6faa92043954197cb08e3f35797e, type: 3}
+  path: Assets/Resources/Textures/Wireframe/Skin Example/Wireframe.png
+  textureToSearch: {fileID: 2800000, guid: 6e772cefc040e0a499cf62b390043671, type: 3}

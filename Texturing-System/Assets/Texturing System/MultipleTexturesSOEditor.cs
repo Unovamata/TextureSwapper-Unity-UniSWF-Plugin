@@ -21,7 +21,8 @@ public class MultipleTexturesSOEditor : Editor{
 
         base.OnInspectorGUI();
         string subGroupName = textures.GetSubGroupRoute();
-        textures.SetPath();
+
+        try { textures.SetPath(); } catch {}
 
         //Naming a subgroup of folders if needed;
         if (!subGroupName.Equals("") && textures.GetLimbs().Count == 0) {

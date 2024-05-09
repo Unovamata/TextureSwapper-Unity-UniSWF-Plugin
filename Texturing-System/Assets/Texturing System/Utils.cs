@@ -15,7 +15,7 @@ public enum Prefs {
 public class Utils{
     //Clone a reference texture;
     public static Texture2D CloneTexture(Texture2D original) {
-        Texture2D clone = new Texture2D(original.width, original.height);
+        Texture2D clone = new Texture2D(original.width, original.height, TextureFormat.RGBA32, false);
         clone.SetPixels(original.GetPixels());
         clone.Apply();
         return clone;

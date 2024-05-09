@@ -103,7 +103,574 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Wireframe (12)_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 311
+        width: 171
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb2df729ac0f6004da32799df03234ae
+      internalID: 30787303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 312
+        width: 168
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf004b4974bab74bb3455cf56239b30
+      internalID: -407840513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_2
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 441
+        width: 35
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30012a3d2e530f849aa9682357dd27cb
+      internalID: 1006109693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_3
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 425
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ddc6417598a8c547a8c9f9e91be224d
+      internalID: 342530767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_4
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 426
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0466c65db60269841b689b3eeb845549
+      internalID: -1697195208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_5
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 426
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ef6261fcb7b57448083170be51db17
+      internalID: -1645358074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_6
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 409
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6dd1c272bce615449d114fc72131474
+      internalID: 1386239688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_7
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 411
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99cda159dadd62c41b36d2c1932bcbd1
+      internalID: 329589148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_8
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 393
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420b8d1e621d84d45a114712a000bab8
+      internalID: 633145001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_9
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 395
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f531682207d9f4cad94ae18f20a7a3
+      internalID: 1024278943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_10
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 374
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49b30dfc27b47a44f9f25e4d3f85628b
+      internalID: -1444837602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_11
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 374
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7d2757229dce3449a0f076677709cb
+      internalID: 1823662951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_12
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 312
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635250afc6466ec4f8355fc7b9e442e7
+      internalID: -2025436678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glasses Right
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 175
+        width: 198
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa71b96ed00af3a4291f1d66aa5f02f5
+      internalID: -1752029161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glasses Left
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 193
+        width: 211
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a1902c106846dc48b01ead82a0885ff
+      internalID: -430630121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 38
+        width: 73
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d61a5e588672348813a063e8bc91cd
+      internalID: 1471328220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_16
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 158
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8579d509fbf574fbb9d7bd543bb2c5
+      internalID: -1132377343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_17
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 156
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ec4e8d1a3a8ed346b09275b30cb0c41
+      internalID: -710092586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_18
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 158
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293b44db64eb3bd4dbeda1da7c175e74
+      internalID: -2100550454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_19
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 57
+        width: 177
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede58b828e9e311439ffe9dda1bd899e
+      internalID: -911442661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_20
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 142
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4340415a972fe754e8fc1eb5d4c5a7e4
+      internalID: -1766594554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_21
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 138
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f17e364e0cd8abb48a3ff7f6d89b410a
+      internalID: 1996094750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_22
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 142
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaef126831ee48c4f91a34246f88dace
+      internalID: 159921520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_23
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 127
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2349f700d3295a14c84cbeacd680e70b
+      internalID: 590771318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_24
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 123
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5716777bc15b326429f98efe92603c31
+      internalID: 499857782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_25
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 126
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272455070811af74e909ece418800853
+      internalID: 1240322861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wireframe (12)_26
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 56
+        width: 56
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0381a8d0d9b78284cb8cc6ef49417fbe
+      internalID: -355997019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +681,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Glasses Left: -430630121
+      Glasses Right: -1752029161
+      Wireframe (12)_0: 30787303
+      Wireframe (12)_1: -407840513
+      Wireframe (12)_10: -1444837602
+      Wireframe (12)_11: 1823662951
+      Wireframe (12)_12: -2025436678
+      Wireframe (12)_15: 1471328220
+      Wireframe (12)_16: -1132377343
+      Wireframe (12)_17: -710092586
+      Wireframe (12)_18: -2100550454
+      Wireframe (12)_19: -911442661
+      Wireframe (12)_2: 1006109693
+      Wireframe (12)_20: -1766594554
+      Wireframe (12)_21: 1996094750
+      Wireframe (12)_22: 159921520
+      Wireframe (12)_23: 590771318
+      Wireframe (12)_24: 499857782
+      Wireframe (12)_25: 1240322861
+      Wireframe (12)_26: -355997019
+      Wireframe (12)_3: 342530767
+      Wireframe (12)_4: -1697195208
+      Wireframe (12)_5: -1645358074
+      Wireframe (12)_6: 1386239688
+      Wireframe (12)_7: 329589148
+      Wireframe (12)_8: 633145001
+      Wireframe (12)_9: 1024278943
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
