@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Unovamata/Unity-Texture-Manager-and-Colorizer/0cfddf04c7ddb4f4399a57ba1df1270a70350fa2/logo.png" />
+  <img src="[https://raw.githubusercontent.com/Unovamata/Unity-Texture-Manager-and-Colorizer/0cfddf04c7ddb4f4399a57ba1df1270a70350fa2/logo.png](https://github.com/Unovamata/TextureSwapper-Unity-UniSWF-Plugin/blob/main/logo.png?raw=true)" />
 </p>
 
 # TextureSwapper - Unity / UniSWF Plugin
