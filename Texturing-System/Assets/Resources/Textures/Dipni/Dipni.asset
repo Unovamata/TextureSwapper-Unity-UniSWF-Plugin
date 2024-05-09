@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dipni
   m_EditorClassIdentifier: 
   texture: {fileID: 2800000, guid: 92c1c5eb23bfc6741823d4df22be8b23, type: 3}
-  subGroupRoute: 
+  subGroupRoute: Dipni
   limbs:
   - texture: {fileID: 2800000, guid: 52e396361fe5d8440924386e96a60ed0, type: 2}
     name: Arm Right

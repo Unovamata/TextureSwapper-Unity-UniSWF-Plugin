@@ -1,0 +1,327 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ec95d4900388409fe4f984471da66, type: 3}
+  m_Name: Glasses
+  m_EditorClassIdentifier: 
+  texture: {fileID: 0}
+  subGroupRoute: Wireframe
+  limbs:
+  - texture: {fileID: 2800000, guid: 0ec3795833bd21a4ab5cb85ae25eaec5, type: 2}
+    name: Wireframe (B)_0
+    coordinates: {x: 4, y: 80, z: 54, w: 44}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: d72c6be65566fc84494d53c64627fe02, type: 3}
+  - texture: {fileID: 2800000, guid: 87241294148e6834c94260ab8016e376, type: 2}
+    name: Wireframe (B)_1
+    coordinates: {x: 66, y: 80, z: 54, w: 42}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: d72c6be65566fc84494d53c64627fe02, type: 3}
+  - texture: {fileID: 2800000, guid: 0eb7e1550d060434db936823dbfdd1b0, type: 2}
+    name: Wireframe (B)_2
+    coordinates: {x: 4, y: 30, z: 55, w: 42}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: d72c6be65566fc84494d53c64627fe02, type: 3}
+  - texture: {fileID: 2800000, guid: 97fd99e57ad05b24d8a8585e405eecdc, type: 2}
+    name: Wireframe (B)_3
+    coordinates: {x: 67, y: 47, z: 55, w: 24}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: d72c6be65566fc84494d53c64627fe02, type: 3}
+  - texture: {fileID: 2800000, guid: 8d3ec5f5f93a687478ca0e1183683bd4, type: 2}
+    name: Wireframe (B)_4
+    coordinates: {x: 67, y: 24, z: 16, w: 14}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: d72c6be65566fc84494d53c64627fe02, type: 3}
+  - texture: {fileID: 2800000, guid: 89c1df63a9129664ba72f610b928945a, type: 2}
+    name: Wireframe (B)_5
+    coordinates: {x: 91, y: 25, z: 16, w: 14}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: d72c6be65566fc84494d53c64627fe02, type: 3}
+  - texture: {fileID: 2800000, guid: f1496be353fe4a74f90e342f574e270d, type: 2}
+    name: Wireframe (B)_6
+    coordinates: {x: 43, y: 8, z: 16, w: 14}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: d72c6be65566fc84494d53c64627fe02, type: 3}
+  - texture: {fileID: 2800000, guid: 4348d9532bbcffa46b87c0cf40a40f08, type: 2}
+    name: Glasses Left
+    coordinates: {x: 210, y: 193, z: 211, w: 110}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 09b40624e47283544a5d251481ac26b0, type: 2}
+    name: Glasses Right
+    coordinates: {x: 4, y: 175, z: 198, w: 128}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 48f914f0f536dd9448aa1a1cfcc61f3e, type: 2}
+    name: Wireframe (12)_0
+    coordinates: {x: 4, y: 311, z: 171, w: 197}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 293494f2f605cc143b5ac170d22a08f1, type: 2}
+    name: Wireframe (12)_1
+    coordinates: {x: 183, y: 312, z: 168, w: 196}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 42178fdb24bb99740a59edc262be4a95, type: 2}
+    name: Wireframe (12)_2
+    coordinates: {x: 359, y: 441, z: 35, w: 66}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: af55640e26834264e9c4cc0f864b3b1c, type: 2}
+    name: Wireframe (12)_3
+    coordinates: {x: 359, y: 425, z: 6, w: 8}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 9dde96e15e61b5043b175c07230c2676, type: 2}
+    name: Wireframe (12)_4
+    coordinates: {x: 373, y: 426, z: 6, w: 7}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: bb775f1bdbe8ad7408327c3e43dc6368, type: 2}
+    name: Wireframe (12)_5
+    coordinates: {x: 387, y: 426, z: 4, w: 4}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: feed0f9e472bf434382b26b3e2155a3d, type: 2}
+    name: Wireframe (12)_6
+    coordinates: {x: 359, y: 409, z: 6, w: 8}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 1f806afcd5d7e5447a1d299e97aa5684, type: 2}
+    name: Wireframe (12)_7
+    coordinates: {x: 373, y: 411, z: 5, w: 6}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: c2d13f0163b414849919e5ff69dfc96b, type: 2}
+    name: Wireframe (12)_8
+    coordinates: {x: 359, y: 393, z: 6, w: 8}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 1127dd4110e6a14449d07f34255e5ddd, type: 2}
+    name: Wireframe (12)_9
+    coordinates: {x: 373, y: 395, z: 6, w: 6}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 1a981c4348302e8498f339e0f43a7fcb, type: 2}
+    name: Wireframe (12)_10
+    coordinates: {x: 359, y: 374, z: 6, w: 8}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: a72c44715d6bf3e4d9a81d698dff3a39, type: 2}
+    name: Wireframe (12)_11
+    coordinates: {x: 373, y: 374, z: 6, w: 7}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 88375f56222fc66479a206ccb7a8135d, type: 2}
+    name: Wireframe (12)_12
+    coordinates: {x: 359, y: 312, z: 40, w: 54}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: c3074e4195cfb004f8de3a0aa5761497, type: 2}
+    name: Wireframe (12)_15
+    coordinates: {x: 81, y: 38, z: 73, w: 129}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 01d3478778dff824dab38bc6baaf9d72, type: 2}
+    name: Wireframe (12)_16
+    coordinates: {x: 162, y: 158, z: 6, w: 9}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: e76cafcbff81f2948ab017fb968484c7, type: 2}
+    name: Wireframe (12)_17
+    coordinates: {x: 176, y: 156, z: 4, w: 11}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: c293feb9743340043a6a79bcd7473191, type: 2}
+    name: Wireframe (12)_18
+    coordinates: {x: 196, y: 158, z: 6, w: 9}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: a41d1be21b8e725418c8017324984b27, type: 2}
+    name: Wireframe (12)_19
+    coordinates: {x: 210, y: 57, z: 177, w: 128}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 57ff9c90c687d6a4aa28d3316bf7a11d, type: 2}
+    name: Wireframe (12)_20
+    coordinates: {x: 162, y: 142, z: 6, w: 8}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: bff398ba02981a343a9195f14cf780fa, type: 2}
+    name: Wireframe (12)_21
+    coordinates: {x: 176, y: 138, z: 4, w: 10}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: a1acbaaaf7bc7d34bb9f2f0c9741c37b, type: 2}
+    name: Wireframe (12)_22
+    coordinates: {x: 196, y: 142, z: 6, w: 8}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 26fc3cc8b89c562439c77da6195ec9cd, type: 2}
+    name: Wireframe (12)_23
+    coordinates: {x: 162, y: 127, z: 5, w: 7}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 9b07b7db34aa91f48912f44a811838be, type: 2}
+    name: Wireframe (12)_24
+    coordinates: {x: 176, y: 123, z: 4, w: 7}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 7b1531b830fa5fe48880e2f4194d6488, type: 2}
+    name: Wireframe (12)_25
+    coordinates: {x: 196, y: 126, z: 4, w: 8}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  - texture: {fileID: 2800000, guid: 85070280fa73f694793c4af6e0568db1, type: 2}
+    name: Wireframe (12)_26
+    coordinates: {x: 4, y: 56, z: 56, w: 34}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+  path: 
+  texturesToSearch:
+  - {fileID: 2800000, guid: d72c6be65566fc84494d53c64627fe02, type: 3}
+  - {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
