@@ -208,22 +208,25 @@ public class CustomInspector : Editor {
             serializedObject.Update();
             SerializedProperty arrayProp = serializedObject.FindProperty("limitPerLimb");
 
-            
-            for (int i = 0; i < arrayProp.arraySize; i++){
-                GUILayout.BeginHorizontal();
-                SerializedProperty elementProp = arrayProp.GetArrayElementAtIndex(i);
+            try{
+                for (int i = 0; i < arrayProp.arraySize; i++){
+                    GUILayout.BeginHorizontal();
+                    SerializedProperty elementProp = arrayProp.GetArrayElementAtIndex(i);
 
-                EditorGUILayout.LabelField($"{relationships[i].GetRelationshipName()}", GUILayout.Width(150f));
-                elementProp.intValue = InputScrollable(manager.textureToReference[elementProp.intValue].name, 0, manager.textureToReference.Length - 1, arrayProp.GetArrayElementAtIndex(i).intValue);
-                
-                GUILayout.EndHorizontal();
-            }
-
-            // If the user needs to maximize all limits at once;
-            if(GUILayout.Button("Maximize Limits")) {
-                for(int i = 0; i < limitPerLimb.Length; i++) {
-                    limitPerLimb[i] = manager.textureToReference.Length - 1;
+                    EditorGUILayout.LabelField($"{relationships[i].GetRelationshipName()}", GUILayout.Width(150f));
+                    elementProp.intValue = InputScrollable(manager.textureToReference[elementProp.intValue].name, 0, manager.textureToReference.Length - 1, arrayProp.GetArrayElementAtIndex(i).intValue);
+                    
+                    GUILayout.EndHorizontal();
                 }
+            
+
+                // If the user needs to maximize all limits at once;
+                if(GUILayout.Button("Maximize Limits")) {
+                    MaximizeTextureLimits(limitPerLimb, manager.textureToReference.Length);
+                }
+
+            } catch {
+                MaximizeTextureLimits(limitPerLimb, manager.textureToReference.Length);
             }
 
             serializedObject.ApplyModifiedProperties();
@@ -253,22 +256,34 @@ public class CustomInspector : Editor {
             EditorGUILayout.Space();
 
             if(GUILayout.Button("Swap " + relationship.GetRelationshipName() + " Textures")) {
+                List<Material> materialReferences = new List<Material>();
+
                 foreach(Limb limb in relationship.GetLimbsRelated()) {
                     //Creating a new texture based in the original one;
                     if(manager.textures is BaseTexturesSO) {
                         Utils.ClearTextureAt(limb.GetCoordinates(), manager.newTexturesToManage[0]);
-                        Utils.PasteTexture(limb, manager.newTexturesToManage[0], 
-                            manager.textureToReference[currentSelectedTextureToReference]);
+                        Utils.PasteTexture(limb, manager.newTexturesToManage[0], manager.textureToReference[currentSelectedTextureToReference]);
                     } else {
                         foreach(KeyValuePair<string, Material> kvp in manager.materialStoreSO.GetMaterials()) {
                             string key = kvp.Key;
                             Material material = kvp.Value;
-                            Texture textureToSearch = material.GetTexture("_MainTex");
-                            string route = AssetDatabase.GetAssetPath(textureToSearch); 
 
-                            Sprite[] sprites = Resources.LoadAll<Sprite>(Utils.FormatRoute(route));
+                            Sprite[] sprites = Resources.LoadAll<Sprite>(key);
 
-                            Debug.Log(sprites.Length + " " + route);
+                            foreach(Sprite sprite in sprites) {
+                                if(sprite.name.Contains(relationship.GetRelationshipName())){
+                                    materialReferences.Add(material);
+                                }
+                            }
+                        }
+
+                        foreach(Material material in materialReferences) {
+                            Texture2D texture = Utils.CloneTexture((Texture2D) material.GetTexture("_MainTex"));
+                            
+                            Utils.ClearTextureAt(limb.GetCoordinates(), texture);
+                            //Utils.PasteTexture(limb, manager.newTexturesToManage[0], manager.textureToReference[currentSelectedTextureToReference]);
+
+                            material.SetTexture("_MainTex", texture);
                         }
                     }                    
                 }
@@ -278,13 +293,23 @@ public class CustomInspector : Editor {
         } catch { }
     }
 
+    private void MaximizeTextureLimits(int[] limitPerLimb, int length){
+        for(int i = 0; i < limitPerLimb.Length; i++) {
+            limitPerLimb[i] = length - 1;
+        }
+    }
+
     private void Separator(){
         Utils.Separator();
         serializedObject.ApplyModifiedProperties();
     }
 
+
     private int Scrollable(string name, int min, int max, int index) {
         EditorGUILayout.BeginHorizontal();
+        
+        Debug.Log("Max: " + max + " Min: " + min);
+
         if(GUILayout.Button("<<", GUILayout.Width(40))) {
             if(index <= min) index = max;
             else index--;

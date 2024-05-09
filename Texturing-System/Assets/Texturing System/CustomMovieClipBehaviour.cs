@@ -264,7 +264,6 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
                 if(!textureManagement.enabled){
                     textureManagement.enabled = true;
                 } else {
-                    //if(localGFXGenerator.materials != )
                     textureManagementReference.materialStoreSO.SetMaterials(localGFXGenerator.materials);
                 }
             }

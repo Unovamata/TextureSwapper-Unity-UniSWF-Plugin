@@ -50,12 +50,8 @@ public class MaterialStoreSOEditor : Editor{
                 string key = kvp.Key;
                 Material material = kvp.Value;
 
-                int dashIndex = key.LastIndexOf('/');
-                string materialName = key.Substring(dashIndex + 1); // Add 1 to start from the character after the dash
-
-
                 EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField(materialName);
+                EditorGUILayout.LabelField(key);
                 EditorGUILayout.ObjectField(material, typeof(Material), true);
                 EditorGUILayout.EndHorizontal();
             }
@@ -64,7 +60,7 @@ public class MaterialStoreSOEditor : Editor{
         Separator();
 
         GUILayout.Label("The base materials dictionary contains " +  manager.GetMaterials().Count + " material/s.");
-        
+
         Separator();
     }
 
