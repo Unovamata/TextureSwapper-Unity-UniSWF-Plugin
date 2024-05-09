@@ -17,7 +17,6 @@ This repository serves a singular purpose: facilitating the swapping of textures
 - Unity's 2D Sprite Package.
 - .Net Framework 4.X.
 - Unity's IL2CPP Scripting Backend.
-- Python (Optional)
 
 # Installation
 
