@@ -1,10 +1,11 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Unovamata/Unity-Texture-Manager-and-Colorizer/0cfddf04c7ddb4f4399a57ba1df1270a70350fa2/logo.png" />
+  <img src="https://raw.githubusercontent.com/Unovamata/TextureSwapper-Unity-UniSWF-Plugin/main/logo.png" />
 </p>
 
-# TextureSwapper - Unity / UniSWF Plugin
+# TextureSwapper - Unity / UniSWF Texture Manager Plugin
 
-The TextureSwapper plugin creates a platform to swap, manage, and change segments of textures in Unity's runtime within a texture sheet. I developed this plugin to modify segments of a model created with UniSWF in real-time in a performant way. 
+The TextureSwapper plugin creates a platform to swap, manage, and change segments of textures in Unity's runtime within a texture sheet. I developed this plugin to modify segments of a model created with UniSWF in real-time in a performant way. Still, the TextureSwapper plugin can adapt to any use case involving textures.
+
 If your use case requires you to swap segments of a texture in real-time, this is the tool for you.
 
 # Table of Contents
