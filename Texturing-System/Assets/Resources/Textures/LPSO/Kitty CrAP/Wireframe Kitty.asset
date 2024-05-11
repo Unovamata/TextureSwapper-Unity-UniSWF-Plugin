@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
   m_Name: Wireframe Kitty
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: b7995584b32465b49ad1ca0c0341127c, type: 3}
+  texture: {fileID: 2800000, guid: 5b3687becbbb1f44c96805eac9dc7536, type: 3}
   subGroupRoute: LPSO/Kitty
   limbs:
   - texture: {fileID: 2800000, guid: f9b7d17bb3e536b47a74366a028a545b, type: 2}
@@ -204,8 +204,8 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: b64b73f217a774146a073b9791739c13, type: 2}
-    name: Nose
+  - texture: {fileID: 2800000, guid: c4ddb9445471bf241a12fd95e3060483, type: 2}
+    name: Muzzle
     coordinates: {x: 243, y: 431, z: 86, w: 84}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
@@ -276,5 +276,5 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  path: Assets/Resources/Textures/LPSO/Kitty CrAP/Model_KittyTexture.png
-  textureToSearch: {fileID: 2800000, guid: b7995584b32465b49ad1ca0c0341127c, type: 3}
+  path: Assets/Resources/Textures/LPSO/Kitty CrAP/Model_Kitty.png
+  textureToSearch: {fileID: 2800000, guid: 5b3687becbbb1f44c96805eac9dc7536, type: 3}

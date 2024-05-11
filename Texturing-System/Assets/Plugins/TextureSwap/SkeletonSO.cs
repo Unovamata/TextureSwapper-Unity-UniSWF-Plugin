@@ -124,7 +124,6 @@ public class SkeletonSOEditor : Editor {
                 string identificator = limb.GetName().Split(' ')[0];
 
                 if (!sameGroupNames.Contains(identificator)) {
-                    UnityEngine.Debug.Log(identificator);
                     sameGroupNames.Add(identificator);
 
                     AddNewRelationship(true, false, textures, skeleton, identificator);

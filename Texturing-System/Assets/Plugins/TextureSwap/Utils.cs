@@ -6,7 +6,7 @@ using UnityEditor;
 using System.IO;
 
 public enum Prefs {
-    padding = 40,
+    padding = 50,
     showDetailedMetadata = 1, //True == 1; False == Any Int;
     showMaskTextureMetadata = 1, //True == 1; False == Any Int;
     showMaskColorMetadata = 0, //True == 1; False == Any Int;

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b7995584b32465b49ad1ca0c0341127c
+guid: 5b3687becbbb1f44c96805eac9dc7536
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -504,7 +504,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nose
+      name: Muzzle
       rect:
         serializedVersion: 2
         x: 243
@@ -745,7 +745,7 @@ TextureImporter:
       Knee Right: -1096356333
       Mouth Closed: -2132065702
       Mouth Open: 949071306
-      Nose: -2059293194
+      Muzzle: -2059293194
       Shadow: 1192912203
       Shoulder Left: -1678141648
       Shoulder Right: -800577884
