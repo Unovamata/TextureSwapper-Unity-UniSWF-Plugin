@@ -171,7 +171,7 @@ public class TexturesSOEditor : Editor{
 
     public static void ShowMaskColorManagement(Limb limb) {
         //If the GUI should not check for color metadata;
-        bool showMaskColorMetadata = (int) Prefs.showMaskTextureMetadata == 1;
+        bool showMaskColorMetadata = (int) Prefs.showMaskColorMetadata == 1;
         if (!showMaskColorMetadata) return;
 
         //Folder;

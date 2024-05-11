@@ -9,7 +9,7 @@ public enum Prefs {
     padding = 40,
     showDetailedMetadata = 1, //True == 1; False == Any Int;
     showMaskTextureMetadata = 1, //True == 1; False == Any Int;
-    showMaskColorMetadata = 1, //True == 1; False == Any Int;
+    showMaskColorMetadata = 0, //True == 1; False == Any Int;
 }
 
 public class Utils{

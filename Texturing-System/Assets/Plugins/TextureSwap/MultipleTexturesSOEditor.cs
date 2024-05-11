@@ -190,14 +190,14 @@ public class MultipleTexturesSOEditor : Editor{
         //ShowTextureInField(limb.GetMaskReference(), "Mask Texture Reference", rectSize);
 
         //Mask Colors;
-        //ShowMaskColorManagement(limb);
+        ShowMaskColorManagement(limb);
 
         EditorGUILayout.Space();
         EditorGUILayout.EndVertical();
     }
 
     public static void ShowTextureInField(Texture2D texture, string textureName, float rectSize){
-        bool showMaskTextureMetadata = (int) Prefs.showMaskTextureMetadata == 1;
+        bool showMaskTextureMetadata = (int) Prefs.showMaskColorMetadata == 1;
         if(!showMaskTextureMetadata) return;
 
         EditorGUILayout.Space();
