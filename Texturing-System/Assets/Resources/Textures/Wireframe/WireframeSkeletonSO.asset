@@ -13,4 +13,37 @@ MonoBehaviour:
   m_Name: WireframeSkeletonSO
   m_EditorClassIdentifier: 
   textureData: {fileID: 11400000, guid: b38f4b5cff0fdde498a7c76a4c1e81c6, type: 2}
-  relationships: []
+  relationships:
+  - relationshipName: Mask
+    limbsRelated:
+    - texture: {fileID: 2800000, guid: 9530ab64a71bd1f49880df47b319779e, type: 2}
+      name: Mask
+      coordinates: {x: 283, y: 274, z: 204, w: 199}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    folder: 0
+  - relationshipName: Wig
+    limbsRelated:
+    - texture: {fileID: 2800000, guid: 2219026cd8c016842b3511dbc0c52254, type: 2}
+      name: Wig_Back
+      coordinates: {x: 5, y: 47, z: 273, w: 219}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: 54099ac0afaf0f84187cd8ce45271c7e, type: 2}
+      name: Wig_Front
+      coordinates: {x: 4, y: 274, z: 271, w: 234}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    folder: 0
