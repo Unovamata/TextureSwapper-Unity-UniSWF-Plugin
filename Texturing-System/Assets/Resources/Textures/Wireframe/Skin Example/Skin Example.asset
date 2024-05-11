@@ -15,7 +15,7 @@ MonoBehaviour:
   texture: {fileID: 2800000, guid: 6e772cefc040e0a499cf62b390043671, type: 3}
   subGroupRoute: 
   limbs:
-  - texture: {fileID: 2800000, guid: 19f626521935dc34b950757ec37883da, type: 2}
+  - texture: {fileID: 2800000, guid: 13457e3f235787c4fb82fdf083bb792e, type: 2}
     name: Glasses Left
     coordinates: {x: 284, y: 335, z: 195, w: 154}
     pivot: {x: 0.5, y: 0.5}
@@ -24,7 +24,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 5aa83c50997e7124e884b91a400b6509, type: 2}
+  - texture: {fileID: 2800000, guid: 83a46511570ec7142a3b4c3c1e65af92, type: 2}
     name: Glasses Right
     coordinates: {x: 27, y: 345, z: 212, w: 131}
     pivot: {x: 0.5, y: 0.5}

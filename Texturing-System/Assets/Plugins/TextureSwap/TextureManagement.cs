@@ -142,6 +142,13 @@ public class CustomInspector : Editor {
         Separator();
 
         if(manager.skeleton == null) return;
+        List<SkeletonRelationships> relationships = manager.skeleton.GetRelationships();
+
+        if(relationships.Count == 0){
+            EditorGUILayout.HelpBox("Skeleton " + manager.skeleton.name + " has no relationships.\nPlease initialize the skeleton relationships to progress with the texture swapping system.", MessageType.Error);
+            Separator();
+            return;
+        }
 
         EditorGUILayout.PropertyField(texturesProperty, new GUIContent("Textures"));
 
@@ -182,11 +189,10 @@ public class CustomInspector : Editor {
 
         Separator();
 
-
-        List<SkeletonRelationships> relationships = manager.skeleton.GetRelationships();
-
         if(manager.textureToReference.Length == 0 || manager.textureToReference[0] == null) return;
         EditorGUILayout.Space();
+
+        
 
         // Limit mapping;
         int[] limitPerLimb = manager.limitPerLimb;
@@ -241,7 +247,9 @@ public class CustomInspector : Editor {
         EditorGUILayout.LabelField("Texture Management", EditorStyles.boldLabel);
 
         GUILayout.BeginVertical(GUI.skin.box);
+
         SkeletonRelationships relationship = relationships[currentRelationIndex];
+        
 
         EditorGUILayout.LabelField("Body Part:");
         currentRelationIndex = Scrollable(relationship.GetRelationshipName(), 0, 

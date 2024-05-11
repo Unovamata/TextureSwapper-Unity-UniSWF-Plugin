@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.UIElements;
 
-[CreateAssetMenu(fileName = "MaterialStoreSO", menuName = "ScriptableObjects/Material Store SO", order = 1)]
+[CreateAssetMenu(fileName = "MaterialStoreSO", menuName = "ScriptableObjects/Material Store SO", order = 4)]
 [System.Serializable]
 public class MaterialStoreSO : ScriptableObject{
     [SerializeField] Dictionary<string, Material> materials;

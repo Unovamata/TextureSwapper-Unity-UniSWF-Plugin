@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 
-[CreateAssetMenu(fileName = "SkeletonSO", menuName = "ScriptableObjects/Skeleton Manager SO", order = 1)]
+[CreateAssetMenu(fileName = "SkeletonSO", menuName = "ScriptableObjects/Skeleton Manager SO", order = 3)]
 [System.Serializable]
 /* SkeletonSO is the scriptable object containing all the
  * relationships between the data; Is what connects the limbs

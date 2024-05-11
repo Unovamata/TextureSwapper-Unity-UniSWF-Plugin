@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-[CreateAssetMenu(fileName = "MultipleTexturesSO", menuName = "ScriptableObjects/Multiple Texture Extractor SO", order = 1)]
+[CreateAssetMenu(fileName = "MultipleTexturesSO", menuName = "ScriptableObjects/Multiple Texture Extractor SO", order = 2)]
 /* TexturesSO helps saving and extracting the limb assets used
  * by a specific texture. Serializes the data in files for
  * later reference by the skeleton. */

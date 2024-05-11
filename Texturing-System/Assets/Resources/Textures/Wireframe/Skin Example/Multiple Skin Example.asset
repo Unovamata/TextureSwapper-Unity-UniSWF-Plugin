@@ -15,7 +15,7 @@ MonoBehaviour:
   texture: {fileID: 0}
   subGroupRoute: 
   limbs:
-  - texture: {fileID: 2800000, guid: 774b9bf93f0e70b409959ca155f34c82, type: 2}
+  - texture: {fileID: 2800000, guid: e8b7237a93355624e91c24c196a5604a, type: 2}
     name: Mask
     coordinates: {x: 283, y: 274, z: 204, w: 199}
     pivot: {x: 0.5, y: 0.5}
@@ -24,7 +24,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 2800000, guid: e5ef6faa92043954197cb08e3f35797e, type: 3}
-  - texture: {fileID: 2800000, guid: e5b44b4ba6cdda747b897f9397cb522e, type: 2}
+  - texture: {fileID: 2800000, guid: 57150c6c14ec8424fa36ce148e8fd5f8, type: 2}
     name: Wig_Back
     coordinates: {x: 5, y: 47, z: 273, w: 219}
     pivot: {x: 0.5, y: 0.5}
@@ -33,7 +33,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 2800000, guid: e5ef6faa92043954197cb08e3f35797e, type: 3}
-  - texture: {fileID: 2800000, guid: 3f1ab532e2415e140897e1312d301a48, type: 2}
+  - texture: {fileID: 2800000, guid: 5bfa5e7aa8b917d4c89de2ac23dfd13c, type: 2}
     name: Wig_Front
     coordinates: {x: 4, y: 274, z: 271, w: 234}
     pivot: {x: 0.5, y: 0.5}
@@ -42,7 +42,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 2800000, guid: e5ef6faa92043954197cb08e3f35797e, type: 3}
-  - texture: {fileID: 2800000, guid: 8d7aec59c361f1d4ca3ef8c069623497, type: 2}
+  - texture: {fileID: 2800000, guid: 6307451b4f6f50c4fa11d317aa00f9fe, type: 2}
     name: Glasses Left
     coordinates: {x: 284, y: 335, z: 195, w: 154}
     pivot: {x: 0.5, y: 0.5}
@@ -51,7 +51,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 2800000, guid: 6e772cefc040e0a499cf62b390043671, type: 3}
-  - texture: {fileID: 2800000, guid: d718e8da9273e1b46af5acddac394c02, type: 2}
+  - texture: {fileID: 2800000, guid: 5d88b90dd885e0b4a80ff62f27645cb0, type: 2}
     name: Glasses Right
     coordinates: {x: 27, y: 345, z: 212, w: 131}
     pivot: {x: 0.5, y: 0.5}
