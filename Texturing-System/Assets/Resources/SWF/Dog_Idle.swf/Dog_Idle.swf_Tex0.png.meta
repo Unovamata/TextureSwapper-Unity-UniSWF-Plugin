@@ -20,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,658 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 825
+        width: 160
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a28275344d81ab44b9107273d212a05
+      internalID: -1760140211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_1
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 826
+        width: 160
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e73d9ca02a31897418f384b3b6062a2f
+      internalID: 943903770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_2
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 948
+        width: 162
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15fdbd8afb96cf242b7cef7f0e193be0
+      internalID: -2055257208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_3
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 944
+        width: 72
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ff88aa0ce79f347822cbc73be8eeab
+      internalID: -389720673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_4
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 945
+        width: 72
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91575f1028c8d8643ade5e3f6c8da83a
+      internalID: -1081088610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_5
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 826
+        width: 140
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2961367c28429444e8631c2704ceb0e0
+      internalID: -869631538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_6
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 826
+        width: 110
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a69dbb33db48521478d3d34450e4fb0a
+      internalID: -983475391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_7
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 852
+        width: 68
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0765524701e383b4099cb1c4ec4e2edd
+      internalID: 504861758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_8
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 644
+        width: 121
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c490938d408cd4c4c9ff40f824d61c73
+      internalID: -1570354346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_9
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 625
+        width: 157
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa10267761d79364fa47e038e4007535
+      internalID: -1223684159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 645
+        width: 121
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc56071acaeb03b4db52a155ae1a837f
+      internalID: -1248539368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_11
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 763
+        width: 69
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a8807abb57f3ba43b348ed16adb2284
+      internalID: 1974438202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_12
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 737
+        width: 72
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7597c069e9d0bb14db017ef48c973a05
+      internalID: -2091603308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_13
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 645
+        width: 110
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c110f04c6e4c9fd499a53badb45f5d94
+      internalID: 826670356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_14
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 645
+        width: 68
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c7b905ca51a28b4489fdb0cf2b2e2db
+      internalID: -1355246565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_15
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 522
+        width: 139
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0fb93b9d07425e459fffc463ecef9f7
+      internalID: -922411331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_16
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 532
+        width: 152
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4032920a154ec194cbcd39f3d9d88bdc
+      internalID: -610551708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_17
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 531
+        width: 175
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd92006cb64fd734d9b0fe9cba4711f7
+      internalID: -1970981275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_18
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 532
+        width: 101
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3e6bbfb49d94c4d9ccd5c18162630d
+      internalID: 1037597406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_19
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 436
+        width: 89
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9040be3162a1e224c84e92a58657210c
+      internalID: 1835847319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_20
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 439
+        width: 152
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 796084a7fbf7bc746a8c809598031130
+      internalID: 1085500467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 464
+        width: 162
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f0507a117dbac24cbfa8cd7b52589b3
+      internalID: -1416720189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_22
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 434
+        width: 93
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb368144063d3e14ebcdcbb6858d5501
+      internalID: -1257191000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_23
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 448
+        width: 69
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4adb59d9fdc1a4b42ab12536656cf464
+      internalID: -659597153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_24
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 370
+        width: 76
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 358a902d16e1e634d8c6d1bfe36deb9b
+      internalID: 1254397833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_25
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 370
+        width: 75
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ba448474097bb41bd3d001e0882967
+      internalID: -1104278951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_26
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 373
+        width: 84
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f9f408ac75280d43b243efb17f9c3b3
+      internalID: -1526220802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_27
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 380
+        width: 69
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e50520e1394d19f419ceed16ed04d022
+      internalID: -1290347618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_28
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 378
+        width: 71
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a0e8297a4401948bc20208d1bc9ec0
+      internalID: 1726396284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_29
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 370
+        width: 70
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b093f6444440c8418e1ae08db266a81
+      internalID: 694146868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Idle.swf_Tex0_30
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 370
+        width: 70
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bfe1d68e5e6a024eb59640d357bbb1f
+      internalID: 846210652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +765,38 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dog_Idle.swf_Tex0_0: -1760140211
+      Dog_Idle.swf_Tex0_1: 943903770
+      Dog_Idle.swf_Tex0_10: -1248539368
+      Dog_Idle.swf_Tex0_11: 1974438202
+      Dog_Idle.swf_Tex0_12: -2091603308
+      Dog_Idle.swf_Tex0_13: 826670356
+      Dog_Idle.swf_Tex0_14: -1355246565
+      Dog_Idle.swf_Tex0_15: -922411331
+      Dog_Idle.swf_Tex0_16: -610551708
+      Dog_Idle.swf_Tex0_17: -1970981275
+      Dog_Idle.swf_Tex0_18: 1037597406
+      Dog_Idle.swf_Tex0_19: 1835847319
+      Dog_Idle.swf_Tex0_2: -2055257208
+      Dog_Idle.swf_Tex0_20: 1085500467
+      Dog_Idle.swf_Tex0_21: -1416720189
+      Dog_Idle.swf_Tex0_22: -1257191000
+      Dog_Idle.swf_Tex0_23: -659597153
+      Dog_Idle.swf_Tex0_24: 1254397833
+      Dog_Idle.swf_Tex0_25: -1104278951
+      Dog_Idle.swf_Tex0_26: -1526220802
+      Dog_Idle.swf_Tex0_27: -1290347618
+      Dog_Idle.swf_Tex0_28: 1726396284
+      Dog_Idle.swf_Tex0_29: 694146868
+      Dog_Idle.swf_Tex0_3: -389720673
+      Dog_Idle.swf_Tex0_30: 846210652
+      Dog_Idle.swf_Tex0_4: -1081088610
+      Dog_Idle.swf_Tex0_5: -869631538
+      Dog_Idle.swf_Tex0_6: -983475391
+      Dog_Idle.swf_Tex0_7: 504861758
+      Dog_Idle.swf_Tex0_8: -1570354346
+      Dog_Idle.swf_Tex0_9: -1223684159
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

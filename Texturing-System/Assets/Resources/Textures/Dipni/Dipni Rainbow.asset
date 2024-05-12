@@ -12,10 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
   m_Name: Dipni Rainbow
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: 6b445c91f5c12b8439e5aa0320df8cb2, type: 3}
+  texture: {fileID: 2800000, guid: 76901469df26cc9488fbcd9954d3defd, type: 3}
   subGroupRoute: Dipni
   limbs:
-  - texture: {fileID: 2800000, guid: 816cd5b9699aa9e41a0376a6dce35132, type: 2}
+  - texture: {fileID: 2800000, guid: b263e6f0781767143942ad75ddf2c9bd, type: 2}
+    name: Arm Right
+    coordinates: {x: 676, y: 361, z: 44, w: 66}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: f0cecbdd677318a41a48c5e386448f83, type: 2}
+    name: Arm Right Jum
+    coordinates: {x: 624, y: 284, z: 44, w: 62}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: cd73f3bb2e39e0a4baf82e56d53b5a78, type: 2}
+    name: Arm Right Jump
+    coordinates: {x: 295, y: 285, z: 44, w: 63}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 63f6a8e3ce413cc429210cc266340e1c, type: 2}
     name: Dipni Rainbow_0
     coordinates: {x: 4, y: 843, z: 201, w: 177}
     pivot: {x: 0.5, y: 0.5}
@@ -24,7 +51,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 66024f9418d128949b3451adbcfbf55f, type: 2}
+  - texture: {fileID: 2800000, guid: d92989ef9757ce146aa19f0699af4ef0, type: 2}
     name: Dipni Rainbow_1
     coordinates: {x: 213, y: 851, z: 82, w: 169}
     pivot: {x: 0.5, y: 0.5}
@@ -33,25 +60,16 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 62d864c4a76e434418b65efed6a64fbf, type: 2}
-    name: Dipni Rainbow_2
-    coordinates: {x: 303, y: 851, z: 83, w: 161}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 071cb1b3e80acb248b92748339421981, type: 2}
+  - texture: {fileID: 2800000, guid: c8e30aeb3cfa9ff45b13d557cd0c17ed, type: 2}
     name: Dipni Rainbow_3
-    coordinates: {x: 394, y: 871, z: 76, w: 141}
+    coordinates: {x: 75, y: 487, z: 42, w: 40}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
     maskRouteReference: 
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: e84d8428fafc4f4418a42488c26fb872, type: 2}
+  - texture: {fileID: 2800000, guid: 08bcd41774bbaf1458ef1a75bb95bfd4, type: 2}
     name: Dipni Rainbow_4
     coordinates: {x: 478, y: 917, z: 66, w: 95}
     pivot: {x: 0.5, y: 0.5}
@@ -60,16 +78,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 2f13fa61e77cfc94481f1f178de4f969, type: 2}
-    name: Dipni Rainbow_5
-    coordinates: {x: 552, y: 930, z: 60, w: 82}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: f62fafcb04bf7884ab477617ade6a431, type: 2}
+  - texture: {fileID: 2800000, guid: 6db6de885cc06fc428fb39697672afcb, type: 2}
     name: Dipni Rainbow_6
     coordinates: {x: 620, y: 930, z: 55, w: 73}
     pivot: {x: 0.5, y: 0.5}
@@ -78,7 +87,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 76b446d302f8ed04dae45986ee504bac, type: 2}
+  - texture: {fileID: 2800000, guid: 71a4bb93859a5f3499a32bcbbf5d5bd0, type: 2}
     name: Dipni Rainbow_7
     coordinates: {x: 683, y: 936, z: 43, w: 67}
     pivot: {x: 0.5, y: 0.5}
@@ -87,7 +96,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 794cc3fb85ef5c641a5b2e47bec49cb2, type: 2}
+  - texture: {fileID: 2800000, guid: 59de53ec714cf8c4c880ba62c27dd707, type: 2}
     name: Dipni Rainbow_8
     coordinates: {x: 478, y: 867, z: 49, w: 42}
     pivot: {x: 0.5, y: 0.5}
@@ -96,7 +105,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 5a23482de1c95e74a9dd4685f6542645, type: 2}
+  - texture: {fileID: 2800000, guid: cf7f15edc5cd6ee43b9aaa28e112e03f, type: 2}
     name: Dipni Rainbow_9
     coordinates: {x: 552, y: 871, z: 80, w: 51}
     pivot: {x: 0.5, y: 0.5}
@@ -105,7 +114,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 11d7a60258e63d642b5ac597cdaa01ea, type: 2}
+  - texture: {fileID: 2800000, guid: df1e25c6268779f45ba214bce2dd54d4, type: 2}
     name: Dipni Rainbow_10
     coordinates: {x: 640, y: 880, z: 49, w: 42}
     pivot: {x: 0.5, y: 0.5}
@@ -114,25 +123,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: b5b0b3baaeed6524fb2190018ac99bd7, type: 2}
-    name: Dipni Rainbow_11
-    coordinates: {x: 4, y: 669, z: 188, w: 166}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 1fb511c1b207c4645a33b8b5b04972a0, type: 2}
-    name: Dipni Rainbow_12
-    coordinates: {x: 345, y: 772, z: 15, w: 32}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: f47370a567906674393815c7a65211a5, type: 2}
+  - texture: {fileID: 2800000, guid: 84221143614207149ac08c237ce4c414, type: 2}
     name: Dipni Rainbow_13
     coordinates: {x: 400, y: 698, z: 65, w: 158}
     pivot: {x: 0.5, y: 0.5}
@@ -141,16 +132,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: c1b51ca0c9d644f4a999b491e74f2c0b, type: 2}
-    name: Dipni Rainbow_14
-    coordinates: {x: 473, y: 787, z: 92, w: 69}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 3ecbcfac772c8d84e9dcb1a921a15cd4, type: 2}
+  - texture: {fileID: 2800000, guid: ef680e3cb986938458ba51b2903f7c52, type: 2}
     name: Dipni Rainbow_15
     coordinates: {x: 573, y: 787, z: 64, w: 76}
     pivot: {x: 0.5, y: 0.5}
@@ -159,7 +141,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: efb02f216c696094e980355807a6a1f6, type: 2}
+  - texture: {fileID: 2800000, guid: 64e75132cdcc31741b8f5b89f9aa93c6, type: 2}
     name: Dipni Rainbow_16
     coordinates: {x: 645, y: 797, z: 50, w: 66}
     pivot: {x: 0.5, y: 0.5}
@@ -168,16 +150,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 1c5ea493abb2b394dbff0394c99e2e29, type: 2}
-    name: Dipni Rainbow_17
-    coordinates: {x: 248, y: 741, z: 43, w: 40}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 9931948455be046468bce69380cf32ba, type: 2}
+  - texture: {fileID: 2800000, guid: d4b356514d4b2a44fbb0c915491195a4, type: 2}
     name: Dipni Rainbow_18
     coordinates: {x: 473, y: 698, z: 82, w: 68}
     pivot: {x: 0.5, y: 0.5}
@@ -186,7 +159,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 688bacc21a7b4434a97be41a99ca0e6b, type: 2}
+  - texture: {fileID: 2800000, guid: 2c379567120d0014395d224b7c207685, type: 2}
     name: Dipni Rainbow_19
     coordinates: {x: 563, y: 698, z: 64, w: 76}
     pivot: {x: 0.5, y: 0.5}
@@ -195,7 +168,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 2f23b9a57e091f148bff1adc46c972a9, type: 2}
+  - texture: {fileID: 2800000, guid: d42f355592f0f2e498825a4f51d9ba36, type: 2}
     name: Dipni Rainbow_20
     coordinates: {x: 635, y: 709, z: 57, w: 65}
     pivot: {x: 0.5, y: 0.5}
@@ -204,34 +177,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 194c64a2b2a140f499af604751d08501, type: 2}
-    name: Dipni Rainbow_21
-    coordinates: {x: 4, y: 564, z: 60, w: 97}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: ee036e94aad19754695a3e11713096f8, type: 2}
-    name: Dipni Rainbow_22
-    coordinates: {x: 75, y: 558, z: 117, w: 103}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 8854cdd1831597f4fa45ad4f5016f932, type: 2}
-    name: Dipni Rainbow_23
-    coordinates: {x: 200, y: 621, z: 184, w: 69}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: cdef0ba2fc001b44e817e55864e436a5, type: 2}
+  - texture: {fileID: 2800000, guid: e8772d120674c644d80e50de4c619105, type: 2}
     name: Dipni Rainbow_24
     coordinates: {x: 392, y: 587, z: 116, w: 103}
     pivot: {x: 0.5, y: 0.5}
@@ -240,7 +186,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 66ba7623c921add4a941c2c71a4dd8af, type: 2}
+  - texture: {fileID: 2800000, guid: a5e184285be31ea4199b7ef7f5649acd, type: 2}
     name: Dipni Rainbow_25
     coordinates: {x: 516, y: 597, z: 64, w: 93}
     pivot: {x: 0.5, y: 0.5}
@@ -249,7 +195,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 3f4c941b5b3d98244acbe47250507b6e, type: 2}
+  - texture: {fileID: 2800000, guid: ed9fe6b9345b10f4b86ba4c13e245fd2, type: 2}
     name: Dipni Rainbow_26
     coordinates: {x: 588, y: 596, z: 51, w: 94}
     pivot: {x: 0.5, y: 0.5}
@@ -258,7 +204,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 3e72ba57c12109944b4ab84aa742847f, type: 2}
+  - texture: {fileID: 2800000, guid: 874d7c34af60c6748bedcdb235cb5fc2, type: 2}
     name: Dipni Rainbow_27
     coordinates: {x: 647, y: 627, z: 48, w: 63}
     pivot: {x: 0.5, y: 0.5}
@@ -267,7 +213,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 9fc98b0c11c5d544d87aec4e95f9763e, type: 2}
+  - texture: {fileID: 2800000, guid: 0e1d4b7b4e72ee442b0fefeeea161cbe, type: 2}
     name: Dipni Rainbow_28
     coordinates: {x: 4, y: 459, z: 60, w: 97}
     pivot: {x: 0.5, y: 0.5}
@@ -276,7 +222,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 7f8df342be4ff6c468cf4511dd4fe485, type: 2}
+  - texture: {fileID: 2800000, guid: 4cefe438c494d604a9f403d795e21ad9, type: 2}
     name: Dipni Rainbow_29
     coordinates: {x: 171, y: 518, z: 15, w: 32}
     pivot: {x: 0.5, y: 0.5}
@@ -285,7 +231,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 08c3a861f430de542aa3fe8f2d67b91d, type: 2}
+  - texture: {fileID: 2800000, guid: c24e74ed6a04074428797c54827f6ed1, type: 2}
     name: Dipni Rainbow_30
     coordinates: {x: 200, y: 495, z: 65, w: 118}
     pivot: {x: 0.5, y: 0.5}
@@ -294,7 +240,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 71c107a73ef165241ac8bb271870964c, type: 2}
+  - texture: {fileID: 2800000, guid: edd2bd10469b8e34a84b3d0fcbe514f8, type: 2}
     name: Dipni Rainbow_31
     coordinates: {x: 273, y: 532, z: 94, w: 81}
     pivot: {x: 0.5, y: 0.5}
@@ -303,7 +249,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: b91e235950a9f374e8607f0be4293613, type: 2}
+  - texture: {fileID: 2800000, guid: 8604303d2da965942abf984cee0ba0b4, type: 2}
     name: Dipni Rainbow_32
     coordinates: {x: 392, y: 521, z: 121, w: 58}
     pivot: {x: 0.5, y: 0.5}
@@ -312,16 +258,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: cdcd9e03345697f41b0ab367ea2d422b, type: 2}
-    name: Dipni Rainbow_33
-    coordinates: {x: 521, y: 521, z: 80, w: 66}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 3c166b0cd1200b846967e55d6a2308df, type: 2}
+  - texture: {fileID: 2800000, guid: a4ee519f733c44f468e057531e63b7ab, type: 2}
     name: Dipni Rainbow_34
     coordinates: {x: 618, y: 516, z: 55, w: 72}
     pivot: {x: 0.5, y: 0.5}
@@ -330,7 +267,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 55b88d9c90550d8439595440ea75cf03, type: 2}
+  - texture: {fileID: 2800000, guid: 568505b766688b0419046d2c582f17f6, type: 2}
     name: Dipni Rainbow_35
     coordinates: {x: 681, y: 521, z: 43, w: 67}
     pivot: {x: 0.5, y: 0.5}
@@ -339,16 +276,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 40f0ed8b6d5b1cf4d85eab0259a59420, type: 2}
-    name: Dipni Rainbow_36
-    coordinates: {x: 75, y: 487, z: 42, w: 40}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 1c175e56d5ee07645bc913e4ddda1242, type: 2}
+  - texture: {fileID: 2800000, guid: 2330d1b81934d04479b8152c0b03a891, type: 2}
     name: Dipni Rainbow_37
     coordinates: {x: 273, y: 434, z: 66, w: 90}
     pivot: {x: 0.5, y: 0.5}
@@ -357,25 +285,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: abefc44078e8ca545b0891ff4104e81a, type: 2}
-    name: Dipni Rainbow_38
-    coordinates: {x: 347, y: 468, z: 23, w: 56}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: fd555aa53d5528543a9093de299af033, type: 2}
-    name: Dipni Rainbow_39
-    coordinates: {x: 392, y: 468, z: 141, w: 45}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 974c93db8a12fa04ea879031cbfd8b02, type: 2}
+  - texture: {fileID: 2800000, guid: fca47a42ba2a6fc46886e30d61490128, type: 2}
     name: Dipni Rainbow_40
     coordinates: {x: 541, y: 435, z: 69, w: 78}
     pivot: {x: 0.5, y: 0.5}
@@ -384,16 +294,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 5c5b7a3ae9f7b77459677585318a272a, type: 2}
-    name: Dipni Rainbow_41
-    coordinates: {x: 618, y: 435, z: 55, w: 73}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 79d5ec7a01c0ea340b6369853cf68687, type: 2}
+  - texture: {fileID: 2800000, guid: 524cfcd285564c240ab21a88a585e225, type: 2}
     name: Dipni Rainbow_42
     coordinates: {x: 681, y: 435, z: 44, w: 66}
     pivot: {x: 0.5, y: 0.5}
@@ -402,16 +303,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: fbe5b07062db06e46a44f7a81e33057f, type: 2}
-    name: Dipni Rainbow_43
-    coordinates: {x: 4, y: 383, z: 70, w: 68}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 3307b30b1f7033647b3a4bdf958a1af5, type: 2}
+  - texture: {fileID: 2800000, guid: e8140881ff14d4149a3f3a2fb84ba068, type: 2}
     name: Dipni Rainbow_44
     coordinates: {x: 92, y: 424, z: 94, w: 55}
     pivot: {x: 0.5, y: 0.5}
@@ -420,7 +312,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 9065a8ff25c7ddb4491cda631af4db16, type: 2}
+  - texture: {fileID: 2800000, guid: 7d40eaa115b573d42939470c7a5b2380, type: 2}
     name: Dipni Rainbow_45
     coordinates: {x: 205, y: 405, z: 60, w: 82}
     pivot: {x: 0.5, y: 0.5}
@@ -429,16 +321,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 9e34db0487757c947ae2fdb8feab545f, type: 2}
-    name: Dipni Rainbow_46
-    coordinates: {x: 347, y: 428, z: 32, w: 32}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 0fefa9285b03e004086e6e0dabfdc3f3, type: 2}
+  - texture: {fileID: 2800000, guid: ab6661077a04c4f43860052e69442b88, type: 2}
     name: Dipni Rainbow_47
     coordinates: {x: 392, y: 396, z: 76, w: 64}
     pivot: {x: 0.5, y: 0.5}
@@ -447,7 +330,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: cfc5d8123909b7b40a615a56636245dc, type: 2}
+  - texture: {fileID: 2800000, guid: f36d0fb7f46bdc7429a757c80f1eef94, type: 2}
     name: Dipni Rainbow_48
     coordinates: {x: 485, y: 366, z: 48, w: 94}
     pivot: {x: 0.5, y: 0.5}
@@ -456,7 +339,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 7d260920733bc024684aa2a68dc0bdfe, type: 2}
+  - texture: {fileID: 2800000, guid: 6f9be7b471f031f438458b6d77a05921, type: 2}
     name: Dipni Rainbow_49
     coordinates: {x: 92, y: 380, z: 18, w: 36}
     pivot: {x: 0.5, y: 0.5}
@@ -465,7 +348,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 9d01639600f41494b88b5132c85f8e9d, type: 2}
+  - texture: {fileID: 2800000, guid: ec20597f9bde2304b95a6d754fe9cfd3, type: 2}
     name: Dipni Rainbow_50
     coordinates: {x: 125, y: 347, z: 61, w: 69}
     pivot: {x: 0.5, y: 0.5}
@@ -474,16 +357,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 3c658b960f20e104981826c6f8b7df1f, type: 2}
-    name: Dipni Rainbow_51
-    coordinates: {x: 198, y: 340, z: 67, w: 57}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 1bb435870fe42874aa9347be429ac469, type: 2}
+  - texture: {fileID: 2800000, guid: 0c7834c06e1b0ca4687ca67c54f784ad, type: 2}
     name: Dipni Rainbow_52
     coordinates: {x: 277, y: 356, z: 62, w: 70}
     pivot: {x: 0.5, y: 0.5}
@@ -492,7 +366,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 657800d371ec852439628aaa8c5eb93f, type: 2}
+  - texture: {fileID: 2800000, guid: 275f10ac09c195a439876e2502a538f1, type: 2}
     name: Dipni Rainbow_53
     coordinates: {x: 360, y: 385, z: 19, w: 35}
     pivot: {x: 0.5, y: 0.5}
@@ -501,7 +375,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: df7805f26bf513d4b91c46eee4135951, type: 2}
+  - texture: {fileID: 2800000, guid: 603a61a3942ae4b4591e6ea649c1d483, type: 2}
     name: Dipni Rainbow_54
     coordinates: {x: 392, y: 330, z: 63, w: 58}
     pivot: {x: 0.5, y: 0.5}
@@ -510,16 +384,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: fc47055904041804a813c2b66afc939f, type: 2}
-    name: Dipni Rainbow_55
-    coordinates: {x: 463, y: 364, z: 12, w: 24}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: c8069ec8f51d02347aa23354902afdb1, type: 2}
+  - texture: {fileID: 2800000, guid: 659d33ba0c53a3b45b066c1aeda91ecc, type: 2}
     name: Dipni Rainbow_56
     coordinates: {x: 541, y: 353, z: 60, w: 74}
     pivot: {x: 0.5, y: 0.5}
@@ -528,7 +393,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: dd2cafae0dffa344b878b9de20ed743f, type: 2}
+  - texture: {fileID: 2800000, guid: bd3983d992c13434da5aefcf0fa207b4, type: 2}
     name: Dipni Rainbow_57
     coordinates: {x: 609, y: 354, z: 59, w: 73}
     pivot: {x: 0.5, y: 0.5}
@@ -537,16 +402,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 31a51c6ba0282fb4bac3fcc88eaa3cd9, type: 2}
-    name: Dipni Rainbow_58
-    coordinates: {x: 676, y: 361, z: 44, w: 66}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 04da050b9bcb87e4fa9e47646f7acf0a, type: 2}
+  - texture: {fileID: 2800000, guid: 4c196b3bc0c74d24cba6deed31a2fbe7, type: 2}
     name: Dipni Rainbow_59
     coordinates: {x: 27, y: 312, z: 47, w: 63}
     pivot: {x: 0.5, y: 0.5}
@@ -555,25 +411,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 565277c61844ecc40824356d61ed0de4, type: 2}
-    name: Dipni Rainbow_60
-    coordinates: {x: 295, y: 285, z: 44, w: 63}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 6456695c613fe7e41a366e342fa9c86c, type: 2}
-    name: Dipni Rainbow_61
-    coordinates: {x: 362, y: 342, z: 17, w: 35}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: d0eedb4a32021c441b842411302acd4e, type: 2}
+  - texture: {fileID: 2800000, guid: 76e4caad7df12584eb4cf8ffcc1c6260, type: 2}
     name: Dipni Rainbow_62
     coordinates: {x: 483, y: 300, z: 50, w: 58}
     pivot: {x: 0.5, y: 0.5}
@@ -582,25 +420,7 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: 6092cbd4a92a6d04ea0ad99e9f95fab5, type: 2}
-    name: Dipni Rainbow_63
-    coordinates: {x: 541, y: 302, z: 45, w: 43}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: fcd8a77b9edbb8b41bdf6ef544d44e86, type: 2}
-    name: Dipni Rainbow_64
-    coordinates: {x: 624, y: 284, z: 44, w: 62}
-    pivot: {x: 0.5, y: 0.5}
-    passLimbAsMask: 1
-    maskRouteReference: 
-    maskTextureReference: {fileID: 0}
-    maskTextures: []
-    sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: d6aecd50c3e0fa4408471f9504842e02, type: 2}
+  - texture: {fileID: 2800000, guid: 2055c2337c189a7489c57c207d367fb0, type: 2}
     name: Dipni Rainbow_65
     coordinates: {x: 676, y: 295, z: 50, w: 58}
     pivot: {x: 0.5, y: 0.5}
@@ -609,5 +429,185 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: a08c55da5d3733e48bfde75701a31358, type: 2}
+    name: Eye Color Left
+    coordinates: {x: 248, y: 741, z: 43, w: 40}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: d62f305d442c0d24abd54308a1e54d98, type: 2}
+    name: Eye Color Right
+    coordinates: {x: 345, y: 772, z: 15, w: 32}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: afc8cb5c53d028246b5c17110e2fb181, type: 2}
+    name: Eye Left
+    coordinates: {x: 347, y: 428, z: 32, w: 32}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 34cb5ddb859708b4aac9b95fbcfa65d2, type: 2}
+    name: Eye Left Ring
+    coordinates: {x: 541, y: 302, z: 45, w: 43}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: c29409892e68cae4e86fa0ae37cd750c, type: 2}
+    name: Eye Pattern Left
+    coordinates: {x: 521, y: 521, z: 80, w: 66}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 6fb8523d2822b3446ba2bf4e13abf798, type: 2}
+    name: Eye Pattern Right
+    coordinates: {x: 347, y: 468, z: 23, w: 56}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 679248592823e3248b9bb37f1594aa35, type: 2}
+    name: Eye Right
+    coordinates: {x: 463, y: 364, z: 12, w: 24}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: e43232f743cc849409a1c7eecbe80380, type: 2}
+    name: Eye Right Ring
+    coordinates: {x: 362, y: 342, z: 17, w: 35}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: c7f284a756b102642b8427026034e187, type: 2}
+    name: Feet
+    coordinates: {x: 618, y: 435, z: 55, w: 73}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: e8f9694776b7ae548bd114a9064bdb89, type: 2}
+    name: Feet Ground Contact
+    coordinates: {x: 4, y: 383, z: 70, w: 68}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 00920918dcc067a4aa4bd65f95553c5a, type: 2}
+    name: Feet Jump
+    coordinates: {x: 4, y: 564, z: 60, w: 97}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: f15393be75f21104385cc3f633ce6e59, type: 2}
+    name: Feet Jump On Air
+    coordinates: {x: 198, y: 340, z: 67, w: 57}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 9a01c27f2381f254497755ac7523cdd7, type: 2}
+    name: Feet Jump On Air Bent
+    coordinates: {x: 552, y: 930, z: 60, w: 82}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 1c49aba33d88b1a408a4664a3ff9dac0, type: 2}
+    name: Fin Left
+    coordinates: {x: 394, y: 871, z: 76, w: 141}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 32bfd3d1435b6ea41b8010cf1f764334, type: 2}
+    name: Fin Right
+    coordinates: {x: 303, y: 851, z: 83, w: 161}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 43954ec88742cc341b0f5030d7e20112, type: 2}
+    name: Fin Top
+    coordinates: {x: 473, y: 787, z: 92, w: 69}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: fbc125fc738fc1346a2956caa4f3afbe, type: 2}
+    name: Head
+    coordinates: {x: 4, y: 669, z: 188, w: 166}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: bec0420f8fc5d584a9e68baa067d09e1, type: 2}
+    name: Jaw
+    coordinates: {x: 200, y: 621, z: 184, w: 69}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: f4faef408121096468e450b7d864dc37, type: 2}
+    name: Mouth
+    coordinates: {x: 392, y: 468, z: 141, w: 45}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 7eb654010620a5c4688fba6fa091e78f, type: 2}
+    name: Torso
+    coordinates: {x: 75, y: 558, z: 117, w: 103}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
   path: Assets/Resources/Textures/Dipni/Dipni Rainbow.png
-  textureToSearch: {fileID: 2800000, guid: 6b445c91f5c12b8439e5aa0320df8cb2, type: 3}
+  textureToSearch: {fileID: 2800000, guid: 76901469df26cc9488fbcd9954d3defd, type: 3}

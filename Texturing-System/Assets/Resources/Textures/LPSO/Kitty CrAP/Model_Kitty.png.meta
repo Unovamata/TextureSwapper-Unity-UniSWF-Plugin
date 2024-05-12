@@ -504,7 +504,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Muzzle
+      name: Nose
       rect:
         serializedVersion: 2
         x: 243
@@ -745,7 +745,7 @@ TextureImporter:
       Knee Right: -1096356333
       Mouth Closed: -2132065702
       Mouth Open: 949071306
-      Muzzle: -2059293194
+      Nose: -2059293194
       Shadow: 1192912203
       Shoulder Left: -1678141648
       Shoulder Right: -800577884

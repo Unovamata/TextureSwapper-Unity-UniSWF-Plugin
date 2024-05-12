@@ -197,7 +197,7 @@ public class MultipleTexturesSOEditor : Editor{
     }
 
     public static void ShowTextureInField(Texture2D texture, string textureName, float rectSize){
-        bool showMaskTextureMetadata = (int) Prefs.showMaskColorMetadata == 1;
+        bool showMaskTextureMetadata = (int) Prefs.showMaskTextureMetadata == 1 ;
         if(!showMaskTextureMetadata) return;
 
         EditorGUILayout.Space();
@@ -222,7 +222,7 @@ public class MultipleTexturesSOEditor : Editor{
 
     public static void ShowMaskColorManagement(Limb limb) {
         //If the GUI should not check for color metadata;
-        bool showMaskColorMetadata = (int) Prefs.showMaskTextureMetadata == 1;
+        bool showMaskColorMetadata = (int) Prefs.showMaskColorMetadata == 1;
         if (!showMaskColorMetadata) return;
 
         //Folder;

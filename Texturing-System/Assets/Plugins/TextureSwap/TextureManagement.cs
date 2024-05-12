@@ -15,11 +15,12 @@ public class TextureManagement : MonoBehaviour{
     [HideInInspector] public SkeletonSO skeleton;
     [HideInInspector] public TexturesSO textures;
     [HideInInspector] public MaterialStoreSO materialStoreSO;
-    [HideInInspector] public TexturesSO[] textureToReference;
+    [HideInInspector] public TexturesSO[] texturesToReference;
     [HideInInspector] public int[] limitPerLimb;
     List<SkeletonRelationships> skeletonRelationships;
     [HideInInspector] public List<Texture2D> newTexturesToManage = new List<Texture2D>();
     [HideInInspector] public TexturingType texturingType;
+
 
     //Unity Editor;
     Material material;
@@ -53,7 +54,7 @@ public class TextureManagement : MonoBehaviour{
         }
 
         //Circumvents the infinite material swapping provoked by UniSWF;
-        enabled = false;
+        enabled = true;
     }
 
 
@@ -129,7 +130,7 @@ public class CustomInspector : Editor {
 
         SerializedProperty materialStoreSOProperty = serializedObject.FindProperty("materialStoreSO"),
         texturesProperty = serializedObject.FindProperty("textures"),
-        texturesToReferenceProperty = serializedObject.FindProperty("textureToReference"),
+        texturesToReferenceProperty = serializedObject.FindProperty("texturesToReference"),
         skeletonProperty = serializedObject.FindProperty("skeleton");
 
 
@@ -189,7 +190,7 @@ public class CustomInspector : Editor {
 
         Separator();
 
-        if(manager.textureToReference.Length == 0 || manager.textureToReference[0] == null) return;
+        if(manager.texturesToReference.Length == 0 || manager.texturesToReference[0] == null) return;
         EditorGUILayout.Space();
 
         
@@ -203,13 +204,13 @@ public class CustomInspector : Editor {
         }
 
         //Folder for containing the data;
-        EditorGUILayout.LabelField("Texture-set Limits Per Limb Management", EditorStyles.boldLabel);
+        EditorGUILayout.LabelField("Texture Set Limits Per Limb Management", EditorStyles.boldLabel);
         GUILayout.BeginVertical(GUI.skin.box);
         folderLimitStatus = EditorGUILayout.Foldout(folderLimitStatus, "Texture Limb Limits");
 
         if (folderLimitStatus) {
             //Naming a subgroup of folders if needed;
-            EditorGUILayout.HelpBox("When dealing with texturesets that contain only one texture requiring referencing, " +
+            EditorGUILayout.HelpBox("When dealing with texture sets that contain only one texture requiring referencing, " +
                 "you can conveniently set their data limits using the following array.", MessageType.Info);
             
             serializedObject.Update();
@@ -221,7 +222,7 @@ public class CustomInspector : Editor {
                     SerializedProperty elementProp = arrayProp.GetArrayElementAtIndex(i);
 
                     EditorGUILayout.LabelField($"{relationships[i].GetRelationshipName()}", GUILayout.Width(150f));
-                    elementProp.intValue = InputScrollable(manager.textureToReference[elementProp.intValue].name, 0, manager.textureToReference.Length - 1, arrayProp.GetArrayElementAtIndex(i).intValue);
+                    elementProp.intValue = InputScrollable(manager.texturesToReference[elementProp.intValue].name, 0, manager.texturesToReference.Length - 1, arrayProp.GetArrayElementAtIndex(i).intValue);
                     
                     GUILayout.EndHorizontal();
                 }
@@ -229,11 +230,11 @@ public class CustomInspector : Editor {
 
                 // If the user needs to maximize all limits at once;
                 if(GUILayout.Button("Maximize Limits")) {
-                    MaximizeTextureLimits(limitPerLimb, manager.textureToReference.Length);
+                    MaximizeTextureLimits(limitPerLimb, manager.texturesToReference.Length);
                 }
 
             } catch {
-                MaximizeTextureLimits(limitPerLimb, manager.textureToReference.Length);
+                MaximizeTextureLimits(limitPerLimb, manager.texturesToReference.Length);
             }
 
             serializedObject.ApplyModifiedProperties();
@@ -243,7 +244,7 @@ public class CustomInspector : Editor {
         
 
         //Texture Swapping;
-        EditorGUILayout.Space();
+        Separator();
         EditorGUILayout.LabelField("Texture Management", EditorStyles.boldLabel);
 
         GUILayout.BeginVertical(GUI.skin.box);
@@ -255,8 +256,8 @@ public class CustomInspector : Editor {
         currentRelationIndex = Scrollable(relationship.GetRelationshipName(), 0, 
             relationships.Count - 1, currentRelationIndex);
 
-        EditorGUILayout.LabelField("Textureset:");
-        TexturesSO selectedTexture = manager.textureToReference[currentSelectedTextureToReference];
+        EditorGUILayout.LabelField("Texture Set:");
+        TexturesSO selectedTexture = manager.texturesToReference[currentSelectedTextureToReference];
         currentSelectedTextureToReference = Scrollable(selectedTexture.name, 0, 
             limitPerLimb[currentRelationIndex], currentSelectedTextureToReference);
         if(currentSelectedTextureToReference > limitPerLimb[currentRelationIndex]) currentSelectedTextureToReference = 0;
@@ -271,7 +272,7 @@ public class CustomInspector : Editor {
                 switch(manager.texturingType){
                     case TexturingType.BaseTexturesSO:
                         Utils.ClearTextureAt(limb.GetCoordinates(), manager.newTexturesToManage[0]);
-                        Utils.PasteTexture(limb, manager.newTexturesToManage[0], manager.textureToReference[currentSelectedTextureToReference]);
+                        Utils.PasteTexture(limb, manager.newTexturesToManage[0], manager.texturesToReference[currentSelectedTextureToReference]);
                     break;
 
                     case TexturingType.MultipleTexturesSO:
@@ -293,7 +294,7 @@ public class CustomInspector : Editor {
                             Texture2D texture = Utils.CloneTexture((Texture2D) material.GetTexture("_MainTex"));
                             
                             Utils.ClearTextureAt(limb.GetCoordinates(), texture);
-                            Utils.PasteTexture(limb, texture, manager.textureToReference[currentSelectedTextureToReference]);
+                            Utils.PasteTexture(limb, texture, manager.texturesToReference[currentSelectedTextureToReference]);
 
                             material.SetTexture("_MainTex", texture);
                         }

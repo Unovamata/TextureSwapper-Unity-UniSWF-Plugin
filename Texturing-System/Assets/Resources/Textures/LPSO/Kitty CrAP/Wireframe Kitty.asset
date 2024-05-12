@@ -204,8 +204,8 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  - texture: {fileID: 2800000, guid: c4ddb9445471bf241a12fd95e3060483, type: 2}
-    name: Muzzle
+  - texture: {fileID: 2800000, guid: 2b3e7bd329ebe354f87e598d34d42420, type: 2}
+    name: Nose
     coordinates: {x: 243, y: 431, z: 86, w: 84}
     pivot: {x: 0.5, y: 0.5}
     passLimbAsMask: 1
