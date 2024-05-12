@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEditor;
 using UnityEngine;
+using TMPro;
 
 public enum TexturingType{
     BaseTexturesSO = 0,
@@ -19,6 +20,8 @@ public class TextureManagement : MonoBehaviour{
     List<SkeletonRelationships> skeletonRelationships;
     [HideInInspector] public List<Texture2D> newTexturesToManage = new List<Texture2D>();
     [HideInInspector] public TexturingType texturingType;
+    [HideInInspector] public TextMeshProUGUI[] relationshipTMToModify, texturesTMToModify;
+    [HideInInspector] public string[] relationshipTMFormats, texturesTMFormats;
 
 
     //Unity Editor;
@@ -187,6 +190,8 @@ public class TextureManagement : MonoBehaviour{
     public static void SwapTextureSearchRelationshipAsync(TextureManagement reference, string relationshipName, int currentSelectedTextureToReference = 0){
         SkeletonRelationships relationship = SearchRelationship(reference, relationshipName);
 
+        if(relationship == null) return;
+
         reference.StartCoroutine(SwapTextureAsync(reference, relationship, currentSelectedTextureToReference));
     }
 
@@ -217,6 +222,128 @@ public class TextureManagement : MonoBehaviour{
         
         yield return null;
     }
+
+
+    ////////////////////////////////////////////////////////////////////
+
+
+    [HideInInspector] public int currentSelectedTextureToReference = 0, currentRelationshipIndex;
+
+    public void SwapTextureRunProcess(GameObject go){
+        TextMeshProUGUI mesh = go.GetComponentInChildren<TextMeshProUGUI>();
+
+        SwapTextureSearchRelationshipAsync(this, mesh.gameObject.name, currentSelectedTextureToReference);
+    }
+
+    public void IncreaseScrollerTextures(){
+        int index = currentSelectedTextureToReference,
+        min = 0, max = limitPerLimb[currentRelationshipIndex];
+
+        if(index >= max) index = min;
+        else index++;
+
+        currentSelectedTextureToReference = index;
+        TexturesSO selectedTexture = texturesToReference[currentSelectedTextureToReference];
+        string textureName = selectedTexture.name;
+
+        ManageTexturesTextMeshPro(textureName);
+    }
+
+    public void DecreaseScrollerTextures(){
+        int index = currentSelectedTextureToReference,
+        min = 0, max = limitPerLimb[currentRelationshipIndex];
+
+        if(index <= min) index = max;
+        else index--;
+
+        currentSelectedTextureToReference = index;
+        TexturesSO selectedTexture = texturesToReference[currentSelectedTextureToReference];
+        string textureName = selectedTexture.name;
+
+        ManageTexturesTextMeshPro(textureName);
+    }
+
+    public void ManageTexturesTextMeshPro(string name){
+        for(int i = 0; i < texturesTMToModify.Length; i++){
+            TextMeshProUGUI mesh = texturesTMToModify[i];
+            string format = "";
+
+            mesh.gameObject.name = name;
+
+            try{
+                format = texturesTMFormats[i];
+
+                if(format != ""){
+                    mesh.text = format.Replace("[VAR]", name);
+                    continue;
+                }
+            } catch {}
+            
+
+            mesh.text = name;
+        }
+    }
+
+
+    ////////////////////////////////////////////////////////////////////
+
+
+    public void IncreaseScrollerRelationships(){
+        int index = currentRelationshipIndex,
+        min = 0, max = skeleton.GetRelationships().Count - 1, 
+        maxTexture = limitPerLimb[currentRelationshipIndex];
+
+        if(index >= max) index = min;
+        else index++;
+
+        if(currentSelectedTextureToReference >= maxTexture) currentSelectedTextureToReference = 0;
+
+        currentRelationshipIndex = index;
+
+        SkeletonRelationships relationship = skeleton.GetRelationships()[currentRelationshipIndex];
+        string relationshipName = relationship.GetRelationshipName();
+
+        ManageRelationshipsTextMeshPro(relationshipName);
+    }
+
+    public void DecreaseScrollerRelationships(){
+        int index = currentRelationshipIndex,
+        min = 0, max = skeleton.GetRelationships().Count - 1,
+        maxTexture = limitPerLimb[currentRelationshipIndex];
+
+        if(index <= min) index = max;
+        else index--;
+
+        if(currentSelectedTextureToReference >= maxTexture) currentSelectedTextureToReference = 0;
+
+        currentRelationshipIndex = index;
+
+        SkeletonRelationships relationship = skeleton.GetRelationships()[currentRelationshipIndex];
+        string relationshipName = relationship.GetRelationshipName();
+
+        ManageRelationshipsTextMeshPro(relationshipName);
+    }
+
+    public void ManageRelationshipsTextMeshPro(string name){
+        for(int i = 0; i < relationshipTMToModify.Length; i++){
+            TextMeshProUGUI mesh = relationshipTMToModify[i];
+            string format = "";
+
+            mesh.gameObject.name = name;
+
+            try{
+                format = relationshipTMFormats[i];
+
+                if(format != ""){
+                    mesh.text = format.Replace("[VAR]", name);
+                    continue;
+                }
+            } catch {}
+            
+
+            mesh.text = name;
+        }
+    }
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -224,8 +351,7 @@ public class TextureManagement : MonoBehaviour{
 //Custom Editor;
 [CustomEditor(typeof(TextureManagement))]
 public class CustomInspector : Editor {
-    int currentRelationIndex = 0;
-    int currentSelectedTextureToReference = 0;
+    int currentRelationshipIndex = 0, currentSelectedTextureToReference = 0;
     bool folderLimitStatus;
 
     //Changes values in the inspector, creating a custom inspector;
@@ -237,10 +363,16 @@ public class CustomInspector : Editor {
         SerializedProperty materialStoreSOProperty = serializedObject.FindProperty("materialStoreSO"),
         texturesProperty = serializedObject.FindProperty("textures"),
         texturesToReferenceProperty = serializedObject.FindProperty("texturesToReference"),
-        skeletonProperty = serializedObject.FindProperty("skeleton");
+        skeletonProperty = serializedObject.FindProperty("skeleton"),
+        relationshipTMToModifyProperty = serializedObject.FindProperty("relationshipTMToModify"),
+        relationshipTMFormatsProperty = serializedObject.FindProperty("relationshipTMFormats"),
+        texturesTMToModifyProperty = serializedObject.FindProperty("texturesTMToModify"),
+        texturesTMFormatsProperty = serializedObject.FindProperty("texturesTMFormats");
 
 
         TextureManagement manager = (TextureManagement) target; //Referencing the script;
+        currentRelationshipIndex = manager.currentRelationshipIndex;
+        currentSelectedTextureToReference = manager.currentSelectedTextureToReference;
 
         Separator();
 
@@ -355,63 +487,47 @@ public class CustomInspector : Editor {
 
         GUILayout.BeginVertical(GUI.skin.box);
 
-        SkeletonRelationships relationship = relationships[currentRelationIndex];
+        SkeletonRelationships relationship = relationships[currentRelationshipIndex];
         string relationshipName = relationship.GetRelationshipName();
 
         EditorGUILayout.LabelField("Body Part:");
-        currentRelationIndex = Scrollable(relationshipName, 0, 
-            relationships.Count - 1, currentRelationIndex);
+        manager.currentRelationshipIndex = Scrollable(relationshipName, 0, 
+            relationships.Count - 1, currentRelationshipIndex);
+
+        manager.ManageRelationshipsTextMeshPro(relationshipName);
 
         EditorGUILayout.LabelField("Texture Set:");
         TexturesSO selectedTexture = manager.texturesToReference[currentSelectedTextureToReference];
-        currentSelectedTextureToReference = Scrollable(selectedTexture.name, 0, 
-            limitPerLimb[currentRelationIndex], currentSelectedTextureToReference);
-        if(currentSelectedTextureToReference > limitPerLimb[currentRelationIndex]) currentSelectedTextureToReference = 0;
+        manager.currentSelectedTextureToReference = Scrollable(selectedTexture.name, 0, 
+            limitPerLimb[currentRelationshipIndex], currentSelectedTextureToReference);
+
+        manager.ManageTexturesTextMeshPro(selectedTexture.name);
+
+        if(currentSelectedTextureToReference > limitPerLimb[currentRelationshipIndex]) manager.currentSelectedTextureToReference = 0;
 
 
         EditorGUILayout.Space();
 
         if(GUILayout.Button("Swap " + relationshipName + " Textures")) {
-            TextureManagement.SwapTextureRelationshipAsync(manager, relationship, currentSelectedTextureToReference);
-            /*List<Material> materialReferences = new List<Material>();
-
-            foreach(Limb limb in relationship.GetLimbsRelated()) {
-                switch(manager.texturingType){
-                    case TexturingType.BaseTexturesSO:
-                        Utils.ClearTextureAt(limb.GetCoordinates(), manager.newTexturesToManage[0]);
-                        Utils.PasteTexture(limb, manager.newTexturesToManage[0], manager.texturesToReference[currentSelectedTextureToReference]);
-                    break;
-
-                    case TexturingType.MultipleTexturesSO:
-                        foreach(KeyValuePair<string, Material> kvp in manager.materialStoreSO.GetMaterials()) {
-                            string key = kvp.Key;
-                            Material material = kvp.Value;
-
-                            Sprite[] sprites = Resources.LoadAll<Sprite>(key);
-
-                            foreach(Sprite sprite in sprites) {
-                                if(sprite.name.Contains(relationship.GetRelationshipName()) &&
-                                    !materialReferences.Contains(material)){
-                                    materialReferences.Add(material);
-                                }
-                            }
-                        }
-
-                        foreach(Material material in materialReferences) {
-                            Texture2D texture = Utils.CloneTexture((Texture2D) material.GetTexture("_MainTex"));
-                            
-                            Utils.ClearTextureAt(limb.GetCoordinates(), texture);
-                            Utils.PasteTexture(limb, texture, manager.texturesToReference[currentSelectedTextureToReference]);
-
-                            material.SetTexture("_MainTex", texture);
-                        }
-                    break;
-
-                }     
-            }*/   
+            TextureManagement.SwapTextureRelationshipAsync(manager, relationship, currentSelectedTextureToReference); 
         }
 
         GUILayout.EndVertical();
+
+        Separator();
+
+
+        EditorGUILayout.PropertyField(relationshipTMToModifyProperty, true);
+
+        EditorGUILayout.PropertyField(relationshipTMFormatsProperty, true);
+
+        Separator();
+
+        EditorGUILayout.PropertyField(texturesTMToModifyProperty, true);
+
+        EditorGUILayout.PropertyField(texturesTMFormatsProperty, true);
+
+        Separator();
     }
 
     private void MaximizeTextureLimits(int[] limitPerLimb, int length){

@@ -1,7 +1,9 @@
 {
     "name": "TextureSwap.System",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "Unity.TextMeshPro"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
