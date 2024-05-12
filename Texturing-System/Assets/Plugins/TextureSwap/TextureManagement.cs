@@ -4,7 +4,6 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-
 public enum TexturingType{
     BaseTexturesSO = 0,
     MultipleTexturesSO = 1,
@@ -62,18 +61,9 @@ public class TextureManagement : MonoBehaviour{
 
 
     void Update(){
-        // Switch placed to save on resources;
-        switch(texturingType){
-            case TexturingType.BaseTexturesSO:
-                material.mainTexture = newTexturesToManage[0];
-                mesh.material = material;
-            break;
-
-            case TexturingType.MultipleTexturesSO:
-                //materialStoreSO
-            break;
-
-            default: break;
+        if(texturingType == TexturingType.BaseTexturesSO){
+            material.mainTexture = newTexturesToManage[0];
+            mesh.material = material;
         }
 
         //PREVIEW CODE ONLY, DO NOT USE IN PRODUCTION, IT IS VERY TAXING ON MEMORY;
@@ -111,6 +101,122 @@ public class TextureManagement : MonoBehaviour{
         yield return new WaitForSeconds(4f);
         isCouroutineRunning = false;
     }*/
+
+
+    ////////////////////////////////////////////////////////////////////
+
+
+    /* SwapTextureProcess();
+     * This is the process in charge of swapping textures. You require a
+     * "SkeletonRelationships" reference and the current selected texture
+     * set to point the data correctly to the texture swapping process. 
+     * This fuction is used in all instances of texture swapping, if you
+     * want to create a variant of the texturing process functions you
+     * must invoke the "SwapTextureProcess" function in all your code 
+     * snippets involving the texture swapping process. */
+    public static void SwapTextureProcess(TextureManagement reference, SkeletonRelationships relationship, int currentSelectedTextureToReference = 0){
+        List<Material> materialReferences = new List<Material>();
+
+        foreach(Limb limb in relationship.GetLimbsRelated()) {
+            switch(reference.texturingType){
+                case TexturingType.BaseTexturesSO:
+                    Utils.ClearTextureAt(limb.GetCoordinates(), reference.newTexturesToManage[0]);
+                    Utils.PasteTexture(limb, reference.newTexturesToManage[0], reference.texturesToReference[currentSelectedTextureToReference]);
+                break;
+
+                case TexturingType.MultipleTexturesSO:
+                    foreach(KeyValuePair<string, Material> kvp in reference.materialStoreSO.GetMaterials()) {
+                        string key = kvp.Key;
+                        Material material = kvp.Value;
+
+                        Sprite[] sprites = Resources.LoadAll<Sprite>(key);
+
+                        foreach(Sprite sprite in sprites) {
+                            if(sprite.name.Contains(relationship.GetRelationshipName()) &&
+                                !materialReferences.Contains(material)){
+                                materialReferences.Add(material);
+                            }
+                        }
+                    }
+
+                    foreach(Material material in materialReferences) {
+                        Texture2D texture = Utils.CloneTexture((Texture2D) material.GetTexture("_MainTex"));
+                        
+                        Utils.ClearTextureAt(limb.GetCoordinates(), texture);
+                        Utils.PasteTexture(limb, texture, reference.texturesToReference[currentSelectedTextureToReference]);
+
+                        material.SetTexture("_MainTex", texture);
+                    }
+                break;
+            }                  
+        }
+    }
+
+    /* SwapTextureSearchRelationship();
+     * Invoke Relationship objects from the SkeletonSO reference via 
+     * name and pass it to the "SwapTextureProcess" function. */
+    public static void SwapTextureSearchRelationship(TextureManagement reference, string relationshipName, int currentSelectedTextureToReference = 0){
+        SkeletonRelationships relationship = SearchRelationship(reference, relationshipName);
+        
+        if(relationship == null) return;
+
+        SwapTextureProcess(reference, relationship, currentSelectedTextureToReference);
+    }
+
+    // SearchRelationship(); Search a relationship based on an input name;
+    public static SkeletonRelationships SearchRelationship(TextureManagement reference, string relationshipName){
+        // Searching for the parent relationship;
+        SkeletonRelationships relationship = null;
+
+        foreach (var rel in reference.skeleton.GetRelationships()){
+            if (rel.GetRelationshipName() == relationshipName)
+            {
+                relationship = rel;
+                break;
+            }
+        }
+
+        return relationship;
+    }
+
+    /* SwapTextureSearchRelationshipAsync();
+     * For all instances of the texture swapping process you must use this
+     * function, as it minimizes slowdowns provoked by the texturing system.
+     * This code will run asynchronously the texture swapping system to
+     * liberate the main thread. This is not multithreading but a coroutine. */
+    public static void SwapTextureSearchRelationshipAsync(TextureManagement reference, string relationshipName, int currentSelectedTextureToReference = 0){
+        SkeletonRelationships relationship = SearchRelationship(reference, relationshipName);
+
+        reference.StartCoroutine(SwapTextureAsync(reference, relationship, currentSelectedTextureToReference));
+    }
+
+
+    ////////////////////////////////////////////////////////////////////
+
+
+    public static void SwapTextureRelationship(TextureManagement reference, SkeletonRelationships relationship, int currentSelectedTextureToReference = 0){
+        if(relationship == null) return;
+
+        SwapTextureProcess(reference, relationship, currentSelectedTextureToReference);
+    }
+
+    public static void SwapTextureRelationshipAsync(TextureManagement reference, SkeletonRelationships relationship, int currentSelectedTextureToReference = 0){
+        if(relationship == null) return;
+
+        reference.StartCoroutine(SwapTextureAsync(reference, relationship, currentSelectedTextureToReference));
+    }
+
+
+    ////////////////////////////////////////////////////////////////////
+
+
+    /* SwapTextureAsync();
+     * The coroutine in charge of invoking the "SwapTextureProcess" function. */
+    public static IEnumerator SwapTextureAsync(TextureManagement reference, SkeletonRelationships relationship, int currentSelectedTextureToReference = 0){
+        SwapTextureProcess(reference, relationship, currentSelectedTextureToReference);
+        
+        yield return null;
+    }
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -250,10 +356,10 @@ public class CustomInspector : Editor {
         GUILayout.BeginVertical(GUI.skin.box);
 
         SkeletonRelationships relationship = relationships[currentRelationIndex];
-        
+        string relationshipName = relationship.GetRelationshipName();
 
         EditorGUILayout.LabelField("Body Part:");
-        currentRelationIndex = Scrollable(relationship.GetRelationshipName(), 0, 
+        currentRelationIndex = Scrollable(relationshipName, 0, 
             relationships.Count - 1, currentRelationIndex);
 
         EditorGUILayout.LabelField("Texture Set:");
@@ -265,8 +371,9 @@ public class CustomInspector : Editor {
 
         EditorGUILayout.Space();
 
-        if(GUILayout.Button("Swap " + relationship.GetRelationshipName() + " Textures")) {
-            List<Material> materialReferences = new List<Material>();
+        if(GUILayout.Button("Swap " + relationshipName + " Textures")) {
+            TextureManagement.SwapTextureRelationshipAsync(manager, relationship, currentSelectedTextureToReference);
+            /*List<Material> materialReferences = new List<Material>();
 
             foreach(Limb limb in relationship.GetLimbsRelated()) {
                 switch(manager.texturingType){
@@ -300,8 +407,8 @@ public class CustomInspector : Editor {
                         }
                     break;
 
-                }                  
-            }
+                }     
+            }*/   
         }
 
         GUILayout.EndVertical();
