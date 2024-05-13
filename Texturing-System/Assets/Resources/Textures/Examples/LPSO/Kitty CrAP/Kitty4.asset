@@ -1,0 +1,280 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
+  m_Name: Kitty4
+  m_EditorClassIdentifier: 
+  texture: {fileID: 2800000, guid: 0c012e6ff0dffac46b9145ffed87da3c, type: 3}
+  subGroupRoute: Examples/LPSO/Kitty
+  limbs:
+  - texture: {fileID: 2800000, guid: 37c0053616d7c704693cbaa293eded70, type: 2}
+    name: Ear Left
+    coordinates: {x: 55, y: 561, z: 121, w: 154}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 7a1486dc1d41e1f4d8366bc435b9c780, type: 2}
+    name: Ear Right
+    coordinates: {x: 375, y: 676, z: 121, w: 154}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 5780233b0b11d064ead5556f739108d8, type: 2}
+    name: Eye Closed Left
+    coordinates: {x: 15, y: 408, z: 161, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 98a66b91817909c45a521bf962d0710b, type: 2}
+    name: Eye Closed Right
+    coordinates: {x: 375, y: 395, z: 161, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 981d696e03a017247a9d885ca78dbbcb, type: 2}
+    name: Eye Open Left
+    coordinates: {x: 354, y: 548, z: 142, w: 127}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: b0763919867270845b993b10d1dab903, type: 2}
+    name: Eye Open Right
+    coordinates: {x: 379, y: 896, z: 140, w: 127}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 66db6e9a0458ebc4c9fb0f9667f9efbc, type: 2}
+    name: Eye Partially Open Left
+    coordinates: {x: 375, y: 461, z: 158, w: 86}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 0c4faffb5b9cabd42aa07665a675a98a, type: 2}
+    name: Eye Partially Open Right
+    coordinates: {x: 17, y: 474, z: 159, w: 86}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 05624aeea777e5a43b8297fb596996f9, type: 2}
+    name: Foot Left
+    coordinates: {x: 572, y: 860, z: 76, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: ab5684d1b519c894ebcf535b077eded2, type: 2}
+    name: Foot Right
+    coordinates: {x: 291, y: 386, z: 76, w: 65}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: eed9d199284fe2741899fe4785d5a99c, type: 2}
+    name: Forearm Left
+    coordinates: {x: 534, y: 464, z: 69, w: 83}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: caeab59a156a91f42adcc1ab5712248b, type: 2}
+    name: Forearm Right
+    coordinates: {x: 566, y: 756, z: 69, w: 83}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 813752eec8bb27044b92a47c87d54c31, type: 2}
+    name: Hand Left
+    coordinates: {x: 589, y: 691, z: 70, w: 64}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: aea6fa2558d6fcc4f97f8ce49e1b572a, type: 2}
+    name: Hand Right
+    coordinates: {x: 580, y: 959, z: 70, w: 64}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 438028c0a5a31c44387516b570314bd1, type: 2}
+    name: Head Center
+    coordinates: {x: 190, y: 638, z: 184, w: 192}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 520076e7367c1e940897abde2fdc3621, type: 2}
+    name: Head Left
+    coordinates: {x: 190, y: 831, z: 188, w: 192}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 747dd00e716933444b9097974230a272, type: 2}
+    name: Head Right
+    coordinates: {x: 1, y: 830, z: 188, w: 193}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 8f0d3557b15d7b94ca7c2f146cb50484, type: 2}
+    name: Knee Left
+    coordinates: {x: 566, y: 597, z: 72, w: 78}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 8ed13c525504183498c64a110e2510cc, type: 2}
+    name: Knee Right
+    coordinates: {x: 537, y: 383, z: 72, w: 77}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: ba91768eeb9e90946878fa7fb848c8ca, type: 2}
+    name: Mouth Closed
+    coordinates: {x: 379, y: 831, z: 82, w: 60}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: bae4226bc55d0db408349c725b61558e, type: 2}
+    name: Mouth Open
+    coordinates: {x: 500, y: 946, z: 79, w: 77}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: c1108cbd9bf837449af7b60ec38af052, type: 2}
+    name: Nose
+    coordinates: {x: 497, y: 676, z: 91, w: 79}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: eb12dfdc186867e46a570124fc1690f8, type: 2}
+    name: Shadow
+    coordinates: {x: 1, y: 716, z: 175, w: 113}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 45b7ea5346f67ce40b751ad7d187f9a8, type: 2}
+    name: Shoulder Left
+    coordinates: {x: 497, y: 584, z: 68, w: 91}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: c5ea6adeb16d3d8479e107d54e20f95b, type: 2}
+    name: Shoulder Right
+    coordinates: {x: 497, y: 756, z: 68, w: 91}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 5b988274bd5d049449566f7a45b30de2, type: 2}
+    name: Thigh Left
+    coordinates: {x: 292, y: 453, z: 72, w: 85}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 01f7ac4cbe4352541a6fea3853f282d6, type: 2}
+    name: Thigh Right
+    coordinates: {x: 500, y: 860, z: 71, w: 85}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 5ca7fdb18e1bd594988ec6e7cf9f2e0b, type: 2}
+    name: Torso
+    coordinates: {x: 190, y: 426, z: 101, w: 112}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 8b3dbb57aabc8a24fb55fe1c44706e32, type: 2}
+    name: Tuft
+    coordinates: {x: 190, y: 539, z: 149, w: 98}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  path: Assets/Resources/Textures/LPSO/Kitty CrAP/Kitty4.png
+  textureToSearch: {fileID: 2800000, guid: 0c012e6ff0dffac46b9145ffed87da3c, type: 3}

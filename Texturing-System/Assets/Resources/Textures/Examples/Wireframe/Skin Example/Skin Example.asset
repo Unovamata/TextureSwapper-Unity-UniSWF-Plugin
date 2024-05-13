@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ffd5d0911d522468b7e8fb843973d8, type: 3}
+  m_Name: Skin Example
+  m_EditorClassIdentifier: 
+  texture: {fileID: 2800000, guid: 6e772cefc040e0a499cf62b390043671, type: 3}
+  subGroupRoute: Examples/Wireframe
+  limbs:
+  - texture: {fileID: 2800000, guid: 33abe279bae56a84394cb442b767e5fc, type: 2}
+    name: Glasses Left
+    coordinates: {x: 284, y: 335, z: 195, w: 154}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 5a43c73a4778e8d4facdb14c9185c986, type: 2}
+    name: Glasses Right
+    coordinates: {x: 27, y: 345, z: 212, w: 131}
+    pivot: {x: 0.5, y: 0.5}
+    passLimbAsMask: 1
+    maskRouteReference: 
+    maskTextureReference: {fileID: 0}
+    maskTextures: []
+    sourceTexture: {fileID: 0}
+  path: Assets/Resources/Textures/Wireframe/Skin Example/Wireframe.png
+  textureToSearch: {fileID: 2800000, guid: 6e772cefc040e0a499cf62b390043671, type: 3}
