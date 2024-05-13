@@ -117,36 +117,45 @@ public class TextureManagement : MonoBehaviour{
      * want to create a variant of the texturing process functions you
      * must invoke the "SwapTextureProcess" function in all your code 
      * snippets involving the texture swapping process. */
-    public static void SwapTextureProcess(TextureManagement reference, SkeletonRelationships relationship, int currentSelectedTextureToReference = 0){
+    public static void SwapTextureProcess(TextureManagement reference, SkeletonRelationships relationship, int selectedTextureToReference = 0){
         List<Material> materialReferences = new List<Material>();
+        TexturesSO[] texturesToReference = reference.texturesToReference;
 
         foreach(Limb limb in relationship.GetLimbsRelated()) {
             switch(reference.texturingType){
                 case TexturingType.BaseTexturesSO:
+                    if(selectedTextureToReference > texturesToReference.Length) return;
+
                     Utils.ClearTextureAt(limb.GetCoordinates(), reference.newTexturesToManage[0]);
-                    Utils.PasteTexture(limb, reference.newTexturesToManage[0], reference.texturesToReference[currentSelectedTextureToReference]);
+                    Utils.PasteTexture(limb, reference.newTexturesToManage[0], reference.texturesToReference[selectedTextureToReference]);
                 break;
 
                 case TexturingType.MultipleTexturesSO:
+                    if(selectedTextureToReference > texturesToReference.Length) return;
+
+                    // Extract the materials from the MaterialStoreSO object;
                     foreach(KeyValuePair<string, Material> kvp in reference.materialStoreSO.GetMaterials()) {
                         string key = kvp.Key;
                         Material material = kvp.Value;
 
                         Sprite[] sprites = Resources.LoadAll<Sprite>(key);
 
+                        // Checking if a texture contains a relationship with a limb we need to swap;
                         foreach(Sprite sprite in sprites) {
                             if(sprite.name.Contains(relationship.GetRelationshipName()) &&
                                 !materialReferences.Contains(material)){
+                                // Add it to a list for future processing;
                                 materialReferences.Add(material);
                             }
                         }
                     }
 
+                    // Process and swap all limbs;
                     foreach(Material material in materialReferences) {
                         Texture2D texture = Utils.CloneTexture((Texture2D) material.GetTexture("_MainTex"));
                         
                         Utils.ClearTextureAt(limb.GetCoordinates(), texture);
-                        Utils.PasteTexture(limb, texture, reference.texturesToReference[currentSelectedTextureToReference]);
+                        Utils.PasteTexture(limb, texture, texturesToReference[selectedTextureToReference]);
 
                         material.SetTexture("_MainTex", texture);
                     }
@@ -158,12 +167,12 @@ public class TextureManagement : MonoBehaviour{
     /* SwapTextureSearchRelationship();
      * Invoke Relationship objects from the SkeletonSO reference via 
      * name and pass it to the "SwapTextureProcess" function. */
-    public static void SwapTextureSearchRelationship(TextureManagement reference, string relationshipName, int currentSelectedTextureToReference = 0){
+    public static void SwapTextureSearchRelationship(TextureManagement reference, string relationshipName, int selectedTextureToReference = 0){
         SkeletonRelationships relationship = SearchRelationship(reference, relationshipName);
         
         if(relationship == null) return;
 
-        SwapTextureProcess(reference, relationship, currentSelectedTextureToReference);
+        SwapTextureProcess(reference, relationship, selectedTextureToReference);
     }
 
     // SearchRelationship(); Search a relationship based on an input name;
@@ -187,28 +196,33 @@ public class TextureManagement : MonoBehaviour{
      * function, as it minimizes slowdowns provoked by the texturing system.
      * This code will run asynchronously the texture swapping system to
      * liberate the main thread. This is not multithreading but a coroutine. */
-    public static void SwapTextureSearchRelationshipAsync(TextureManagement reference, string relationshipName, int currentSelectedTextureToReference = 0){
+    public static void SwapTextureSearchRelationshipAsync(TextureManagement reference, string relationshipName, int selectedTextureToReference = 0){
         SkeletonRelationships relationship = SearchRelationship(reference, relationshipName);
 
         if(relationship == null) return;
 
-        reference.StartCoroutine(SwapTextureAsync(reference, relationship, currentSelectedTextureToReference));
+        reference.StartCoroutine(SwapTextureAsync(reference, relationship, selectedTextureToReference));
     }
 
 
     ////////////////////////////////////////////////////////////////////
 
-
-    public static void SwapTextureRelationship(TextureManagement reference, SkeletonRelationships relationship, int currentSelectedTextureToReference = 0){
+    // SwapTextureRelationship(); Swap a texture based on an input relationship without searching it;
+    public static void SwapTextureRelationship(TextureManagement reference, SkeletonRelationships relationship, int selectedTextureToReference = 0){
         if(relationship == null) return;
 
-        SwapTextureProcess(reference, relationship, currentSelectedTextureToReference);
+        SwapTextureProcess(reference, relationship, selectedTextureToReference);
     }
 
-    public static void SwapTextureRelationshipAsync(TextureManagement reference, SkeletonRelationships relationship, int currentSelectedTextureToReference = 0){
+    /* SwapTextureRelationshipAsync();
+     * For all instances of the texture swapping process you must use this
+     * function, as it minimizes slowdowns provoked by the texturing system.
+     * This code will run asynchronously the texture swapping system to
+     * liberate the main thread. This is not multithreading but a coroutine. */
+    public static void SwapTextureRelationshipAsync(TextureManagement reference, SkeletonRelationships relationship, int selectedTextureToReference = 0){
         if(relationship == null) return;
 
-        reference.StartCoroutine(SwapTextureAsync(reference, relationship, currentSelectedTextureToReference));
+        reference.StartCoroutine(SwapTextureAsync(reference, relationship, selectedTextureToReference));
     }
 
 
@@ -217,8 +231,8 @@ public class TextureManagement : MonoBehaviour{
 
     /* SwapTextureAsync();
      * The coroutine in charge of invoking the "SwapTextureProcess" function. */
-    public static IEnumerator SwapTextureAsync(TextureManagement reference, SkeletonRelationships relationship, int currentSelectedTextureToReference = 0){
-        SwapTextureProcess(reference, relationship, currentSelectedTextureToReference);
+    public static IEnumerator SwapTextureAsync(TextureManagement reference, SkeletonRelationships relationship, int selectedTextureToReference = 0){
+        SwapTextureProcess(reference, relationship, selectedTextureToReference);
         
         yield return null;
     }
@@ -226,50 +240,64 @@ public class TextureManagement : MonoBehaviour{
 
     ////////////////////////////////////////////////////////////////////
 
+    // GUI Functions;
+    [HideInInspector] public int selectedRelationshipIndex = 0, // The TextureSO component to reference for Texture Swapping;
+    selectedTextureToReference = 0; // The Relationship we want to swap in and out;
 
-    [HideInInspector] public int currentSelectedTextureToReference = 0, currentRelationshipIndex;
-
+    // SwapTextureRunProcess(); Runs the TextureSwapper process from an input GameObject;
     public void SwapTextureRunProcess(GameObject go){
         TextMeshProUGUI mesh = go.GetComponentInChildren<TextMeshProUGUI>();
 
-        SwapTextureSearchRelationshipAsync(this, mesh.gameObject.name, currentSelectedTextureToReference);
+        SwapTextureSearchRelationshipAsync(this, mesh.gameObject.name, selectedTextureToReference);
     }
 
+    // IncreaseScrollerTextures(); Increases the index of the currently selected TextureSO in the GUI if invoked;
     public void IncreaseScrollerTextures(){
-        int index = currentSelectedTextureToReference,
-        min = 0, max = limitPerLimb[currentRelationshipIndex];
+        int index = selectedTextureToReference,
+        min = 0, max = limitPerLimb[selectedRelationshipIndex];
 
+        // If the index goes out of bounds, return it to the minimum accepted value;
         if(index >= max) index = min;
         else index++;
 
-        currentSelectedTextureToReference = index;
-        TexturesSO selectedTexture = texturesToReference[currentSelectedTextureToReference];
+        // Map the index to a TextureSO reference;
+        selectedTextureToReference = index;
+        TexturesSO selectedTexture = texturesToReference[selectedTextureToReference];
         string textureName = selectedTexture.name;
 
+        // Change the associated TextMeshPro components in the GUI;
         ManageTexturesTextMeshPro(textureName);
     }
 
+    // DecreaseScrollerTextures(); Decreases the index of the currently selected TextureSO in the GUI if invoked;
     public void DecreaseScrollerTextures(){
-        int index = currentSelectedTextureToReference,
-        min = 0, max = limitPerLimb[currentRelationshipIndex];
+        int index = selectedTextureToReference,
+        min = 0, max = limitPerLimb[selectedRelationshipIndex];
 
+        // If the index goes out of bounds, return it to the maximum accepted value;
         if(index <= min) index = max;
         else index--;
 
-        currentSelectedTextureToReference = index;
-        TexturesSO selectedTexture = texturesToReference[currentSelectedTextureToReference];
+        // Map the index to a TextureSO reference;
+        selectedTextureToReference = index;
+        TexturesSO selectedTexture = texturesToReference[selectedTextureToReference];
         string textureName = selectedTexture.name;
 
+        // Change the associated TextMeshPro components in the GUI;
         ManageTexturesTextMeshPro(textureName);
     }
 
+    /* ManageTexturesTextMeshPro(); Manages the TextMeshPro components associated
+     *  with the TexturesSO components and their displayed text in the GUI. */
     public void ManageTexturesTextMeshPro(string name){
         for(int i = 0; i < texturesTMToModify.Length; i++){
             TextMeshProUGUI mesh = texturesTMToModify[i];
             string format = "";
 
+            // Store the name of the relationship in the GameObject for future processing;
             mesh.gameObject.name = name;
 
+            // Add arguments to TextMeshPro components to display TextureSO names;
             try{
                 format = texturesTMFormats[i];
 
@@ -287,50 +315,63 @@ public class TextureManagement : MonoBehaviour{
 
     ////////////////////////////////////////////////////////////////////
 
-
+    // IncreaseScrollerRelationships(); Increases the index of the currently selected Relationship in the GUI if invoked;
     public void IncreaseScrollerRelationships(){
-        int index = currentRelationshipIndex,
+        int index = selectedRelationshipIndex,
         min = 0, max = skeleton.GetRelationships().Count - 1, 
-        maxTexture = limitPerLimb[currentRelationshipIndex];
+        maxTexture = limitPerLimb[selectedRelationshipIndex];
 
+        // If the index goes out of bounds, return it to the minimum accepted value;
         if(index >= max) index = min;
         else index++;
 
-        if(currentSelectedTextureToReference >= maxTexture) currentSelectedTextureToReference = 0;
+        /* Return the index to a preset Limb Limit if it references
+         * a texture it shouldn't; */
+        if(selectedTextureToReference >= maxTexture) selectedTextureToReference = 0;
 
-        currentRelationshipIndex = index;
-
-        SkeletonRelationships relationship = skeleton.GetRelationships()[currentRelationshipIndex];
+        // Map the index to a Relationship reference;
+        selectedRelationshipIndex = index;
+        SkeletonRelationships relationship = skeleton.GetRelationships()[selectedRelationshipIndex];
         string relationshipName = relationship.GetRelationshipName();
 
+        // Change the associated TextMeshPro components in the GUI;
         ManageRelationshipsTextMeshPro(relationshipName);
     }
 
+    // DecreaseScrollerRelationships(); Decreases the index of the currently selected Relationship in the GUI if invoked;
     public void DecreaseScrollerRelationships(){
-        int index = currentRelationshipIndex,
+        int index = selectedRelationshipIndex,
         min = 0, max = skeleton.GetRelationships().Count - 1,
-        maxTexture = limitPerLimb[currentRelationshipIndex];
+        maxTexture = limitPerLimb[selectedRelationshipIndex];
 
+        // If the index goes out of bounds, return it to the maximum accepted value;
         if(index <= min) index = max;
         else index--;
 
-        if(currentSelectedTextureToReference >= maxTexture) currentSelectedTextureToReference = 0;
+        /* Return the index to a preset Limb Limit if it references
+         * a texture it shouldn't; */
+        if(selectedTextureToReference >= maxTexture) selectedTextureToReference = 0;
 
-        currentRelationshipIndex = index;
-
-        SkeletonRelationships relationship = skeleton.GetRelationships()[currentRelationshipIndex];
+        // Map the index to a Relationship reference;
+        selectedRelationshipIndex = index;
+        SkeletonRelationships relationship = skeleton.GetRelationships()[selectedRelationshipIndex];
         string relationshipName = relationship.GetRelationshipName();
 
+        // Change the associated TextMeshPro components in the GUI;
         ManageRelationshipsTextMeshPro(relationshipName);
     }
 
+    /* ManageRelationshipsTextMeshPro(); Manages the Relationship components associated
+     *  with the SkeletonSO components and their displayed text in the GUI. */
     public void ManageRelationshipsTextMeshPro(string name){
         for(int i = 0; i < relationshipTMToModify.Length; i++){
             TextMeshProUGUI mesh = relationshipTMToModify[i];
             string format = "";
 
+            // Store the name of the relationship in the GameObject for future processing;
             mesh.gameObject.name = name;
 
+            // Add arguments to TextMeshPro components to display TextureSO names;
             try{
                 format = relationshipTMFormats[i];
 
@@ -351,7 +392,7 @@ public class TextureManagement : MonoBehaviour{
 //Custom Editor;
 [CustomEditor(typeof(TextureManagement))]
 public class CustomInspector : Editor {
-    int currentRelationshipIndex = 0, currentSelectedTextureToReference = 0;
+    int selectedRelationshipIndex = 0, selectedTextureToReference = 0;
     bool folderLimitStatus;
 
     //Changes values in the inspector, creating a custom inspector;
@@ -371,8 +412,8 @@ public class CustomInspector : Editor {
 
 
         TextureManagement manager = (TextureManagement) target; //Referencing the script;
-        currentRelationshipIndex = manager.currentRelationshipIndex;
-        currentSelectedTextureToReference = manager.currentSelectedTextureToReference;
+        selectedRelationshipIndex = manager.selectedRelationshipIndex;
+        selectedTextureToReference = manager.selectedTextureToReference;
 
         Separator();
 
@@ -487,29 +528,29 @@ public class CustomInspector : Editor {
 
         GUILayout.BeginVertical(GUI.skin.box);
 
-        SkeletonRelationships relationship = relationships[currentRelationshipIndex];
+        SkeletonRelationships relationship = relationships[selectedRelationshipIndex];
         string relationshipName = relationship.GetRelationshipName();
 
         EditorGUILayout.LabelField("Body Part:");
-        manager.currentRelationshipIndex = Scrollable(relationshipName, 0, 
-            relationships.Count - 1, currentRelationshipIndex);
+        manager.selectedRelationshipIndex = Scrollable(relationshipName, 0, 
+            relationships.Count - 1, selectedRelationshipIndex);
 
         manager.ManageRelationshipsTextMeshPro(relationshipName);
 
         EditorGUILayout.LabelField("Texture Set:");
-        TexturesSO selectedTexture = manager.texturesToReference[currentSelectedTextureToReference];
-        manager.currentSelectedTextureToReference = Scrollable(selectedTexture.name, 0, 
-            limitPerLimb[currentRelationshipIndex], currentSelectedTextureToReference);
+        TexturesSO selectedTexture = manager.texturesToReference[selectedTextureToReference];
+        manager.selectedTextureToReference = Scrollable(selectedTexture.name, 0, 
+            limitPerLimb[selectedRelationshipIndex], selectedTextureToReference);
 
         manager.ManageTexturesTextMeshPro(selectedTexture.name);
 
-        if(currentSelectedTextureToReference > limitPerLimb[currentRelationshipIndex]) manager.currentSelectedTextureToReference = 0;
+        if(selectedTextureToReference > limitPerLimb[selectedRelationshipIndex]) manager.selectedTextureToReference = 0;
 
 
         EditorGUILayout.Space();
 
         if(GUILayout.Button("Swap " + relationshipName + " Textures")) {
-            TextureManagement.SwapTextureRelationshipAsync(manager, relationship, currentSelectedTextureToReference); 
+            TextureManagement.SwapTextureRelationshipAsync(manager, relationship, selectedTextureToReference); 
         }
 
         GUILayout.EndVertical();
