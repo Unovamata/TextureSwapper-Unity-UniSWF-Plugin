@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: MovieClipBehaviour
+// Type: CustomMovieClipBehaviour
 // Assembly: LibUniSWF, Version=1.1.0.4, Culture=neutral, PublicKeyToken=null
 // MVID: ECA667DE-E663-4CF8-BB22-A8C2F545850C
 
@@ -7,6 +7,7 @@ using pumpkin.display;
 using pumpkin.displayInternal;
 using pumpkin.events;
 using pumpkin.swf;
+using pumpkin.editor;
 using System;
 using UnityEditor;
 using UnityEngine;
@@ -440,5 +441,132 @@ public class CustomMovieClipBehaviour : MonoBehaviour{
     public void setMeshGeneratorOptions(MeshGeneratorOptions meshGeneratorOptions) {
         this.meshGeneratorOptions = meshGeneratorOptions;
         gfxGenerator.meshGeneratorOptions = meshGeneratorOptions;
+    }
+}
+
+#nullable disable
+[CustomEditor(typeof(CustomMovieClipBehaviour))]
+public class CustomMovieClipBehaviourEditor : Editor
+{
+    private bool showMovieClipActions = true;
+    private bool showSwfOptions = false;
+    private SwfExportOptionsPanel swfOptionsPanel = new SwfExportOptionsPanel();
+
+    static CustomMovieClipBehaviourEditor()
+    {
+        EditorApplication.playmodeStateChanged += PlayStateChange;
+    }
+
+    private static void StreamUpdater()
+    {
+        if (!Application.isPlaying)
+            ;
+    }
+
+    private static void PlayStateChange()
+    {
+        if (Application.isPlaying)
+            return;
+        MovieClipPlayer.clearEditorContextCache();
+        CustomMovieClipBehaviourEditor.refreshSteamingMovieclips();
+    }
+
+    public static void refreshSteamingMovieclips()
+    {
+        foreach (CustomMovieClipBehaviour mcb in (CustomMovieClipBehaviour[])UnityEngine.Object.FindObjectsOfType(typeof(CustomMovieClipBehaviour)))
+        {
+            if (mcb.movieClip != null && ((MovieClipPlayer)mcb.movieClip).assetContext != null && mcb.editorPreview)
+                CustomMovieClipBehaviourEditor.refreshMovieClipBehaviour(mcb);
+        }
+    }
+
+    public static void refreshMovieClipBehaviour(CustomMovieClipBehaviour mcb)
+    {
+        bool editorPreview = mcb.editorPreview;
+        try
+        {
+            mcb.editorPreview = true;
+            mcb.Awake();
+            mcb.Update();
+            mcb.renderFrame();
+        }
+        finally
+        {
+            mcb.editorPreview = editorPreview;
+        }
+    }
+
+    public override void OnInspectorGUI()
+    {
+        CustomMovieClipBehaviour target = (CustomMovieClipBehaviour)this.target;
+        SwfExportOptionsPanel.onHeaderGUI();
+        this.DrawDefaultInspector();
+        this.showMovieClipActions = EditorGUILayout.Foldout(this.showMovieClipActions, "MovieClip Actions");
+        if (this.showMovieClipActions)
+        {
+            GUILayout.BeginHorizontal(new GUILayoutOption[0]);
+            GUILayout.Space(20f);
+            if (GUILayout.Button("Change MovieClip", new GUILayoutOption[0]))
+            {
+                CustomSwfSymbolBrowserWindow window = (CustomSwfSymbolBrowserWindow)EditorWindow.GetWindow(typeof(CustomSwfSymbolBrowserWindow));
+                window.minSize = new Vector2(300f, 400f);
+                window.applyTo = (UnityEngine.Object)target;
+                window.ShowUtility();
+            }
+            if (GUI.changed && target.editorPreview || GUILayout.Button("Refresh MovieClip", new GUILayoutOption[0]))
+            {
+                MovieClipPlayer.clearContextCache(true);
+                if (UniSWFSharedAssetManagerBehaviour.getInstance() != null)
+                {
+                    UniSWFSharedAssetManagerBehaviour.getInstance().updateSwfProfile();
+                    UniSWFSharedAssetManagerBehaviour.getInstance().installSceneLoader();
+                }
+                CustomMovieClipBehaviourEditor.refreshMovieClipBehaviour(target);
+            }
+            if (GUILayout.Button("Match Camera Scale", new GUILayoutOption[0]))
+                target.calcOthoScale(Camera.main);
+            GUILayout.EndHorizontal();
+        }
+        if (target.readOnlyMovieClip)
+        {
+            GUILayout.BeginHorizontal(new GUILayoutOption[0]);
+            GUILayout.Space(30f);
+            EditorGUILayout.HelpBox("Sprite.graphics are shared between multiple MovieClips, modifications to this property are shared globally for the same swf asset.", (MessageType)2);
+            GUILayout.EndHorizontal();
+        }
+        if (target.swf != null && target.swf.Length > 0)
+        {
+            GUILayout.Space(5f);
+            this.showSwfOptions = EditorGUILayout.Foldout(this.showSwfOptions, "Export options '" + target.swf + "'");
+            if (this.showSwfOptions)
+            {
+                SwfAssetExportOptions swfAssetInfo = SwfAssetExportOptions.getSwfAssetInfo(AssetDatabase.LoadMainAssetAtPath("Assets/" + target.swf));
+                if (swfAssetInfo != null)
+                    this.swfOptionsPanel.onSwfOptionsGUI(swfAssetInfo);
+                if (GUI.changed)
+                    swfAssetInfo.saveChanges();
+            }
+        }
+
+        EventType type = Event.current.type;
+
+        if (type != EventType.MouseDown && type != EventType.MouseUp)
+            return;
+        SwfAssetExportOptions assetExportOptions = null;
+        if (DragAndDrop.objectReferences != null && DragAndDrop.objectReferences.Length > 0)
+            assetExportOptions = SwfAssetExportOptions.getSwfAssetInfo(DragAndDrop.objectReferences[0]);
+        if (assetExportOptions != null)
+        {
+            DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
+            if (type == EventType.MouseUp)
+            {
+                CustomSwfSymbolBrowserWindow window = (CustomSwfSymbolBrowserWindow)EditorWindow.GetWindow(typeof(CustomSwfSymbolBrowserWindow));
+                window.minSize = new Vector2(300f, 400f);
+                window.m_Search = assetExportOptions.swfName;
+                window.autoExpandAssetInfo = assetExportOptions;
+                window.applyTo = target;
+                window.ShowUtility();
+            }
+        }
     }
 }
