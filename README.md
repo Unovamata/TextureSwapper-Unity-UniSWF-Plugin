@@ -19,6 +19,7 @@ If your use case requires you to swap segments of a texture in real-time, this i
 - Unity's 2D Sprite Package.
 - .Net Framework 4.X.
 - Unity's IL2CPP Scripting Backend.
+- TextMeshPro.
 
 # Installation
 
