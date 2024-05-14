@@ -222,5 +222,5 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  path: Assets/Resources/Textures/Dipni/Dipni.png
+  path: Assets/Resources/Textures/Examples/Dipni/Dipni.png
   textureToSearch: {fileID: 2800000, guid: 92c1c5eb23bfc6741823d4df22be8b23, type: 3}

@@ -16,7 +16,7 @@ MonoBehaviour:
   relationships:
   - relationshipName: Dipni
     limbsRelated:
-    - texture: {fileID: 2800000, guid: e0f3dcacb692de949b576ad477274e86, type: 2}
+    - texture: {fileID: 2800000, guid: ccd17bd7434b10a49a6a9ec4f998d9ef, type: 2}
       name: Arm Right
       coordinates: {x: 398, y: 86, z: 44, w: 65}
       pivot: {x: 0.5, y: 0.5}
@@ -25,7 +25,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: f6c57fa207e00f8419dcf156ab575b23, type: 2}
+    - texture: {fileID: 2800000, guid: 1cdcef7cbe94f7148b8aa30a84eb64e4, type: 2}
       name: Arm Right Jump
       coordinates: {x: 143, y: 53, z: 44, w: 63}
       pivot: {x: 0.5, y: 0.5}
@@ -34,7 +34,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: e7b3f657250e7b147a0eca9a6776e7a8, type: 2}
+    - texture: {fileID: 2800000, guid: f7ae55dcdd760224198ae18a12bb4503, type: 2}
       name: Eye Color Left
       coordinates: {x: 200, y: 165, z: 43, w: 40}
       pivot: {x: 0.5, y: 0.5}
@@ -43,7 +43,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: 8bbd7e86af2c2ca4a84e2931b23d942a, type: 2}
+    - texture: {fileID: 2800000, guid: 4f7d1fe7508cbbc4a9eab263438ca0b5, type: 2}
       name: Eye Color Right
       coordinates: {x: 297, y: 196, z: 15, w: 32}
       pivot: {x: 0.5, y: 0.5}
@@ -52,7 +52,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: cb2fb7842e5cb5d428b1b3cc0e972588, type: 2}
+    - texture: {fileID: 2800000, guid: 5d478c0a1c2cc0e47907d4cb4fe9e36d, type: 2}
       name: Eye Left
       coordinates: {x: 393, y: 317, z: 32, w: 32}
       pivot: {x: 0.5, y: 0.5}
@@ -61,7 +61,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: c40582c263c60bf4e90cae322c9ba832, type: 2}
+    - texture: {fileID: 2800000, guid: ed2fec1e6f06bf94a82300f24ec3fddf, type: 2}
       name: Eye Left Ring
       coordinates: {x: 376, y: 458, z: 45, w: 43}
       pivot: {x: 0.5, y: 0.5}
@@ -70,7 +70,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: b96aa363fd04b6f458ab0a3c0ef7c763, type: 2}
+    - texture: {fileID: 2800000, guid: fc13c79b6fcac16428283401e0f1baeb, type: 2}
       name: Eye Pattern Left
       coordinates: {x: 200, y: 91, z: 80, w: 66}
       pivot: {x: 0.5, y: 0.5}
@@ -79,7 +79,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: 4f72f8b3c7aebcf45affb40b12ba15e4, type: 2}
+    - texture: {fileID: 2800000, guid: e7f24586b2ad5a8439698ba39fe94fd4, type: 2}
       name: Eye Pattern Right
       coordinates: {x: 4, y: 112, z: 23, w: 56}
       pivot: {x: 0.5, y: 0.5}
@@ -88,7 +88,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: a3822d84634530c42908c6ce77a99433, type: 2}
+    - texture: {fileID: 2800000, guid: a12d43538e7519344b6030d659d806ad, type: 2}
       name: Eye Right
       coordinates: {x: 121, y: 92, z: 12, w: 24}
       pivot: {x: 0.5, y: 0.5}
@@ -97,7 +97,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: 3dce7f989256efc41aae89d64bb5dab1, type: 2}
+    - texture: {fileID: 2800000, guid: 0e7e3e15bd1aee14e82a9d7d79c48c78, type: 2}
       name: Eye Right Ring
       coordinates: {x: 295, y: 122, z: 17, w: 35}
       pivot: {x: 0.5, y: 0.5}
@@ -106,7 +106,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: dfb2ad18fbd4aeb4e8644318b696cfa4, type: 2}
+    - texture: {fileID: 2800000, guid: 90fc3a747238ff944957d3f0120af896, type: 2}
       name: Feet
       coordinates: {x: 393, y: 236, z: 55, w: 73}
       pivot: {x: 0.5, y: 0.5}
@@ -115,7 +115,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: 855895fddc1ae164da27a51a0c9759bd, type: 2}
+    - texture: {fileID: 2800000, guid: 41553fa320d7213418dc92a13170c645, type: 2}
       name: Feet Ground Contact
       coordinates: {x: 320, y: 83, z: 70, w: 68}
       pivot: {x: 0.5, y: 0.5}
@@ -124,7 +124,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: 4429082bb5f1f8846a9fdcf2143aa813, type: 2}
+    - texture: {fileID: 2800000, guid: d0de68b5505298b4ba14184c157cb30e, type: 2}
       name: Feet Jump
       coordinates: {x: 325, y: 236, z: 60, w: 97}
       pivot: {x: 0.5, y: 0.5}
@@ -133,7 +133,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: 9e19d2242a8e0064392f46293f9c63e2, type: 2}
+    - texture: {fileID: 2800000, guid: 3bf5c81e14cb7c042a884fd094b15af4, type: 2}
       name: Feet Jump On Air
       coordinates: {x: 46, y: 59, z: 67, w: 57}
       pivot: {x: 0.5, y: 0.5}
@@ -142,7 +142,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: 631e7814df34c7045bcbcd32b109b6b5, type: 2}
+    - texture: {fileID: 2800000, guid: 00d59177497a00e4ea40c0ab85b9d1b2, type: 2}
       name: Feet Jump On Air Bent
       coordinates: {x: 376, y: 368, z: 60, w: 82}
       pivot: {x: 0.5, y: 0.5}
@@ -151,7 +151,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: 19f144f737a7095498b52492d69f0362, type: 2}
+    - texture: {fileID: 2800000, guid: 5b4a702ebf9ee3e4fb7a6aedc9d68ca6, type: 2}
       name: Fin Left
       coordinates: {x: 291, y: 368, z: 77, w: 140}
       pivot: {x: 0.5, y: 0.5}
@@ -160,7 +160,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: ff67848ac876a60478846f809671e6fa, type: 2}
+    - texture: {fileID: 2800000, guid: a66004b0b18a8f24c9fe64cef8ea845f, type: 2}
       name: Fin Right
       coordinates: {x: 200, y: 347, z: 83, w: 161}
       pivot: {x: 0.5, y: 0.5}
@@ -169,7 +169,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: e5e70d0eb28e53240a3a6b4b0436f44a, type: 2}
+    - texture: {fileID: 2800000, guid: 7d8e4e3a5577e474cb084055d4e7ffa4, type: 2}
       name: Fin Top
       coordinates: {x: 320, y: 159, z: 92, w: 69}
       pivot: {x: 0.5, y: 0.5}
@@ -178,7 +178,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: 5f503a5367057b640872d57a0183cd85, type: 2}
+    - texture: {fileID: 2800000, guid: 9cc8ec8d1d67fda4881c2ff06b9c395a, type: 2}
       name: Head
       coordinates: {x: 4, y: 342, z: 188, w: 166}
       pivot: {x: 0.5, y: 0.5}
@@ -187,7 +187,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: db16b5079f1b47040a121a37db30ffb2, type: 2}
+    - texture: {fileID: 2800000, guid: cf057fb05913a244ab6dac30748d7acf, type: 2}
       name: Jaw
       coordinates: {x: 4, y: 176, z: 183, w: 71}
       pivot: {x: 0.5, y: 0.5}
@@ -196,7 +196,7 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: a3348328291defb4ab9f85b42ae12f61, type: 2}
+    - texture: {fileID: 2800000, guid: 97a0865713f45214085b00e5e84f7ff2, type: 2}
       name: Mouth
       coordinates: {x: 46, y: 124, z: 141, w: 44}
       pivot: {x: 0.5, y: 0.5}
@@ -205,7 +205,16 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    - texture: {fileID: 2800000, guid: 5b17dd1738f05a24dbf3a28cbbba39c3, type: 2}
+    - texture: {fileID: 2800000, guid: 75ed139815b31bd46b203339f76d0eab, type: 2}
+      name: Shadow
+      coordinates: {x: 4, y: 255, z: 173, w: 79}
+      pivot: {x: 0.5, y: 0.5}
+      passLimbAsMask: 1
+      maskRouteReference: 
+      maskTextureReference: {fileID: 0}
+      maskTextures: []
+      sourceTexture: {fileID: 0}
+    - texture: {fileID: 2800000, guid: 4c2ed4b881d85874a8b38d304aac9c73, type: 2}
       name: Torso
       coordinates: {x: 200, y: 236, z: 117, w: 103}
       pivot: {x: 0.5, y: 0.5}
@@ -214,4 +223,4 @@ MonoBehaviour:
       maskTextureReference: {fileID: 0}
       maskTextures: []
       sourceTexture: {fileID: 0}
-    folder: 0
+    folder: 1
