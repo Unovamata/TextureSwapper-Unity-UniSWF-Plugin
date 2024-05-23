@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2bed691aeb0f345a94a0753d926781, type: 3}
   m_Name: WireframeSkeletonSO
   m_EditorClassIdentifier: 
-  textureData: {fileID: 11400000, guid: 9c4197c3138392f4b9e40f9f88d77272, type: 2}
+  textureData: {fileID: 11400000, guid: b38f4b5cff0fdde498a7c76a4c1e81c6, type: 2}
   relationships:
   - relationshipName: Mask
     limbsRelated:
@@ -49,22 +49,22 @@ MonoBehaviour:
     folder: 0
   - relationshipName: Glasses
     limbsRelated:
-    - texture: {fileID: 2800000, guid: cf8dad3173ec2334f84e2f5f38b02fdd, type: 2}
+    - texture: {fileID: 2800000, guid: 002ccbe7226f5b447986a1e34dd092d8, type: 2}
       name: Glasses Left
-      coordinates: {x: 284, y: 335, z: 195, w: 154}
+      coordinates: {x: 210, y: 193, z: 211, w: 110}
       pivot: {x: 0.5, y: 0.5}
       passLimbAsMask: 1
       maskRouteReference: 
       maskTextureReference: {fileID: 0}
       maskTextures: []
-      sourceTexture: {fileID: 2800000, guid: 6e772cefc040e0a499cf62b390043671, type: 3}
-    - texture: {fileID: 2800000, guid: 1d652154861504444893a44d42c33548, type: 2}
+      sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
+    - texture: {fileID: 2800000, guid: 006663425b5c8bb46b6b5095100478c5, type: 2}
       name: Glasses Right
-      coordinates: {x: 27, y: 345, z: 212, w: 131}
+      coordinates: {x: 4, y: 175, z: 198, w: 128}
       pivot: {x: 0.5, y: 0.5}
       passLimbAsMask: 1
       maskRouteReference: 
       maskTextureReference: {fileID: 0}
       maskTextures: []
-      sourceTexture: {fileID: 2800000, guid: 6e772cefc040e0a499cf62b390043671, type: 3}
+      sourceTexture: {fileID: 2800000, guid: b5e6ec94ac4d6de4bacbdbe213073b56, type: 3}
     folder: 0

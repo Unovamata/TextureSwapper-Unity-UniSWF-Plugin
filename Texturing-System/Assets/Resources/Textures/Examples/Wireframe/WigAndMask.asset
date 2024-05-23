@@ -105,5 +105,5 @@ MonoBehaviour:
     maskTextureReference: {fileID: 0}
     maskTextures: []
     sourceTexture: {fileID: 0}
-  path: Assets/Resources/Textures/Wireframe/Wireframe (A).png
+  path: Assets/Resources/Textures/Examples/Wireframe/Wireframe (A).png
   textureToSearch: {fileID: 2800000, guid: 654c7876d324d294fa4ab5c645fd67c0, type: 3}
