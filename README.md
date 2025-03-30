@@ -20,7 +20,7 @@ If your use case requires you to swap segments of a texture in real-time, this i
 - .Net Framework 4.X.
 - Unity's IL2CPP Scripting Backend.
 - TextMeshPro.
-- [UniSWF](https://archive.org/details/uni-swf-version-1.0.3) (Optional).
+- [UniSWF](https://drive.google.com/file/d/1TAn-nmIrlNy_2Pn9t605EtrWBmnEMlh2/view?usp=drive_link) (Optional).
   - [Adobe AIR](https://airsdk.harman.com/runtime).
 
 # Installation
